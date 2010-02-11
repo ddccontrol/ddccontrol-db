@@ -1,1 +1,0 @@
-SUBDIRS = lib ddccontrol $(GNOME_APPLET) $(GDDCCONTROL) $(DDCPCI)
