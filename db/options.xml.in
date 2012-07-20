@@ -13,6 +13,9 @@
 				<value id="entertain" name="Entertain"/>
 				<value id="custom" name="Custom"/>
 				<value id="dynamic" name="Dynamic Contrast" /> 
+				<value id="multimedia" name="Multimedia"/>
+				<value id="movie" name="Movie"/>
+				<value id="standard" name="Standard"/>
 			</control>
 			<control id="superbright" type="list" name="Super Bright Mode" address="0xF9">
 				<value id="one" name="One" value="0"/>
@@ -107,6 +110,7 @@
 				<value id="cool6" name="Cool6"/>
 				<value id="cool7" name="Cool7"/>
 				<value id="srgb" name="sRGB"/>
+				<value id="argb" name="Adobe RGB"/>
 				<value id="4000k" name="4000K"/>
 				<value id="5000k" name="5000K"/>
 				<value id="6500k" name="6500K"/>
@@ -275,6 +279,15 @@
 			<control id="inputsource" type="list" name="Input Source Select" address="0x60">
 				<value id="analog" name="Analog"/>
 				<value id="digital" name="Digital"/>
+				<value id="dp" name="DisplayPort"/>
+				<value id="dvi" name="DVI"/>
+				<value id="dvi1" name="DVI-1"/>
+				<value id="dvi2" name="DVI-2"/>
+				<value id="hdmi" name="HDMI"/>
+				<value id="hdmi1" name="HDMI-1"/>
+				<value id="hdmi2" name="HDMI-2"/>
+				<value id="vga" name="VGA"/>
+				<value id="component" name="Component"/>
 			</control>
 			<control id="autosource" type="list" name="Autoselect Input Source" address="0xe2">
 				<value id="auto" name="Automatic" value="0"/>
@@ -285,6 +298,7 @@
 			<control id="dpms" type="list" name="DPMS Control" address="0xd6">
 				<value id="on" name="On"/>
 				<value id="standby" name="Standby"/>
+				<value id="off" name="Off"/>
 			</control>
 			<control id="power" type="list" name="Power control" address="0xe1">
 				<value id="off" name="Off"/>
