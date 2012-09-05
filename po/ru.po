@@ -45,6 +45,16 @@ msgstr "Режим \"Bright Mode\""
 msgid "Text"
 msgstr "Текст"
 
+msgid "Movie"
+msgstr "Кино"
+
+msgid "Multimedia"
+msgstr "Мультимедиа"
+
+msgid "Standard"
+msgstr "Стандартный"
+
+
 #: ../db/options.xml.h:9
 #, c-format
 msgid "Internet"
@@ -53,12 +63,12 @@ msgstr "Интернет"
 #: ../db/options.xml.h:10
 #, c-format
 msgid "Game"
-msgstr ""
+msgstr "Игры"
 
 #: ../db/options.xml.h:11
 #, c-format
 msgid "Sport"
-msgstr ""
+msgstr "Спорт"
 
 #: ../db/options.xml.h:12
 #, c-format
@@ -93,42 +103,42 @@ msgstr "Три"
 #: ../db/options.xml.h:18
 #, c-format
 msgid "Auto Level (Needs a blank line to work)"
-msgstr ""
+msgstr "Автоматический уровень (требует пустую строку)"
 
 #: ../db/options.xml.h:19
 #, c-format
 msgid "Backlight"
-msgstr ""
+msgstr "Подсветка"
 
 #: ../db/options.xml.h:20
 #, c-format
 msgid "ECO Mode"
-msgstr ""
+msgstr "ЭКО-режим"
 
 #: ../db/options.xml.h:21
 #, c-format
 msgid "High"
-msgstr ""
+msgstr "Высокая"
 
 #: ../db/options.xml.h:22
 #, c-format
 msgid "Middle"
-msgstr ""
+msgstr "Средняя"
 
 #: ../db/options.xml.h:23
 #, c-format
 msgid "Low"
-msgstr ""
+msgstr "Низкая"
 
 #: ../db/options.xml.h:24
-#, fuzzy, c-format
+#, c-format
 msgid "Auto"
-msgstr "Звук"
+msgstr "Авто"
 
 #: ../db/options.xml.h:25 ../db/options.xml.h:26
 #, c-format
 msgid "Gamma"
-msgstr ""
+msgstr "Гамма"
 
 #: ../db/options.xml.h:27
 #, c-format
@@ -199,6 +209,9 @@ msgstr ""
 #, c-format
 msgid "1.8"
 msgstr ""
+"Необходимых для поддержки вашего монитора сведений нет в базе данных, но\n"
+"ddccontrol использует стандартный обобщенный профиль для всех мониторов этой марки.\n"
+"Некоторые функции будут недоступны или действовать неверно.\n"
 
 #: ../db/options.xml.h:41
 #, c-format
@@ -209,6 +222,9 @@ msgstr ""
 #, c-format
 msgid "2.2"
 msgstr ""
+"Необходимых для поддержки вашего монитора сведений нет в базе данных, но\n"
+"ddccontrol использует стандартный обобщенный профиль. Многие функции будут\n"
+"недоступны. Некоторые настройки могут действовать неверно.\n"
 
 #: ../db/options.xml.h:43
 #, c-format
@@ -219,6 +235,9 @@ msgstr ""
 #, c-format
 msgid "2.6"
 msgstr ""
+"Обновите, пожалуйста, ddccontrol-db или, если вы уже пользуетесь последней\n"
+"версией, отошлите по адресу ddccontrol-users@lists.sourceforge.net\n"
+"вывод следующей команды:\n"
 
 #: ../db/options.xml.h:45
 #, c-format
@@ -301,49 +320,49 @@ msgid "Cool"
 msgstr "Холодный оттенок"
 
 #: ../db/options.xml.h:62
-#, fuzzy, c-format
+#, c-format
 msgid "Warm1"
-msgstr "Тёплый оттенок"
+msgstr "Тёплый оттенок 1"
 
 #: ../db/options.xml.h:63
-#, fuzzy, c-format
+#, c-format
 msgid "Warm2"
-msgstr "Тёплый оттенок"
+msgstr "Тёплый оттенок 2"
 
 #: ../db/options.xml.h:64
-#, fuzzy, c-format
+#, c-format
 msgid "Cool1"
-msgstr "Холодный оттенок"
+msgstr "Холодный оттенок 1"
 
 #: ../db/options.xml.h:65
-#, fuzzy, c-format
+#, c-format
 msgid "Cool2"
-msgstr "Холодный оттенок"
+msgstr "Холодный оттенок 2"
 
 #: ../db/options.xml.h:66
-#, fuzzy, c-format
+#, c-format
 msgid "Cool3"
-msgstr "Холодный оттенок"
+msgstr "Холодный оттенок 3"
 
 #: ../db/options.xml.h:67
-#, fuzzy, c-format
+#, c-format
 msgid "Cool4"
-msgstr "Холодный оттенок"
+msgstr "Холодный оттенок 4"
 
 #: ../db/options.xml.h:68
-#, fuzzy, c-format
+#, c-format
 msgid "Cool5"
-msgstr "Холодный оттенок"
+msgstr "Холодный оттенок 5"
 
 #: ../db/options.xml.h:69
-#, fuzzy, c-format
+#, c-format
 msgid "Cool6"
-msgstr "Холодный оттенок"
+msgstr "Холодный оттенок 6"
 
 #: ../db/options.xml.h:70
-#, fuzzy, c-format
+#, c-format
 msgid "Cool7"
-msgstr "Холодный оттенок"
+msgstr "Холодный оттенок 7"
 
 #: ../db/options.xml.h:71
 #, c-format
@@ -396,9 +415,9 @@ msgid "Native"
 msgstr "Заводской"
 
 #: ../db/options.xml.h:81
-#, fuzzy, c-format
+#, c-format
 msgid "User"
-msgstr "Своя 1"
+msgstr "Своя"
 
 #: ../db/options.xml.h:82
 #, c-format
@@ -424,6 +443,10 @@ msgstr "Своя 4"
 #, c-format
 msgid "MagicColor"
 msgstr ""
+"Монитор не поддерживается, выполните, пожалуйста, команду\n"
+"%s\n"
+"и отошлите результат  по адресу ddccontrol-users@lists.sourceforge.net.\n"
+"Спасибо."
 
 #: ../db/options.xml.h:87 ../db/options.xml.h:195 ../db/options.xml.h:207
 #: ../db/options.xml.h:217
@@ -434,17 +457,17 @@ msgstr "Выкл"
 #: ../db/options.xml.h:88
 #, c-format
 msgid "Demo"
-msgstr ""
+msgstr "Демо"
 
 #: ../db/options.xml.h:89
 #, c-format
 msgid "Full"
-msgstr ""
+msgstr "Полная"
 
 #: ../db/options.xml.h:90
-#, fuzzy, c-format
+#, c-format
 msgid "Intelligent"
-msgstr "Интернет"
+msgstr "\"Умный\""
 
 #: ../db/options.xml.h:91
 #, c-format
@@ -522,9 +545,9 @@ msgid "Clock and clock phase"
 msgstr "Точная настройка изображения (фаза таймера)"
 
 #: ../db/options.xml.h:106
-#, fuzzy, c-format
+#, c-format
 msgid "H/V Position (fast mode)"
-msgstr "Положение по вертикали/горизонтали"
+msgstr "Положение по вертикали/горизонтали (быстрый режим)"
 
 #: ../db/options.xml.h:107
 #, c-format
@@ -837,9 +860,9 @@ msgid "Enable only brightness/contrast settings"
 msgstr "Разрешить настройку только яркости/контрастности"
 
 #: ../db/options.xml.h:174
-#, fuzzy, c-format
+#, c-format
 msgid "On Screen Display (Samsung)"
-msgstr "Экранное меню"
+msgstr "Экранное меню (Samsung)"
 
 #: ../db/options.xml.h:177
 #, c-format
@@ -909,7 +932,7 @@ msgstr "Датский"
 #: ../db/options.xml.h:190
 #, c-format
 msgid "Japanese"
-msgstr ""
+msgstr "Японский"
 
 #: ../db/options.xml.h:191
 #, c-format
@@ -950,17 +973,17 @@ msgstr "Цифровой"
 #: ../db/options.xml.h:199
 #, c-format
 msgid "Autoselect Input Source"
-msgstr ""
+msgstr "Автовыбор источника"
 
 #: ../db/options.xml.h:200
-#, fuzzy, c-format
+#, c-format
 msgid "Automatic"
-msgstr "Автоматическая настройка"
+msgstr "Автоматически"
 
 #: ../db/options.xml.h:201
 #, c-format
 msgid "Manual"
-msgstr ""
+msgstr "Ручной"
 
 #: ../db/options.xml.h:202 ../db/options.xml.h:206
 #, c-format
@@ -980,32 +1003,90 @@ msgstr "Ожидание"
 #: ../db/options.xml.h:209
 #, c-format
 msgid "Buttons and leds"
-msgstr ""
+msgstr "Кнопки и индикаторы"
 
 #: ../db/options.xml.h:210
-#, fuzzy, c-format
+#, c-format
 msgid "Custom key"
-msgstr "Своё"
+msgstr "Пользовательская кнопка"
 
 #: ../db/options.xml.h:211
-#, fuzzy, c-format
+#, c-format
 msgid "MagicBright"
-msgstr "Режим \"Bright Mode\""
+msgstr "Режим \"MagicBright\""
 
 #: ../db/options.xml.h:213
-#, fuzzy, c-format
+#, c-format
 msgid "Automatic setup"
 msgstr "Автоматическая настройка"
 
 #: ../db/options.xml.h:215
-#, fuzzy, c-format
+#, c-format
 msgid "Color Tone"
-msgstr "Предустановки цвета"
+msgstr "Тон"
 
 #: ../db/options.xml.h:216
 #, c-format
 msgid "Power LED"
-msgstr ""
+msgstr "Индикатор питания"
 
 #~ msgid "Automatically adjust Size and Position"
 #~ msgstr "Автоматически настроить размер и положение"
+
+#: ../src/gddccontrol/notebook.c:677
+#msgid "There is no support for your monitor in the database, but ddccontrol is using a generic profile for your monitor's manufacturer. Some controls may not be supported, or may not work as expected.\n"
+
+#: ../src/gddccontrol/notebook.c:683
+#msgid "There is no support for your monitor in the database, but ddccontrol is using a basic generic profile. Many controls will not be supported, and some controls may not work as expected.\n"
+
+#: ../src/gddccontrol/notebook.c:688
+#msgid "Warning!"
+
+#: ../src/gddccontrol/notebook.c:677
+msgid "There is no support for your monitor in the database, but ddccontrol is using a generic profile for your monitor's manufacturer. Some controls may not be supported, or may not work as expected.\n"
+msgstr "Необходимых для поддержки вашего монитора сведений нет в базе данных, но ddccontrol использует стандартный обобщенный профиль для всех мониторов этой марки. Некоторые функции будут недоступны или действовать неверно.\n"
+
+#: ../src/gddccontrol/notebook.c:683
+msgid "There is no support for your monitor in the database, but ddccontrol is using a basic generic profile. Many controls will not be supported, and some controls may not work as expected.\n"
+msgstr "Необходимых для поддержки вашего монитора сведений нет в базе данных, но ddccontrol использует стандартный обобщенный профиль. Многие функции будут недоступны. Некоторые настройки могут действовать неверно.\n"
+
+#: ../src/gddccontrol/notebook.c:688
+#msgid "Warning!"
+
+#: ../src/gddccontrol/notebook.c:690
+#msgid "Please update ddccontrol-db, or, if you are already using the latest version, please send the output of the following command to ddccontrol-users@lists.sourceforge.net:\n"
+
+#: ../src/gddccontrol/notebook.c:690
+msgid "Please update ddccontrol-db, or, if you are already using the latest version, please send the output of the following command to ddccontrol-users@lists.sourceforge.net:\n"
+msgstr "Обновите, пожалуйста, ddccontrol-db или, если вы уже пользуетесь последней версией, отошлите по адресу ddccontrol-users@lists.sourceforge.net вывод следующей команды:\n"
+
+#: ../src/gnome-ddcc-applet/GNOME_ddcc-applet.server.in.in.h:2
+#msgid "Quickly switch monitor profiles created with gddccontrol"
+
+#: ../src/gnome-ddcc-applet/GNOME_ddcc-applet.xml.h:1
+#msgid "_About..."
+
+#: ../src/gnome-ddcc-applet/GNOME_ddcc-applet.server.in.in.h:2
+msgid "Quickly switch monitor profiles created with gddccontrol"
+msgstr "Быстро переключить профили монитора, созданные в gddccontrol"
+
+#: ../src/lib/ddcci.c:680
+msgid "Can't convert value to int, invalid CAPS (buf=%s, pos=%d).\n"
+msgstr "Не могу преобразовать значение в int, неверный заголовок."
+
+#: ../src/lib/ddcci.c:680
+#, c-format
+msgid "Can't convert value to int, invalid CAPS (buf=%s, pos=%d).\n"
+msgstr "Не могу преобразовать значение в целое число, неверный заголовок (buf=%s, pos=%d).\n"
+
+#: ../src/lib/monitor_db.c:464
+msgid "Can't find add or remove property in caps."
+msgstr "Не могу найти или удалить свойство в заголовках."
+
+#: ../src/lib/monitor_db.c:466
+msgid "Invalid remove caps."
+msgstr "Неправильная операция удаления в заголовках."
+
+#: ../src/lib/monitor_db.c:468
+msgid "Invalid add caps."
+msgstr "Неправильная операция добавления в заголовках."
