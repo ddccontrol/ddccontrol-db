@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<monitor name="BENQ XL2411Z" init="standard">
+    <controls>
+
+        <control id="bsforce" address="0x40" off="0" on="1"/>
+        <control id="bslength" address="0x41" min="3" max="30"/>
+        <control id="bsphase" address="0x42" min="0" max="47"/>
+        
+    </controls>
+    <include file="VESA"/>
+</monitor>
