@@ -2,7 +2,10 @@
 <monitor name="BENQ XL2411Z" init="standard">
     <controls>
 
-        <control id="bsforce" address="0x40" off="0" on="1"/>
+        <control id="bsforce" type="list" address="0x40">
+                <value id="off" value="0x00"/>
+                <value id="on" value="0x01"/>
+            </control>
         <control id="bslength" address="0x41" min="3" max="30"/>
         <control id="bsphase" address="0x42" min="0" max="47"/>
         
