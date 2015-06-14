@@ -65,6 +65,15 @@
 				<value id="colorful" name="Colorful" value="0x03"/>
 			</control>
 		</subgroup>
+		<subgroup name="BenQ Strobe">
+			<control id="bsforce" type="list" name="Force Strobe" address="0x40">
+				<value id="off" name="Off" value="0x00"/>
+				<value id="on" name="On" value="0x01"/>
+			</control>
+			<control id="bslength" type="value" name="Strobe Length" address="0x41"/>
+			<control id="bsphase" type="value" name="Strobe Phase" address="0x42">
+			</control>
+		</subgroup>
 		<subgroup name="Gamma" >
 			<control id="gamma" type="list" name="Gamma" address="0xF2" >
 				<value id="-0.5" name="-0.5"/>
