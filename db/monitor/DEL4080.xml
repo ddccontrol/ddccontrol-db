@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<monitor name="Dell U2713HM" init="standard">
+	<!--- CAPS: prot(monitor)type(lcd)model(U2713HM)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 06 08 10 12 14(01 04 05 06 08 09 0B 0C) 16 18 1A 52 60(01 03 04 0F) AC AE B2 B6 C6 C8 C9 D6(01 04 05) DC(00 02 03 05 ) F0(00 01) DF FD E0 E1 E2(00 01 02 04 06 0B 0C 0D 0F 10 11 13 14) F1 F2)mccs_ver(2.1)mswhql(1) -->
+	<caps add="(cmds(01 02 03 07 0C E3 F3)vcp(04 05 06 08 10 12 14(01 04 05 06 08 09 0B 0C) 16 18 1A E1 60(01 03 04 0F) CA D6(01 04 05) DC(00 02 03 05)))"/>
+
+	<controls>
+		<control id="defaults" address="0x04" delay="2000"/>
+		<control id="defaultluma" address="0x05" delay="2000"/>
+		<control id="defaultgeom" address="0x06" delay="2000"/>
+		<control id="defaultcolor" address="0x08" delay="2000"/>
+
+		<control id="brightness" address="0x10"/>
+		<control id="contrast" address="0x12"/>
+
+		<control id="red" address="0x16"/>
+		<control id="green" address="0x18"/>
+		<control id="blue" address="0x1A"/>
+
+		<control id="redblack" address="0x6c"/>
+		<control id="greenblack" address="0x6e"/>
+		<control id="blueblack" address="0x70"/>
+
+		<control id="inputsource" type="list" address="0x60">
+			<value id="vga" value="0x01"/>
+			<value id="dvi" value="0x03"/>
+			<value id="hdmi" value="0x04"/>
+			<value id="dp" value="0x0F"/>
+		</control>
+
+		<control id="dpms" address="0xd6">
+			<value id="on" value="1"/>
+			<value id="standby" value="4"/>
+			<value id="off" value="5"/>
+		</control>
+
+		<control id="colorpreset" address="0x14">
+			<value id="srgb" value="0x01"/>
+			<value id="5000k" value="0x04"/>
+			<value id="6500k" value="0x05"/>
+			<value id="7500k" value="0x06"/>
+			<value id="9300k" value="0x08"/>
+			<value id="10000k" value="0x09"/>
+			<value id="5700k" value="0x0B"/>
+			<value id="user" value="0x0C"/>
+		</control>
+
+		<control id="magicbright" address="0xdc">
+			<value id="standard"  value="0x00"/>
+			<value id="multimedia"  value="0x02"/>
+			<value id="movie"  value="0x03"/>
+			<value id="game" value="0x05"/>
+		</control>
+
+		<!--<control id="magicbright" address="0xf0">
+			<value id="text" value="0x01"/>
+		</control>-->
+
+		<!-- Control 0xCA: Lock menu: 1: lock 2: unlock -->
+		<control id="osd" address="0xca">
+			<value id="disable" value="0x01"/>
+			<value id="enable" value="0x02"/>
+		</control>
+
+		<control id="power" type="list" address="0xe1">
+			<value id="off" value="1"/>
+			<value id="on"  value="0"/>
+		</control>
+
+		<!-- Control 0xF2: Energy Smart (RO) -->
+		<!-- Control 0xE0: Some sort of powersave? 1: Brightness = 0, 0: restore -->
+	</controls>
+</monitor>
