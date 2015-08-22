@@ -99,10 +99,6 @@
 				<value id="mode1A" name="Gamer 3" value="0x1A"/>
 			</control>
 		</subgroup>
-		<subgroup name="BenQ Picture 2">
-			<control id="bnqsharpness" type="value" name="BenQ Sharpness" address="0x87">
-			</control>
-		</subgroup>
 		<subgroup name="Gamma" >
 			<control id="gamma" type="list" name="Gamma" address="0xF2" >
 				<value id="-0.5" name="-0.5"/>
