@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<monitor name="Dell U2311H" init="standard">
+    <include file="VESA"/>
+</monitor>
+
+
