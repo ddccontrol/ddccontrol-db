@@ -1,14 +1,36 @@
 <?xml version="1.0"?>
 <monitor name="BENQ XL2411Z" init="standard">
     <controls>
-
-        <control id="bsforce" type="list" address="0x40">
-                <value id="off" value="0x00"/>
-                <value id="on" value="0x01"/>
-            </control>
-        <control id="bslength" address="0x41" min="3" max="30"/>
-        <control id="bsphase" address="0x42" min="0" max="47"/>
-        
+      <control id="bsforce" type="list" address="0x40">
+          <value id="off" value="0x00"/>
+          <value id="on" value="0x01"/>
+      </control>
+      <control id="bslength" address="0x41" min="3" max="30"/>
+      <control id="bsphase" address="0x42" min="0" max="47"/>
+      <control id="bnqmode" type="list" address="0xDC">
+        <value id="mode0" name="Standard" value="0x00"/>
+        <value id="mode3" name="Movie" value="0x03"/>
+        <value id="modeB" name="Photo" value="0x0B"/>
+        <value id="modeC" name="sRGB" value="0x0C"/>
+        <value id="modeE" name="Eco" value="0x0E"/>
+        <value id="mode15" name="FPS1" value="0x15"/>
+        <value id="mode16" name="FPS2" value="0x16"/>
+        <value id="mode17" name="RTS" value="0x17"/>
+        <value id="mode18" name="Gamer 1" value="0x18"/>
+        <value id="mode19" name="Gamer 2" value="0x19"/>
+        <value id="mode1A" name="Gamer 3" value="0x1A"/>
+      </control>
+      <control id="bnqsharpness" type="value" address="0x87" min="0" max="10"/>
     </controls>
+    <!-- <include file="BENQ_Z_SERIES"/> -->
+
+    <control id="inputsource" type="list" address="0x60">
+			<value id="analog"  value="1"/>
+			<value id="digital" value="3"/>
+		</control>
+    <control id="dpms" address="0xd6">
+			<value id="on" value="1"/>
+			<value id="standby" value="4"/>
+		</control>
     <include file="VESA"/>
 </monitor>
