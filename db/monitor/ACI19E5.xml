@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<monitor name="Asus VH196T" init="standard">
+    <include file="VESA"/>
+</monitor>
+
+
