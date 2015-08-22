@@ -82,8 +82,6 @@ printf(_("RTS"));
 printf(_("Gamer 1"));
 printf(_("Gamer 2"));
 printf(_("Gamer 3"));
-printf(_("BenQ Picture 2"));
-printf(_("BenQ Sharpness"));
 printf(_("Gamma"));
 printf(_("Gamma"));
 printf(_("-0.5"));
