@@ -68,6 +68,41 @@
 			<control id="bsphase" type="value" name="Strobe Phase" address="0x42">
 			</control>
 		</subgroup>
+		<subgroup name="BenQ Picture">
+			<control id="bnqmode" type="list" name="Picture Mode" address="0xDC">
+				<value id="mode0" name="Standard" value="0x00"/>
+				<!-- <value id="mode1" name="Mode 0x01" value="0x01"/> -->
+				<!-- <value id="mode2" name="Mode 0x02" value="0x02"/> -->
+				<value id="mode3" name="Movie" value="0x03"/>
+				<!-- <value id="mode4" name="Mode 0x04" value="0x04"/> -->
+				<!-- <value id="mode5" name="Mode 0x05" value="0x05"/> -->
+				<!-- <value id="mode6" name="Mode 0x06" value="0x06"/> -->
+				<!-- <value id="mode7" name="Mode 0x07" value="0x07"/> -->
+				<!-- <value id="mode8" name="Mode 0x08" value="0x08"/> -->
+				<!-- <value id="mode9" name="Mode 0x09" value="0x09"/> -->
+				<!-- <value id="modeA" name="Mode 0x0A" value="0x0A"/> -->
+				<value id="modeB" name="Photo" value="0x0B"/>
+				<value id="modeC" name="sRGB" value="0x0C"/>
+				<!-- <value id="modeD" name="Mode 0x0D" value="0x0D"/> -->
+				<value id="modeE" name="Eco" value="0x0E"/>
+				<!-- <value id="modeF" name="Mode 0x0F" value="0x0F"/> -->
+				<!-- <value id="mode10" name="Mode 0x10" value="0x10"/> -->
+				<!-- <value id="mode11" name="Mode 0x11" value="0x11"/> -->
+				<!-- <value id="mode12" name="Mode 0x12" value="0x12"/> -->
+				<!-- <value id="mode13" name="Mode 0x13" value="0x13"/> -->
+				<!-- <value id="mode14" name="Mode 0x14" value="0x14"/> -->
+				<value id="mode15" name="FPS1" value="0x15"/>
+				<value id="mode16" name="FPS2" value="0x16"/>
+				<value id="mode17" name="RTS" value="0x17"/>
+				<value id="mode18" name="Gamer 1" value="0x18"/>
+				<value id="mode19" name="Gamer 2" value="0x19"/>
+				<value id="mode1A" name="Gamer 3" value="0x1A"/>
+			</control>
+		</subgroup>
+		<subgroup name="BenQ Picture 2">
+			<control id="bnqsharpness" type="value" name="BenQ Sharpness" address="0x87">
+			</control>
+		</subgroup>
 		<subgroup name="Gamma" >
 			<control id="gamma" type="list" name="Gamma" address="0xF2" >
 				<value id="-0.5" name="-0.5"/>
