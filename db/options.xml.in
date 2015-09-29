@@ -127,6 +127,13 @@
 				<value id="user4" name="User 4"/>
 				<value id="easy" name="Easy"/>
 				<value id="expert" name="Expert"/>
+
+				<!-- BNQ7F1C -->
+				<value id="movie" name="Movie"/>
+				<value id="photo" name="Photo"/>
+				<value id="eco" name="Eco"/>
+				<value id="rts1" name="RTS1"/>
+				<value id="rts2" name="RTS2"/>
 			</control>
 			<control id="magiccolor" type="list" name="MagicColor" address="0xF0">
 				<value id="off" name="Off"/>
