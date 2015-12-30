@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!--
+   - Created by Swyter for your visual enjoyment, may work with other BenQ GLXX70 monitors.
+   - Copyright (c) 2015-16 Swyter <swyterzone+ddccontrol@gmail.com>
+   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   - Based on the BenQ RL2455HM profile by crespyl <https://github.com/ddccontrol/ddccontrol-db/pull/7>
+   - Tested with «LANG= LC_ALL= sudo ddccontrol dev:/dev/i2c-1 -r 0xcc»
+  -->
+<monitor name="BenQ GW2270H" init="standard">
+	<!-- CAPS: prot(monitor)
+	           type(LCD)
+	           model(GW2270H)
+	           cmds(01 02 03 07 0C F3)
+	           vcp(02 04 05 08 0B 0C 10 12 14(04 05 08 0B) 16 18 1A 52 60(01 11 12)62 8D(01 02)AC AE B2 B6 C0 C6 C8 C9 CA(01 02) CC(01 02 03 04 05 06 09 0A 0B 0D 0E 12 14 1A 1E 1F 20)D6(01 05) DF)
+	           mswhql(1)
+	           mccs_ver(2.1)
+	           asset_eep(32)
+	           mpu_ver(1.02)
+	-->
+	<controls>
+		<control id="defaults"                address="0x04" delay="2000"/>
+		<control id="defaultluma"             address="0x05" delay="2000"/>
+		<control id="defaultcolor"            address="0x08" delay="2000"/>
+
+		<control id="brightness"              address="0x10"/>
+		<control id="contrast"                address="0x12"/>
+		<control id="red"                     address="0x16"/>
+		<control id="green"                   address="0x18"/>
+		<control id="blue"                    address="0x1a"/>
+
+		<control id="inputsource" type="list" address="0x60">
+			<value id="vga"    value="0x01"/>
+			<!--ue id="dvi"    value="0x03"  <- the BenQ GW2270H does not have a DVI output, other models may -->
+			<value id="hdmi1"  value="0x17"/>
+			<value id="hdmi2"  value="0x18"/>
+		</control>
+
+		<control id="colorpreset" type="list" address="0x14">
+			<value id="srgb"   value=" 1"/>
+			<!-- 4 and 5 seem to mark «Standard», not sure about this -->
+			<value id="normal" value=" 4"/>
+			<value id="warm"   value=" 5"/>
+			<!-- unknown, but I originally called it user-1 to appear correctly, seems bluish
+			     and different than everything else, but gets marked as «Standard» in the OSD for some reason -->
+			<value id="cool"   value=" 8"/>
+			<value id="user"   value="11"/>
+		</control>
+
+		<!-- the HDMI audio controls for its 3.5mm jack connector seem to work pretty niftly! -->
+		<control id="audiospeakervolume"     address="0x62"/>
+		<control id="mute"     type="list"   address="0x8d">
+			<value id="mute"   value="0x01"/>
+			<value id="normal" value="0x02"/>
+		</control>
+
+		<!-- sorted by following the OSD ordering -->
+		<control id="language" type="list"   address="0xcc">
+			<value id="english"       value=" 2"/>
+			<value id="french"        value=" 3"/>
+			<value id="german"        value=" 4"/>
+			<value id="italian"       value=" 5"/>
+			<value id="spanish"       value="10"/>
+			<value id="polish"        value="30"/>
+			<value id="czech"         value="18"/>
+			<value id="hungarian"     value="26"/>
+			<!-- SiGC/BiH/CRO -->
+			<value id="serbocroatian" value="32"/>
+			<value id="romanian"      value="31"/>
+			<value id="dutch"         value="20"/>
+			<value id="russian"       value=" 9"/>
+			<value id="swedish"       value="11"/>
+			<value id="portuguese"    value="14"/>
+			<value id="japanese"      value="06"/>
+			<value id="chinese_tw"    value=" 1"/>
+			<value id="chinese"       value="13"/>
+		</control>
+	</controls>
+	<include file="VESA"/>
+</monitor>
