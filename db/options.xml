@@ -247,16 +247,23 @@
 				<value id="portrait" name="Portrait"/>
 			</control>
 			<control id="language" type="list" name="Language select" address="0x68">
-				<value id="english" name="English"/>
-				<value id="french"  name="French"/>
-				<value id="german"  name="German"/>
-				<value id="italian" name="Italian"/>
-				<value id="russian" name="Russian"/>
-				<value id="spanish" name="Spanish"/>
-				<value id="swedish" name="Swedish"/>
-				<value id="chinese" name="Chinese"/>
-				<value id="dutch"   name="Dutch"/>
-				<value id="japanese" name="Japanese"/>
+				<value id="english"       name="English"/>
+				<value id="french"        name="Français (French)"/>
+				<value id="german"        name="Deutsch (German)"/>
+				<value id="italian"       name="Italiano (Italian)"/>
+				<value id="spanish"       name="Castellano (Spanish)"/>
+				<value id="russian"       name="Русский (Russian)"/>
+				<value id="swedish"       name="Svenska (Swedish)"/>
+				<value id="chinese_tw"    name="繁體中文 (Traditional Chinese)"/>
+				<value id="chinese"       name="简体中文 (Simplified Chinese)"/>
+				<value id="dutch"         name="Nederlands (Dutch)"/>
+				<value id="japanese"      name="日本語 (Japanese)"/>
+				<value id="polish"        name="Polski (Polish)"/>
+				<value id="czech"         name="Český (Czech)"/>
+				<value id="hungarian"     name="Magyar (Hungarian)"/>
+				<value id="romanian"      name="Română (Romanian)"/>
+				<value id="portuguese"    name="Português (Portuguese)"/>
+				<value id="serbocroatian" name="SiGC/BiH/CRO (Serbo-Croatian)"/>
 			</control>
 		</subgroup>
 		<subgroup name="Input settings">
@@ -270,6 +277,15 @@
 			<control id="inputsource" type="list" name="Input Source Select" address="0x60">
 				<value id="analog" name="Analog"/>
 				<value id="digital" name="Digital"/>
+				<value id="dp" name="DisplayPort"/>
+				<value id="dvi" name="DVI"/>
+				<value id="dvi1" name="DVI-1"/>
+				<value id="dvi2" name="DVI-2"/>
+				<value id="hdmi" name="HDMI"/>
+				<value id="hdmi1" name="HDMI-1"/>
+				<value id="hdmi2" name="HDMI-2"/>
+				<value id="vga" name="VGA"/>
+				<value id="component" name="Component"/>
 			</control>
 			<control id="autosource" type="list" name="Autoselect Input Source" address="0xe2">
 				<value id="auto" name="Automatic" value="0"/>
