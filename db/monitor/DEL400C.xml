@@ -11,12 +11,11 @@
 		</control>
 
 		<control id="language" address="0x68">
-			<!--- verified against my model (bought in germany) -->
 			<value id="english" value="1"/>
 			<value id="spanish" value="2"/>
 			<value id="french"  value="3"/>
 			<value id="german"  value="4"/>
-			<value id="chinese" value="5"/>
+			<value id="japanese" value="5"/>
 		</control>
 
 		<!-- Control 0xa8: +/1/3 [Sync type, RO] -->
