@@ -17,6 +17,13 @@
 				<value id="movie" name="Movie"/>
 				<value id="standard" name="Standard"/>
 			</control>
+			<control id="dvmode" type="list" name="DV Mode"  address="0xf9">
+				<value id="standard" name="Standard"/>
+				<value id="text"  name="Text"/>
+				<value id="movie"  name="Movie"/>
+				<value id="gaming"  name="Gaming"/>
+				<value id="photo" name="Photo"/>
+			</control>
 			<control id="superbright" type="list" name="Super Bright Mode" address="0xF9">
 				<value id="one" name="One" value="0"/>
 				<value id="two" name="Two" value="1"/>
