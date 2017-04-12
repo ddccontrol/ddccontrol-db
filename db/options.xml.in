@@ -113,6 +113,7 @@
 				<value id="argb" name="Adobe RGB"/>
 				<value id="4000k" name="4000K"/>
 				<value id="5000k" name="5000K"/>
+				<value id="5700k" name="5700K"/>
 				<value id="6500k" name="6500K"/>
 				<value id="7500k" name="7500K"/>
 				<value id="8200k" name="8200K"/>
@@ -143,7 +144,7 @@
 			<control id="hpos" type="value" name="Horizontal Position" address="0x20"/>
 			<control id="vpos" type="value" name="Vertical Position" address="0x30"/>
 		</subgroup>
-		<subgroup name="Size">a
+		<subgroup name="Size">
 			<control id="hsize" type="value" name="Horizontal Size" address="0x22"/>
 			<control id="vsize" type="value" name="Vertical Size" address="0x32"/>
 		</subgroup>
