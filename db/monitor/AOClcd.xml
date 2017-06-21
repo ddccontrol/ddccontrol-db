@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<monitor name="AOC standard LCD" init="standard">
+	<include file="VESA"/>
+</monitor>
