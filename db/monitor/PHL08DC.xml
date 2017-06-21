@@ -1,5 +1,27 @@
 <?xml version="1.0"?>
 <monitor name="Philips 221P6Q">
+	<!-- original caps -->
 	<caps add="type(LCD)vcp(vcp(02 04 05 08 0B 0C 10 12 14(01 04 05 06 07 08 0A 0B) 16 18 1A 52 54(00 01) 60(01 03 0F) 62 6C 6E 70 72(05 78 FB 50 64 78 8C A0) 86(02 08) 8D(01 02) AA(01 02) AC AE B2 B6 C0 C6 C8 C8 CA(01 02) CC(01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 12 14 16 17 1A 1E 24) D6(01 04 05) DC(00 01 02 03 05 08) DF E9(00 02) EB(00 01 02 03) F0(00 01) F2(00 01 02 03 04) FA(00 01 02) FB FC FD FE(00 01 02 04)))" />
+
+	<!-- hpos and vpos caps -->
+	<caps add="(vcp(20 30))" />
+
+	<!-- specific controls, but they might(?) be shared with other Philips monitors -->
+	<controls>
+		<control id="inputsource" type="list" address="0x60">
+			<value id="vga"  value="0x01"/>
+			<value id="dvi"  value="0x03"/>
+			<value id="dp"   value="0x0f"/>
+		</control>
+		<control id="powerled" address="0xf2">
+			<value id="off"   value="0x0"/>
+			<value id="1"     value="0x1"/>
+			<value id="2"     value="0x2"/>
+			<value id="3"     value="0x3"/>
+			<value id="4"     value="0x4"/>
+		</control>
+	</controls>
+
+	<!-- include shared config for Philips family -->
 	<include file="PHLlcd" />
 </monitor>

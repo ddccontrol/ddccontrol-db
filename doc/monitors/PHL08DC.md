@@ -40,12 +40,12 @@ GUI test:
 | 0x1a    | +/98/100 C        | VCP  | OK         | OK       | Blue maximum level (0 - 100)             |
 | 0x1e    | +/0/1             |      | TODO       |          | ???                                      |
 | 0x1f    | +/1/1             |      | TODO       |          | ???                                      |
-| 0x20    | +/50/100          | N/A  | OK         | N/P      | Shifts screen horizontally (0 - 100; 50 = center, probably in pixels) |
-| 0x30    | +/50/100          | N/A  | OK         | N/P      | Shifts screen vertically (0 - 100;50 = center, probably in pixels) |
+| 0x20    | +/50/100          | N/A  | OK         | OK       | Shifts screen horizontally (0 - 100; 50 = center, probably in pixels) |
+| 0x30    | +/50/100          | N/A  | OK         | OK       | Shifts screen vertically (0 - 100;50 = center, probably in pixels) |
 | 0x3e    | +/24/100          |      | TODO       |          | ???                                      |
 | 0x52    | +/0/255 C         |      | TODO       |          | ???                                      |
 | 0x54    | +/1/1 C           | VCP  | OK         |          | X - Pixel Orbiting (00 01)               |
-| 0x60    | +/15/3 C          | VCP  | OK, IRC    |          | Input Source Select (01 - D-SUB, 03 - DVI, 0F - DisplayPort) |
+| 0x60    | +/15/3 C          | VCP  | OK, IRC    | OK       | Input Source Select (01 - D-SUB, 03 - DVI, 0F - DisplayPort) |
 | 0x62    | +/80/100 C        | VCP  | OK, RIR    | OK       | Audio Speaker Volume Adjust (0 - 100)    |
 | 0x6c    | +/50/100 C        | VCP  | OK         | OK       | Red minimum level (0 - 100)              |
 | 0x6e    | +/50/100 C        | VCP  | OK         | OK       | Green minimum level (0 - 100)            |
@@ -71,7 +71,7 @@ GUI test:
 | 0xe9    | +/2/2 C           |      | TODO       |          | ???                                      |
 | 0xeb    | +/0/1 C           | VCP  | TODO       |          | ??? - (00 01 02 03)                      |
 | 0xf0    | +/0/1 C           | VCP  | OK         |          | SmartContrast (0 = off, 1 = on)          |
-| 0xf2    | +/1/4 C           | VCP  | OK         |          | Power LED (0 = off; 1,2,3,4 = levels)    |
+| 0xf2    | +/1/4 C           | VCP  | OK         | OK       | Power LED (0 = off; 1,2,3,4 = levels)    |
 | 0xf9    | +/0/4             | N/A  | OK         |          | PowerSensor                              |
 | 0xfa    | +/0/255 C         | VCP  | N/A        |          | ??? - (00 01 02)                         |
 | 0xfb    | +/5/60 C          |      | TODO       |          | ???                                      |
