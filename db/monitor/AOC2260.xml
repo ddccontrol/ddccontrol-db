@@ -9,6 +9,14 @@
 			<value id="hdmi"  value="0x03"/>
 			<value id="dp"    value="0x04"/>
 		</control>
+
+		<!-- read works, write don't -->
+		<control id="language" type="list" address="0xcc">
+			<value id="english" 	value="0x02"/>
+			<value id="french"  	value="0x03"/>
+			<value id="spanish" 	value="0x0a"/>
+			<value id="portuguese"  value="0x08"/>
+		</control>
 	</controls>
 
 	<!-- include AOC family-->
