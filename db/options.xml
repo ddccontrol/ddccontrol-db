@@ -369,7 +369,11 @@
 				it seems) -->
 			<control id="powerled" type="list" name="Power LED" address="0xfd">
 				<value id="off" name="Off"/>
-				<value id="on" name="On"/>
+				<value id="on"  name="On"/>
+				<value id="1"   name="1"/>
+				<value id="2"   name="2"/>
+				<value id="3"   name="3"/>
+				<value id="4"   name="4"/>
 			</control>
 		</subgroup>
 	</group>

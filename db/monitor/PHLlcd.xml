@@ -4,8 +4,12 @@
 		<control id="colorpreset" address="0x14">
 			<value id="srgb"   value="0x1"/>
 			<value id="native" value="0x2"/>
+			<value id="5000k"  value="0x4"/>
 			<value id="6500k"  value="0x5"/>
+			<value id="7500k"  value="0x6"/>
+			<value id="8200k"  value="0x7"/>
 			<value id="9300k"  value="0x8"/>
+			<value id="11500k"  value="0xA"/>
 			<value id="user1"  value="0xB"/>
 		</control>
 	</controls>
