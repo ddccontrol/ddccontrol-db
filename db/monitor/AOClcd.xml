@@ -1,4 +1,15 @@
 <?xml version="1.0"?>
 <monitor name="AOC standard LCD" init="standard">
+	<controls>
+		<!-- probably same on all AOC monitors, tested on AOC2260, subset of these can be found in AOCA928 -->
+		<control id="colorpreset" type="list" address="0x14">
+			<value id="srgb"   value="0x01"/>
+			<value id="warm"   value="0x05"/>
+			<value id="normal" value="0x06"/>
+			<value id="cool"   value="0x08"/>
+			<value id="user"   value="0x0b"/>
+		</control>
+	</controls>
+
 	<include file="VESA"/>
 </monitor>
