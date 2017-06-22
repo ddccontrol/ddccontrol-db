@@ -6,8 +6,8 @@ Project `ddccontrol-db` contains database of monitor descriptors, which are used
     * [Installation from official packages](#installation-from-official-packages)
     * [Installation from sources](#installation-from-sources)
 * [Usage](#usage)
-    * [From GUI - Monitor Settings (`gddccontrol`)](#from-gui---monitor-settings-gddccontrol)
-    * [From command line - `ddccontrol`](#from-command-line---ddccontrol)
+    * [From GUI using gddccontrol](#from-gui-using-gddccontrol)
+    * [From command line using ddccontrol](#from-command-line-using-ddccontrol)
 * [License](#license)
 
 ## Installation
@@ -57,9 +57,11 @@ sudo make install
 
 Monitor database is used indirectly with `ddccontrol` and `gddccontrol` utilities.
 
-### From GUI - Monitor Settings (`gddccontrol`)
+### From GUI using gddccontrol
 
-Currently, root privileges are required to control monitor parameters, therefore the menu entry called `Monitor Settings` automatically asks for password.
+`gddccontrol` is a graphical utility for monitor configuration. It is called **Monitor Settings** in list of applications.
+
+Currently, root privileges are required to control monitor parameters, therefore the launcher automatically asks for a password.
 
 Utility can launched directly from commandline:
 
@@ -67,9 +69,27 @@ Utility can launched directly from commandline:
 sudo gddccontrol
 ```
 
-### From command line - `ddccontrol`
+### From command line using ddccontrol
 
-To be documented...
+`ddccontrol` allows monitor configuration directly from commandline. To probe I2C devices to find monitor buses use:
+
+```shell
+sudo ddccontrol -p
+```
+
+To read value of control `0x10` (brightness on VESA compliant monitors) for device `dev:/dev/i2c-4`:
+
+```shell
+sudo ddccontrol -r 0x10 dev:/dev/i2c-4
+```
+
+To set value of control `0x10` (brightness on VESA compliant monitors) to `75` for device `dev:/dev/i2c-4`:
+
+```shell
+sudo ddccontrol -r 0x10 -w 75 dev:/dev/i2c-4
+```
+
+See `ddccontrol -h` for more information.
 
 ## License
 
