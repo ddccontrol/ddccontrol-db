@@ -2,6 +2,14 @@
 
 Project `ddccontrol-db` contains database of monitor descriptors, which are used by  `ddccontrol` and `gddccontrol` utilities to control monitor parameters using DDC/CI protocol.
 
+* [Installation](#installation)
+    * [Installation from official packages](#installation-from-official-packages)
+    * [Installation from sources](#installation-from-sources)
+* [Usage](#usage)
+    * [From GUI - Monitor Settings (`gddccontrol`)](#from-gui---monitor-settings-gddccontrol)
+    * [From command line - `ddccontrol`](#from-command-line---ddccontrol)
+* [License](#license)
+
 ## Installation
 
 The most convenient way to install `ddccontrol-db` is to use packages from official distribution repositories.
