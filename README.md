@@ -42,7 +42,6 @@ Latest repository can be cloned and built by:
 git clone https://github.com/ddccontrol/ddccontrol-db.git
 cd ddccontrol-db
 ./autogen.sh 
-automake
 ./configure --prefix=/usr/
 make
 ```
