@@ -1,0 +1,17 @@
+language: cpp
+
+dist: precise
+sudo: false
+
+addons:
+  apt:
+    packages:
+      - intltool
+      - autoconf
+      - autopoint
+
+script:
+  - ./autogen.sh
+  - ./configure
+  - make -j4
+
