@@ -12,12 +12,12 @@
 			<value id="russian" value="9"/>
 		</control>
 		
-		<control id="fmode" type="list" address="0xfc">
+        <!-- TODO - not found: <control id="fmode" type="list" address="0xfc">
 			<value id="normal" value="0"/>
 			<value id="user" value="3"/>
 			<value id="text" value="2"/>
 			<value id="movie" value="1"/>
-		</control>
+        </control> -->
 		
 		<control id="colorpreset" type="list" address="0x14">
 			<value id="srgb" value="4"/>
