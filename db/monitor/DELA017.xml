@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <monitor name="Dell 2407WFP (DVI)" init="standard">
-	<!--- CAPS: type(LCD)vcp(page0(02 04 05 08 10 14(01 06 08 0B) 16 18 1A 1D 1E 20 30 52 AC AE B2 B6 C0 C6 C8 C9 CA D6(01 02 03 04) DF)) -->
-	<caps add="(type(lcd)vcp(page0(02 04 05 08 10 14(01 06 08 0B) 16 18 1A 1D 1E 20 30 52 AC AE B2 B6 C0 C6 C8 C9 CA D6(01 02 03 04) DF)))"/>
+    <!-- TODO - extend parsing: needed to modify caps format -->
+    <!--- CAPS: type(LCD)vcp(page0(02 04 05 08 10 14(01 06 08 0B) 16 18 1A 1D 1E 20 30 52 AC AE B2 B6 C0 C6 C8 C9 CA D6(01 02 03 04) DF)) -->
+	<caps add="(type(lcd)vcp(02 04 05 08 10 14(01 06 08 0B) 16 18 1A 1D 1E 20 30 52 AC AE B2 B6 C0 C6 C8 C9 CA D6(01 02 03 04) DF))"/>
 	<controls>
 		<!--- Control 0x02: +/256/65535 [???] -->
 		<control id="colorpreset" address="0x14">

@@ -11,12 +11,14 @@
 				<value id="internet" name="Internet"/>
 				<value id="game" name="Game"/>
 				<value id="sport" name="Sport"/>
+				<value id="sports" name="Sports"/>
 				<value id="entertain" name="Entertain"/>
 				<value id="custom" name="Custom"/>
 				<value id="dynamic" name="Dynamic Contrast" />
 				<value id="multimedia" name="Multimedia"/>
 				<value id="movie" name="Movie"/>
 				<value id="standard" name="Standard"/>
+				<value id="nature" name="Nature"/>
 			</control>
 			<control id="superbright" type="list" name="Super Bright Mode" address="0xF9">
 				<value id="one" name="One" value="0"/>
@@ -154,6 +156,7 @@
 				<value id="argb" name="Adobe RGB"/>
 				<value id="4000k" name="4000K"/>
 				<value id="5000k" name="5000K"/>
+				<value id="5700k" name="5700K"/>
 				<value id="6500k" name="6500K"/>
 				<value id="7500k" name="7500K"/>
 				<value id="8200k" name="8200K"/>
@@ -168,6 +171,11 @@
 				<value id="user4" name="User 4"/>
 				<value id="easy" name="Easy"/>
 				<value id="expert" name="Expert"/>
+                <value id="movie" name="Movie"/>
+                <value id="photo" name="Photo"/>
+                <value id="eco" name="Eco"/>
+                <value id="rts1" name="RTS 1"/>
+                <value id="rts2" name="RTS 2"/>
 			</control>
 			<control id="magiccolor" type="list" name="MagicColor" address="0xF0">
 				<value id="off" name="Off"/>

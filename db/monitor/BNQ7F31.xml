@@ -20,7 +20,7 @@
         <value id="mode19" name="Gamer 2" value="0x19"/>
         <value id="mode1A" name="Gamer 3" value="0x1A"/>
       </control>
-      <control id="bnqsharpness" type="value" address="0x87" min="0" max="10"/>
+      <!-- TODO - not found: <control id="bnqsharpness" type="value" address="0x87" min="0" max="10"/> -->
     </controls>
     <!-- <include file="BENQ_Z_SERIES"/> -->
 
