@@ -1,3 +1,49 @@
+2017-07-13 20:16  Thanks to many authors
+
+	* db/monitor/ACI19E5.xml: Add support for Asus VH196T
+
+	* db/monitor/AOC2260.xml: Add support for AOC 2260
+
+	* db/monitor/AOClcd.xml: Add support for AOC standard LCD
+
+	* db/monitor/BNQ78DB.xml: Add support for BenQ GW2270H
+
+	* db/monitor/BNQ7F1C.xml: Add support for BenQ RL2455HM
+
+	* db/monitor/BNQ7F31.xml: Add support for BENQ XL2411Z
+
+	* db/monitor/DEL4063.xml: Add support for Dell Ultrasharp u3011
+
+	* db/monitor/DEL4080.xml: Add support for Dell U2713HM
+
+	* db/monitor/DELA03D.xml: Add support for Dell 1909W (DVI)
+
+	* db/monitor/DELA05F.xml: Add support for Dell U2311H
+
+	* db/monitor/DELA060.xml: Add support for Dell U2311H (DisplayPort)
+
+	* db/monitor/DELF017.xml: Add support for Dell Ultrasharp u2410 (Rev A02)
+
+	* db/monitor/NEC6699.xml: Add support for NEC Multisync 20WGX2 Pro
+
+	* db/monitor/PHL08DC.xml: Add support for Philips 221P6Q
+
+	* db/monitor/SAM0868.xml: Add support for Samsung SyncMaster S22A100N (VGA)
+
+	* db/monitor/DEL400C.xml: Updated support for Dell 1905FP (analog)
+
+	* db/monitor/DEL400D.xml: Updated support for Dell 1905FP (digital)
+
+	* db/monitor/DELA017.xml: Updated support for Dell 2407WFP (DVI)
+
+	* db/monitor/DELA021.xml: Updated support for Dell 2007FP (DVI)
+
+	* db/monitor/GSM4E3A.xml: Updated support for LG Flatron L2000C (Digital)
+
+	* db/monitor/PHLlcd.xml: Updated support for Philips standard LCD
+
+	* db/monitor/SNY07B0.xml: Updated support for SONY G520
+
 2008-02-18 23:50  Roberto C. Sanchez <roberto@connexer.com>
 
 	* [r796] db/monitor/HWP2647.xml: Add support for HP VS17E, thanks
