@@ -1,3 +1,8 @@
+[![Build Status][travis-badge]][travis]
+
+[travis-badge]: https://travis-ci.org/ddccontrol/ddccontrol-db.svg?branch=master
+[travis]: https://travis-ci.org/ddccontrol/ddccontrol-db
+
 # DDC/CI control database
 
 Project `ddccontrol-db` contains database of monitor descriptors, which are used by  `ddccontrol` and `gddccontrol` utilities to control monitor parameters using DDC/CI protocol.
