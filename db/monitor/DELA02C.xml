@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<monitor name="Dell 2408WFP (HDMI)" init="standard">
+	<!--- Control 0x60: -/0/0 C [???] (It is possible to write the input source but reading always returns 0) -->
+	<include file="DELA02A"/>
+</monitor>
