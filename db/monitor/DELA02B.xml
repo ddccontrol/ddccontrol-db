@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<monitor name="Dell 2408WFP (DisplayPort)" init="standard">
+	<controls>
+		<!--- Control 0x52: +/20/255 C [???] -->
+		<!--- Control 0x60: -/0/0 C [???] (It is possible to write the input source but reading always returns 0) -->
+		<!--- Control 0x68: +/1/2 C [???] -->
+		<!--- Control 0x8a: +/256/65535 C [???] -->
+		<!--- Control 0x8c: +/14/65535 C [???] -->
+		<!--- Control 0xac: +/8564/1 C [???] -->
+		<!--- Control 0xae: +/6000/65535 C [???] -->
+		<!--- Control 0xb6: +/3/65535 C [???] -->
+		<!--- Control 0xc6: +/17868/65535 C [???] -->
+		<!--- Control 0xc8: +/32770/118 C [???] -->
+		<!--- Control 0xc9: +/1/65535 C [???] -->
+		<!--- Control 0xdc: +/6/6 C [???] -->
+		<!--- Control 0xdf: +/512/65535 C [???] -->
+		<!--- Control 0xff: +/0/65535   [???] -->
+	</controls>
+	<include file="DELA02A"/>
+</monitor>
