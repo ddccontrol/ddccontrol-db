@@ -64,7 +64,7 @@ Parsed output:
 | 0xdc    | +/0/255           | OK         | Magic Bright Mode (through color presets)        |
 | 0xdf    | +/513/255         |            | ???                                              |
 | 0xe0    | +/0/1             |            | ???                                              |
-| 0xe1    | +/0/1             |            | Power control                                    |
+| 0xe1    | +/0/1             | OK         | Power control                                    |
 | 0xe2    | +/0/255           | Read Only  | ??? (through color presets)                      |
 | 0xe3    | +/0/1             |            | ???                                              |
 | 0xe4    | +/0/1             | OK         | Color Uniformity                                 |
