@@ -10,12 +10,14 @@
 				<value id="internet" name="Internet"/>
 				<value id="game" name="Game"/>
 				<value id="sport" name="Sport"/>
+				<value id="sports" name="Sports"/>
 				<value id="entertain" name="Entertain"/>
 				<value id="custom" name="Custom"/>
 				<value id="dynamic" name="Dynamic Contrast" />
 				<value id="multimedia" name="Multimedia"/>
 				<value id="movie" name="Movie"/>
 				<value id="standard" name="Standard"/>
+				<value id="nature" name="Nature"/>
 			</control>
 			<control id="dvmode" type="list" name="DV Mode"  address="0xf9">
 				<value id="standard" name="Standard"/>
@@ -311,16 +313,23 @@
 				<value id="portrait" name="Portrait"/>
 			</control>
 			<control id="language" type="list" name="Language select" address="0x68">
-				<value id="english" name="English"/>
-				<value id="french"  name="French"/>
-				<value id="german"  name="German"/>
-				<value id="italian" name="Italian"/>
-				<value id="russian" name="Russian"/>
-				<value id="spanish" name="Spanish"/>
-				<value id="swedish" name="Swedish"/>
-				<value id="chinese" name="Chinese"/>
-				<value id="dutch"   name="Dutch"/>
-				<value id="japanese" name="Japanese"/>
+				<value id="english"       name="English"/>
+				<value id="french"        name="Français (French)"/>
+				<value id="german"        name="Deutsch (German)"/>
+				<value id="italian"       name="Italiano (Italian)"/>
+				<value id="spanish"       name="Castellano (Spanish)"/>
+				<value id="russian"       name="Русский (Russian)"/>
+				<value id="swedish"       name="Svenska (Swedish)"/>
+				<value id="chinese_tw"    name="繁體中文 (Traditional Chinese)"/>
+				<value id="chinese"       name="简体中文 (Simplified Chinese)"/>
+				<value id="dutch"         name="Nederlands (Dutch)"/>
+				<value id="japanese"      name="日本語 (Japanese)"/>
+				<value id="polish"        name="Polski (Polish)"/>
+				<value id="czech"         name="Český (Czech)"/>
+				<value id="hungarian"     name="Magyar (Hungarian)"/>
+				<value id="romanian"      name="Română (Romanian)"/>
+				<value id="portuguese"    name="Português (Portuguese)"/>
+				<value id="serbocroatian" name="SiGC/BiH/CRO (Serbo-Croatian)"/>
 			</control>
 		</subgroup>
 		<subgroup name="Input settings">
@@ -376,7 +385,11 @@
 				it seems) -->
 			<control id="powerled" type="list" name="Power LED" address="0xfd">
 				<value id="off" name="Off"/>
-				<value id="on" name="On"/>
+				<value id="on"  name="On"/>
+				<value id="1"   name="1"/>
+				<value id="2"   name="2"/>
+				<value id="3"   name="3"/>
+				<value id="4"   name="4"/>
 			</control>
 		</subgroup>
 	</group>
