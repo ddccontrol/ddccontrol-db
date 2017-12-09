@@ -60,7 +60,7 @@ Parsed output:
 | 0xc8    | +/22021/0         |            | ???                                              |
 | 0xc9    | +/259/65535       |            | ???                                              |
 | 0xca    | +/2/2             |            | ???                                              |
-| 0xd6    | +/1/255           | OK         | DPMS Control - On (1 = on, 4 = standby, 5 = off) |
+| 0xd6    | +/1/255           | OK         | DPMS Control - On (1 = on, 4 = standby, 5 = ???) |
 | 0xdc    | +/0/255           | OK         | Magic Bright Mode (through color presets)        |
 | 0xdf    | +/513/255         |            | ???                                              |
 | 0xe0    | +/0/1             |            | ???                                              |
