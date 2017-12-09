@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<monitor name="Dell P2415Q" init="standard">
+	<caps add="(prot(monitor)type(lcd)model(P2415Q)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 10 12 14(05 08 0B 0C) 16 18 1A 52 60( 11 0F 10) AA(01  02) AC AE B2 B6 C6 C8 C9 D6(01 04 05) DC(00 02 03 05 ) DF F0(00 08) FD E0 E1 E2(00 01 02 04 0E 12 14 19) E4 F1 F2)mccs_ver(2.1)mswhql(1))"/>
+
+	<controls>
+		<control id="inputsource" type="list" address="0x60">
+			<value id="mdp" value="0x10"/>
+			<value id="dp" value="0x0F"/>
+			<value id="hdmi-mhl" value="0x11"/>
+		</control>
+
+		<control id="colorpreset" type="list" address="0x14">
+			<value id="native" value="0x05"/>
+			<value id="cool" value="0x08"/>
+			<value id="warm" value="0x0b"/>
+			<value id="custom" value="0x0c"/>
+		</control>
+
+		<control id="magicbright" type="list" address="0xdc">
+			<value id="standard" value="0x00"/>
+			<value id="multimedia" value="0x02"/>
+			<value id="game" value="0x05"/>
+		</control>
+
+		<control id="coloruniformity" type="list" address="0xe4">
+			<value id="off" value="0x00"/>
+			<value id="calibrated" value="0x01"/>
+		</control>
+
+		<control id="dynamiccontrast" type="list" address="0xf2">
+			<value id="off" value="0x00"/>
+			<value id="on" value="0x01"/>
+		</control>
+	</controls>
+
+	<include file="VESA"/>
+</monitor>

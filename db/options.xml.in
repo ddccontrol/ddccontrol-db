@@ -5,6 +5,10 @@
 			<control id="brightness" type="value" name="Brightness" address="0x10"/>
 			<control id="contrast" type="value" name="Contrast" address="0x12"/>
 			<!--- vendor specific controls -->
+			<control id="dynamiccontrast" type="list" name="Dynamic Contrast">
+				<value id="off" name="Off"/>
+				<value id="on" name="On"/>
+			</control>
 			<control id="magicbright" type="list" name="Magic Bright Mode" address="0xDC">
 				<value id="text" name="Text"/>
 				<value id="internet" name="Internet"/>
@@ -193,6 +197,10 @@
 			</control>
 			<control id="colortemp" type="value" name="Color temperature" address="0x54"/>
 			<control id="colorreturn" type="value" name="Color Return"/>
+			<control id="coloruniformity" type="list" name="Color Uniformity">
+				<value id="off" name="Off"/>
+				<value id="calibrated" name="Calibrated"/>
+			</control>
 		</subgroup>
 	</group>
 	<group name="Position and size">
@@ -350,6 +358,8 @@
 				<value id="hdmi" name="HDMI"/>
 				<value id="hdmi1" name="HDMI-1"/>
 				<value id="hdmi2" name="HDMI-2"/>
+				<value id="hdmi-mhl" name="HDMI (MHL)"/>
+				<value id="mdp" name="mDP"/>
 				<value id="vga" name="VGA"/>
 				<value id="component" name="Component"/>
 				<value id="s-video" name="S-Video"/>
