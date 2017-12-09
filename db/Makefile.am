@@ -2,7 +2,7 @@ version=@VERSION@
 
 datadir=@datadir@/ddccontrol-db
 
-nobase_dist_data_DATA = *.xml monitor/*.xml
+nobase_dist_data_DATA = options.xml monitor/*.xml
 EXTRA_DIST = options.xml.in options.xml.h
 
 options.xml: options.xml.in

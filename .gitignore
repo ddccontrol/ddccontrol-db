@@ -34,3 +34,6 @@ Makefile.in
 /po/Makevars.template
 /po/POTFILES
 /po/stamp-it
+
+# generated files
+/db/options.xml
