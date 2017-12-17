@@ -1,3 +1,12 @@
+2017-12-17  Miroslav Kravec <kravec.miroslav@gmail.com>
+
+	* db/monitor/DELA02A.xml, db/monitor/DELA02B.xml, db/monitor/DELA02C.xml:
+	Add support for Dell 2408WFP (DVI, DisplayPort, HDMI), thanks to Simon
+	Arlott
+
+	* db/monitor/DELA0BE.xml, db/options.xml.in: Add support for Dell P2415Q,
+	thanks to Stefan Breunig
+
 2017-07-13 20:16  Thanks to many authors
 
 	* db/monitor/ACI19E5.xml: Add support for Asus VH196T
