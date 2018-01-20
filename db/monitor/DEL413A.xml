@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<monitor name="Dell U2518D" init="standard">
+	<caps add="(prot(monitor)type(LCD)model(U2518D)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 10 12 14(04 05 06 08 09 0B 0C)16 18 1A 60(10 0F 11) AA(01 02 03 04) AC AE B6 C6 C8 C9 D6(01 04 05) DC(00 03 05) DF E0 E1 E2(00 1D 02 04 0C 0D 0F 10 11 13 14) F0(0C) F1 F2 FD)mccs_ver(2.1)mswhql(1))"/>
+
+	<controls>
+		<control id="secdegauss" address="0x02" />
+
+		<control id="defaults" address="0x04" delay="2000"/>
+		<control id="defaultluma" address="0x05" delay="2000"/>
+		<control id="defaultcolor" address="0x08" delay="2000"/>
+
+		<control id="brightness" address="0x10"/>
+		<control id="contrast" address="0x12"/>
+
+		<control id="colorpreset" address="0x14">
+			<value id="normal" value="0x00"/>
+			<value id="5000k" value="0x04"/>
+			<value id="5700k" value="0x0B"/>
+			<value id="6500k" value="0x05"/>
+			<value id="7500k" value="0x06"/>
+			<value id="9300k" value="0x08"/>
+			<value id="10000k" value="0x09"/>
+			<value id="user" value="0x0C"/>
+			<value id="comfort" value="0x0D"/>
+		</control>
+		
+		<control id="red" address="0x16"/>
+		<control id="green" address="0x18"/>
+		<control id="blue" address="0x1A"/>
+		
+		<!-- Control 0x52: +/20/65535 -->
+		<!-- Control 0x5c: +/0/65535 -->
+		
+		<control id="inputsource" type="list" address="0x60">
+			<value id="dp" value="0x0F"/>
+			<value id="mdp" value="0x10"/>
+			<value id="hdmi" value="0x11"/>
+		</control>
+		
+		<control id="redblack" address="0x6c"/>
+		<control id="greenblack" address="0x6e"/>
+		<control id="blueblack" address="0x70"/>
+		
+		<!-- Appears to be read-only 
+		<control id="osdorientation" address="0xaa">
+			<value id="landscape" value="1"/>
+			<value id="portrait-cw" value="2"/>
+			<value id="landscape-180" value="3"/>
+			<value id="portrait-ccw" value="4"/>
+		</control> -->
+
+		<!-- Control 0xac: +/23364/1 C [???]	-->
+		<!-- Control 0xae: +/6000/0 C [???] 	-->
+		<!-- Control 0xb2: +/3/8   [???]    	-->
+		<!-- Control 0xb6: +/3/65535 C [???]	-->
+		<!-- Control 0xc6: +/17868/65535 C [???]-->
+		<!-- Control 0xc8: +/22021/0 C [???]	-->
+		<!-- Control 0xc9: +/513/65535 C [???]	-->	
+
+		<control id="dpms" address="0xd6">
+			<value id="on" value="1"/>
+			<value id="standby" value="4"/> <!-- Behavior seems same as off -->
+			<value id="off" value="5"/>
+		</control>
+
+
+		<control id="magicbright" address="0xdc">
+			<value id="standard"  value="0x00"/>
+			<value id="movie"  value="0x03"/>
+			<value id="game" value="0x05"/>
+		</control>
+
+		<!-- Control 0xdf: +/513/65535 C [???] -->
+		<!-- Control 0xe0: +/0/65535 C [???] -->
+
+		<control id="power" type="list" address="0xe1">
+			<value id="off" value="1"/>
+			<value id="on"  value="0"/>
+		</control>
+
+		<!-- Control 0xe2: +/0/25 C [???] -->
+		<!-- Control 0xf0: +/0/65535 C [???]  -->
+		<!-- Control 0xf1: +/139/65535 C [???]  -->
+		<!-- Control 0xf2: +/0/65535 C [???]  -->
+		<!-- Control 0xfd: +/116/65535 C [???]  -->  
+	</controls>
+</monitor>
