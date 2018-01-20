@@ -44,6 +44,7 @@
 				<value id="auto" name="Auto"/>
 			</control>
 			<control id="fengine" type="list" name="f-Engine">
+				<value id="photo" name="Photo" />
 				<value id="normal" name="Normal" />
 				<value id="user" name="User" />
 				<value id="text" name="Text" />
@@ -53,6 +54,7 @@
 <!-- Following sub group valid for LG F-Engine monitors -->
 		<subgroup name="LG F-Engine">
 			<control id="femode" type="list" name="F-Engine Mode" address="0xFC">
+				<value id="photo" name="Photo" value="0x00"/>
 				<value id="movie" name="Movie" value="0x01"/>
 				<value id="text" name="Text" value="0x02"/>
 				<value id="normal" name="Normal" value="0x00"/>
