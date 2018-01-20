@@ -5,7 +5,7 @@
 
 # DDC/CI control database
 
-Project `ddccontrol-db` contains database of monitor descriptors, which are used by  `ddccontrol` and `gddccontrol` utilities to control monitor parameters using DDC/CI protocol.
+Project `ddccontrol-db` contains database of monitor descriptors, which are used by  `ddccontrol` and `gddccontrol` utilities to control monitor parameters using DDC/CI protocol. [MONITORS.md](MONITORS.md) contains a list of displays currently in the database.
 
 * [Installation](#installation)
     * [Installation from official packages](#installation-from-official-packages)
