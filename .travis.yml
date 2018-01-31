@@ -15,7 +15,7 @@ addons:
 
 install:
   - export DDCCONTROL_BUILD_DIR="$(mktemp -dt ddccontrol_build.XXX)"
-  - git clone https://github.com/ddccontrol/ddccontrol.git ${DDCCONTROL_BUILD_DIR}
+  - git clone --branch 0.4.3 https://github.com/ddccontrol/ddccontrol.git ${DDCCONTROL_BUILD_DIR}
   - bash -c "cd ${DDCCONTROL_BUILD_DIR} && ./autogen.sh && ./configure && make -j4"
   - export PATH="${DDCCONTROL_BUILD_DIR}/src/ddccontrol:${PATH}"
 
