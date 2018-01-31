@@ -14,14 +14,15 @@ addons:
       - libgtk2.0-dev
 
 install:
-  - mkdir -p ${TRAVIS_BUILD_DIR}/deps/
-  - git clone https://github.com/ddccontrol/ddccontrol.git ${TRAVIS_BUILD_DIR}/deps/ddccontrol
-  - bash -c "cd ${TRAVIS_BUILD_DIR}/deps/ddccontrol && ./autogen.sh && ./configure && make -j4"
-  - export PATH="${TRAVIS_BUILD_DIR}/deps/ddccontrol/src/ddccontrol:${PATH}"
+  - export DDCCONTROL_BUILD_DIR="$(mktemp -dt ddccontrol_build.XXX)"
+  - git clone --branch 0.4.3 https://github.com/ddccontrol/ddccontrol.git ${DDCCONTROL_BUILD_DIR}
+  - bash -c "cd ${DDCCONTROL_BUILD_DIR} && ./autogen.sh && ./configure && make -j4"
+  - export PATH="${DDCCONTROL_BUILD_DIR}/src/ddccontrol:${PATH}"
 
 script:
   - ./autogen.sh
   - ./configure
   - make -j4
   - make check-db
+  - ./scripts/travis_ci_after_build_checks.sh
 
