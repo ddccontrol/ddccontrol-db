@@ -27,6 +27,20 @@
 				<value id="auto" name="Auto"/>
 			</control>
 		</subgroup>
+
+		<subgroup name="Flatron f-engine">
+			<control id="fengine" type="list" name="f-Engine">
+				<value id="normal" name="Normal" />
+				<value id="user" name="User" />
+				<value id="text" name="Text" />
+				<value id="movie" name="Movie" />
+			</control>
+
+			<control id="fengine-brightness" name="Brightness" type="value"/>
+			<control id="fengine-ACE" type="value" name="ACE"/>
+			<control id="fengine-RCM" type="value" name="RCM"/>
+
+		</subgroup>
 		<subgroup name="Gamma" > 
 			<control id="gamma" type="list" name="Gamma" address="0xF2" >
 				<value id="-0.5" name="-0.5"/>
