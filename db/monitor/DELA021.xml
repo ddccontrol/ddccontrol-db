@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!--- type(LCD)vcp(page0(02 04 05 08 0E 10 12 14(01 06 08 0B) 16 
+18 1A 1D 1E 20 30 3E 52 AC AE B2 B6 C0 C6 C8 C9 CA D6(01 02 03 04) DF)) -->
+<monitor name="Dell 2007FP (DVI)" init="standard">
+	<!--- Note: "Contrast settings (0x12) doesn't work with DVI, only with VGA" -->
+	<caps add="(vcp(02 04 05 08 0E 10 14(01 06 08 0B) 16 18 1A 1D 1E 20 30 60(03 05 07 09) 3E 52 AC AE B2 B6 C0 C6 C8 C9 CA D6(01 02 03 04) DF))"/>
+        <controls>
+		<!--- Control 0x02: +/256/65535   [???] -->
+
+                <control id="colorpreset" address="0x14">
+			<value id="normal" value="1"/>
+                        <value id="warm"   value="6"/>
+                        <value id="cool"   value="8"/>
+                        <value id="custom" value="11"/>
+                </control>
+
+    <!-- inputsource has changed in the Dell 2007FP model, using the newer
+    saner settings.
+
+    from EDID Manufactured: Week 21, 2006 and Week 33, 2006
+    when on VGA reads       Control 0x60: +/256/65535 in hex 0x100
+    when on DVI reads       Control 0x60: +/768/65535 in hex 0x300
+    when on Composite reads Control 0x60: +/0/65535 C
+    when on S-Video reads   Control 0x60: +/0/65535 C
+    writing,
+    write 1 goes to VGA
+    write 3 goes blank (Composite or S-Video not sure)
+    write 5 goes blank (Composite or S-Video not sure)
+    write 7 goes to DVI
+    Note the LED input indicator doesn't change.
+
+    from EDID Manufactured: Week 3, 2007
+    reading,
+    when on VGA reads       Control 0x60: +/1/7 C
+    when on DVI reads       Control 0x60: +/3/7
+    when on Composite reads Control 0x60: +/5/7 C
+    when on S-Video reads   Control 0x60: +/7/7 C
+    writing,
+    write 1 goes to VGA
+    write 3 goes to DVI
+    write 5 goes to Composite
+    write 7 goes to S-Video
+
+    Note, the monitor can only be controlled from one i2c bus, which will
+    either be VGA or DVI, whichever was the last enabled port.  That means if
+    you set it to DVI from VGA, then the VGA input can't get it back (same with
+    reverse).  The active i2c bus can set it to Composite or S-Video and move
+    it back, as long as the power doesn't go out, then the VGA input has
+    control.
+    -->
+    <!-- matches a "newer" display manufactured in Week 3, 2007 -->
+    <control id="inputsource" type="list" address="0x60">
+      <value id="vga" value="0x01"/>
+      <value id="dvi" value="0x03"/>
+      <value id="composite" value="0x05"/>
+      <value id="s-video" value="0x07"/>
+    </control>
+
+		<!--- Control 0x60: +/768/65535   [???] -->
+		<!--- Control 0x68: +/256/65535   [???] -->
+		<!--- Control 0x95: +/0/2047   [???] -->
+		<!--- Control 0x96: +/0/2047   [???] -->
+		<!--- Control 0x97: +/0/2047   [???] -->
+		<!--- Control 0x98: +/0/2047   [???] -->
+		<!--- Control 0x9b: +/244/255   [Six Axis Color Control - Red] -->
+		<!--- Control 0x9d: +/255/255   [Six Axis Color Control - Green] -->
+		<!--- Control 0x9f: +/244/255   [Six Axis Color Control - Blue] -->
+		<!--- Control 0xac: +/60674/65535   [Horizontal freq] -->
+		<!--- Control 0xae: +/22274/65535   [Vertical freq] -->
+		<!--- Control 0xb6: +/768/65535   [???] -->
+		<!--- Control 0xc0: +/0/65535   [???] -->
+		<!--- Control 0xc6: +/65535/65535   [???] -->
+		<!--- Control 0xc8: +/18690/65535   [???] -->
+		<!--- Control 0xc9: +/258/65535   [Display firmware level] -->
+		<!--- Control 0xca: +/256/65535   [???] -->
+		<!--- Control 0xd6: +/256/65535   [???] -->
+		<!--- Control 0xdf: +/512/65535   [VCP Version] -->
+        </controls>
+        <include file="VESA"/>
+</monitor>

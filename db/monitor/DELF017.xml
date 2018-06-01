@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<monitor name="Dell Ultrasharp u2410 (Rev A02)" init="standard">
+	<caps add="(vcp(02 04 05 06 08 0E 10 12 14(01 05 08 0B 0C) 16 18 1A 1E 20 30 3E 52 60(01 03 04 05 0C 0F 11) 6C 6E 70 AC AE B6 C6 C8 C9 D6(01 04 05) DC(00 02 03 04 05) DF FD)type(LCD)mccs_ver(2.0)asset_eep(32)mswhql(1))"/>
+	<controls>
+		<control id="defaults" address="0x04" delay="2000"/>
+		<control id="defaultluma" address="0x05" delay="2000"/>
+		<control id="defaultgeom" address="0x06" delay="2000"/>
+		<control id="defaultcolor" address="0x08" delay="2000"/>
+
+		<control id="brightness" address="0x10"/>
+		<control id="contrast" address="0x12"/>
+
+		<control id="red" address="0x16"/>
+		<control id="green" address="0x18"/>
+		<control id="blue" address="0x1A"/>
+		<control id="redblack" address="0x6C"/>
+		<control id="greenblack" address="0x6E"/>
+		<control id="blueblack" address="0x70"/>
+
+		<control id="inputsource" type="list" address="0x60">
+			<value id="vga" value="0x01"/>
+			<value id="dvi1" value="0x03"/>
+			<value id="dvi2" value="0x04"/>
+			<value id="dp" value="0x0F"/>
+			<value id="hdmi" value="0x11"/>
+			<value id="component" value="0x0C"/>
+			<value id="composite" value="0x05"/>
+		</control>
+
+		<control id="dpms" address="0xd6">
+			<value id="on" value="1"/>
+			<value id="standby" value="4"/>
+			<value id="off" value="5"/>
+		</control>
+
+		<control id="colorpreset" address="0x14">
+			<value id="native" value="0x05"/>
+			<value id="cool" value="0x08"/>
+			<value id="warm" value="0x0b"/>
+			<value id="srgb" value="0x01"/>
+			<value id="argb" value="0x00"/>
+			<value id="custom" value="0x0c"/>
+		</control>
+
+		<control id="magicbright" address="0xdc">
+			<value id="standard" value="0x00"/>
+			<value id="multimedia" value="0x02"/>
+			<value id="game" value="0x05"/>
+			<!-- <value id="video - movie" value="0x03"/> -->
+			<!-- <value id="video - nature" value="0x04"/> -->
+		</control>
+
+		<control id="language" type="list" address="0x68">
+			<value id="english" value="0x01"/>
+			<value id="spanish" value="0x02"/>
+			<value id="french" value="0x03"/>
+			<value id="german" value="0x04"/>
+			<value id="japanese" value="0x05"/>
+			<value id="russian" value="0x06"/>
+			<value id="portuguese" value="0x07"/>
+			<value id="chinese" value="0x08"/>
+		</control>
+	</controls>
+</monitor>
+
+<!-- vim: set noet ff=unix: -->

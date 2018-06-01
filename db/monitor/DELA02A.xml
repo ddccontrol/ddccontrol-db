@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<monitor name="Dell 2408WFP (DVI)" init="standard">
+	<caps add="(vcp(02 04 05 06 08 10 12 14(01 05 08 0B 0C) 16 18 1A 52 60(01 03 04 05 07 0C) AC AE B6 C6 C8 C9 D6(01 03 04 05) DC(00 02 03 04 05 06) DF) type(LCD) mccs_ver(2.0) asset_eep(32) mswhql(1))"/>
+	<controls>
+		<control id="colorpreset" address="0x14">
+			<value id="normal" value="0x05"/><!-- "Desktop" -->
+			<value id="srgb" value="0x01"/>
+			<value id="warm" value="0x0B"/>
+			<value id="cool" value="0x08"/>
+			<value id="custom" value="0x0C"/>
+		</control>
+		<!--- Control 0x52: +/96/255 C [???] -->
+		<control id="inputsource" type="list" address="0x60">
+			<!-- It is not possible to switch to the DisplayPort or HDMI inputs -->
+			<value id="vga" value="0x01"/>
+			<value id="dvi1" value="0x03"/>
+			<value id="dvi2" value="0x04"/>
+			<value id="composite" value="0x05"/>
+			<value id="s-video" value="0x07"/>
+			<value id="component" value="0x0C"/>
+		</control>
+		<!--- Control 0x68: +/1/2 C [???] -->
+		<!--- Control 0x8a: +/256/65535 C [???] -->
+		<!--- Control 0x8c: +/14/65535 C [???] -->
+		<!--- Control 0xac: +/8564/1 C [???] -->
+		<!--- Control 0xae: +/5980/65535 C [???] -->
+		<!--- Control 0xb6: +/3/65535 C [???] -->
+		<!--- Control 0xc6: +/17868/65535 C [???] -->
+		<!--- Control 0xc8: +/32770/118 C [???] -->
+		<!--- Control 0xc9: +/1/65535 C [???] -->
+		<!--- Control 0xdc: +/0/6 C [???] -->
+		<!--- Control 0xdf: +/512/65535 C [???] -->
+		<!--- Control 0xff: +/0/65535   [???] -->
+	</controls>
+	<include file="VESA"/>
+</monitor>

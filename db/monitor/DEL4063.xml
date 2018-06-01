@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<monitor name="Dell Ultrasharp u3011" init="standard">
+  <!--- CAPS: prot(monitor)type(LCD)model(DELL u3011)cmds(01 03 0C F3)vcp(04 10 ) -->
+  <caps add="(type(lcd)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 06 08 10 12 14(01 05 08 0B 0C) 16 18 1A 52 60(01 03 04 0C 0F 11 12) AC AE B2 B6 C6 C8 C9 D6(01 04 05) DC(00 02 03 04 05) DF FD)"/>
+  <!--- include file="VESA" -->
+
+  <controls>
+    <!--- Standard VESA controls (available in VESA.xml) -->
+    <control id="defaults" address="0x04" delay="2000"/>
+    <control id="defaultluma" address="0x05" delay="2000"/>
+    <control id="defaultgeom" address="0x06" delay="2000"/>
+    <control id="defaultcolor" address="0x08" delay="2000"/>
+
+    <control id="brightness" address="0x10"/>
+    <control id="contrast" address="0x12"/>
+
+    <control id="red" address="0x16"/>
+    <control id="green" address="0x18"/>
+    <control id="blue" address="0x1A"/>
+
+    <control id="inputsource" type="list" address="0x60">
+      <value id="vga" value="0x01"/>
+      <value id="dvi1" value="0x03"/>
+      <value id="dvi2" value="0x04"/>
+      <value id="component" value="0x0C"/>
+      <value id="dp" value="0x0F"/>
+      <value id="hdmi1" value="0x11"/>
+      <value id="hdmi2" value="0x12"/>
+    </control>
+
+    <control id="dpms" address="0xd6">
+      <value id="on" value="1"/>
+      <value id="standby" value="4"/>
+      <value id="off" value="5"/>
+    </control>
+
+    <!--- DELL u3011 controls -->
+    <control id="colorpreset" address="0x14">
+      <value id="srgb"  value="0x01"/>
+      <value id="native"  value="0x05"/>
+      <value id="cool"  value="0x08"/>
+      <value id="warm" value="0x0b"/>
+      <value id="user" value="0x0c"/>
+    </control>
+
+    <control id="magicbright" address="0xdc">
+      <value id="standard"  value="0x00"/>
+      <value id="multimedia"  value="0x02"/>
+      <value id="movie"  value="0x03"/>
+      <value id="custom" value="0x04"/>
+      <value id="game" value="0x05"/>
+    </control>
+
+    <!--- Control 0x02  Max=0x0002  Current=0x0001   [RW  NC  New control value] -->
+    <!--- Control 0x52  Max=0x00FF  Current=0x0010   [RO  NC  Active control] -->
+    <!--- Control 0xAC  Max=0x0001  Current=0x8060   [RO   C  Horizontal frequency] -->
+    <!--- Control 0xAE  Max=0xFFFF  Current=0x175C   [RO   C  Vertical frequency] -->
+    <!--- Control 0xB2  Max=0x0008  Current=0x0001   [RO  NC  Panel sub-pixel layout] -->
+    <!--- Control 0xB6  Max=0x0005  Current=0x0003   [RO  NC  Display technology type] -->
+    <!--- Control 0xC6  Max=0xFFFF  Current=0x45CC   [RO  NC  Application enable key] -->
+    <!--- Control 0xC8  Max=0x0094  Current=0x8505   [RO  NC  Display controller type] -->
+    <!--- Control 0xC9  Max=0xFFFF  Current=0x0101   [RO   C  Display firmware level] -->
+    <!--- Control 0xDF  Max=0x00FF  Current=0x0201   [RO  NC  VCP version] -->
+    <!--- Control 0xFD  Max=0xFFFF  Current=0x0074   [TBD TBD  Manufacturer specific - 0xFD] -->
+
+  </controls>
+</monitor>
+
+
+

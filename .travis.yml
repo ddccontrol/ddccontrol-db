@@ -1,0 +1,28 @@
+language: cpp
+
+dist: precise
+sudo: false
+
+addons:
+  apt:
+    packages:
+      - intltool
+      - autoconf
+      - autopoint
+      - libxml2-dev
+      - pciutils-dev
+      - libgtk2.0-dev
+
+install:
+  - export DDCCONTROL_BUILD_DIR="$(mktemp -dt ddccontrol_build.XXX)"
+  - git clone --branch 0.4.3 https://github.com/ddccontrol/ddccontrol.git ${DDCCONTROL_BUILD_DIR}
+  - bash -c "cd ${DDCCONTROL_BUILD_DIR} && ./autogen.sh && ./configure && make -j4"
+  - export PATH="${DDCCONTROL_BUILD_DIR}/src/ddccontrol:${PATH}"
+
+script:
+  - ./autogen.sh
+  - ./configure
+  - make -j4
+  - make check-db
+  - ./scripts/travis_ci_after_build_checks.sh
+

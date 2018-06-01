@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<monitor name="BenQ RL2455HM" init="standard">
+	<caps add="(vcp(04 05 08 10 12 16 18 1a 62 60 8d dc cc))"/>
+	<controls>
+		<control id="defaults" address="0x04" delay="2000"/>
+		<control id="defaultluma" address="0x05" delay="2000"/>
+		<control id="defaultcolor" address="0x08" delay="2000"/>
+
+		<control id="brightness" address="0x10"/>
+		<control id="contrast" address="0x12"/>
+		<control id="red" address="0x16"/>
+		<control id="green" address="0x18"/>
+		<control id="blue" address="0x1a"/>
+
+		<control id="inputsource" type="list" address="0x60">
+			<value id="dvi" value="0x03"/>
+			<value id="hdmi1" value="0x17"/>
+			<value id="hdmi2" value="0x18"/>
+		</control>
+
+		<control id="colorpreset" type="list" address="0xdc">
+			<value id="normal" value="0x00"/>
+			<value id="movie" value="0x01"/>
+			<value id="photo" value="0x02"/>
+			<value id="srgb" value="0x03"/>
+			<value id="eco" value="0x04"/>
+			<value id="rts1" value="0x05"/>
+			<value id="rts2" value="0x06"/>
+			<value id="user1" value="0x07"/>
+			<value id="user2" value="0x08"/>
+			<value id="user3" value="0x09"/>
+		</control>
+
+		<control id="audiospeakervolume" address="0x62"/>
+		<control id="mute" type="list" address="0x8d">
+			<value id="mute" value="0x01"/>
+			<value id="normal" value="0x02"/>
+		</control>
+
+		<control id="language" type="list" address="0xcc">
+			<value id="english" value="0x02"/>
+			<value id="french" value="0x03"/>
+			<value id="german" value="0x04"/>
+			<value id="italian" value="0x05"/>
+			<value id="spanish" value="0x06"/>
+		</control>
+	</controls>
+</monitor>

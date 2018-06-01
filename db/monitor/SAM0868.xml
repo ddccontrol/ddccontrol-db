@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!-- vcp(04 05 06 08 0E 10 12 14(03 04 02 07 08 0B) 16 18 1A 1E 20 30 3E 87 B0(01 02) B6 C6 C8 C9 D6(01 04) DC(01 02 03 06 F0 FB) DB(00 04 FE) DF F0(00 02 03) F2 F6 F7(00 02 03) ) -->
+<monitor name="Samsung SyncMaster S22A100N (VGA)">
+  <!-- Cannot be changed: B6 C8 -->
+  <!-- Sims invalid: C9 -->
+  <!-- <caps add="(vcp(ED EE EF))"/> Black Colours level? -->
+  <controls>
+    <!-- address=0xF7 id=unknown value=0x00:custom/0x02:light/0x03:dark -->
+    <control id="colorpreset" address="0x14">
+      <value id="normal" value="0x0B"/>
+      <value id="warm1"  value="0x04"/>
+      <value id="warm2"  value="0x03"/>
+      <value id="cool1"  value="0x07"/>
+      <value id="cool2"  value="0x08"/>
+    </control>
+    <control id="settings" address="0xb0" delay="1000">
+      <value id="store" value="1" name="Save Current Settings"/>
+    </control>
+  </controls>
+  <include file="SAMmb6"/>
+  <include file="SAMlcd"/>
+</monitor>
