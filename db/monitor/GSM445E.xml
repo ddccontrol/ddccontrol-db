@@ -1,0 +1,32 @@
+<!--
+prot(monitor)
+type(lcd)
+model(L1760T)
+cmds(01 02 03 07 0C E3 F3)
+vcp(02 04 05 06 08 0B 0C 0E 10 12 14(01 05 06 08 0B) 16 18 1A 1E 20 30 3E 52 60 6C 6E 70 87 AC AE B6 C0 C6 C8 C9 D6(01 04) DF )
+mswhql(1)
+mccs_ver(2.1)
+-->
+
+<monitor name="LG Flatron L1760TR (digital)">
+	<caps add="(vcp(02 04 05 06 08 0B 0C  10 12 14(01 05 06 07 08 0B) 16 18 1A 30 52 60 6C 6E 70 87 AC AE B6 C0 C6 C8 C9 D6(01 04) DF 
+	      B6 DF FD(00 01) FE(00 01 02) 87(00 01 02 03 04 05 06 07 08 09 0A) F1 F2 F3 FC)"/>
+	<!-- 20  1E 0E 3E -->
+	
+	<controls>
+		<control id="fengine" address="0xfc">
+			<value id="normal" value="0" />
+			<value id="movie" value="1" />
+			<value id="text"  value="2" />
+			<value id="user"  value="3" />
+		</control>
+		
+		<control id="fengine-brightness" address="0xf1"/>
+		<control id="fengine-ACE" address="0xf2"/>
+		<control id="fengine-RCM" address="0xf3"/>
+
+		<control id="sharpness" address="0x87"/>
+	</controls>
+	
+	<include file="GSMlcd"/>
+</monitor>

@@ -52,6 +52,17 @@
 		</subgroup>
 <!-- Following sub group valid for LG F-Engine monitors -->
 		<subgroup name="LG F-Engine">
+			<!-- TODO: merge duplicates !!! -->
+			<control id="fengine" type="list" name="f-Engine">
+				<value id="normal" name="Normal" />
+				<value id="user" name="User" />
+				<value id="text" name="Text" />
+				<value id="movie" name="Movie" />
+			</control>
+			<control id="fengine-brightness" name="Brightness" type="value"/>
+			<control id="fengine-ACE" type="value" name="ACE"/>
+			<control id="fengine-RCM" type="value" name="RCM"/>
+
 			<control id="femode" type="list" name="F-Engine Mode" address="0xFC">
 				<value id="movie" name="Movie" value="0x01"/>
 				<value id="text" name="Text" value="0x02"/>
