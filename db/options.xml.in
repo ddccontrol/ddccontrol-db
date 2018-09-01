@@ -375,6 +375,7 @@
 				<value id="component" name="Component"/>
 				<value id="s-video" name="S-Video"/>
 				<value id="composite" name="Composite"/>
+                                <value id="usb-c" name = "USB-C" />
 			</control>
 			<control id="autosource" type="list" name="Autoselect Input Source" address="0xe2">
 				<value id="auto" name="Automatic" value="0"/>
@@ -414,4 +415,54 @@
 			</control>
 		</subgroup>
 	</group>
+        <!-- Picture-by-Picture ("split screen") and Picture-in-Picture settings -->
+	<group name="PIP/PBP">
+		<subgroup name="PIP/PBP settings">
+			<control id="PbP" type="list" name="PbP/PIP mode"  address="0xe9">
+				<value id="Off" name="Off"/>
+				<value id="PbP"  name="PbP"/>
+				<value id="PiP large"  name="PiP Large"/>
+				<value id="PiP small"  name="PiP Small"/>
+			</control>
+			<control id="maininputsource" type="list" name="Input Source Select (Main)">
+				<value id="analog" name="Analog"/>
+				<value id="digital" name="Digital"/>
+				<value id="dp" name="DisplayPort"/>
+				<value id="dvi" name="DVI"/>
+				<value id="dvi1" name="DVI-1"/>
+				<value id="dvi2" name="DVI-2"/>
+				<value id="hdmi" name="HDMI"/>
+				<value id="hdmi1" name="HDMI-1"/>
+				<value id="hdmi2" name="HDMI-2"/>
+				<value id="hdmi-mhl" name="HDMI (MHL)"/>
+				<value id="mdp" name="mDP"/>
+				<value id="vga" name="VGA"/>
+				<value id="component" name="Component"/>
+				<value id="s-video" name="S-Video"/>
+				<value id="composite" name="Composite"/>
+                                <value id="usb-c" name = "USB-C" />
+			</control>
+                        <!-- some displays do now support even four split screens (e. g. LG 43UD79-B)
+                             so more sub inputs could be added here later to support those displays by incrementing the sub input number -->
+			<control id="subinputsource1" type="list" name="Input Source Select (Sub #1)">
+				<value id="analog" name="Analog"/>
+				<value id="digital" name="Digital"/>
+				<value id="dp" name="DisplayPort"/>
+				<value id="dvi" name="DVI"/>
+				<value id="dvi1" name="DVI-1"/>
+				<value id="dvi2" name="DVI-2"/>
+				<value id="hdmi" name="HDMI"/>
+				<value id="hdmi1" name="HDMI-1"/>
+				<value id="hdmi2" name="HDMI-2"/>
+				<value id="hdmi-mhl" name="HDMI (MHL)"/>
+				<value id="mdp" name="mDP"/>
+				<value id="vga" name="VGA"/>
+				<value id="component" name="Component"/>
+				<value id="s-video" name="S-Video"/>
+				<value id="composite" name="Composite"/>
+                                <value id="usb-c" name = "USB-C" />
+			</control>
+		</subgroup>
+	</group>
+
 </options>
