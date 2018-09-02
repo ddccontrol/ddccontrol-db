@@ -11,13 +11,13 @@
 			<value id="PiP large"	value="0x22"/>
 			<value id="PiP small"	value="0x21"/>
 		</control>
-		<control id="maininputsource" type="list" address="0x60">
+		<control id="inputsource" type="list" address="0x60">
 			<value id="hdmi1"	value="0x11"/>
 			<value id="hdmi2"	value="0x12"/>
 			<value id="dp"		value="0x0f"/>
 			<value id="usb-c"	value="0x1b"/>
 		</control>
-		<control id="subinputsource1" type="list" address="0xe8">
+		<control id="inputsource_sub1" type="list" address="0xe8">
 			<value id="hdmi1"	value="0x11"/>
 			<value id="hdmi2"	value="0x12"/>
 			<value id="dp"		value="0x0f"/>
