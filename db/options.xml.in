@@ -291,6 +291,68 @@
 			<control id="sharpness" type="value" name="Sharpness" address="0x8c"/>
 		</subgroup>
 	</group>
+	<group name="Input settings">
+		<!-- Picture-by-Picture ("split screen") and Picture-in-Picture settings are vendor-specific -->
+		<subgroup name="PIP/PBP">
+			<control id="PbP" type="list" name="PbP/PIP mode">
+				<value id="Off" name="Off"/>
+				<value id="PbP" name="PbP"/>
+				<value id="PiP large" name="PiP Large"/>
+				<value id="PiP small" name="PiP Small"/>
+			</control>
+		</subgroup>
+		<subgroup name="Input sources">
+			<control id="inputlevel" type="list" name="Input level Select" address="0x5E">
+				<!-- To be completed -->
+			</control>
+			<control id="resolutionnotifier" type="list" name="Display Resolution Notifier" address="0xf6">
+				<value id="on" name="On"/>
+				<value id="off" name="Off"/>
+			</control>
+			<control id="inputsource" type="list" name="Input Source Select (Main)" address="0x60">
+				<value id="analog" name="Analog"/>
+				<value id="digital" name="Digital"/>
+				<value id="dp" name="DisplayPort"/>
+				<value id="dvi" name="DVI"/>
+				<value id="dvi1" name="DVI-1"/>
+				<value id="dvi2" name="DVI-2"/>
+				<value id="hdmi" name="HDMI"/>
+				<value id="hdmi1" name="HDMI-1"/>
+				<value id="hdmi2" name="HDMI-2"/>
+				<value id="hdmi-mhl" name="HDMI (MHL)"/>
+				<value id="mdp" name="mDP"/>
+				<value id="vga" name="VGA"/>
+				<value id="component" name="Component"/>
+				<value id="s-video" name="S-Video"/>
+				<value id="composite" name="Composite"/>
+				<value id="usb-c" name="USB-C"/>
+			</control>
+			<control id="autosource" type="list" name="Autoselect Input Source" address="0xe2">
+				<value id="auto" name="Automatic" value="0"/>
+				<value id="manual" name="Manual" value="1"/>
+			</control>
+			<!-- some displays do now support even four PBP split screens (e. g. LG 43UD79-B)
+			     so more sub inputs could be added here later to support those displays by incrementing the sub input number -->
+			<control id="inputsource_sub1" type="list" name="Input Source Select (Sub #1)">
+				<value id="analog" name="Analog"/>
+				<value id="digital" name="Digital"/>
+				<value id="dp" name="DisplayPort"/>
+				<value id="dvi" name="DVI"/>
+				<value id="dvi1" name="DVI-1"/>
+				<value id="dvi2" name="DVI-2"/>
+				<value id="hdmi" name="HDMI"/>
+				<value id="hdmi1" name="HDMI-1"/>
+				<value id="hdmi2" name="HDMI-2"/>
+				<value id="hdmi-mhl" name="HDMI (MHL)"/>
+				<value id="mdp" name="mDP"/>
+				<value id="vga" name="VGA"/>
+				<value id="component" name="Component"/>
+				<value id="s-video" name="S-Video"/>
+				<value id="composite" name="Composite"/>
+				<value id="usb-c" name="USB-C"/>
+			</control>
+		</subgroup>
+	</group>
 	<group name="Others">
 		<subgroup name="Restore defaults">
 			<control id="defaults" type="command" name="Restore Factory Defaults" address="0x04" refresh="all"/>
@@ -349,36 +411,6 @@
 				<value id="romanian"      name="Română (Romanian)"/>
 				<value id="portuguese"    name="Português (Portuguese)"/>
 				<value id="serbocroatian" name="SiGC/BiH/CRO (Serbo-Croatian)"/>
-			</control>
-		</subgroup>
-		<subgroup name="Input settings">
-			<control id="inputlevel" type="list" name="Input level Select" address="0x5E">
-				<!-- To be completed -->
-			</control>
-			<control id="resolutionnotifier" type="list" name="Display Resolution Notifier" address="0xf6">
-				<value id="on" name="On"/>
-				<value id="off" name="Off"/>
-			</control>
-			<control id="inputsource" type="list" name="Input Source Select" address="0x60">
-				<value id="analog" name="Analog"/>
-				<value id="digital" name="Digital"/>
-				<value id="dp" name="DisplayPort"/>
-				<value id="dvi" name="DVI"/>
-				<value id="dvi1" name="DVI-1"/>
-				<value id="dvi2" name="DVI-2"/>
-				<value id="hdmi" name="HDMI"/>
-				<value id="hdmi1" name="HDMI-1"/>
-				<value id="hdmi2" name="HDMI-2"/>
-				<value id="hdmi-mhl" name="HDMI (MHL)"/>
-				<value id="mdp" name="mDP"/>
-				<value id="vga" name="VGA"/>
-				<value id="component" name="Component"/>
-				<value id="s-video" name="S-Video"/>
-				<value id="composite" name="Composite"/>
-			</control>
-			<control id="autosource" type="list" name="Autoselect Input Source" address="0xe2">
-				<value id="auto" name="Automatic" value="0"/>
-				<value id="manual" name="Manual" value="1"/>
 			</control>
 		</subgroup>
 		<subgroup name="Power control">
