@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<monitor name="Philips BDM3270QP">
+	<!-- original caps -->
+	<caps add="(prot(monitor)type(lcd)model(MODEL BDM3270QP)cmds(01 02 03 07 0C 4E F3 E3)vcp(02 04 05 08 0B 0C 10 12 14(01 04 05 06 07 08 0A 0B) 16 18 1A 52 54(00 01) 60(00 01 03 11 0F 21 23 2F 31) 62 6C 6E 70 72(05 78 FB 50 64 78 8C A0) 86(01 02 08) AA(01 02) AC AE B6 C0 C6 C8 C9 CA(01 02) CC(01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 12 14 16 17 1A 1E 24) D6(01 04 05) DC(00 01 02 03 05 08 1F) DF E0(00 01 03) E9(00 02) EB(00 01 02 03) 8D(01 02) DA(00 02) F0(00 01) A4 A5 EC(00 01 02 03) F6(01) F7(42) FA(00 01 02) FB FC FD FE(00 01 02 04) )mswhql(1)mccs_ver(2.2)asset_eep(32)mpu_ver(01)SmartManage(1.0))" />
+
+	<!-- TODO: unsure about controls: 02, AA -->
+
+	<controls>
+		<!-- TODO: 60(00 01 03 11 0F 21 23 2F 31) -->
+		<control id="inputsource" type="list" address="0x60">
+			<value id="vga"  value="0x01"/>
+			<value id="dvi"  value="0x03"/>
+			<value id="dp"	 value="0x0f"/>
+			<value id="hdmi" value="0x11"/>
+		</control>
+	</controls>
+
+	<!-- include shared config for Philips family -->
+	<include file="PHLlcd" />
+</monitor>
+
