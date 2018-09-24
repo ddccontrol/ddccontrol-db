@@ -26,7 +26,7 @@
     
     <control id="colorpreset" type="list" address="0x14">
       <value id="srgb"     value="0x01"/>
-      <value id="standard" value="0x05"/>
+      <value id="native"   value="0x05"/>
       <value id="cool"     value="0x08"/>
       <value id="warm"     value="0x0B"/>
       <value id="user1"    value="0x0C"/>
