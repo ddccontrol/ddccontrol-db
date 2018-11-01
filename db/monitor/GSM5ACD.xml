@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<monitor name="LG LCD Monitor-19M38HB">
+    <controls>
+        <control id="dvmode" type="list"  address="0x15">
+                    <value id="standard" value="38"/>
+                    <value id="text"  value="33"/>
+                    <value id="movie"  value="48"/>
+                    <value id="gaming"  value="64"/>
+                    <value id="photo" value="32"/>
+        </control>
+        <!-- Reader modes-: Reader off,Reader 1, Reader 2 -->
+        <control id="superbright" type="list"  address="0x15">
+                        <value id="one"  value="38"/>
+                        <value id="two"  value="16"/>
+                        <value id="three"  value="17"/>
+        </control>
+        <control id="gamma" type="list" address="0xfe">
+                <value id="-0.5"   value="0x0"/>
+                <value id="0"      value="0x1"/>
+                <value id="+0.5"   value="0x2"/>
+        </control>
+        <!-- Color temperatures-:Warm,Medium,Cool,Custom -->
+        <control id="colorpreset" type="list" address="0x14">
+            <value id="warm"  value="0x5"/>
+            <value id="normal"  value="0x7"/>
+            <value id="cool"  value="0x8"/>
+            <value id="user1"  value="0xB"/>
+        </control>
+        <control id="sharpness" address="0x87"/>
+        <control id="language" type="list"  address="0xcc">
+                <value id="english"  value="0"/>
+                <value id="french"  value="2"/>
+                <value id="german"  value="1"/>
+                <value id="italian" value="4"/>
+                <value id="russian" value="10"/>
+                <value id="chinese"   value="13"/>
+                <value id="japanese"  value="14"/>
+                <value id="polish"  value="9"/>
+                <value id="portuguese" value="7"/>
+                <value id="hindi"  value="16"/>
+        </control>
+    </controls>
+    <include file="VESA"/>
+</monitor>
