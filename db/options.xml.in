@@ -415,7 +415,7 @@
 				<value id="romanian"      name="Română (Romanian)"/>
 				<value id="portuguese"    name="Português (Portuguese)"/>
 				<value id="serbocroatian" name="SiGC/BiH/CRO (Serbo-Croatian)"/>
-                                <value id="hindi"         name="हिन्दी(India)"/>
+				<value id="hindi"         name="हिन्दी (India)"/>
 			</control>
 			<!-- If "changed", read 0x52 register value to get address of the control changed using OSD menu -->
 			<control id="newcontrolvalue" type="list" name="New Control Value">
