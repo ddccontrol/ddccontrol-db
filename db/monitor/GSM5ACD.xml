@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 <monitor name="LG LCD Monitor-19M38HB">
+	<!--- CAPS: prot(monitor)type(lcd)model(MP76)cmds(01 02 03 0C E3 F3)vcp(02030405080B0C101214(01 05 06 07 08 0B)1516181A4D4E4F5260(01 03 04)626C6E70878DACAEB6C0C6C8C9D6(01 04)DFE0E1E3(00 01 02 03 04 10 11 12 13 14)ECEFFD(00 01)FE(00 01 02)F4F5F6F7F8F9FF)mswhql(1)mccs_ver(2.1) -->
+	<caps add="(type(lcd)vcp(02 03 04 05 08 0B 0C 10 12 14(01 05 06 07 08 0B)15 16 18 1A 4D 4E 4F 52 60(01 03 04)62 6C 6E 70 87 8D AC AE B6 C0 C6 C8 C9 D6(01 04)DF E0 E1 E3(00 01 02 03 04 10 11 12 13 14)EC EF FD(00 01)FE(00 01 02)F4 F5 F6 F7 F8 F9 FF)"/>
 	<controls>
 		<control id="dvmode" type="list"  address="0x15">
 			<value id="standard" value="38"/>
