@@ -53,6 +53,17 @@
 		</subgroup>
 <!-- Following sub group valid for LG F-Engine monitors -->
 		<subgroup name="LG F-Engine">
+			<!-- TODO: merge duplicates !!! -->
+			<control id="fengine" type="list" name="f-Engine">
+				<value id="normal" name="Normal" />
+				<value id="user" name="User" />
+				<value id="text" name="Text" />
+				<value id="movie" name="Movie" />
+			</control>
+			<control id="fengine-brightness" name="Brightness" type="value"/>
+			<control id="fengine-ACE" type="value" name="ACE"/>
+			<control id="fengine-RCM" type="value" name="RCM"/>
+
 			<control id="femode" type="list" name="F-Engine Mode" address="0xFC">
 				<value id="photo" name="Photo" value="0x00"/>
 				<value id="movie" name="Movie" value="0x01"/>
@@ -203,6 +214,10 @@
 				<value id="off" name="Off"/>
 				<value id="calibrated" name="Calibrated"/>
 			</control>
+			<!-- DELL P2416D -->
+			<control id="dellpaper" type="command" name="Paper preset" address="0xf0">
+				<value id="set" value="0x08" name="Set Paper Preset"/>
+			</control>
 		</subgroup>
 	</group>
 	<group name="Position and size">
@@ -282,6 +297,68 @@
 			<control id="sharpness" type="value" name="Sharpness" address="0x8c"/>
 		</subgroup>
 	</group>
+	<group name="Input settings">
+		<!-- Picture-by-Picture ("split screen") and Picture-in-Picture settings are vendor-specific -->
+		<subgroup name="PIP/PBP">
+			<control id="PbP" type="list" name="PbP/PIP mode">
+				<value id="Off" name="Off"/>
+				<value id="PbP" name="PbP"/>
+				<value id="PiP large" name="PiP Large"/>
+				<value id="PiP small" name="PiP Small"/>
+			</control>
+		</subgroup>
+		<subgroup name="Input sources">
+			<control id="inputlevel" type="list" name="Input level Select" address="0x5E">
+				<!-- To be completed -->
+			</control>
+			<control id="resolutionnotifier" type="list" name="Display Resolution Notifier" address="0xf6">
+				<value id="on" name="On"/>
+				<value id="off" name="Off"/>
+			</control>
+			<control id="inputsource" type="list" name="Input Source Select (Main)" address="0x60">
+				<value id="analog" name="Analog"/>
+				<value id="digital" name="Digital"/>
+				<value id="dp" name="DisplayPort"/>
+				<value id="dvi" name="DVI"/>
+				<value id="dvi1" name="DVI-1"/>
+				<value id="dvi2" name="DVI-2"/>
+				<value id="hdmi" name="HDMI"/>
+				<value id="hdmi1" name="HDMI-1"/>
+				<value id="hdmi2" name="HDMI-2"/>
+				<value id="hdmi-mhl" name="HDMI (MHL)"/>
+				<value id="mdp" name="mDP"/>
+				<value id="vga" name="VGA"/>
+				<value id="component" name="Component"/>
+				<value id="s-video" name="S-Video"/>
+				<value id="composite" name="Composite"/>
+				<value id="usb-c" name="USB-C"/>
+			</control>
+			<control id="autosource" type="list" name="Autoselect Input Source" address="0xe2">
+				<value id="auto" name="Automatic" value="0"/>
+				<value id="manual" name="Manual" value="1"/>
+			</control>
+			<!-- some displays do now support even four PBP split screens (e. g. LG 43UD79-B)
+			     so more sub inputs could be added here later to support those displays by incrementing the sub input number -->
+			<control id="inputsource_sub1" type="list" name="Input Source Select (Sub #1)">
+				<value id="analog" name="Analog"/>
+				<value id="digital" name="Digital"/>
+				<value id="dp" name="DisplayPort"/>
+				<value id="dvi" name="DVI"/>
+				<value id="dvi1" name="DVI-1"/>
+				<value id="dvi2" name="DVI-2"/>
+				<value id="hdmi" name="HDMI"/>
+				<value id="hdmi1" name="HDMI-1"/>
+				<value id="hdmi2" name="HDMI-2"/>
+				<value id="hdmi-mhl" name="HDMI (MHL)"/>
+				<value id="mdp" name="mDP"/>
+				<value id="vga" name="VGA"/>
+				<value id="component" name="Component"/>
+				<value id="s-video" name="S-Video"/>
+				<value id="composite" name="Composite"/>
+				<value id="usb-c" name="USB-C"/>
+			</control>
+		</subgroup>
+	</group>
 	<group name="Others">
 		<subgroup name="Restore defaults">
 			<control id="defaults" type="command" name="Restore Factory Defaults" address="0x04" refresh="all"/>
@@ -340,36 +417,12 @@
 				<value id="romanian"      name="Română (Romanian)"/>
 				<value id="portuguese"    name="Português (Portuguese)"/>
 				<value id="serbocroatian" name="SiGC/BiH/CRO (Serbo-Croatian)"/>
+				<value id="hindi"         name="हिन्दी (India)"/>
 			</control>
-		</subgroup>
-		<subgroup name="Input settings">
-			<control id="inputlevel" type="list" name="Input level Select" address="0x5E">
-				<!-- To be completed -->
-			</control>
-			<control id="resolutionnotifier" type="list" name="Display Resolution Notifier" address="0xf6">
-				<value id="on" name="On"/>
-				<value id="off" name="Off"/>
-			</control>
-			<control id="inputsource" type="list" name="Input Source Select" address="0x60">
-				<value id="analog" name="Analog"/>
-				<value id="digital" name="Digital"/>
-				<value id="dp" name="DisplayPort"/>
-				<value id="dvi" name="DVI"/>
-				<value id="dvi1" name="DVI-1"/>
-				<value id="dvi2" name="DVI-2"/>
-				<value id="hdmi" name="HDMI"/>
-				<value id="hdmi1" name="HDMI-1"/>
-				<value id="hdmi2" name="HDMI-2"/>
-				<value id="hdmi-mhl" name="HDMI (MHL)"/>
-				<value id="mdp" name="mDP"/>
-				<value id="vga" name="VGA"/>
-				<value id="component" name="Component"/>
-				<value id="s-video" name="S-Video"/>
-				<value id="composite" name="Composite"/>
-			</control>
-			<control id="autosource" type="list" name="Autoselect Input Source" address="0xe2">
-				<value id="auto" name="Automatic" value="0"/>
-				<value id="manual" name="Manual" value="1"/>
+			<!-- If "changed", read 0x52 register value to get address of the control changed using OSD menu -->
+			<control id="newcontrolvalue" type="list" name="New Control Value">
+				<value id="nochanges" name="No changes"/>
+				<value id="changed" name="Some values changed"/>
 			</control>
 		</subgroup>
 		<subgroup name="Power control">
@@ -380,6 +433,7 @@
 			</control>
 			<control id="power" type="list" name="Power control" address="0xe1">
 				<value id="off" name="Off"/>
+				<value id="standby" name="Standby"/>
 				<value id="on" name="On"/>
 			</control>
 		</subgroup>

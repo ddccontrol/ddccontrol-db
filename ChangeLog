@@ -1,3 +1,11 @@
+2018-06-02  Miroslav Kravec <kravec.miroslav@gmail.com>
+
+	* db/monitor/GSM445D.xml, db/monitor/GSM445E.xml:
+	Add support for LG Flatron L1760TR, thanks to Maxim Levitsky
+
+	* db/monitor/LCA21C0.xml:
+	Add support for LaCie 321, thanks to Mourad De Clerck
+
 2017-12-17  Miroslav Kravec <kravec.miroslav@gmail.com>
 
 	* db/monitor/DELA02A.xml, db/monitor/DELA02B.xml, db/monitor/DELA02C.xml:
