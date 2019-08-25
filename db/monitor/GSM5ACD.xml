@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<monitor name="LG LCD Monitor-19M38HB">
+	<!--- CAPS: prot(monitor)type(lcd)model(MP76)cmds(01 02 03 0C E3 F3)vcp(02030405080B0C101214(01 05 06 07 08 0B)1516181A4D4E4F5260(01 03 04)626C6E70878DACAEB6C0C6C8C9D6(01 04)DFE0E1E3(00 01 02 03 04 10 11 12 13 14)ECEFFD(00 01)FE(00 01 02)F4F5F6F7F8F9FF)mswhql(1)mccs_ver(2.1) -->
+	<caps add="(type(lcd)vcp(02 03 04 05 08 0B 0C 10 12 14(01 05 06 07 08 0B)15 16 18 1A 4D 4E 4F 52 60(01 03 04)62 6C 6E 70 87 8D AC AE B6 C0 C6 C8 C9 D6(01 04)DF E0 E1 E3(00 01 02 03 04 10 11 12 13 14)EC EF FD(00 01)FE(00 01 02)F4 F5 F6 F7 F8 F9 FF)"/>
+	<controls>
+		<control id="dvmode" type="list"  address="0x15">
+			<value id="standard" value="38"/>
+			<value id="text"  value="33"/>
+			<value id="movie"  value="48"/>
+			<value id="gaming"  value="64"/>
+			<value id="photo" value="32"/>
+		</control>
+		<!-- Reader modes-: Reader off,Reader 1, Reader 2 -->
+		<control id="superbright" type="list"  address="0x15">
+			<value id="one"  value="38"/>
+			<value id="two"  value="16"/>
+			<value id="three"  value="17"/>
+		</control>
+		<control id="gamma" type="list" address="0xfe">
+			<value id="-0.5"   value="0x0"/>
+			<value id="0"	  value="0x1"/>
+			<value id="+0.5"   value="0x2"/>
+		</control>
+		<!-- Color temperatures-:Warm,Medium,Cool,Custom -->
+		<control id="colorpreset" type="list" address="0x14">
+			<value id="warm"  value="0x5"/>
+			<value id="normal"  value="0x7"/>
+			<value id="cool"  value="0x8"/>
+			<value id="user1"  value="0xB"/>
+		</control>
+		<control id="sharpness" address="0x87"/>
+		<control id="language" type="list"  address="0xcc">
+			<value id="english"  value="0"/>
+			<value id="french"  value="2"/>
+			<value id="german"  value="1"/>
+			<value id="italian" value="4"/>
+			<value id="russian" value="10"/>
+			<value id="chinese"   value="13"/>
+			<value id="japanese"  value="14"/>
+			<value id="polish"  value="9"/>
+			<value id="portuguese" value="7"/>
+			<value id="hindi"  value="16"/>
+		</control>
+	</controls>
+	<include file="VESA"/>
+</monitor>
