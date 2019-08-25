@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<monitor name="LG IPS226V-PN" init="standard">
+	<caps add="(vcp(02 04 05 06 08 10 12 14(05 07 08 0B) 16 18 1a 87 D6(01 04) FC(00 01 02 03) FD(00 01) FE(00 01 02 03 04)))"/>
+	<controls>
+		<control id="secdegauss" address="0x02"/>
+
+		<!-- Control 0x03: +/0/65535 [???] -->
+			
+		<control id="defaults" address="0x04" delay="2000"/>
+		<control id="defaultluma" address="0x05" delay="2000"/>
+		<control id="defaultgeom" address="0x06" delay="2000"/>
+		<control id="defaultcolor" address="0x08" delay="2000"/>
+		
+		<!-- Control 0x0b: +/100/5000 [???] -->
+		<!-- Control 0x0c: +/35/100 [???] -->
+		<!-- Control 0x0e: +/70/140 [???] -->
+		
+
+		<control id="brightness" address="0x10"/>
+		<control id="contrast" address="0x12"/>
+
+		<control id="colorpreset" address="0x14">
+			<value id="user" value="0x0B"/>
+			<value id="warm" value="0x05"/>
+			<value id="normal" value="0x07"/> <!-- Medium in OSD -->		
+			<value id="cool" value="0x08"/>		
+		</control>
+
+		<control id="red" address="0x16"/>
+		<control id="green" address="0x18"/>
+		<control id="blue" address="0x1a"/>
+
+		<!-- Control 0x1e: +/0/65535   [???]-->
+		<!-- Control 0x20: +/49/100   [???] -->
+		<!-- Control 0x30: +/27/67   [???]  -->
+		<!-- Control 0x3e: +/0/63   [???]   -->
+		<!-- Control 0x60: +/0/3   [???]    -->
+
+		<control id="redblack" address="0x6c"/>
+		<control id="greenblack" address="0x6e"/>
+		<control id="blueblack" address="0x70"/>
+
+		<control id="sharpness" address="0x87"/>
+
+		<!-- Control 0xac: +/2064/1   [???] -->
+		<!-- Control 0xae: +/6010/0   [???] -->
+		<!-- Control 0xb6: +/3/8   [???] -->
+		<!-- Control 0xc0: +/12862/65535   [???] -->
+		<!-- Control 0xc6: +/104/65535   [???] -->
+		<!-- Control 0xc8: +/37/65535   [???] -->
+		<!-- Control 0xc9: +/256/65535   [???] -->
+
+		<control id="dpms" address="0xd6">
+			<value id="on" value="1"/>
+			<value id="standby" value="4"/>
+		</control>
+
+		<!-- Control 0xdf: +/513/65535   [???]-->
+		<!-- Control 0xe0: +/0/65535   [???]  -->
+		<!-- Control 0xe1: +/0/65535   [???]  -->
+		<!-- Control 0xe2: +/0/65535   [???]  -->
+	
+		<control id="femode" address="0xfc">
+			<value id="photo" value="0x00"/>
+			<value id="user" value="0x01"/>
+			<value id="movie" value="0x02"/>
+			<value id="text" value="0x03"/>
+		</control>
+
+		<control id="powerled" address="0xfd">
+			<value id="off" value="0x00"/>
+			<value id="on" value="0x01"/>
+		</control>
+		
+		<control id="gamma" address="0xfe">
+			<value id="1.8" value="0"/>
+			<value id="2.0" value="1"/>
+			<value id="2.2" value="2"/>
+			<value id="2.4" value="3"/>
+			<value id="2.6" value="4"/>
+		</control>
+	</controls>
+</monitor>
