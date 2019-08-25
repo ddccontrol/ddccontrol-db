@@ -212,6 +212,10 @@
 				<value id="off" name="Off"/>
 				<value id="calibrated" name="Calibrated"/>
 			</control>
+			<!-- DELL P2416D -->
+			<control id="dellpaper" type="command" name="Paper preset" address="0xf0">
+				<value id="set" value="0x08" name="Set Paper Preset"/>
+			</control>
 		</subgroup>
 	</group>
 	<group name="Position and size">
@@ -412,6 +416,11 @@
 				<value id="portuguese"    name="Português (Portuguese)"/>
 				<value id="serbocroatian" name="SiGC/BiH/CRO (Serbo-Croatian)"/>
 			</control>
+			<!-- If "changed", read 0x52 register value to get address of the control changed using OSD menu -->
+			<control id="newcontrolvalue" type="list" name="New Control Value">
+				<value id="nochanges" name="No changes"/>
+				<value id="changed" name="Some values changed"/>
+			</control>
 		</subgroup>
 		<subgroup name="Power control">
 			<control id="dpms" type="list" name="DPMS Control" address="0xd6">
@@ -421,6 +430,7 @@
 			</control>
 			<control id="power" type="list" name="Power control" address="0xe1">
 				<value id="off" name="Off"/>
+				<value id="standby" name="Standby"/>
 				<value id="on" name="On"/>
 			</control>
 		</subgroup>
