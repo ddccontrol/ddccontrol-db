@@ -201,6 +201,9 @@
 				<value id="eco" name="Eco"/>
 				<value id="rts1" name="RTS1"/>
 				<value id="rts2" name="RTS2"/>
+
+				<!-- DEL413A -->
+				<value id="comfort" name="ComfortView"/>
 			</control>
 			<control id="magiccolor" type="list" name="MagicColor" address="0xF0">
 				<value id="off" name="Off"/>
