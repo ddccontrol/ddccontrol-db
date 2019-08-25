@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<monitor name="Dell U2410f" init="standard">
+	<!-- Dell U2410F (DELF015) connected with DVI-D 1 and DVI-D 2, should be same as DELF016 -->
+	<include file="DELF016"/>
+</monitor>

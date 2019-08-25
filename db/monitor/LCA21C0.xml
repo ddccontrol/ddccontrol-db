@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<monitor name="LaCie 321" init="standard">
+	<controls>
+		<!-- Control 0x0b: +/100/100 [???] -->
+		<!-- Control 0x0e: +/65454/494 [???] -->
+		
+		<control id="colorpreset" address="0x14">
+			<value id="9300k"  value="8"/>
+			<value id="8200k"  value="7"/>
+			<value id="7500k"  value="6"/>
+			<value id="6500k"  value="1"/>
+			<value id="5000k"  value="4"/>
+			<value id="native" value="2"/>
+			<value id="user"   value="11"/>
+		</control>
+		
+		<control id="language" type="list" address="0x68">
+			<value id="english"  value="1"/>
+			<value id="german"   value="2"/>
+			<value id="french"   value="3"/>
+			<value id="spanish"  value="4"/>
+			<value id="italian"  value="6"/>
+			<value id="swedish"  value="7"/>
+			<value id="japanese" value="5"/>
+		</control>
+		
+		<control id="sharpness" address="0x8c"/>
+		
+		<!-- Control 0xa8: +/4/4 [Sync type, RO] -->
+		<!-- Control 0xb1: +/0/1 [???] Not in CAPS -->
+		<!-- Control 0xb4: +/1/2 [RGB Ordering, RO] -->
+		<!-- Control 0xb6: +/3/5 [Monitor Type, RO] -->
+		
+		<control id="osd" type="list" address="0xe3">
+			<value id="enable"     value="0"/>
+			<value id="partenable" value="1"/>
+		</control>
+		
+		<control id="resolutionnotifier" address="0xf6">
+			<value id="on"  value="1"/>
+			<value id="off" value="0"/>
+		</control>
+		
+		<!-- Control 0xfa: +/65545/65535 [Total Power Time in 30 min, RO] -->
+		
+		<control id="osd2" type="list" address="0xfb">
+			<value id="enable"  value="1"/>
+			<value id="disable" value="0"/>
+		</control>
+		
+		<!-- Control 0xff: +/40474/65535 [Power On Time in 30 min, RO] -->
+		
+	</controls>
+	<include file="VESA"/>
+</monitor>
+

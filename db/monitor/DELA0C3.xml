@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+<monitor name="DELL P2416D" init="standard">
+	<!-- <caps add="(prot(monitor)type(LCD)model(P2416D)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 10 12 14(05 08 0B 0C) 16 18 1A 52 60(01 11 0F) AA(01 02) AC AE B2 B6 C6 C8 C9 D6(01 04 05) DC(00 02 03 05) DF E0 E1 E2(00 01 02 04 0E 12 14 19) F0(00 08) F1(01 02) F2 FD)mswhql(1)asset_eep(40)mccs_ver(2.1))"/> -->
+<!--
+	Probed through VGA bus (responds as DELA0C2) reports a bit more controls
+	than through HDMI bus (responds as DELA0C3).
+	Likely may be generalized to MCCS 2.1 at least for DELL monitors:
+
+	DELA09B (DVI)
+	(prot(monitor)type(LCD)model(P2414H)
+	cmds(01 02 03 07 0C E3 F3)
+	vcp(02 04 05    08    10 12 14(05 08 0B 0C) 16 18 1A             52 60(01 03    0F   )
+		AA        AC AE B2 B6 C6 C8 C9 D6(01 04 05) DC(00 02 03 05) DF
+		E0 E1 E2(00 01 02 04 06 0E 12 14   )    F0(00 01   ) F1(01   ) F2 FD)
+	mswhql(1)asset_eep(40)mccs_ver(2.1))"/>
+
+	DELA0BE (DP)
+	Note: "FD" does not obey ordering
+	(prot(monitor)type(lcd)model(P2415Q)
+	cmds(01 02 03 07 0C E3 F3)
+	vcp(02 04 05    08    10 12 14(05 08 0B 0C) 16 18 1A             52 60(      11 0F 10)
+		AA(01 02) AC AE B2 B6 C6 C8 C9 D6(01 04 05) DC(00 02 03 05) DF F0(00 08) FD
+		E0 E1 E2(00 01 02 04    0E 12 14 19) E4              F1        F2   )
+	mccs_ver(2.1)mswhql(1))
+
+	DELA0C2 (VGA)
+	(prot(monitor)type(LCD)model(P2416D)
+	cmds(01 02 03 07 0C E3 F3)
+	vcp(02 04 05 06 08 0E 10 12 14(05 08 0B 0C) 16 18 1A 1E 20 30 3E 52 60(01    11 0F   )
+		AA(01 02) AC AE B2 B6 C6 C8 C9 D6(01 04 05) DC(00 02 03 05) DF
+		E0 E1 E2(00 01 02 04    0E 12 14 19)    F0(00    08) F1(01 02) F2 FD)
+	mswhql(1)asset_eep(40)mccs_ver(2.1))
+
+	DELA0C3 (HDMI)
+	(prot(monitor)type(LCD)model(P2416D)
+	cmds(01 02 03 07 0C E3 F3)
+	vcp(02 04 05    08    10 12 14(05 08 0B 0C) 16 18 1A             52 60(01    11 0F   )
+		AA(01 02) AC AE B2 B6 C6 C8 C9 D6(01 04 05) DC(00 02 03 05) DF
+		E0 E1 E2(00 01 02 04    0E 12 14 19)    F0(00    08) F1(01 02) F2 FD)
+	mswhql(1)asset_eep(40)mccs_ver(2.1))
+-->
+	<controls>
+		<control id="newcontrolvalue" type="list" address="0x02">
+			<value id="nochanges" value="0x01"/>
+			<value id="changed" value="0x02"/>
+		</control>
+
+		<!-- not in vcp list -->
+		<!-- <control id="???" address="0x0b"/> -->
+
+		<control id="colorpreset" type="list" address="0x14">
+			<!-- Other values may be read but not set (at least 0, 1, 2, 4, 29) -->
+			<value id="srgb"  value="0x05"/>
+			<value id="cool"  value="0x08"/>
+			<value id="warm"  value="0x0b"/>
+			<value id="user1" value="0x0c"/>
+		</control>
+
+		<!-- not in vcp list -->
+		<!-- <control id="???" type="list" address="0x1f">
+			<value id="???" value="1"/>
+		</control> -->
+
+		<!-- Read-only, its value is the address of control changed through OSD menu -->
+		<!-- <control id="activecontrol" address="0x52"/> -->
+
+		<control id="inputsource" type="list" address="0x60">
+			<!-- Unable to identify control and value related to autoselect OSD menu option -->
+			<value id="analog"  value="1"/>
+			<!-- <value id="dvi"  value="3"/> -->
+			<value id="dp" value="15"/>
+			<value id="hdmi1" value="17"/>
+		</control>
+
+		<!-- 0x6c, 0x6e, 0x70 are not in vcp list, single read gives strange values that differ from probe -->
+
+		<!-- 0xaa is read-only
+			Control 0xaa: +/2/255 C [OSD Orientation - Portrait]
+			Control 0xaa: +/1/255 C [OSD Orientation - Landscape]
+		-->
+
+		<!-- Have not tried to change, Horizontal Sync Frequency? -->
+		<!-- <control id="hsyncfrequency" address="0xac"/> -->
+
+		<!-- Have not tried to change, Vertical Sync Frequency (x100 Hz)? -->
+		<!-- <control id="vsyncfrequency" address="0xae"/> -->
+
+		<!-- Have not tried to change, Subpixel Layout - RGB? -->
+		<!-- <control id="subpixellayout" type="list" address="0xb2">
+			<value id="rgb" value="0x01"/>
+		</control> -->
+
+		<!-- Have not tried to change, Display Technology Type - LCD Active Matrix? -->
+		<!-- <control id="displaytechnologytype" type="list" address="0xb6">
+			<value id="lcdactivematrix" value="0x03"/>
+		</control> -->
+
+		<!-- Have not tried to change, Power-on Hours -->
+		<!-- <control id="poweronhours" address="0xc0"/> -->
+
+		<!-- Have not tried to change, Application Enable Key? -->
+		<!-- <control id="applicationenablekey" address="0xc6"/> -->
+
+		<!-- Have not tried to change, Display Controller Type? -->
+		<!-- <control id="displaycontrollertype" address="0xc8"/> -->
+
+		<!-- Have not tried to change, Display Firmware Level? -->
+		<!-- <control id="displayfirmwarelevel" address="0xc9"/> -->
+
+		<!-- Read-only, not in the caps, OSD is active -->
+		<!-- <control id="osd" type="list" address="0xca">
+			<value id="disable" value="1"/>
+			<value id="enable" value="2"/>
+		</control> -->
+
+		<!-- Read-only, not in vcp, OSD language. Some values are above reported limit of 11.
+		     Some values are likely vendor or model specific -->
+		<!-- <control id="language" type="list" address="0xcc">
+			<value id="english"  value="0x02"/>
+			<value id="french"   value="0x03"/>
+			<value id="german"   value="0x04"/>
+			<value id="portuguese_br" value="0x06"/>
+			<value id="spanish"  value="0x0a"/>
+			<value id="japanese" value="0x0c"/>
+			<value id="russian"  valie="0x90"/>
+			<value id="chinese"  valie="0xe0"/>
+		</control> -->
+
+		<control id="dpms" address="0xd6">
+			<value id="on" value="1"/>
+			<value id="standby" value="4"/>
+			<value id="off" value="5"/>
+		</control>
+
+		<control id="magicbright" type="list" address="0xdc">
+			<value id="standard" value="0x00"/>
+			<value id="multimedia" value="0x02"/>
+			<value id="movie" value="0x03"/>
+			<value id="game" value="0x05"/>
+		</control>
+
+		<!-- Have not tried to change, VCP Version - 02.01 -->
+		<!-- 0x0201 means 02.01 - hi byte, lo byte -->
+		<!-- <control id="vcpversion" type="list" address="0xdf">
+			<value id="v0201" value="0x0201"/>
+		</control> -->
+
+		<!-- this is inverted from VESA -->
+		<control id="power" type="list" address="0xe1">
+			<value id="on"  value="0"/>
+			<value id="standby" value="1"/>
+		</control>
+
+		<control id="dellpaper" address="0xf0">
+			<value id="set" value="0x08"/>
+		</control>
+
+		<!-- Read-only, Dynamic Contrast -->
+		<!-- <control id="dynamiccontrast" type="list" address="0xf2">
+			<value id="off" value="0x00"/>
+			<value id="on" value="0x01"/>
+		</control> -->
+	</controls>
+
+	<include file="VESA"/>
+</monitor>

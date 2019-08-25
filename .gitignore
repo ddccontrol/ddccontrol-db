@@ -35,5 +35,11 @@ Makefile.in
 /po/POTFILES
 /po/stamp-it
 
-# generated files
+# autotools generated files
+/po/Makefile.in.in
+/po/Rules-quot
+
+# build generated files
 /db/options.xml
+/db/options.xml.h
+
