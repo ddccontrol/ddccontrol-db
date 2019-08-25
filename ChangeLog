@@ -1,3 +1,31 @@
+UNRELEASED
+
+	* db/monitor/DEL413A.xml:
+	Add Dell U2518D support, thanks to bsilvereagle
+
+	* db/monitor/DELA0C2.xml, db/monitor/DELA0C3.xml:
+	Add Dell P2416D support, thanks to Maxim Nikulin
+
+	* db/monitor/DELA0EF.xml, db/monitor/DELA0F0.xml, db/monitor/DELA0F1.xml,
+	db/monitor/DELA0F2.xml, db/monitor/DELA0F3.xml, db/monitor/DELA0F4.xml,
+	db/options.xml.in:
+	Add support for Dell U3818DW and PBP/PIP controls, thanks to Jürgen Altfeld
+
+	* db/monitor/DELF015.xml:
+	Added alias DELF015 for DELL U2410F
+
+	* db/monitor/DELF016.xml:
+	Add support for Dell U2410f, thanks to Florian Eitel
+
+	* db/monitor/GSM5807.xml:
+	Add support for LG IPS226, thanks to bsilvereagle
+
+	* db/monitor/GSM5ACD.xml:
+	Add support for LG 19M38HB, thanks to LIJU G CHACKO
+
+	* db/monitor/PHL08E7.xml:
+	Add support for Philips BDM3270QP
+
 2018-06-02  Miroslav Kravec <kravec.miroslav@gmail.com>
 
 	* db/monitor/GSM445D.xml, db/monitor/GSM445E.xml:
