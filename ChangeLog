@@ -1,4 +1,8 @@
-UNRELEASED
+2019-08-26  Miroslav Kravec <kravec.miroslav@gmail.com>
+
+	* ChangeLog: fix forgotten rename from UNRELEASED
+
+2019-08-25  Miroslav Kravec <kravec.miroslav@gmail.com>
 
 	* db/monitor/DEL413A.xml:
 	Add Dell U2518D support, thanks to bsilvereagle

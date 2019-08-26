@@ -1,4 +1,4 @@
-AC_INIT([DDC/CI control tool database], [20190825],
+AC_INIT([DDC/CI control tool database], [20190826],
         [DDCControl users list <ddccontrol-users@lists.sourceforge.net>],
         [ddccontrol-db])
 AM_INIT_AUTOMAKE
