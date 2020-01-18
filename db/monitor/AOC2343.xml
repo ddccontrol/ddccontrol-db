@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<monitor name="AOC 2343" init="standard">
+	<caps add="(prot(monitor)type(lcd)model(AOC ID2008)cmds(01 02 03 07 0C 4E F3 E3)vcp(02 04 05 08 0B 0C 10 12 14(01 05 08 0B) 16 18 1A 60(01 03) 6C 6E 70 AC AE B6 C0 C6 C8 C9 CA CC( 00 02 03 04 05 08 09 0A 0D) D6(01 04) DF FF)mswhql(1)mccs_ver(2.1)asset_eep(32)mpu_ver(01))"/>
+
+	<!-- specific controls, but they might(?) be shared with other AOC monitors -->
+	<controls>
+		<control id="inputsource" type="list" address="0x60">
+			<value id="vga"   value="0x01"/>
+			<value id="dvi"   value="0x03"/>
+		</control>
+
+		<control id="language" type="list" address="0xcc">
+			<value id="english" 	value="0x02"/>
+			<value id="french"  	value="0x03"/>
+			<value id="italian"  	value="0x04"/>
+			<value id="spanish" 	value="0x05"/>
+			<value id="swedish" 	value="0x08"/>
+			<value id="polish"      value="0x09"/>
+			<value id="german"      value="0x0a"/>
+			<value id="czech"       value="0x0d"/>
+			<value id="russian"     value="0x00"/>
+		</control>
+	</controls>
+
+	<!-- include AOC family-->
+	<include file="AOClcd"/>
+</monitor>
