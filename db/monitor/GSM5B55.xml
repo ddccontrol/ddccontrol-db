@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<monitor name="LG 27MK400H-B">
+  <!--- CAPS:
+      prot(monitor)
+      type(lcd)
+      model(E2342V)
+      cmds(01 02 03 0C E3 F3)
+      vcp(02030405080B0C1012
+      14(01 05 06 07 08 0B)
+      1516181A4D4E4F52
+      60(01 03 04)
+      626C6E70878DACAEB6C0C6C8C9
+      D6(01 04)
+      DFE0E1
+      E3(00 01 02 03 04 10 11 12 13 14)
+      ECEF
+      FD(00 01)
+      FE(00 01 02)
+      F4F5F6F7F8F9FF
+      )mswhql(1)mccs_ver(2.1)
+  -->
+  <caps add="(type(lcd)vcp(02 03 04 05 08 0B 0C 10 12 14(01 05 06 07 08 0B)15 16 18 1A 4D 4E 4F 52 60(01 03 04)62 6C 6E 70 87 8D AC AE B6 C0 C6 C8 C9 D6(01 04)DF E0 E1 E3(00 01 02 03 04 10 11 12 13 14))EC EF F4 F5 F6 F7 F8 F9 FD(00 01)FE(00 01 02)F4 F5 F6 F7 F8 F9 FF)"/>
+  <controls>
+    <!-- OSD / Picture / Picture mode :
+         Custom=11 ,
+         Reader=01, Photo=32, Cinema=48,
+         Color Weakness=6, Game=64
+    -->
+    <control id="magicbright" type="list" address="0x15">
+      <value id="text" value="1"/>
+      <value id="game" value="64"/>
+      <value id="custom" value="11"/>
+      <value id="multimedia" value="32"/>
+      <value id="movie" value="48"/>
+      <value id="standard" value="6"/>
+    </control>
+    <!-- OSD / General / Smart Energy Saving -->
+    <control id="ecomode" type="list" address="0xf6">
+      <value id="high" value="2"/>
+      <value id="middle" value="1"/>
+      <value id="low" value="0"/>
+    </control>
+    <!-- OSD / Picture / color Adjust / Gamma :
+         Mode 1=0, Mode 2=1, Mode 3=2, Mode 4=1
+    -->
+    <control id="gamma" type="list" address="0xfe">
+      <value id="-0.5" value="0"/>
+      <value id="0" value="1"/>
+      <value id="+0.5" value="2"/>
+    </control>
+    <!-- OSD / Picture / color Adjust / Color temp :
+         Custom=11, Warm=5, Medium=7, Cool=8
+    -->
+    <control id="colorpreset" type="list" address="0x14">
+      <value id="custom" value="11"/>
+      <value id="normal" value="7"/>
+      <value id="warm" value="5"/>
+      <value id="cool" value="8"/>
+    </control>
+    <!-- OSD / General / OSD Lock : ? -->
+    <control id="language" type="list" address="0xcc">
+      <value id="english" value="0"/>
+      <value id="german" value="1"/>
+      <value id="french" value="2"/>
+      <value id="italian" value="4"/>
+      <value id="russian" value="10"/>
+      <value id="chinese" value="13"/>
+      <value id="japanese" value="14"/>
+      <value id="polish" value="9"/>
+      <value id="portuguese" value="7"/>
+      <value id="hindi" value="16"/>
+    </control>
+    <!-- OSD / Picture Adjust / Sharpness -->
+    <control id="sharpness" address="0x87"/>
+    <!-- OSD / Picture / Picture Adjust / Super resolution : ? -->
+    <!-- OSD / Picture / Picture Adjust / Black : ? -->
+    <!-- OSD / Picture / Picture Adjust / DTF : On, Off  -->
+    <!-- OSD / Picture / Game Adjust / Response Time :
+         Faster, Fast, Normal, Off    -->
+    <!-- OSD / Picture / Game Adjust / FreeSync : ...   -->
+    <!-- OSD / Picture / Game Adjust / Black Stabil..: ...   -->
+    <!-- OSD / Picture / Game Adjust / Cross hair : ? -->
+    <!-- OSD / General / Standbye : ? -->
+  </controls>
+  <include file="VESA"/>
+</monitor>
