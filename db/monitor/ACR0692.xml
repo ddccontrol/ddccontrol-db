@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+<monitor name="Acer ED273UR" init="standard">
+	<!--- CAPS: (prot(monitor)
+	type(lcd)
+	model(ED273UR)
+	cmds(01 02 03 07 0C E3 F3)
+	vcp(02 04 05 08 0B 0C 10 12 14(05 06 08 0B) 16 18 1A 52 54(00 01) 60(03 11 0F) 62 59 5A 5B 5C 5D 5E 9B 9C 9D 9E 9F A0 AC AE B6 C0 C6 C8 C9 CC(01 02 03 04 05 06 08 09 0A 0C 0D 0E 14 16 1E)D6(01 04 05) DF E0(04 05) E1(00 02) E2(00 01 02 03 04 09 0C 0D 17 18 19 1A 1B) E3 E4 E5 E7(00 01 02) E8(00 01 02 03 04) )mswhql(1)asset_eep(32)mccs_ver(2.1)) -->
+	<caps add="(prot(monitor)type(lcd)model(ED273UR)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 0B 0C 10 12 14(05 06 08 0B) 16 18 1A 52 54(00 01) 60(03 11 0F) 62 59 5A 5B 5C 5D 5E 9B 9C 9D 9E 9F A0 AC AE B6 C0 C6 C8 C9 CC(01 02 03 04 05 06 08 09 0A 0C 0D 0E 14 16 1E)D6(01 04 05) DF E0(04 05) E1(00 02) E2(00 01 02 03 04 09 0C 0D 17 18 19 1A 1B) E3 E4 E5 E7(00 01 02) E8(00 01 02 03 04) )mswhql(1)asset_eep(32)mccs_ver(2.1))" />
+	
+	<controls>
+	
+		<control id="secdegauss" address="0x02"/>
+		<control id="defaults" address="0x04" delay="2000"/>
+		<control id="defaultluma" address="0x05" delay="2000"/>
+		<control id="defaultcolor" address="0x08" delay="2000"/>
+		<control id="brightness" address="0x10"/>
+		<control id="contrast" address="0x12"/>
+		<control id="red" address="0x16"/>
+		<control id="green" address="0x18"/>
+		<control id="blue" address="0x1A"/>
+		<control id="inputsource" type="list" address="0x60">
+			<value id="analog"  value="1"/>
+			<value id="digital" value="3"/>
+		</control>
+		<control id="audiospeakervolume" address="0x62"/>
+		<control id="dpms" address="0xd6">
+			<value id="on" value="1"/>
+			<value id="standby" value="4"/>
+		</control>
+		
+		<control id="power" type="list" address="0xe1">
+			<value id="off" value="0"/>
+			<value id="on"  value="1"/>
+		</control>
+	
+	
+	
+		<control id="language" type="list"  address="0xcc">
+			<value id="english"  value="2"/>
+			<value id="russian" value="9"/>
+			<value id="german" value="4"/>
+			<value id="french" value="3"/>
+			<value id="spanish" value="10"/>
+			<value id="italian" value="5"/>
+			<value id="dutch" value="20"/>
+			<value id="finnish" value="22"/>
+			<value id="turkish" value="12"/>
+			<value id="polish" value="30"/>
+			<value id="portuguese" value="8"/>
+			<value id="brazilian" value="14"/>
+			<value id="chinese_tw" value="1"/>
+			<value id="chinese" value="13"/>
+			<value id="japanese" value="6"/>
+		</control>
+		
+	  	
+	  	<control id="colorpreset" type="list" address="0x14">
+	  		<value id="warm"  value="5"/>
+			<value id="normal"  value="6"/>
+			<value id="cool"  value="8"/>
+			<value id="user"  value="11"/>
+	  	</control>
+	  	
+	  	<control id="mode" type="list" name="Mode" address="0xe2">
+	  		<value id="user" value="0"/>
+	  		<value id="darkroom" value="13"/>
+	  		<value id="reading" value="12"/>
+	  		<value id="srgb" value="9"/>
+	  		<value id="standard" value="1"/>
+	  		<value id="eco" value="2"/>
+	  		<value id="graphics" value="3"/>
+	  		<value id="movie" value="4"/>
+	  	</control>
+	  	
+	  	
+
+		<control id="blackboost" address="0xe5"/>
+		
+		<control id="redhue" address="0x9b"/>
+		<control id="greenhue" address="0x9c"/>
+		<control id="bluehue" address="0x9d"/>
+		<control id="yellowhue" address="0xa0"/>
+		<control id="magentahue" address="0x9f"/>
+		<control id="cyanhue" address="0x9e"/>
+		
+		<control id="redsaturate" address="0x59"/>
+		<control id="greensaturate" address="0x5a"/>
+		<control id="bluesaturate" address="0x5b"/>
+		<control id="yellowsaturate" address="0x5e"/>
+		<control id="magentasaturate" address="0x5d"/>
+		<control id="cyansaturate" address="0x5c"/>
+		
+		<!-- the below do not work for some reason. They just don't show up in ddc control -->
+		<control id="dynamiccontrast" type="list" address="0xf0">  
+			<value id="off" value="0x0"/>
+			<value id="on" value="0x1"/>
+		</control>
+		<control id="redblack" address="0x6C"/>
+		<control id="greenblack" address="0x6E"/>
+		<control id="blueblack" address="0x70"/>
+		
+		<!-- missing:
+		gamma
+		super sharpness
+		
+		osd transparency
+		osd display refresh rate
+		osd timeout
+		aimpoint
+		-->
+<!--
+Controls (valid/current/max) [Description - Value name]:
+Control 0x02: +/2/2 C [Secondary Degauss]
+Control 0x04: +/0/1 C [Restore Factory Defaults]
+Control 0x05: +/0/1 C [Restore Brightness and Contrast]
+Control 0x06: +/0/1   [???]
+Control 0x08: +/0/1 C [Restore Factory Default Color]
+Control 0x0b: +/100/100 C [???]
+Control 0x0c: +/45/85 C [???]
+Control 0x10: +/10/100 C [Brightness]
+Control 0x12: +/50/100 C [Contrast]
+Control 0x14: +/6/11 C [Color Preset - Normal]
+Control 0x16: +/50/100 C [Red maximum level]
+Control 0x18: +/50/100 C [Green maximum level]
+Control 0x1a: +/50/100 C [Blue maximum level]
+Control 0x1e: +/0/1   [???]
+Control 0x20: +/0/100   [???]
+Control 0x30: +/0/100   [???]
+Control 0x52: +/0/255 C [???]
+Control 0x59: +/50/100 C [???] red saturate   6 axis saturate
+Control 0x5a: +/50/100 C [???] green saturate
+Control 0x5b: +/50/100 C [???] blue saturate
+Control 0x5c: +/50/100 C [???] cyan saturate
+Control 0x5d: +/50/100 C [???] magenta saturate
+Control 0x5e: +/50/100 C [???] yellow saturate
+Control 0x60: +/15/1 C [Input Source Select (Main)]
+Control 0x62: +/70/100 C [Audio Speaker Volume Adjust]
+Control 0x68: +/0/5   [???]
+Control 0x6c: +/50/100   [???]
+Control 0x6e: +/50/100   [???]
+Control 0x70: +/50/100   [???]
+Control 0x86: +/8/8   [???]
+Control 0x8d: +/2/2   [???]
+Control 0x9b: +/50/100 C [???] red hue    6 axis hue
+Control 0x9c: +/50/100 C [???] green hue
+Control 0x9d: +/50/100 C [???] blue hue
+Control 0x9e: +/50/100 C [???] cyan hue
+Control 0x9f: +/50/100 C [???] magenta hue
+Control 0xa0: +/50/100 C [???] yellow hue
+Control 0xa8: +/0/3   [???]
+Control 0xaa: +/1/5   [???]
+Control 0xac: +/17692/3 C [???]
+Control 0xae: +/14470/0 C [???]
+Control 0xb4: +/1/2   [???]
+Control 0xb6: +/3/8 C [???]
+Control 0xc0: +/321/65535 C [???]
+Control 0xc6: +/120/65535 C [???]
+Control 0xc8: +/5/65302 C [???]
+Control 0xc9: +/0/65535 C [???]
+Control 0xca: +/2/2   [???]
+Control 0xcc: +/2/36 C [Language select - English]
+Control 0xd6: +/1/4 C [DPMS Control - On]
+Control 0xda: +/0/2   [???]
+Control 0xdf: +/513/255 C [???]
+Control 0xe1: +/0/255 C [Power control - Off]
+Control 0xe2: +/0/27 C [Mode - User]
+Control 0xe3: +/19/27 C [???]
+Control 0xe4: +/2/27 C [???]
+Control 0xe5: +/6/10 C [Black Boost]
+Control 0xe8: +/0/255 C [???]
+Control 0xe9: +/0/2   [???]
+Control 0xed: +/1/1   [???]		
+Control 0xf0: +/0/1   [???]		dynamic contrast, 0 off 1 on
+-->
+	  	
+  	</controls>
+	
+	
+</monitor>
