@@ -51,6 +51,20 @@
 				<value id="movie" name="Movie" />
 			</control>
 		</subgroup>
+		<!-- sub group for modes on recent Acer monitors (e.g. ACR0692) -->
+		<subgroup name="Modes">
+			<!-- NEWLY ADDED for ACR0692-->
+			<control id="mode" type="list" name="Mode" address="0xe2">
+				<value id="user" name="User" value="0"/>
+		  		<value id="darkroom" name="DarkRoom" value="13"/>
+		  		<value id="reading" name="Reading" value="12"/>
+		  		<value id="srgb" name="sRGB" value="9"/>
+		  		<value id="standard" name="Standard" value="1"/>
+		  		<value id="eco" name="Eco" value="2"/>
+		  		<value id="graphics" name="Graphics" value="3"/>
+		  		<value id="movie" name="Movie" value="4"/>
+			</control>
+		</subgroup>
 <!-- Following sub group valid for LG F-Engine monitors -->
 		<subgroup name="LG F-Engine">
 			<!-- TODO: merge duplicates !!! -->
@@ -156,6 +170,24 @@
 			<control id="greenblack" type="value" name="Green minimum level" address="0x6E"/>
 			<control id="blueblack" type="value" name="Blue minimum level" address="0x70"/>
 		</subgroup>
+		<!-- ACR0692 -->
+		<subgroup name="6-axis Hue">
+			<control id="redhue" type="value" name="Red Hue"/>
+			<control id="greenhue" type="value" name="Green Hue"/>
+			<control id="bluehue" type="value" name="Blue Hue"/>
+			<control id="yellowhue" type="value" name="Yellow Hue"/>
+			<control id="magentahue" type="value" name="Magenta Hue"/>
+			<control id="cyanhue" type="value" name="Cyan Hue"/>
+		</subgroup>
+		<!-- ACR0692 -->
+		<subgroup name="6-axis Saturate">
+			<control id="redsaturate" type="value" name="Red Saturate"/>
+			<control id="greensaturate" type="value" name="Green Saturate"/>
+			<control id="bluesaturate" type="value" name="Blue Saturate"/>
+			<control id="yellowsaturate" type="value" name="Yellow Saturate"/>
+			<control id="magentasaturate" type="value" name="Magenta Saturate"/>
+			<control id="cyansaturate" type="value" name="Cyan Saturate"/>
+		</subgroup>
 		<subgroup name="Various color settings">
 			<control id="hue" type="value" name="Hue" address="0x1C"/>
 			<control id="saturation" type="value" name="Saturation" address="0x50"/>
@@ -221,6 +253,8 @@
 			<control id="dellpaper" type="command" name="Paper preset" address="0xf0">
 				<value id="set" value="0x08" name="Set Paper Preset"/>
 			</control>
+			<!-- ACR0692 -->
+			<control id="blackboost" type="value" name="Black Boost"/>
 		</subgroup>
 	</group>
 	<group name="Position and size">
@@ -421,6 +455,9 @@
 				<value id="portuguese"    name="Português (Portuguese)"/>
 				<value id="serbocroatian" name="SiGC/BiH/CRO (Serbo-Croatian)"/>
 				<value id="hindi"         name="हिन्दी (India)"/>
+				<value id="finnish" name="Suomalainen (Finnish)"/>
+				<value id="turkish" name="Türk (Turkish)"/>
+				<value id="brazilian"    name="Português do Brasil (Brazilian Portuguese)"/>
 			</control>
 			<!-- If "changed", read 0x52 register value to get address of the control changed using OSD menu -->
 			<control id="newcontrolvalue" type="list" name="New Control Value">
