@@ -236,6 +236,9 @@
 
 				<!-- DEL413A -->
 				<value id="comfort" name="ComfortView"/>
+
+				<!-- ACR06B1 -->
+				<value id="bluelight" name="Blue Light"/>
 			</control>
 			<control id="magiccolor" type="list" name="MagicColor" address="0xF0">
 				<value id="off" name="Off"/>
@@ -356,6 +359,8 @@
 				<value id="analog" name="Analog"/>
 				<value id="digital" name="Digital"/>
 				<value id="dp" name="DisplayPort"/>
+				<value id="dp1" name="DP-1"/>
+				<value id="dp2" name="DP-2"/>
 				<value id="dvi" name="DVI"/>
 				<value id="dvi1" name="DVI-1"/>
 				<value id="dvi2" name="DVI-2"/>
@@ -380,6 +385,8 @@
 				<value id="analog" name="Analog"/>
 				<value id="digital" name="Digital"/>
 				<value id="dp" name="DisplayPort"/>
+				<value id="dp1" name="DP-1"/>
+				<value id="dp2" name="DP-2"/>
 				<value id="dvi" name="DVI"/>
 				<value id="dvi1" name="DVI-1"/>
 				<value id="dvi2" name="DVI-2"/>
