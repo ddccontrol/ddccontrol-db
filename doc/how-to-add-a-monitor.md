@@ -31,7 +31,7 @@ sudo apt install ddccontrol gddccontrol ddccontrol-db i2c-tools
 
 ## Clone and install `ddccontrol-db`
 
-Clone, build and install `ddccontrol-db` according to the [_Installation from sources_](../#installation-from-sources) section in the readme.
+Clone, build and install `ddccontrol-db` according to the [_Installation from sources_](../README.md#installation-from-sources) section in the readme.
 
 ## Make a change
 
