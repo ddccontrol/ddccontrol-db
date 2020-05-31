@@ -13,6 +13,7 @@ Project `ddccontrol-db` contains database of monitor descriptors, which are used
 * [Usage](#usage)
     * [From GUI using gddccontrol](#from-gui-using-gddccontrol)
     * [From command line using ddccontrol](#from-command-line-using-ddccontrol)
+* [Contributing](#contributing)
 * [License](#license)
 
 ## Installation
@@ -94,6 +95,10 @@ sudo ddccontrol -r 0x10 -w 75 dev:/dev/i2c-4
 ```
 
 See `ddccontrol -h` for more information.
+
+## Contributing
+
+See [`doc/how-to-add-a-monitor.md`](doc/how-to-add-a-monitor.md) for a hands-on introduction on how to add a monitor.
 
 ## License
 
