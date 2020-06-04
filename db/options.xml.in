@@ -497,6 +497,10 @@
 				<value id="3"   name="3"/>
 				<value id="4"   name="4"/>
 			</control>
+			<control id="buttonaccess" type="list" name="Button Access">
+				<value id="locked" name="Locked"/>
+				<value id="unlocked" name="Unlocked"/>
+			</control>
 		</subgroup>
 	</group>
 </options>
