@@ -96,24 +96,24 @@ The output of `sudo ddccontrol -p` (shown above) reveals that, in this case, the
 
 ## Identify your monitor
 
-To add a monitor to the database, you need to know its **hardware ID**.
-Note that this is often quite different from its marketed model number.
-
-To find your monitor's hardware ID, query its capabilities and look for the first line containing _failed to load external entity_:
+To add a monitor to the database, you need to know its [**Plug and Play ID**](https://uefi.org/PNP_ACPI_Registry).
+It consists of a 3- or 4-character vendor ID and a 4-character hexadecimal product ID, e.g. `ACR06B1`.
+To find it, query the capabilities of your monitor and look for these lines:
 
 ```console
 $ sudo ddccontrol -c dev:/dev/i2c-5
 [...]
-Reading EDID and initializing DDC/CI at bus dev:/dev/i2c-5...
-I/O warning : failed to load external entity "/usr/share/ddccontrol-db/monitor/ACR06B1.xml"
+EDID readings:
+	Plug and Play ID: ACR06B1 [VESA standard monitor]
+	Input type: Digital
 [...]
 ```
 
-In this case, the hardware ID is `ACR06B1`.
+In this case, the ID is indeed `ACR06B1`.
 
 ## Add your monitor to the database
 
-Add your monitor by creating the file `db/monitor/<HARDWARE_ID>.xml`, for example:
+Add your monitor by creating the file `db/monitor/<PLUG_AND_PLAY_ID>.xml`, for example:
 
 ```console
 touch db/monitor/ACR06B1.xml
