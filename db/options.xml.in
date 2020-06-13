@@ -439,8 +439,10 @@
 			<control id="language" type="list" name="Language select" address="0x68">
 				<value id="english"       name="English"/>
 				<value id="french"        name="Français (French)"/>
+				<value id="finnish"       name="Suomi (Finnish)"/>
 				<value id="german"        name="Deutsch (German)"/>
 				<value id="italian"       name="Italiano (Italian)"/>
+                <value id="korean"        name="한국어 (Korean)"/>
 				<value id="spanish"       name="Castellano (Spanish)"/>
 				<value id="russian"       name="Русский (Russian)"/>
 				<value id="swedish"       name="Svenska (Swedish)"/>
