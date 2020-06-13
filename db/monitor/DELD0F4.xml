@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<monitor name="Dell S3220DGF (DP)" init="standard">
+	<include file="DELD0F"/>
+</monitor>
+
