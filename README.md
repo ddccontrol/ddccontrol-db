@@ -37,7 +37,7 @@ Instructions for other distributions will be prepared later.
 Install build depedencies (on Ubuntu):
 
 ```shell
-sudo apt install intltool
+sudo apt install intltool libtool m4 automake autopoint
 ```
 
 Instructions for dependecies installation will be prepared later.
