@@ -1,14 +1,12 @@
 <?xml version="1.0"?>
 <monitor name="Acer Nitro XV273K" init="standard">
-	<caps add="(prot(monitor)type(lcd)model(XV273K)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 0B 0C 10 12 14(05 06 08 0B 0C) 16 18 1A 52 54(00 01) 59 5A 5B 5C 5D 5E 60(03 11 0F 10) 62 9B 9C 9D 9E 9F A0 AC AE B6 C0 C6 C8 C9 CC(01 02 03 04 05 06 08 09 0A 0C 0D 0E 14 16 1E)D6(01 04 05) DF E3 E5 E6 E7(00 01 02) E8(00 01 02) )mswhql(1)asset_eep(32)mccs_ver(2.1))" />
+	<!--
+		The `add` attribute is the raw caps string from `sudo ddccontrol -c`, except that `02` has been removed from the `vcp()` part.
+		That modification AND the `remove` attribute are necessary to disable the VESA Degauss/secdegauss control, which XV273K (like all other non-CRTs) doesn't support.
+	-->
+	<caps add="(prot(monitor)type(lcd)model(XV273K)cmds(01 02 03 07 0C E3 F3)vcp(04 05 08 0B 0C 10 12 14(05 06 08 0B 0C) 16 18 1A 52 54(00 01) 59 5A 5B 5C 5D 5E 60(03 11 0F 10) 62 9B 9C 9D 9E 9F A0 AC AE B6 C0 C6 C8 C9 CC(01 02 03 04 05 06 08 09 0A 0C 0D 0E 14 16 1E)D6(01 04 05) DF E3 E5 E6 E7(00 01 02) E8(00 01 02) )mswhql(1)asset_eep(32)mccs_ver(2.1))" remove="(vcp(02))" />
 
 	<controls>
-		<control id="brightness" address="0x10"/>
-		<control id="contrast" address="0x12"/>
-		<control id="red" address="0x16"/>
-		<control id="green" address="0x18"/>
-		<control id="blue" address="0x1A"/>
-
 		<control id="colorpreset" address="0x14">
 			<value id="warm" value="5"/>
 			<value id="normal" value="6"/>
@@ -65,9 +63,8 @@
 			<value id="on" value="1"/>
 			<value id="standby" value="4"/>
 		</control>
-
-		<control id="defaults" address="0x04" delay="2000"/>
-		<control id="defaultluma" address="0x05" delay="2000"/>
-		<control id="defaultcolor" address="0x08" delay="2000"/>
 	</controls>
+
+	<include file="VESA"/>
+
 </monitor>
