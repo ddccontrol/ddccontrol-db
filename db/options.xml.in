@@ -138,6 +138,20 @@
 				<value id="mode1A" name="Gamer 3" value="0x1A"/>
 			</control>
 		</subgroup>
+		<subgroup name="LG Picture">
+			<control id="lgmode" type="list" name="Picture Mode" address="0x15">
+				<value id="reader" name="Reader" value="1"/>
+				<value id="colorweaknes" name="Color Weakness" value="6"/>
+				<value id="custom" name="Custom" value="11"/>
+				<value id="rtsgame" name="RTS Game" value="13"/>
+				<value id="customgame" name="Custom (Game)" value="14"/>
+				<value id="srgb" name="sRGB" value="15"/>
+				<value id="fpsgame1" name="FPS Game 1" value="28"/>
+				<value id="fpsgame2" name="FPS Game 2" value="29"/>
+				<value id="photo" name="Photo" value="32"/>
+				<value id="cinema" name="Cinema" value="48"/>
+			</control>
+		</subgroup>
 		<subgroup name="Gamma" >
 			<control id="gamma" type="list" name="Gamma" address="0xF2" >
 				<value id="-0.5" name="-0.5"/>
@@ -311,6 +325,13 @@
 		<subgroup name="Rotation">
 			<control id="tilt" type="value" name="Rotation (Tilt)" address="0x44"/>
 		</subgroup>
+        <subgroup name="Ratio">
+			<control id="ratio" type="list" name="Screen ratio" address="0xF5">
+				<value id="1to1" name="1:1" value="0"/>
+				<value id="wide" name="Wide" value="1"/>
+				<value id="original" name="Original" value="2"/>
+			</control>
+		</subgroup>
 	</group>
 	<group name="Screen purity">
 		<subgroup name="Moire" pattern="moire">
@@ -417,6 +438,10 @@
 				<value id="mute" name="Mute"/>
 				<value id="normal" name="Normal"/>
 			</control>
+			<control id="audiospeakermute" type="list" name="Audio Speaker Mute" address="0x8d">
+				<value id="mute" name="Mute" value="1"/>
+				<value id="unmute" name="Unmute" value="2"/>
+			</control>
 		</subgroup>
 		<subgroup name="Degauss">
 			<control id="degauss" type="command" name="Degauss" address="0x00"/>
@@ -478,6 +503,11 @@
 				<value id="standby" name="Standby"/>
 				<value id="on" name="On"/>
 			</control>
+			<control id="energysaving" type="list" name="Smart Energy Saving" address="0xF6">
+				<value id="off" name="Off"/>
+				<value id="low" name="Low"/>
+				<value id="high" name="High"/>
+			</control>
 		</subgroup>
 		<subgroup name="Buttons and leds">
 			<!-- button on the left side of the monitor stand can be customised -->
@@ -502,6 +532,18 @@
 			<control id="buttonaccess" type="list" name="Button Access">
 				<value id="locked" name="Locked"/>
 				<value id="unlocked" name="Unlocked"/>
+			</control>
+		</subgroup>
+		<subgroup name="Game Adjust">
+			<control id="freesync" type="list" name="FreeSync" address="0xF8">
+				<value id="off" name="Off" value="0"/>
+				<value id="on" name="On" value="1"/>
+			</control>
+			<control id="responsetime" type="list" name="Response Time" address="0xF7">
+				<value id="off" name="Off" value="0"/>
+				<value id="high" name="High" value="1"/>
+				<value id="middle" name="Middle" value="2"/>
+				<value id="low" name="Low" value="3"/>
 			</control>
 		</subgroup>
 	</group>
