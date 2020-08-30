@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <monitor name="LG 27UD68P" init="standard">
-	<caps add="(vcp(02 04 08 10 12 14(05 08 0B ) 16 18 1A 60( 11 12 0F 10) D6(01 04) 62 8D F5(00 01 02) F6(00 01 02) 15(01 07 08 11 13 14 15 18 19 20 22 23 24 28 29) F7(00 01 02 03) F8(00 01)))" remove="(vcp(05 4D 4E 4F 52 AC AE B2 B6 C0 C6 C8 C9 DF F4 F9 FE(00 01 02) FD(00 01) FF))"/>
+	<caps add="(vcp(04 08 10 12 14(05 08 0B ) 16 18 1A 60( 11 12 0F 10) D6(01 04) 62 8D F5(00 01 02) F6(00 01 02) 15(01 07 08 11 13 14 15 18 19 20 22 23 24 28 29) F7(00 01 02 03) F8(00 01)))" remove="(vcp(02 05 4D 4E 4F 52 AC AE B2 B6 C0 C6 C8 C9 DF F4 F9 FE(00 01 02) FD(00 01) FF))"/>
 	<controls>
 		<control id="inputsource" type="list" address="0x60">
 			<value id="hdmi1"  value="0x11"/>

@@ -139,7 +139,7 @@
 			</control>
 		</subgroup>
 		<subgroup name="LG Picture">
-			<control id="lgmode" type="list" name="Picture Mode" address="0x15">
+			<control id="lgmode" type="list" name="Picture Mode" address="0x15" refresh="all">
 				<value id="reader" name="Reader" value="1"/>
 				<value id="colorweaknes" name="Color Weakness" value="6"/>
 				<value id="custom" name="Custom" value="11"/>
