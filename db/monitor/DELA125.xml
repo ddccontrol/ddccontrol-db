@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<monitor name="DELL U3219Q" init="standard">
+       <caps add="(prot(monitor)type(LCD)model(U3219Q)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 10 12 14(04 05 06 08 09 0B 0C) 16 18 1A 52 60(1B 0F 11 ) AA(01 02 04 ) AC AE B2 B6 C6 C8 C9 CC(02 0A 03 04 08 09 0D 06 ) D6(01 04 05) DC(00 03 05 ) DF E0 E1 E2(00 1D 02 04 0C 0D 0F 10 11 13 14 27 23 24 28 ) E4(00 01) E5 E7(00 02) E8 E9(00 21 22 24 ) EA(FE00 FE01FC01 FC02) F0(0C 31 32 34 35 ) F1 F2 FD)mswhql(1)asset_eep(40)mccs_ver(2.1))" />
+       <include file="VESA"/>
+       <control id="inputsource" type="list" address="0x60">
+         <value id="usb-c" value="0x1b"/>
+         <value id="dp" value="0x0f"/>
+         <value id="hdmi" value="0x11"/>
+       </control>
+</monitor>
