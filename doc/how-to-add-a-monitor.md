@@ -276,3 +276,25 @@ Consider for example the following made-up capabilities string:
 ```
 
 This fictional monitor would support controls at addresses `0x02`, `0x12`, `0x14` and `0x16`, with the control at address `0x14` accepting values `0x05`, `0x08` and `0x0B`.
+
+### Disabling controls
+
+Sometimes, a control may be displayed even though it's actually not supported.
+For example, the _VESA standard monitor_ profile includes degauss controls, which make sense for CRT monitors but not for LCDs.
+To prevent those from showing up in `ddccontrol -c` and the DDC Control GUI, you may need to explicitly disable them.
+
+For example, to disable the `secdegauss` control, which has address `0x02`:
+
+```diff
+--- a/db/monitor/ACR06B1.xml
++++ b/db/monitor/ACR06B1.xml
+@@ -1,5 +1,5 @@
+ <?xml version="1.0"?>
+ <monitor name="Acer Nitro XV273K" init="standard">
+-       <caps add="(prot(monitor)type(lcd)vcp(02 12 14(05 08 0B) 16 ))" />
++       <caps add="(prot(monitor)type(lcd)vcp(12 14(05 08 0B) 16 ))" remove="(vcp(02))" />
+        <include file="VESA"/>
+ </monitor>
+```
+
+Note that you may need to both remove the control from the `add` attribute _and_ specify it in the `remove` attribute, as shown above.
