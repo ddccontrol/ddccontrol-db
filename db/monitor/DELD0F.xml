@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<monitor name="Dell S3220DGF" init="standard">
+	<caps add="(prot(monitor)type(LCD)model(S3220DGF)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 10 12 14(05 08 0B 0C) 16 18 1A 52 60(0F 11 12 ) 62 AC AE B2 B6 C6 C8 C9 CA CC(02 0A 03 04 08 09 0D 06 ) D6(01 04 05) DC(00 05 ) DF E0 E1 E2(00 20 21 22 2F 04 1E 1F 1D 0E 12 14 27 23 24 3A ) EA(FE00 FE01) F0(0D 0E 0C 0F 10 11 13 31 32 34 36 ) F1 F2 FD)mswhql(1)asset_eep(40)mccs_ver(2.1))"/>
+	<controls>
+		<!-- Control 0x02: +/2/255 C [Secondary Degauss] -->
+		<!-- Control 0x04: +/0/1 C [Restore Factory Defaults] -->
+		<!-- Control 0x05: +/0/1 C [Restore Brightness and Contrast] -->
+		<!-- Control 0x08: +/0/1 C [Restore Factory Default Color] -->
+		<!-- Control 0x10: +/75/100 C [Brightness] -->
+		<!-- Control 0x12: +/75/100 C [Contrast] -->
+		<control id="colorpreset" address="0x14">
+			<value id="normal" value="0x5"/> <!-- 1907/10537 -->
+			<value id="cool" value="0x8"/> <!-- 8/12 -->
+			<value id="warm"  value="0xB"/> <!-- 11/12 -->
+			<value id="custom" value="0xC"/> <!-- 12/12 -->
+		</control>
+		<!-- Control 0x16: +/100/100 C [Red maximum level] -->
+		<!-- Control 0x18: +/100/100 C [Green maximum level] -->
+		<!-- Control 0x1A: +/100/100 C [Blue maximum level] -->
+		<!-- Control 0x52: +/226/255 C [???] -->
+		<control id="inputsource" type="list" address="0x60">
+			<value id="dp" value="0xF"/> <!-- DP: 3855 (0xF0F), HDMI-1: 4367 (0x110F) -->
+			<value id="hdmi1" value="0x11"/> <!-- DP: 3857 (0xF11), HDMI-1: 4369 (0x1111) -->
+			<value id="hdmi2" value="0x12"/> <!-- DP: 3858 (0xF12), HDMI-1: 4370 (0x1112) -->
+		</control>
+		<!-- Control 0x62: +/50/100 C [Audio Speaker Volume Adjust] -->
+		<!-- Control 0xAC: +/23264/1 C [???] -->
+		<!-- Control 0xAE: +/6000/65535 C [???] -->
+		<!-- Control 0xB2: +/1/1 C [???] seems to be read-only -->
+		<!-- Control 0xB6: +/3/5 C [???] seems to be read-only -->
+		<!-- Control 0xC6: +/17868/65535 C [???] -->
+		<!-- Control 0xC8: +/5897/39 C [???] -->
+		<!-- Control 0xC9: +/256/65535 C [???] -->
+		<control id="buttonaccess" address="0xCA">
+			<value id="locked" value="0x1"/>
+			<value id="unlocked" value="0x2"/>
+		</control>
+		<control id="language" address="0xCC">
+			<value id="english" value="0x2"/>
+			<value id="french" value="0x3"/>
+			<value id="german" value="0x4"/>
+			<value id="japanese" value="0x6"/>
+			<value id="brazilian" value="0x8"/>
+			<value id="russian" value="0x9"/>
+			<value id="spanish" value="0xA"/>
+			<value id="chinese" value="0xD"/>
+		</control>
+		<!-- Control 0xD6: +/3/5 C [DPMS Control] -->
+		<!-- Control 0xDC: +/0/5 C [???]
+			0: 0xE2 = 0
+			5: 0xE2 = 4
+		-->
+		<!-- Control 0xDF: +/513/65535 C [???] seems to be read-only -->
+		<control id="backlight" address="0xE0">
+			<!-- <value id="on" value="0x0"/> -->
+			<!-- <value id="off" value="0x1"/> -->
+		</control>
+		<!-- Control 0xE1: +/0/1 C [Power control - Off] -->
+		<!-- Control 0xE2: +/0/255 C [???] seems to be read-only -->
+		<!-- Control 0xEA: +/65025/65535 C [???] -->
+		<!-- Control 0xF0: +/0/255 C [???] seems to be read-only -->
+		<!-- Control 0xF1: +/11/65535 C [???] seems to be read-only -->
+		<!-- Control 0xF2: +/0/255 C [???] seems to be read-only -->
+		<!-- Control 0xFD: +/99/255 C [???] seems to be read-only -->
+	</controls>
+	<include file="VESA"/>
+</monitor>
+

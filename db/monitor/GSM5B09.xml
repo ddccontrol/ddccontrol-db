@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<monitor name="LG 27UD68P" init="standard">
+	<caps add="(vcp(04 08 10 12 14(05 08 0B ) 16 18 1A 60( 11 12 0F 10) D6(01 04) 62 8D F5(00 01 02) F6(00 01 02) 15(01 07 08 11 13 14 15 18 19 20 22 23 24 28 29) F7(00 01 02 03) F8(00 01)))" remove="(vcp(02 05 4D 4E 4F 52 AC AE B2 B6 C0 C6 C8 C9 DF F4 F9 FE(00 01 02) FD(00 01) FF))"/>
+	<controls>
+		<control id="inputsource" type="list" address="0x60">
+			<value id="hdmi1"  value="0x11"/>
+			<value id="hdmi2" value="0x12"/>
+			<!--TODO: DisplayPort-->
+		</control>
+		<control id="colorpreset" type="list" address="0x14">
+			<value id="6500k"  value="0x05"/>
+			<value id="9300k"  value="0x08"/>
+			<value id="custom"  value="0x0B"/>
+		</control>
+		<control id="ratio" type="list" name="Screen ratio" address="0xF5">
+			<value id="1to1" name="1:1" value="0"/>
+			<value id="wide" name="Wide" value="1"/>
+			<value id="original" name="Original" value="2"/>
+		</control>
+		<control id="lgmode" type="list" name="Picture Mode" address="0x15">
+				<value id="reader" name="Reader" value="1"/>
+				<value id="colorweaknes" name="Color Weakness" value="6"/>
+				<value id="custom" name="Custom" value="11"/>
+				<value id="rtsgame" name="RTS Game" value="13"/>
+				<value id="customgame" name="Custom (Game)" value="14"/>
+				<value id="srgb" name="sRGB" value="15"/>
+				<value id="fpsgame1" name="FPS Game 1" value="28"/>
+				<value id="fpsgame2" name="FPS Game 2" value="29"/>
+				<value id="photo" name="Photo" value="32"/>
+				<value id="cinema" name="Cinema" value="48"/>
+		</control>
+		<control id="freesync" type="list" name="FreeSync" address="0xF8">
+			<value id="off" name="Off" value="0"/>
+			<value id="on" name="On" value="1"/>
+		</control>
+		<control id="responsetime" type="list" name="Response Time" address="0xF7">
+			<value id="off" name="Off" value="0"/>
+			<value id="high" name="High" value="1"/>
+			<value id="middle" name="Middle" value="2"/>
+			<value id="low" name="Low" value="3"/>
+		</control>
+		<control id="energysaving" type="list" name="Smart Energy Saving" address="0xF6">
+			<value id="off" value="0"/>
+			<value id="low" value="1"/>
+			<value id="high" value="2"/>
+		</control>
+		<control id="audiospeakermute" type="list" name="Audio Speaker Mute" address="0x8d">
+			<value id="mute" name="Mute" value="1"/>
+			<value id="unmute" name="Unmute" value="2"/>
+		</control>
+	</controls>
+	<include file="GSMlcd"/>
+</monitor>
