@@ -452,7 +452,6 @@
 		</subgroup>
 		<subgroup name="Degauss">
 			<control id="degauss" type="command" name="Degauss" address="0x00"/>
-			<control id="secdegauss" type="command" name="Secondary Degauss" address="0x02"/>
 		</subgroup>
 		<subgroup name="OSD">
 			<control id="osd" type="list" name="On Screen Display" address="0x66"> <!--- USB specifies address 0xCA -->
@@ -494,9 +493,9 @@
 				<value id="brazilian"    name="Português do Brasil (Brazilian Portuguese)"/>
 			</control>
 			<!-- If "changed", read 0x52 register value to get address of the control changed using OSD menu -->
-			<control id="newcontrolvalue" type="list" name="New Control Value">
-				<value id="nochanges" name="No changes"/>
-				<value id="changed" name="Some values changed"/>
+			<control id="newcontrolvalue" type="list" name="New Control Value" address="0x02">
+				<value id="nochanges" name="No changes" value="0x01"/>
+				<value id="changed" name="Some values changed" value="0x02"/>
 			</control>
 		</subgroup>
 		<subgroup name="Power control">

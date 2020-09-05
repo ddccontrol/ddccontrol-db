@@ -9,7 +9,7 @@
 	
 	<controls>
 	
-		<control id="secdegauss" address="0x02"/>
+		<control id="newcontrolvalue" address="0x02"/>
 		<control id="defaults" address="0x04" delay="2000"/>
 		<control id="defaultluma" address="0x05" delay="2000"/>
 		<control id="defaultcolor" address="0x08" delay="2000"/>
@@ -110,7 +110,6 @@
 		-->
 <!--
 Controls (valid/current/max) [Description - Value name]:
-Control 0x02: +/2/2 C [Secondary Degauss]
 Control 0x04: +/0/1 C [Restore Factory Defaults]
 Control 0x05: +/0/1 C [Restore Brightness and Contrast]
 Control 0x06: +/0/1   [???]

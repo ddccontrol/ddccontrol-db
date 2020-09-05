@@ -3,7 +3,7 @@
 	<caps add="(prot(monitor)type(LCD)model(U2518D)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 10 12 14(04 05 06 08 09 0B 0C)16 18 1A 60(10 0F 11) AA(01 02 03 04) AC AE B6 C6 C8 C9 D6(01 04 05) DC(00 03 05) DF E0 E1 E2(00 1D 02 04 0C 0D 0F 10 11 13 14) F0(0C) F1 F2 FD)mccs_ver(2.1)mswhql(1))"/>
 
 	<controls>
-		<control id="secdegauss" address="0x02" />
+		<control id="newcontrolvalue" address="0x02"/>
 
 		<control id="defaults" address="0x04" delay="2000"/>
 		<control id="defaultluma" address="0x05" delay="2000"/>
