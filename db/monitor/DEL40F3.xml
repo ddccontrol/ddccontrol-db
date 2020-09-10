@@ -22,9 +22,9 @@
 			<value id="cool2" value="0x08"/>
 			<!-- <value id="5700k" value="0x0B"/> --> <!-- total blue, useless -->
 		</control>
-                <control id="mode16" address="0x16"/> <!-- Tried red but doesn't works, nothing happened -->
-                <control id="mode18" address="0x18"/> <!-- Tried green but doesn't works, nothing happened -->
-                <control id="mode1A" address="0x1a"/> <!-- Tried blue but doesn't works, nothing happened -->
+                <!--<control id="mode16" address="0x16"/>  Tried red but doesn't works, nothing happened -->
+                <!--<control id="mode18" address="0x18"/>  Tried green but doesn't works, nothing happened -->
+                <!--<control id="mode1A" address="0x1a"/>  Tried blue but doesn't works, nothing happened -->
                  <!--<control id="0x1e" address="0x1e"/>  Automatically adjust, nothing happened -->
                 <control id="hpos" address="0x20"/> <!-- nothing happened + interface off -->
                 <control id="vpos" address="0x30"/> <!-- nothing happened + interface off -->
