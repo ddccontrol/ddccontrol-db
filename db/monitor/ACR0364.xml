@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<monitor name="Acer B196L" init="standard">
+	<caps add="(prot(monitor)type(LCD)model(ACER)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 0B 10 12 14(05 08 0B 0C) 16 18 1A 52 60(01 03 0F) 62 AC AE B2 B6 C6 C8 C9 CC(01 02 03 04 05 06 08 09 0A 0C 0D 0E 14 16 1E) D6(01 05) DF)mswhql(1)asset_eep(40)mccs_ver(2.2))"/>
+	<controls>
+		<control id="defaults" address="0x04" delay="2000"/>
+		<control id="defaultluma" address="0x05" delay="2000"/>
+		<!--<control id="defaultgeom" address="0x06"/> is untested -->
+		<control id="defaultcolor" address="0x08" delay="2000"/>
+
+		<control id="brightness" address="0x10"/>
+		<control id="contrast" address="0x12"/>
+
+		<control id="colorpreset" address="0x14">
+			<value id="warm" value="5"/>
+			<value id="normal" value="6"/>
+			<value id="cool" value="8"/>
+			<value id="user" value="11"/>
+			<value id="bluelight" value="12"/>
+		</control>
+
+		<control id="red" address="0x16"/>
+		<control id="green" address="0x18"/>
+		<control id="blue" address="0x1A"/>
+
+		<control id="inputsource" address="0x60">
+			<value id="vga" value="1"/>
+			<value id="dvi" value="3"/>
+			<value id="dp" value="15"/>
+		</control>
+
+		<control id="audiospeakervolume" address="0x62"/>
+
+		<control id="language" type="list" address="0xCC">
+			<value id="chinese_tw" value="1"/>
+			<value id="english" value="2"/>
+			<value id="french" value="3"/>
+			<value id="german" value="4"/>
+			<value id="italian" value="5"/>
+			<value id="japanese" value="6"/>
+			<value id="portuguese" value="8"/>
+			<value id="russian" value="9"/>
+			<value id="spanish" value="10"/>
+			<value id="turkish" value="12"/>
+			<value id="chinese" value="13"/>
+			<value id="brazilian" value="14"/>
+			<value id="dutch" value="20"/>
+			<value id="finnish" value="22"/>
+			<value id="polish" value="30"/>
+		</control>
+
+		<control id="dpms" address="0xd6">
+			<value id="on" value="1"/>
+			<value id="standby" value="4"/>
+			<value id="off" value="5"/>
+		</control>
+	</controls>
+</monitor>

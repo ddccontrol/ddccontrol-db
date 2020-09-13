@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<monitor name="Acer P226HQV" init="standard">
+	<caps add="(prot(monitor)type(LCD)model(P226HQV)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 0B 0C 10 12 14(01 05 08 0B) 16 18 1A 52 60(01 03) AC AE B2 B6 C0 C6 C8 C9 CA(01 02) CC(02 03 04 05 09 0A 14 16) D6(01 04 05) DC(01 02 03 04) DF)mswhql(1)asset_eep(40)mccs_ver(2.1))"/>
+	<controls>
+		<control id="defaults" address="0x04" delay="2000"/>
+		<control id="defaultluma" address="0x05" delay="2000"/>
+		<!--<control id="defaultgeom" address="0x06"/> is untested -->
+		<control id="defaultcolor" address="0x08" delay="2000"/>
+
+		<control id="brightness" address="0x10"/>
+		<control id="contrast" address="0x12"/>
+
+		<control id="colorpreset" address="0x14">
+			<value id="warm" value="5"/>
+			<value id="cool" value="8"/>
+			<value id="user" value="11"/>
+		</control>
+
+		<control id="red" address="0x16"/>
+		<control id="green" address="0x18"/>
+		<control id="blue" address="0x1A"/>
+
+		<control id="inputsource" address="0x60">
+			<value id="vga" value="1"/>
+			<value id="dvi" value="3"/>
+		</control>
+
+		<control id="language" type="list" address="0xCC">
+			<value id="english" value="2"/>
+			<value id="french" value="3"/>
+			<value id="german" value="4"/>
+			<value id="italian" value="5"/>
+			<value id="russian" value="9"/>
+			<value id="spanish" value="10"/>
+			<value id="turkish" value="12"/>
+			<value id="dutch" value="20"/>
+			<value id="finnish" value="22"/>
+			<!-- maybe missing some languages -->
+		</control>
+
+		<control id="dpms" address="0xd6">
+			<value id="on" value="1"/>
+			<value id="standby" value="4"/>
+			<value id="off" value="5"/>
+		</control>
+	</controls>
+</monitor>
