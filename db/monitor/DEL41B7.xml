@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<monitor name="Dell U2720Q" init="standard">
+	<caps add="(prot(monitor)type(lcd)model(U2720Q)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 10 12 14(01 04 05 06 08 09 0B 0C) 16 18 1A 52 60( 11 1B 0F) AA(01 02 03 04) AC AE B2 B6 C6 C8 C9 CC(02 03 04 06 09 0A 0D 0E) D6(01 04 05) DC(00 03 05) DF E0 E1 E2(00 02 04 0B 0C 0D 0F 10 11 13 14 1B 1D 23 24 27 3A ) EA F0(00 05 06 0A 0C 31 32 34 36) F1 F2 FD)mccs_ver(2.1)mswhql(1))" />
+	<controls>
+		<control id="brightness" address="0x10"/>
+		<control id="contrast" address="0x12"/>
+
+		<control id="inputsource" type="list" address="0x60">
+			<value id="usb-c" value="0x1b"/>
+			<value id="dp" value="0x0f"/>
+			<value id="hdmi" value="0x11"/>
+		</control>
+
+		<control id="red" address="0x16"/>
+		<control id="green" address="0x18"/>
+		<control id="blue" address="0x1A"/>
+
+		<control id="magicbright" address="0xdc">
+			<value id="standard" value="0x00"/>
+			<value id="movie" value="0x03"/>
+			<value id="game" value="0x05"/>
+		</control>
+
+		<control id="language" type="list" address="0xcc">
+			<value id="english" value="0x02"/>
+			<value id="spanish" value="0x0a"/>
+			<value id="french" value="0x03"/>
+			<value id="german" value="0x04"/>
+			<value id="brazilian" value="0x0e"/>
+			<value id="russian" value="0x09"/>
+			<value id="chinese" value="0x0d"/>
+			<value id="japanese" value="0x06"/>
+		</control>
+
+		<!-- this is inverted from VESA -->
+		<control id="power" type="list" address="0xe1">
+			<value id="on" value="0"/>
+			<value id="off" value="1"/>
+		</control>
+	</controls>
+</monitor>
