@@ -2,7 +2,7 @@
 <monitor name="LG IPS226V-PN" init="standard">
 	<caps add="(vcp(02 04 05 06 08 10 12 14(05 07 08 0B) 16 18 1a 87 D6(01 04) FC(00 01 02 03) FD(00 01) FE(00 01 02 03 04)))"/>
 	<controls>
-		<control id="secdegauss" address="0x02"/>
+		<control id="newcontrolvalue" address="0x02"/>
 
 		<!-- Control 0x03: +/0/65535 [???] -->
 			

@@ -818,8 +818,8 @@ msgstr "Размагничивание"
 
 #: ../db/options.xml.h:168
 #, c-format
-msgid "Secondary Degauss"
-msgstr "Вторичное размагничивание"
+msgid "New Control Value"
+msgstr "Новое контрольное значение"
 
 #: ../db/options.xml.h:169
 #, c-format

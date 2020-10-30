@@ -51,7 +51,7 @@ Modifying its name is probably the easiest way to verify that changes are applie
 +<monitor name="Cool unknown monitor" init="standard">
         <controls>
                 <control id="degauss" address="0x00"/>
-                <control id="secdegauss" address="0x02"/>
+                <control id="newcontrolvalue" address="0x02"/>
 ```
 
 Once you've made the change, install the database:
@@ -279,11 +279,8 @@ This fictional monitor would support controls at addresses `0x02`, `0x12`, `0x14
 
 ### Disabling controls
 
-Sometimes, a control may be displayed even though it's actually not supported.
-For example, the _VESA standard monitor_ profile includes degauss controls, which make sense for CRT monitors but not for LCDs.
-To prevent those from showing up in `ddccontrol -c` and the DDC Control GUI, you may need to explicitly disable them.
-
-For example, to disable the `secdegauss` control, which has address `0x02`:
+Sometimes, you may want to force-disable a control for one reason or another.
+For example, to disable the `newcontrolvalue` control, which has address `0x02`:
 
 ```diff
 --- a/db/monitor/ACR06B1.xml

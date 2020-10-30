@@ -2,7 +2,6 @@
 <monitor name="Dell S3220DGF" init="standard">
 	<caps add="(prot(monitor)type(LCD)model(S3220DGF)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 10 12 14(05 08 0B 0C) 16 18 1A 52 60(0F 11 12 ) 62 AC AE B2 B6 C6 C8 C9 CA CC(02 0A 03 04 08 09 0D 06 ) D6(01 04 05) DC(00 05 ) DF E0 E1 E2(00 20 21 22 2F 04 1E 1F 1D 0E 12 14 27 23 24 3A ) EA(FE00 FE01) F0(0D 0E 0C 0F 10 11 13 31 32 34 36 ) F1 F2 FD)mswhql(1)asset_eep(40)mccs_ver(2.1))"/>
 	<controls>
-		<!-- Control 0x02: +/2/255 C [Secondary Degauss] -->
 		<!-- Control 0x04: +/0/1 C [Restore Factory Defaults] -->
 		<!-- Control 0x05: +/0/1 C [Restore Brightness and Contrast] -->
 		<!-- Control 0x08: +/0/1 C [Restore Factory Default Color] -->

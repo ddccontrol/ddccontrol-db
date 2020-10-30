@@ -40,11 +40,6 @@
 	mswhql(1)asset_eep(40)mccs_ver(2.1))
 -->
 	<controls>
-		<control id="newcontrolvalue" type="list" address="0x02">
-			<value id="nochanges" value="0x01"/>
-			<value id="changed" value="0x02"/>
-		</control>
-
 		<!-- not in vcp list -->
 		<!-- <control id="???" address="0x0b"/> -->
 

@@ -818,8 +818,8 @@ msgstr "消磁"
 
 #: ../db/options.xml.h:168
 #, c-format
-msgid "Secondary Degauss"
-msgstr "二次消磁"
+msgid "New Control Value"
+msgstr "新控制值"
 
 #: ../db/options.xml.h:169
 #, c-format

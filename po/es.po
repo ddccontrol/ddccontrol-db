@@ -862,8 +862,8 @@ msgstr "Degauss"
 
 #: ../../po/../db/options.xml.h:179
 #, c-format
-msgid "Secondary Degauss"
-msgstr "Degauss Secundario"
+msgid "New Control Value"
+msgstr "Nuevo valor de control"
 
 #: ../../po/../db/options.xml.h:180
 #, c-format

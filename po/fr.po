@@ -826,8 +826,8 @@ msgstr "Démagnétiser"
 
 #: ../db/options.xml.h:168
 #, c-format
-msgid "Secondary Degauss"
-msgstr "Démagnétiser (contrôle secondaire)"
+msgid "New Control Value"
+msgstr "Nouvelle valeur de contrôle"
 
 #: ../db/options.xml.h:169
 #, c-format

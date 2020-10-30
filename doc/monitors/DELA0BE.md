@@ -25,7 +25,6 @@ Parsed output:
 
 | Control | valid/current/max | Write test | Description                                      |
 | ------- | ----------------- | ---------- | ------------------------------------------------ |
-| 0x02    | +/2/2             |            | Secondary Degauss                                |
 | 0x04    | +/0/255           |            | Restore Factory Defaults                         |
 | 0x05    | +/0/1             | OK         | Restore Brightness and Contrast                  |
 | 0x06    | +/0/255           |            | ???                                              |
