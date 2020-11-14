@@ -63,6 +63,10 @@
 		  		<value id="eco" name="Eco" value="2"/>
 		  		<value id="graphics" name="Graphics" value="3"/>
 		  		<value id="movie" name="Movie" value="4"/>
+				<!-- VG270U P-->
+				<value id="action" name="Action" value="5"/>
+				<value id="racing" name="Racing" value="6"/>
+				<value id="sports" name="Sports" value="7"/>
 			</control>
 		</subgroup>
 <!-- Following sub group valid for LG F-Engine monitors -->
