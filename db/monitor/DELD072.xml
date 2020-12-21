@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<monitor name="Dell U2515H" init="standard">
+	<include file="DELD070"/>
+</monitor>
