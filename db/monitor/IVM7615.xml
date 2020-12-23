@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<monitor name="Iiyama GB3461WQSU (DP)" init="standard">
+  <!-- Include the HDMI interface from the same monitor. -->
+  <include file="IVM7614"/>
+</monitor>
