@@ -470,6 +470,8 @@
 			<control id="osdorientation" type="list" name="OSD Orientation" address="0xaa">
 				<value id="landscape" name="Landscape"/>
 				<value id="portrait" name="Portrait"/>
+				<value id="portraitleft" name="Portrait (Left)"/>
+				<value id="portraitright" name="Portrait (Right)"/>
 			</control>
 			<control id="language" type="list" name="Language select" address="0x68">
 				<value id="english"       name="English"/>
