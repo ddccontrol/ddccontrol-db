@@ -254,12 +254,12 @@ The verbosity flags (`-v`, `-vv`, ...) can be helpful.
 * Re-probe for monitors in the DDC Control GUI.
 * Check if controls are being discarded by the capabilities string:
   ```console
-  $ ddccontrol -v -p dev:/dev/i2c-5
+  $ sudo ddccontrol -v dev:/dev/i2c-5
   [...]
   Control foobar has been discarded by the caps string.
   [...]
   ```
-* Run `ddccontrol -vvv -p` and look for error messages.
+* Run `sudo ddccontrol -vvv -p` and look for error messages.
 * Try restarting the GUI.
 * Make sure you haven't mixed up hexadecimal and decimal notation.
   Both are used in database entries.
