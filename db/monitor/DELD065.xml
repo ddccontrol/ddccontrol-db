@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
 <monitor name="Dell U2715H (DP)" init="standard">
 	<!-- Include the HDMI 2 interface from the same monitor. -->
-	<include file="DELD067"/>
+	<include file="DELD069"/>
 </monitor>
