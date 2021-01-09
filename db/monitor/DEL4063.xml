@@ -34,7 +34,7 @@
       <value id="off" value="5"/>
     </control>
 
-    <!--- DELL u3011 controls -->
+    <!--- Dell u3011 controls -->
     <control id="colorpreset" address="0x14">
       <value id="srgb"  value="0x01"/>
       <value id="native"  value="0x05"/>

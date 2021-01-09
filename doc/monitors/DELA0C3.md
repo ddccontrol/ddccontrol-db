@@ -1,4 +1,4 @@
-# DELL P2416D: DELA0C2 (VGA), DELA0C3 (HDMI)
+# Dell P2416D: DELA0C2 (VGA), DELA0C3 (HDMI)
 
 EDID readings:
 	Plug and Play ID: DELA0C2 [VESA standard monitor]

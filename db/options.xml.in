@@ -270,7 +270,7 @@
 				<value id="off" name="Off"/>
 				<value id="calibrated" name="Calibrated"/>
 			</control>
-			<!-- DELL P2416D -->
+			<!-- Dell P2416D -->
 			<control id="dellpaper" type="command" name="Paper preset" address="0xf0">
 				<value id="set" value="0x08" name="Set Paper Preset"/>
 			</control>
