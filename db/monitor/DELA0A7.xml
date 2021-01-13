@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<monitor name="DELL D3415W (mDP)" init="standard">
+<monitor name="Dell D3415W (mDP)" init="standard">
   <!-- Include the DP interface from the same monitor. -->
   <include file="DELA0A6"/>
 </monitor>
