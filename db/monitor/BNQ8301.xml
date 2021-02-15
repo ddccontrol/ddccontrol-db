@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!--- "Standard" controls -->
+<monitor name="BenQ BL2410" init="standard">
+	<caps add="(prot(monitor)type(LCD)model(BL2410PT)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 0B 0C 10 12 14(04 05 08 0B) 16 18 1A 52 60(01 03 0F) 62 72(50 64 78 8C A0) 86(02 05) 87 8A 8D(01 02) 90 AA(01 02 FF) AC AE B2 B6 C0 C6 C8 C9 CA(01 02) CC(01 02 03 04 05 06 09 0A 0B 0D 0E 12 14 1A 1E 1F 20) D6(01 05) DC(00 03 0B 0C 0E 0F 10 11 12 13 14) DF E2(00 01) E3(00 01) E7(00 01) E8(00 01) E9(00 01 02 03) EA(00 01 02 03 04 05) EF(00 01) F0(00 01 02) F1(00 01) F2(14 28 3C 50 64) F4(00 01) F5(00 01) F6(00 01) F8(00 0A 14 1E) F9)mswhql(1)asset_eep(40)mccs_ver(2.2))"/>
+	<controls>
+                <control id="secdegauss" address="0x02"/>
+
+		<control id="defaults" address="0x04" delay="2000"/>
+                <control id="defaultluma" address="0x05" delay="2000"/>
+                <control id="defaultgeom" address="0x06" delay="2000"/>
+                <control id="defaultcolor" address="0x08" delay="2000"/>
+		<control id="coarse" address="0x0E"/> -->
+
+                <control id="brightness" address="0x10"/>
+                <control id="contrast" address="0x12"/>
+ 		<control id="colorpreset" type="list" address="0x14">
+			<value id="5000k" value="0x04"/>
+			<value id="6500k" value="0x05"/>
+			<value id="9300k" value="0x08"/>
+			<value id="user1" value="0x0B"/>
+		</control>	
+                <control id="red" address="0x16"/>
+                <control id="green" address="0x18"/>
+                <control id="blue" address="0x1A"/>
+
+		<control id="inputsource" type="list" address="0x60">
+                        <value id="vga"  value="0x01"/>
+			<value id="dvi" value="0x03"/>
+			<value id="dp" value="0x0F"/>
+                </control>
+                <control id="audiospeakervolume" address="0x62"/>
+
+		<control id="sharpness" address="0x87"/>
+		<control id="saturation" address="0x8A"/>
+		<control id="hue" address="0x90"/>
+
+
+                <control id="screenrotation" name="Screen Rotation" type="list" address="0xaa">
+                        <value id="landscape" value="0x01"/>
+			<value id="portrait" value="0x02"/>
+			<value id="cannotsupply" value="0xFF"/>
+                </control>
+
+		<control id="osd" type="list" address="0xCA">
+			<value id="disabled" value="0x01"/>
+			<value id="enabled" value="0x02"/>
+		</control>
+		<control id="language" type="list" address="0xCC">
+			<value id="chinese_tw" value="0x01"/>
+			<value id="english" value="0x02"/>
+			<value id="french" value="0x03"/>
+			<value id="german" value="0x04"/>
+			<value id="italian" value="0x05"/>
+			<value id="japanese" value="0x06"/>
+			<value id="russian" value="0x09"/>
+			<value id="spanish" value="0x0a"/>
+			<value id="swedish" value="0x0b"/>
+			<value id="chinese" value="0x0d"/>
+			<value id="brazilian" value="0x0e"/>
+			<value id="czech" value="0x12"/>
+			<value id="dutch" value="0x14"/>
+			<value id="hungarian" value="0x1a"/>
+			<value id="polish" value="0x1e"/>
+			<value id="romanian" value="0x1f"/>
+			<value id="serbocroatian" value="0x20"/>
+		</control>
+		<!-- 
+		<control id="dpms" address="0xd6">
+                        <value id="off" value="0x01"/>
+                        <value id="standby" value="0x05"/>
+		</control>
+		-->
+		<control id="bnqmode" type="list" address="0xDC">
+			<value id="mode0" value="0x00"/>
+			<value id="mode3" value="0x03"/>
+			<value id="modeB" value="0x0b"/>
+			<value id="modeC" value="0x0c"/>
+			<value id="modeE" value="0x0e"/>
+			<value id="modeF" value="0x0f"/>
+			<value id="mode10" value="0x10"/>
+			<value id="mode11" value="0x11"/>
+			<value id="mode12" value="0x12"/>
+			<value id="mode13" value="0x13"/>
+			<value id="mode14" value="0x14"/>
+		</control>
+	</controls>
+
+	<!--	<include file="VESA"/> -->
+</monitor>
