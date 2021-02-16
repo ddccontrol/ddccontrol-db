@@ -42,8 +42,8 @@
                 </control>
 
 		<control id="osd" type="list" address="0xCA">
-			<value id="disabled" value="0x01"/>
-			<value id="enabled" value="0x02"/>
+			<value id="disable" value="0x01"/>
+			<value id="enable" value="0x02"/>
 		</control>
 		<control id="language" type="list" address="0xCC">
 			<value id="chinese_tw" value="0x01"/>
