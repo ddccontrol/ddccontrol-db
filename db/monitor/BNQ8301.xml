@@ -35,7 +35,7 @@
 		<control id="hue" address="0x90"/>
 
 
-                <control id="screenrotation" name="Screen Rotation" type="list" address="0xaa">
+                <control id="screenorientation" type="list" address="0xaa">
                         <value id="landscape" value="0x01"/>
 			<value id="portrait" value="0x02"/>
 			<value id="cannotsupply" value="0xFF"/>

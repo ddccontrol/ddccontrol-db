@@ -338,7 +338,7 @@
 			<control id="screenorientation" type="list" name="Screen Orientation" address="0xAA">
 				<value id="landscape" name="Landscape (0 degrees)" value="0x01"/>
 				<value id="portrait" name="Portrait (90 degrees)" value="0x02"/>
-				<value id="cannotsuply" name="Display cannot suply orientation" value="0xFF"/>
+				<value id="cannotsupply" name="Display cannot suply orientation" value="0xFF"/>
 			</control>
 		</subgroup>
         <subgroup name="Ratio">
