@@ -465,6 +465,7 @@
 		</subgroup>
 		<subgroup name="Degauss">
 			<control id="degauss" type="command" name="Degauss" address="0x00"/>
+			<control id="secdegauss" type="command" name="Secondary Degauss" address="0x02"/>
 		</subgroup>
 		<subgroup name="OSD">
 			<control id="osd" type="list" name="On Screen Display" address="0x66"> <!--- USB specifies address 0xCA -->
