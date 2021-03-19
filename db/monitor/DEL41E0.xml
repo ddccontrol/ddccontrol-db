@@ -21,7 +21,6 @@
 		</control>
 
 		<control id="colorpreset" address="0x14">
-			<value id="normal" value="0x00"/>
 			<value id="5000k" value="0x04"/>
 			<value id="5700k" value="0x0B"/>
 			<value id="6500k" value="0x05"/>
@@ -29,10 +28,12 @@
 			<value id="9300k" value="0x08"/>
 			<value id="10000k" value="0x09"/>
 			<value id="user" value="0x0C"/>
+		</control>
+
+		<control id="magicbright" address="0xdc">
 			<value id="standard" value="0x00"/>
 			<value id="movie" value="0x03"/>
 			<value id="game" value="0x05"/>
-			<!-- multiscreen match is also an option on the OSD -->
 		</control>
 
 		<control id="red" address="0x16"/>
