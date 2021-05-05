@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<monitor name="ASUS VP28U" init="standard">
+	<caps add="(prot(monitor) type(LCD)model(LCDVP28UQ) cmds(01 02 03 07 0C F3) vcp(02 04 05 08 10 12 14(05 06 08 0B) 16 18 1A 52 60(11 12 13 0F) 62 86(02 0B) 87(00 0A 14 1E 28 32 3C 46 50 5A 64) 8A 8D(01 02) AC AE B5(00 01) B6 C6 C8 CC(01 02 03 04 05 06 07 08 09 0A 0C 0D 11 12 14 1A 1E 1F 23 30 31) D6(01 05) DF DC(03 0B 0D 0E 11 12 13) E0(01 02 03) E1(00 01) E2(00 14 28 3C 50 64) E3(00 19 32 4B 64) E4(00 01) E6(00 01 02 03 04) E7(00 01) E8(00 01) E9(00 01) EA(00 01) EB(00 01))mccs_ver(2.2)asset_eep(32)mpu(01)mswhql(1))" />
+
+	<controls>
+		<control id="newcontrolvalue" address="0x02">
+			<value id="nochanges" value="1"/>
+			<value id="changed" value="2"/>
+		</control>
+		
+		<control id="defaults" address="0x04" delay="2000"/>
+		<control id="defaultluma" address="0x05" delay="2000"/>
+		<control id="defaultcolor" address="0x08" delay="2000"/>
+		
+		<control id="brightness" address="0x10"/>
+		<control id="contrast" address="0x12"/>
+		<control id="colorpreset" type="list" address="0x14">
+			<value id="6500k" value="0x05"/>
+			<value id="7500k" value="0x06"/>
+			<value id="9300k" value="0x08"/>
+			<value id="user" value="0x0b"/>
+		</control>
+		<control id="red" address="0x16"/>
+		<control id="green" address="0x18"/>
+		<control id="blue" address="0x1A"/>
+		
+		<control id="inputsource" type="list" address="0x60">
+			<value id="hdmi1" name="HDMI-1"  value="0x11"/>
+			<value id="hdmi2" name="HDMI-2" value="0x12"/>
+			<value id="dp1" name="DisplayPort-1" value="0x0f"/>
+		</control>
+
+		<control id="audiospeakervolume" address="0x62"/>
+
+		<control id="sharpness" type="list" address="0x87">
+			<value value="0x00"/>
+			<value value="0x0A"/>
+			<value value="0x14"/>
+			<value value="0x1E"/>
+			<value value="0x28"/>
+			<value value="0x32"/>
+			<value value="0x3C"/>
+			<value value="0x46"/>
+			<value value="0x50"/>
+			<value value="0x5A"/>
+			<value value="0x64"/>
+		</control>
+
+		<control id="saturation" address="0x8A"/>
+	</controls>
+</monitor>
