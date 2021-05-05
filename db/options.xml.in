@@ -128,12 +128,12 @@
 				<value id="modeC" name="sRGB" value="0x0C"/>
 				<!-- <value id="modeD" name="Mode 0x0D" value="0x0D"/> -->
 				<value id="modeE" name="Eco" value="0x0E"/>
-				<!-- <value id="modeF" name="Mode 0x0F" value="0x0F"/> -->
-				<!-- <value id="mode10" name="Mode 0x10" value="0x10"/> -->
-				<!-- <value id="mode11" name="Mode 0x11" value="0x11"/> -->
-				<!-- <value id="mode12" name="Mode 0x12" value="0x12"/> -->
-				<!-- <value id="mode13" name="Mode 0x13" value="0x13"/> -->
-				<!-- <value id="mode14" name="Mode 0x14" value="0x14"/> -->
+				<value id="modeF" name="M-book" value="0x0F"/>
+				<value id="mode10" name="CAD/CAM" value="0x10"/>
+				<value id="mode11" name="Presentation" value="0x11"/>
+				<value id="mode12" name="User" value="0x12"/>
+				<value id="mode13" name="Low Blue Light" value="0x13"/>
+				<value id="mode14" name="Animation" value="0x14"/>
 				<value id="mode15" name="FPS1" value="0x15"/>
 				<value id="mode16" name="FPS2" value="0x16"/>
 				<value id="mode17" name="RTS" value="0x17"/>
@@ -335,6 +335,11 @@
 		</subgroup>
 		<subgroup name="Rotation">
 			<control id="tilt" type="value" name="Rotation (Tilt)" address="0x44"/>
+			<control id="screenorientation" type="list" name="Screen Orientation" address="0xAA">
+				<value id="landscape" name="Landscape (0 degrees)" value="0x01"/>
+				<value id="portrait" name="Portrait (90 degrees)" value="0x02"/>
+				<value id="cannotsupply" name="Display cannot suply orientation" value="0xFF"/>
+			</control>
 		</subgroup>
         <subgroup name="Ratio">
 			<control id="ratio" type="list" name="Screen ratio" address="0xF5">
@@ -460,6 +465,7 @@
 		</subgroup>
 		<subgroup name="Degauss">
 			<control id="degauss" type="command" name="Degauss" address="0x00"/>
+			<control id="secdegauss" type="command" name="Secondary Degauss" address="0x02"/>
 		</subgroup>
 		<subgroup name="OSD">
 			<control id="osd" type="list" name="On Screen Display" address="0x66"> <!--- USB specifies address 0xCA -->
