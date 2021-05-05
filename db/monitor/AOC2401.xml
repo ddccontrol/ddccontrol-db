@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--- "Standard" controls -->
+<monitor name="AOC 2401" init="standard">
+    <caps add="(prot(monitor)type(LCD)model(C24G1)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 0C 10 12 14(01 05 06 08 0B) 16 18 1A 52 60(01 0F 11 12) 86(01 02 05 0B 0C 0E 0F 11) AC AE B2 B6 C6 C8 CA CC(01 02 03 04 05 06 07 09 0A 0B 0D 0E 12 14 16 1E) D6(01 04 05) DC(00 0B 0C 0D 0E 0F 10) DF ED FF)mswhql(1)asset_eep(40)mccs_ver(2.2))" />
+	<controls>
+		<control id="brightness" address="0x10"/>
+		<control id="contrast" address="0x12"/>
+		<control id="defaults" address="0x04"/>
+		<control id="inputsource" address="0x60">
+			<value id="vga" name="VGA" value="1"/>
+			<value id="dp" name="DisplayPort" value="15"/>
+			<value id="hdmi1" name="HDMI-1" value="17"/>
+			<value id="hdmi2" name="HDMI-2" value="18"/>
+		</control>
+	</controls>
+</monitor>
