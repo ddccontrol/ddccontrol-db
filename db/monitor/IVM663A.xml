@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<monitor name="Iiyama PL2730H" init="standard">
+        <controls>
+                <control id="dynamiccontrast" type="list" address="0xfb">
+                        <value id="off" value="0x00"/>
+                        <value id="on" value="0x01"/>
+                </control>
+                <control id="colorpreset" type="list" address="0x14">
+                        <value id="cool" value="0x08"/>
+                        <value id="normal" value="0x06"/>
+                        <value id="warm" value="0x05"/>
+                        <value id="custom" value="0xb"/>
+                </control>
+                <control id="inputsource" type="list" address="0x60">
+                        <value id="vga"  value="0x00"/>
+                        <value id="hdmi" value="0x11"/>
+                        <value id="dp" value="0xf"/>
+                </control>
+                <control id="language" type="list" address="0xcc">
+                        <value id="english" value="0x02"/>
+                        <value id="french" value="0x03"/>
+                        <value id="german" value="0x04"/>
+                        <value id="italian" value="0x05"/>
+                        <value id="polish" value="0x1e"/>
+                        <value id="spanish" value="0xa"/>
+                        <value id="dutch" value="0x14"/>
+                        <value id="czech" value="0x12"/>
+                        <value id="russian" value="0x09"/>
+                        <value id="japanese" value="0x06"/>
+                        <value id="chinese" value="0xd"/>
+                </control>
+        </controls>
+        <include file="VESA"/>
+</monitor>
