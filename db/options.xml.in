@@ -5,6 +5,7 @@
 			<control id="brightness" type="value" name="Brightness" address="0x10"/>
 			<control id="contrast" type="value" name="Contrast" address="0x12"/>
 			<!--- vendor specific controls -->
+			<control id="sharpness" type="value" name="Sharpness" address="0x87"/>
 			<control id="dynamiccontrast" type="list" name="Dynamic Contrast">
 				<value id="off" name="Off"/>
 				<value id="on" name="On"/>
@@ -178,6 +179,12 @@
 				<value id="2.6" name="2.6"/>
 			</control>
 		</subgroup>
+		<control id="gammamode" type="list" name="Gamma" address="0xfe" >
+			<value id="mode1" name="Mode 1"/>
+			<value id="mode2" name="Mode 2"/>
+			<value id="mode3" name="Mode 3"/>
+			<value id="mode4" name="Mode 4"/>
+		</control>
 		<subgroup name="Color maximum level">
 			<control id="red" type="value" name="Red maximum level" address="0x16"/>
 			<control id="green" type="value" name="Green maximum level" address="0x18"/>
@@ -258,6 +265,7 @@
 				<!-- ACR06B1 -->
 				<value id="bluelight" name="Blue Light"/>
 			</control>
+			<control id="colortemp" type="value" name="Color Temperature Request" address="0x0c"/>
 			<control id="magiccolor" type="list" name="MagicColor" address="0xF0">
 				<value id="off" name="Off"/>
 				<value id="demo" name="Demo"/>
@@ -560,6 +568,8 @@
 			<control id="freesync" type="list" name="FreeSync" address="0xF8">
 				<value id="off" name="Off" value="0"/>
 				<value id="on" name="On" value="1"/>
+				<value id="base" name="Base" value="2"/>
+				<value id="extended" name="Extended" value="3"/>
 			</control>
 			<control id="responsetime" type="list" name="Response Time" address="0xF7">
 				<value id="off" name="Off" value="0"/>
@@ -567,6 +577,7 @@
 				<value id="middle" name="Middle" value="2"/>
 				<value id="low" name="Low" value="3"/>
 			</control>
+			<control id="blackstabilization" type="value" name="Black Stabilization" address="0xf9" />
 		</subgroup>
 	</group>
 </options>
