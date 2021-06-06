@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<monitor name="Dell U3421WE (Fullscreen)" init="standard">
+	<caps add="(prot(monitor)type(lcd)model(U3421WE)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 10 12 14(01 04 05 06 08 09 0B 0C) 16 18 1A 52 60( 1B 0F 11 12) 62 AC AE B2 B6 C6 C8 C9 CC(02 03 04 06 09 0A 0D 0E) D6(01 04 05) DC(00 03 05) DF E0 E1 E2(00 1D 02 04 0C 0D 0F 10 11 13 0B 1B 14) E4 E5 E7(00 02) E8 E9(00 01 02 21 22 24 2B 2C) F0(00 05 06 0A 0C) F1 F2 FD)mccs_ver(2.1)mswhql(1))" />
+
+	<controls>
+		<!-- Controls (valid/current/max) [Description - Value name]: -->
+
+		<!-- Control 0x02: +/2/2 C [New Control Value - Some values changed] -->
+
+		<!-- Control 0x04: +/0/255 C [Restore Factory Defaults] -->
+		<control id="defaults" address="0x04" delay="2000"/>
+		<!-- Control 0x05: +/0/1 C [Restore Brightness and Contrast] -->
+		<control id="defaultluma" address="0x05" delay="2000"/>
+		<!-- Control 0x06: +/0/255   [???] (not in caps) -->
+		<!-- Control 0x08: +/0/255 C [Restore Factory Default Color] -->
+		<control id="defaultcolor" address="0x08" delay="2000"/>
+
+		<!-- Control 0x0b: +/0/24028 [???] (not in caps) -->
+		<!-- Control 0x0c: +/2/255   [???] (not in caps) -->
+		<!-- Control 0x0e: +/50/100  [???] (not in caps) -->
+
+		<!-- Control 0x10: +/75/100 C [Brightness] -->
+		<control id="brightness" address="0x10"/>
+		<!-- Control 0x12: +/75/100 C [Contrast] -->
+		<control id="contrast" address="0x12"/>
+
+		<!-- Control 0x14: +/5/12 C [???] -->
+		<control id="colorpreset" address="0x14">
+			<!--<value id="?" value="0x01"/> -->
+			<value id="5000k" value="0x04"/>
+			<value id="6500k" value="0x05"/>
+			<value id="7500k" value="0x06"/>
+			<value id="5700k" value="0x0b"/>
+			<value id="9300k" value="0x08"/>
+			<value id="10000k" value="0x09"/>
+			<!--<value id="?" value="0x0B"/> -->
+			<value id="user" value="0x0c"/>
+		</control>
+
+		<!-- Control 0x16: +/100/100 C [Red maximum level] -->
+		<control id="red" address="0x16"/>
+		<!-- Control 0x18: +/100/100 C [Green maximum level] -->
+		<control id="green" address="0x18"/>
+		<!-- Control 0x1a: +/100/100 C [Blue maximum level] -->
+		<control id="blue" address="0x1a"/>
+
+		<!--Control 0x1e: +/0/2       [???] (not in caps) -->
+		<!--Control 0x20: +/0/100     [???] (not in caps) -->
+		<!--Control 0x30: +/0/100     [???] (not in caps) -->
+		<!--Control 0x3e: +/50/100    [???] (not in caps) -->
+		<!-- Control 0x52: +/18/255 C [???] -->
+
+		<!-- Control 0x60: +/3855/14 C [Input Source Select (Main)] -->
+		<control id="inputsource" type="list" address="0x60">
+			<!-- Using the reported values, like "0x1b" also result in a source switch.
+			     However, this causes the USB to remain unresponsive. KVM switch?
+			-->
+			<value id="usb-c" value="0xf1b"/>
+			<value id="dp" value="0xf0f"/>
+			<value id="hdmi1" value="0xf11"/>
+			<value id="hdmi2" value="0xf12"/>
+		</control>
+
+		<!-- Control 0x62: +/5/100 C [Audio Speaker Volume Adjust] -->
+		<control id="audiospeakervolume" address="0x62"/>
+
+		<!-- Control 0x6c: +/50/255        [???] (not in caps) -->
+		<!-- Control 0x6e: +/50/255        [???] (not in caps) -->
+		<!-- Control 0x70: +/50/255        [???] (not in caps) -->
+		<!-- Control 0xa8: +/0/3           [???] (not in caps) -->
+		<!-- Control 0xac: +/23364/1     C [???] -->
+		<!-- Control 0xae: +/6003/0      C [???] -->
+		<!-- Control 0xb2: +/1/8         C [???] -->
+		<!-- Control 0xb4: +/1/2           [???] (not in caps) -->
+		<!-- Control 0xb6: +/3/5         C [???] -->
+		<!-- Control 0xc0: +/17/65535      [???] (not in caps) -->
+		<!-- Control 0xc6: +/17868/65535 C [???] -->
+		<!-- Control 0xc8: +/22021/0     C [???] -->
+		<!-- Control 0xc9: +/16641/65535 C [???] -->
+		<!-- Control 0xca: +/2/2           [???] (not in caps) -->
+
+		<!-- Control 0xcc: +/2/14 C [???] -->
+		<control id="language" type="list" address="0xcc">
+			<value id="english" value="0x02"/>
+			<value id="french" value="0x03"/>
+			<value id="german" value="0x04"/>
+			<value id="japanese" value="0x06"/>
+			<value id="russian" value="0x09"/>
+			<value id="spanish" value="0x0a"/>
+			<value id="chinese" value="0x0d"/>
+			<value id="brazilian" value="0x0e"/>
+		</control>
+
+		<!-- Control 0xd6: +/1/255 C [DPMS Control - On] -->
+		<control id="dpms" address="0xd6">
+			<value id="on" value="1"/>
+			<!-- "standby": monitor light keeps blinking. Monitor is not off. -->
+			<value id="standby" value="4"/>
+			<!-- "off": monitor (light) off -->
+			<value id="off" value="5"/>
+		</control>
+
+		<!-- Control 0xdc: +/0/255 C [???] -->
+		<control id="magicbright" address="0xdc">
+			<value id="standard" value="0x00"/>
+			<value id="movie" value="0x03"/>
+			<value id="game" value="0x05"/>
+		</control>
+
+		<!-- Control 0xdf: +/513/255 C [???] -->
+		<!-- Control 0xe0: +/0/1 C     [???] -->
+
+		<!-- Control 0xe1: +/0/1 C [Power control - Off] -->
+		<control id="power" type="list" address="0xe1">
+			<!-- Values of "on" and "off" are inverted w.r.t. VESA ! -->
+			<value id="on" value="0"/>
+			<!-- "power"="off" appears equivalent to "dpms"="standby" ! -->
+			<value id="off" value="1"/>
+		</control>
+
+		<!-- Control 0xe2: +/29/255 C [???] -->
+		<!-- Control 0xe3: +/0/1      [???] (not in caps) -->
+		<!-- Control 0xe4: +/0/1 C    [???] -->
+		<!-- Control 0xe5: +/0/255 C  [???] -->
+
+		<!-- Control 0xe7: +/65282/65450 C [???] -->
+		<!-- Controls by the OSD's "USB" settings.
+		     The base value appears to be 0xFF02.
+		     Assigning an input source to "USB-B" sets the bit to 0.
+		     Assigning an input source to "USB-C" sets the bit to 1.
+		     The "DP"    assignment sets the 4th least significant bit, hence adding 0x08.
+		     The "HDMI1" assignment sets the 6th least significant bit, hence adding 0x20.
+		     The "HDMI2" assignment sets the 8th least significant bit, hence adding 0x80.
+		     So, setting assigning only "DP" to "USB-C" results in 0xFF0A
+		     and setting all inputs to "USB-C" in 0xFFAA.
+		-->
+
+		<!-- Control 0xe8: +/27/65535 C [???] -->
+
+		<!-- Control 0xe9: +/0/255 C [???] -->
+		<control id="PbP" type="list" address="0xe9">
+			<value id="Off" value="0x00"/> <!-- Switches to EDID: DELA181 -->
+			<!-- Value "1" toggles between 'PiP small' and 'PiP large'. -->
+			<!--<value id="PiP size" value="0x01"/> -->
+			<!-- Repeated calls with value "2" cause the corner position to rotate clock-wise.
+			     Starting in the upper right corner. -->
+			<!--<value id="PiP corner" value="0x02"/> -->
+			<value id="PiP small" value="0x21"/>
+			<value id="PiP large" value="0x22"/>
+			<!-- Switching to a PbP mode (50%, 74% or 26%), changes the monitor EDID. -->
+			<!--<value id="PbP 50%" value="0x24"/> --> <!-- Switches to EDID: DELA183 -->
+			<!--<value id="PbP 26%" value="0x2b"/> --> <!-- Switches to EDID: DELA182 -->
+			<!--<value id="PbP 74%" value="0x2c"/> --> <!-- Switches to EDID: DELA184 -->
+		</control>
+
+		<!-- Control 0xf0: +/12/255 C [???] -->
+		<control id="dellpaper" address="0xf0">
+			<!-- Appears to be read-only. -->
+			<!--<value id="Standard" value="0x00"/> -->
+			<!--<value id="?" value="0x05"/> -->
+			<!--<value id="?" value="0x06"/> -->
+			<!--<value id="?" value="0x0a"/> -->
+			<!--<value id="ComfortView" value="0x0c"/> -->
+		</control>
+
+		<!-- Control 0xf1: +/267/267  C [???] -->
+		<!-- Control 0xf2: +/0/65280  C [???] -->
+		<!-- Control 0xfa: +/0/65535    [???] (not in caps) -->
+		<!-- Control 0xfd: +/98/65535 C [???] -->
+		<!-- Control 0xfe: +/147/65535  [???] (not in caps) -->
+
+	</controls>
+
+</monitor>
