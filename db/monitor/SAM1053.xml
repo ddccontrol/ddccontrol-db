@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<monitor name="Samsung LS27R350FHLXZL" init="standard">
+    <caps add="(vcp(02 04 05 08 10 12 14(01 05 06 08 0B) 16 18 1A 60(01 03)6C 6E 70 C8 B0 B6 DF)prot(monitor)type(LCD)cmds(01 02 03 07 0C F3)mccs_ver(2.1)asset_eep(64)mpu_ver(-1009.0)model(LS27R35)mswhql(1))"/>
+    <controls>
+        <control id="brightness" address="0x10"/>
+        <control id="contrast" address="0x12"/>
+        <control id="defaults" address="0x04" delay="2000"/>
+        <control id="defaultluma" address="0x05" delay="2000"/>
+        <control id="defaultcolor" address="0x08" delay="2000"/>
+        <control id="colorpreset" type="list" name="Color Preset" address="0x14">
+            <value id="srgb" value="0x01"/>
+            <value id="6500k" value="0x05"/>
+            <value id="7500k" value="0x06"/>
+            <value id="9300k" value="0x08"/>
+            <value id="user1" value="0x0b"/>
+        </control>
+        <control id="red" address="0x16"/>
+        <control id="green" address="0x18"/>
+        <control id="blue" address="0x1A"/>
+        <control id="inputsource" type="list" name="Input Source Select (Main)" address="0x60">
+            <value id="vga" value="0x01"/>
+            <value id="dvi" value="0x03"/>
+        </control>
+        <control id="redblack" type="value" name="Red minimum level" address="0x6C"/>
+        <control id="greenblack" type="value" name="Green minimum level" address="0x6E"/>
+        <control id="blueblack" type="value" name="Blue minimum level" address="0x70"/>
+    </controls>
+</monitor>
