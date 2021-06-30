@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!--- "Standard" controls -->
+<monitor name="LC-Power M34 Curved Gaming Monitor" init="standard">
+	<caps add="(prot(monitor)type(lcd)MStarcmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 10 12 14(05 08 0B 0C) 16 18 1A 52 60( 11 12 0F) AA(01 02) AC AE B2 B6 C6 C8 C9 D6(01 04 05) DC(00 02 03 05 ) DF FD)mccs_ver(2.1)mswhql(1))"/>
+	<controls>
+		<!-- Controls (valid/current/max) [Description - Value name]: -->
+		<!-- Control 0x02: +/1/2 C [New Control Value - No changes] -->
+		<control id="defaults" address="0x04" delay="2000"/>
+		<control id="defaultluma" address="0x05" delay="2000"/>
+		<!-- Control 0x06: +/0/255   [???] -->
+		<control id="defaultcolor" address="0x08" delay="2000"/>
+		<!-- Control 0x0b: +/0/24028   [???] -->
+		<!-- Control 0x0c: +/1/255   [???] -->
+		<!-- Control 0x0e: +/50/100   [???] -->
+		<control id="brightness" address="0x10"/>
+		<control id="contrast" address="0x12"/>
+		<!-- Control 0x13: +/25619/100   [???] -->
+		<!-- Control 0x14: +/5/12 C [???] -->
+		<control id="colorpreset" address="0x14">
+			<value id="warm" value="0x05"/>
+			<value id="cool" value="0x08"/>
+			<value id="user" value="0x0C"/>
+		</control>
+		<!-- Control 0x16: +/45/100 C [Red maximum level] -->
+		<!-- Control 0x18: +/46/100 C [Green maximum level] -->
+		<!-- Control 0x1a: +/50/100 C [Blue maximum level] -->
+		<!-- Control 0x1e: +/0/2   [???] -->
+		<!-- Control 0x20: +/0/100   [???] -->
+		<!-- Control 0x22: +/1/65535   [???] -->
+		<!-- Control 0x24: +/4/65535   [???] -->
+		<!-- Control 0x25: +/6/65535   [???] -->
+		<!-- Control 0x26: +/4/65535   [???] -->
+		<!-- Control 0x27: +/7/65535   [???] -->
+		<!-- Control 0x29: +/0/65535   [???] -->
+		<!-- Control 0x30: +/0/100   [???] -->
+		<!-- Control 0x31: +/16/65535   [???] -->
+		<!-- Control 0x33: +/0/65535   [???] -->
+		<!-- Control 0x35: +/0/65535   [???] -->
+		<!-- Control 0x38: +/0/65535   [???] -->
+		<!-- Control 0x39: +/0/65535   [???] -->
+		<!-- Control 0x3e: +/50/100   [???] -->
+		<!-- Control 0x51: +/0/65535   [???] -->
+		<!-- Control 0x52: +/0/255 C [???] -->
+		<!-- Control 0x55: +/0/65535   [???] -->
+		<control id="inputsource" type="list" address="0x60">
+			<value id="dp" value="0x07"/>
+			<value id="hdmi1" value="0x05"/>
+			<value id="hdmi2" value="0x12"/>
+			<value id="hdmi3" value="0x13"/>
+		</control>
+		<!-- caps string is missing 62, but ddccontrol -d still shows the same value as OSD -->
+		<control id="audiospeakervolume" address="0x62"/>
+		<!-- Control 0x68: +/0/5   [???] -->
+		<!-- Control 0x69: +/1440/65535   [???] -->
+		<!-- Control 0x6c: +/50/255   [???] -->
+		<!-- Control 0x6e: +/50/255   [???] -->
+		<!-- Control 0x70: +/50/255   [???] -->
+		<!-- Control 0x8d: +/1/65535   [???] -->
+		<!-- Control 0xa8: +/0/3   [???] -->
+		<!-- Control 0xaa: +/1/255 C [???] -->
+		<!-- Control 0xac: +/23364/1 C [???] -->
+		<!-- Control 0xae: +/6003/0 C [???] -->
+		<!-- Control 0xb2: +/1/8 C [???] -->
+		<!-- Control 0xb4: +/1/2   [???] -->
+		<!-- Control 0xb6: +/3/5 C [???] -->
+		<!-- Control 0xc0: +/1855/65535   [???] -->
+		<!-- Control 0xc6: +/17868/65535 C [???] -->
+		<!-- Control 0xc8: +/22021/0 C [???] -->
+		<!-- Control 0xc9: +/0/65535 C [???] -->
+		<!-- Control 0xca: +/2/2   [???] -->
+		<!-- Control 0xd6: +/1/255 C [???] -->
+		<!-- Control 0xdc: +/0/255 C [???] -->
+		<!-- Control 0xdf: +/513/255 C [???] -->
+		<!-- Control 0xe1: +/0/65535   [???] -->
+		<!-- Control 0xe3: +/0/1   [???] -->
+		<!-- Control 0xed: +/0/1   [???] -->
+		<!-- Control 0xfa: +/0/65535   [???] -->
+		<!-- Control 0xfd: +/99/65535 C [???] -->
+		<!-- Control 0xff: +/0/65535   [???] -->
+	</controls>
+</monitor>
