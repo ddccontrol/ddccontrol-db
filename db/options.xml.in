@@ -1,5 +1,27 @@
 <?xml version="1.0"?>
 <options date="$DATE" dbversion="3">
+	<group name="Preset Modes">
+		<subgroup name="Preset">
+			<!-- Dell S2721D (DELA19A) -->
+			<control id="preset" type="list" name="Preset" refresh="all">
+				<value id="standard" name="Standard"/>
+				<value id="warm" name="Warm"/>
+				<value id="cool" name="Cool"/>
+				<value id="custom" name="Custom"/>
+			</control>
+			<control id="preset_profile" type="list" name="Profile" refresh="all">
+				<value id="off" name="Off"/>
+				<value id="comfort" name="ComfortView"/>
+				<value id="fps" name="FPS"/>
+				<value id="rts" name="RTS"/>
+				<value id="rpg" name="RPG"/>
+			</control>
+			<control id="preset_moviemode" type="list" name="Movie Mode" refresh="all">
+				<value id="off" name="Off"/>
+				<value id="movie" name="On"/>
+			</control>
+		</subgroup>
+	</group>
 	<group name="Color settings">
 		<subgroup name="Brightness and Contrast" pattern="brightnesscontrast">
 			<control id="brightness" type="value" name="Brightness" address="0x10"/>
