@@ -42,6 +42,11 @@
 			<value id="enable" value="2" name="Enable"/>
 		</control>
 
+		<control id="dpms" address="0xd6">
+			<value id="on" value="1"/>
+			<value id="standby" value="4"/>
+			<value id="off" value="5"/>
+		</control>
 	</controls>
 	<include file="VESA"/>
 </monitor>
