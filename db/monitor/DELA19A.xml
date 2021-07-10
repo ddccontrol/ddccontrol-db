@@ -37,6 +37,11 @@
 			<value id="hdmi2" value="0x1112" name="HDMI-2"/>
 		</control>
 
+		<control id="osd" type="list" address="0xca">
+			<value id="disable" value="1" name="Disable"/>
+			<value id="enable" value="2" name="Enable"/>
+		</control>
+
 	</controls>
 	<include file="VESA"/>
 </monitor>
