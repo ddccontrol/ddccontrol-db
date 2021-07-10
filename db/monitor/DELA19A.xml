@@ -31,6 +31,12 @@
 			<value id="japanese" value="6"/>
 		</control>
 
+		<control id="inputsource" type="list" address="0x60">
+			<value id="dp" value="0x110f" name="DisplayPort"/>
+			<value id="hdmi1" value="0x1111" name="HDMI-1"/>
+			<value id="hdmi2" value="0x1112" name="HDMI-2"/>
+		</control>
+
 	</controls>
 	<include file="VESA"/>
 </monitor>
