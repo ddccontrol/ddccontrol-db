@@ -552,6 +552,10 @@
 				<value id="low" name="Low"/>
 				<value id="high" name="High"/>
 			</control>
+			<control id="energysaving2" type="list" name="Force energy saving" address="0xe0">
+				<value id="off" name="Off"/>
+				<value id="on" name="On"/>
+			</control>
 		</subgroup>
 		<subgroup name="Buttons and leds">
 			<!-- button on the left side of the monitor stand can be customised -->

@@ -47,6 +47,14 @@
 			<value id="standby" value="4"/>
 			<value id="off" value="5"/>
 		</control>
+
+		<control id="energysaving2" address="0xe0">
+			<!-- This seems to be a "hidden" feature that doesn't appear in the monitor's own OSD 
+			     it locks the brightness to lowest setting and prevent changing brightness through 
+			     standard MCCS brightness control -->
+			<value id="on" value="1"/>
+			<value id="off" value="0"/>
+		</control>
 	</controls>
 	<include file="VESA"/>
 </monitor>
