@@ -363,7 +363,7 @@
 				<value id="cannotsupply" name="Display cannot suply orientation" value="0xFF"/>
 			</control>
 		</subgroup>
-        <subgroup name="Ratio">
+	<subgroup name="Ratio">
 			<control id="ratio" type="list" name="Screen ratio" address="0xF5">
 				<value id="1to1" name="1:1" value="0"/>
 				<value id="wide" name="Wide" value="1"/>
@@ -511,7 +511,7 @@
 				<value id="finnish"       name="Suomi (Finnish)"/>
 				<value id="german"        name="Deutsch (German)"/>
 				<value id="italian"       name="Italiano (Italian)"/>
-                <value id="korean"        name="한국어 (Korean)"/>
+				<value id="korean"        name="한국어 (Korean)"/>
 				<value id="spanish"       name="Castellano (Spanish)"/>
 				<value id="russian"       name="Русский (Russian)"/>
 				<value id="swedish"       name="Svenska (Swedish)"/>
