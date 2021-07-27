@@ -44,9 +44,9 @@
 
 		<control id="osdorientation" address="0xaa">
 			<value id="landscape" value="1"/>
-			<value id="portrait-cw" value="2"/>
-			<value id="landscape-180" value="3"/>
-			<value id="portrait-ccw" value="4"/>
+			<value id="portraitleft" value="2"/>
+			<value id="landscape180" value="3"/>
+			<value id="portraitright" value="4"/>
 		</control>
 
 		<!-- Control 0xac: +/23364/1 C [???]	-->
@@ -54,10 +54,12 @@
 		<!-- Control 0xb2: +/3/8   [???]    	-->
 		<!-- Control 0xb6: +/3/65535 C [???]	-->
 
-		<control id="colorformat" address="0xca"><!-- Determines the Colour format: readonly -->
+		<!-- Determines the Colour format: readonly
+		<control id="colorformat" address="0xca">
 			<value id="RGB" value="1"/>
 			<value id="YPbPr" value="2"/>
 		</control>
+		-->
 
 		<!-- Control 0xc6: +/17868/65535 C [???]-->
 		<!-- Control 0xc8: +/22021/0 C [???]	-->
@@ -84,7 +86,8 @@
 			<value id="on"  value="0"/>
 		</control>
 
-		<control id="presetmodes" type="list" address="0xe2"><!-- Indicates what preset is selected: readonly -->
+		<!-- Indicates what preset is selected: readonly
+		<control id="presetmodes" type="list" address="0xe2">
 			<value id="Standard" value="0"/>
 			<value id="Movie" value="2"/>
 			<value id="Game" value="4"/>
@@ -93,6 +96,7 @@
 			<value id="ComfortView" value="29"/>
 			<value id="Multiscreen Match" value="41"/>
 		</control>
+		-->
 
 		<!-- Control 0xf0: +/0/65535 C [???]  -->
 		<!-- Control 0xf1: +/139/65535 C [???]  -->
