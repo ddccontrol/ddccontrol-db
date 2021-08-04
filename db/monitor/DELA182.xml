@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<monitor name="Dell U3421WE (PBP 26%)" init="standard">
+	<!-- use the settings from the DisplayPort version of the monitor -->
+	<include file="DELA181"/>
+</monitor>
