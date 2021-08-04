@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<monitor name="ASUS PA238" init="standard">
+	<!-- Only HDMI and VGA were tested - DVI and DisplayPort were not. -->
+
+	<!-- HDMI capabilities string: (vcp(02 04 05 06 08 10 12 14(04 05 08 0B) 16 18 1A 59 5A 5B 5C 5D 5E 6C 6E 70 9B 9C 9D 9E 9F A0 AC AE B6 C6 C8 C9 DF)type(LCD)mccs_ver(2.0)asset_eep(32)mswhql(1)) -->
+	<!-- VGA capabilities string: (prot(monitor)vcp(02 04 05 06 08 0E 10 12 14(04 05 08 0B) 16 18 1A 1E 20 30 3E 59 5A 5B 5C 5D 5E 6C 6E 70 9B 9C 9D 9E 9F A0 AC AE B6 C6 C8 C9 DF)type(LCD)mccs_ver(2.0)asset_eep(32)mswhql(1)) -->
+	<caps add="(vcp(02 04 05 06 08 0e 10 12 14(04 05 08 0B) 16 18 1A 1E 20 30 3e 59 5A 5B 5C 5D 5E 68 6C 6E 70 8A 8C 9B 9C 9D 9E 9F A0 AC AE B6 C6 C8 C9 CA CC DF)type(LCD)mccs_ver(2.0)asset_eep(32)mswhql(1))"/>
+
+	<controls>
+		<control id="brightness" address="0x10"/>
+		<control id="contrast" address="0x12"/>        <!-- all except sRGB Mode -->
+
+		<control id="red" address="0x16"/>             <!-- User Mode only -->
+		<control id="green" address="0x18"/>           <!-- User Mode only -->
+		<control id="blue" address="0x1a"/>            <!-- User Mode only -->
+
+		<control id="redblack" address="0x6c"/>        <!-- User Mode only -->
+		<control id="greenblack" address="0x6e"/>      <!-- User Mode only -->
+		<control id="blueblack" address="0x70"/>       <!-- User Mode only -->
+
+		<control id="redhue" address="0x9b"/>          <!-- User Mode only -->
+		<control id="greenhue" address="0x9d"/>        <!-- User Mode only -->
+		<control id="bluehue" address="0x9f"/>         <!-- User Mode only -->
+		<control id="cyanhue" address="0x9e"/>         <!-- User Mode only -->
+		<control id="magentahue" address="0xa0"/>      <!-- User Mode only -->
+		<control id="yellowhue" address="0x9c"/>       <!-- User Mode only -->
+
+		<control id="redsaturate" address="0x59"/>     <!-- User Mode only -->
+		<control id="greensaturate" address="0x5b"/>   <!-- User Mode only -->
+		<control id="bluesaturate" address="0x5d"/>    <!-- User Mode only -->
+		<control id="cyansaturate" address="0x5c"/>    <!-- User Mode only -->
+		<control id="magentasaturate" address="0x5e"/> <!-- User Mode only -->
+		<control id="yellowsaturate" address="0x5a"/>  <!-- User Mode only -->
+
+		<control id="saturation" address="0x8a"/>      <!-- all except Standard Mode, sRGB Mode -->
+		<control id="colorpreset" address="0x14">      <!-- all except sRGB Mode -->
+			<value id="5000k" value="0x04"/>
+			<value id="6500k" value="0x05"/>
+			<value id="9300k" value="0x08"/>
+			<value id="user1" value="0x0b"/> <!-- 5500K -->
+		</control>
+
+		<control id="hpos" address="0x20"/>            <!-- VGA only -->
+		<control id="vpos" address="0x30"/>            <!-- VGA only -->
+
+		<control id="auto" address="0x1e"/>            <!-- VGA only -->
+
+		<control id="coarse" address="0x0E"/>          <!-- VGA only -->
+		<control id="fine" address="0x3e"/>            <!-- VGA only -->
+
+		<!-- Sharpness values (regular OSD max: 100)
+			| VCP | OSD | gddccontrol |
+			|=====|=====|=============|
+			|   0 |   0 |         0.0 |
+			|   1 |  10 |         0.4 |
+			|   2 |  20 |         0.8 |
+			|   3 |  30 |         1.2 |
+			| ... | ... |         ... |
+		-->
+		<control id="sharpness" address="0x8c"/>
+
+		<control id="defaults" address="0x04" delay="3000"/>
+		<control id="defaultluma" address="0x05"/>
+		<control id="defaultgeom" address="0x06" delay="2500"/>
+		<control id="defaultcolor" address="0x08" delay="150"/>
+
+		<!-- OSD control not supported
+		<control id="osd" address="0xca"> ... </control>
+		-->
+		<control id="language" address="0x68">
+			<value id="english" value="0x01"/>
+			<value id="french" value="0x02"/>
+			<value id="german" value="0x03"/>
+			<value id="spanish" value="0x04"/>
+			<value id="italian" value="0x05"/>
+			<value id="dutch" value="0x06"/>
+			<value id="russian" value="0x07"/>
+			<value id="chinese_tw" value="0x08"/>
+			<value id="chinese" value="0x09"/>
+			<value id="japanese" value="0x0A"/>
+		</control>
+		<!-- "New Control Value" is useless for users
+		<control id="newcontrolvalue" address="0x02">
+			<value id="nochanges" value="0x01"/>
+			<value id="changed" value="0x02"/>
+		</control>
+		-->
+
+		<!-- Read-only VCPs (currently no ddccontrol support):
+		0xac: Horizontal Frequency
+		0xae: Vertical Frequency
+		0xb6: Display Technology Type
+		0xc6: Application Enable Key
+		0xc8: Display Controller ID
+		0xc9: Display Firmware Level
+		0xdf: VCP Version
+		-->
+
+		<!-- Unknown VCPs:
+		0xcc: Read-only. Changes value when some OSD languages are selected:
+		      German -> 0, French -> 1, English -> 2.
+		-->
+
+		<!-- OSD functions not available as VCPs:
+		* Splendid mode switching
+		* Color: General Hue, Gamma (1.8 or 2.2)
+		* Image: Trace Free, Aspect Control, ASCR
+		* PIP/PBP Settings
+		* Input Select
+		* System Setup: Splendid Demo Mode, Volume, OSD Setup, Power Indicator
+		-->
+	</controls>
+</monitor>
+
