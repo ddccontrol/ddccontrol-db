@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<monitor name="LENOVO Y27gq-20" init="standard">
+	<caps add="(prot(monitor)type(lcd)model(LEN Y27gq-20)cmds(01 02 03 06 07 0C E3 F3)vcp(02 03(01) 04 05 08 10 12 14(03 05 09 0B) 16 18 1A 2E 52 59 5A 5B 5C 5D 5E 72(00 78 FF 5A 96) 8A AC AE B6 C0 C8 C9 CA DF)mccs_ver(2.2)vcpname(10(Brightness))mswhql(1))" />
+	<controls>
+		<control id="newcontrolvalue" address="0x02">
+			<value id="nochanges" value="1" />
+			<value id="changed" value="2" />
+		</control>
+
+		<control id="defaults" address="0x04" delay="2000" />
+		<control id="defaultluma" address="0x05" delay="2000" />
+		<control id="defaultgeom" address="0x06" delay="2000" />
+		<control id="defaultcolor" address="0x08" delay="2000" />
+
+		<control id="brightness" address="0x10" />
+		<control id="contrast" address="0x12" />
+		<control id="backlight" address="0x13" />
+
+		<control id="colorpreset" type="list" name="Color Preset" address="0x14">
+			<value id="warm" value="0x03" />
+			<value id="normal" value="0x05" />
+			<value id="cool" value="0x09" />
+			<value id="user1" value="0x0b" />
+		</control>
+		<control id="red" address="0x16" />
+		<control id="green" address="0x18" />
+		<control id="blue" address="0x1A" />
+		<control id="saturation" address="0x8A" />
+
+		<control id="redsaturate" address="0x59" />
+		<control id="greensaturate" address="0x5b" />
+		<control id="bluesaturate" address="0x5d" />
+		<control id="yellowsaturate" address="0x5a" />
+		<control id="magentasaturate" address="0x5e" />
+		<control id="cyansaturate" address="0x5c" />
+
+		<control id="blackboost" address="0x2e" />
+
+		<control id="gamma" address="0x72">
+			<value id="0" value="0x00" />
+			<value id="1.8" value="0x5a" />
+			<value id="2.2" value="0x78" />
+			<value id="2.6" value="0x96" />
+		</control>
+	</controls>
+</monitor>
