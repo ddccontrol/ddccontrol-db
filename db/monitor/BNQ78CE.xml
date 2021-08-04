@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!--- "Standard" controls -->
+<monitor name="BenQ GL2460" init="standard">
+	<caps add="(prot(monitor)type(LCD)model(GL2460BH)cmds(01 02 03 07 0C F3)vcp(02 04 05 08 0B 0C 10 12 14(04 05 08 0B) 16 18 1A 52 60(01 03 11)62 8D(01 02)AC AE B2 B6 C0 C6 C8 C9 CA(01 02) CC(01 02 03 04 05 06 09 0A 0B 0D 0E 0F 12 14 1A 1E 1F 20)D6(01 05) DF)mswhql(1)mccs_ver(2.1)asset_eep(32)mpu_ver(1.02))"/>
+	<controls>
+		<!-- Controls (valid/current/max) [Description - Value name]: -->
+		<!-- Control 0x02: +/1/2 C [New Control Value - No changes] -->
+		<control id="defaults" address="0x04" delay="2000"/>
+		<control id="defaultluma" address="0x05" delay="2000"/>
+		<control id="defaultcolor" address="0x08" delay="2000"/>
+		<!-- Control 0x0b: +/50/50 C [???] -->
+		<!-- Control 0x0c: +/70/65535 C [???] -->
+		<control id="brightness" address="0x10"/>
+		<control id="contrast" address="0x12"/>
+		<control id="colorpreset" type="list" address="0x14">
+			<value id="normal" value="0x05"/>
+			<value id="cool"   value="0x08"/>
+			<value id="warm"   value="0x04"/>
+			<value id="user"   value="0x0b"/>
+		</control>
+		<!-- Control 0x16: +/100/100 C [Red maximum level] -->
+		<!-- Control 0x18: +/100/100 C [Green maximum level] -->
+		<!-- Control 0x1a: +/100/100 C [Blue maximum level] -->
+		<!-- Control 0x52: +/0/65535 C [???] -->
+		<control id="inputsource" type="list" address="0x60">
+			<value id="vga" value="0x01"/>
+			<value id="dvi" value="0x03"/>
+			<value id="hdmi" value="0x11"/>
+		</control>
+		<control id="audiospeakervolume" address="0x62"/>
+		<!-- Control 0x6c: +/50/100   [???] -->
+		<!-- Control 0x6e: +/50/100   [???] -->
+		<!-- Control 0x70: +/50/100   [???] -->
+		<control id="mute"     type="list"   address="0x8d">
+			<value id="mute"   value="0x01"/>
+			<value id="normal" value="0x02"/>
+		</control>
+		<!-- Control 0xac: +/2464/1 C [???] -->
+		<!-- Control 0xae: +/6000/65535 C [???] -->
+		<!-- Control 0xb2: +/1/8 C [???] -->
+		<!-- Control 0xb6: +/3/5 C [???] -->
+		<!-- Control 0xc0: +/8782/65535 C [???] -->
+		<!-- Control 0xc6: +/90/255 C [???] -->
+		<!-- Control 0xc8: +/5/88 C [???] -->
+		<!-- Control 0xc9: +/778/65535 C [???] -->
+		<!-- Control 0xca: +/2/2 C [???] -->
+		<!-- Control 0xcb: +/2/6   [???] -->
+		<control id="language" type="list"   address="0xcc">
+			<value id="english"       value="0x02"/>
+			<value id="french"        value="0x03"/>
+			<value id="german"        value="0x04"/>
+			<value id="italian"       value="0x05"/>
+			<value id="spanish"       value="0x0a"/>
+			<value id="polish"        value="0x1e"/>
+			<value id="czech"         value="0x12"/>
+			<value id="hungarian"     value="0x1a"/>
+			<value id="serbocroatian" value="0x20"/>
+			<value id="romanian"      value="0x1f"/>
+			<value id="dutch"         value="0x14"/>
+			<value id="russian"       value="0x09"/>
+			<value id="swedish"       value="0x0b"/>
+			<value id="portuguese"    value="0x0e"/>
+			<value id="japanese"      value="0x06"/>
+			<value id="chinese_tw"    value="0x01"/>
+			<value id="chinese"       value="0x0d"/>
+		</control>
+		<control id="dpms" address="0xd6">
+			<value id="on" value="0x01"/>
+			<value id="off" value="0x05"/>
+		</control>
+		<!-- Control 0xdf: +/513/65535 C [???] -->
+		<!-- Control 0xe2: +/1/1   [???] -->
+		<!-- Control 0xe3: +/0/1   [???] -->
+		<!-- Control 0xfe: +/0/65535   [???] -->
+	</controls>
+</monitor>

@@ -409,6 +409,7 @@
 				<value id="hdmi" name="HDMI"/>
 				<value id="hdmi1" name="HDMI-1"/>
 				<value id="hdmi2" name="HDMI-2"/>
+				<value id="hdmi3" name="HDMI-3"/>
 				<value id="hdmi-mhl" name="HDMI (MHL)"/>
 				<value id="mdp" name="mDP"/>
 				<value id="vga" name="VGA"/>
