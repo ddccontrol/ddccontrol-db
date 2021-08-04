@@ -1,5 +1,27 @@
 <?xml version="1.0"?>
 <options date="$DATE" dbversion="3">
+	<group name="Preset Modes">
+		<subgroup name="Preset">
+			<!-- Dell S2721D (DELA19A) -->
+			<control id="preset" type="list" name="Preset" refresh="all">
+				<value id="standard" name="Standard"/>
+				<value id="warm" name="Warm"/>
+				<value id="cool" name="Cool"/>
+				<value id="custom" name="Custom"/>
+			</control>
+			<control id="preset_profile" type="list" name="Profile" refresh="all">
+				<value id="off" name="Off"/>
+				<value id="comfort" name="ComfortView"/>
+				<value id="fps" name="FPS"/>
+				<value id="rts" name="RTS"/>
+				<value id="rpg" name="RPG"/>
+			</control>
+			<control id="preset_moviemode" type="list" name="Movie Mode" refresh="all">
+				<value id="off" name="Off"/>
+				<value id="movie" name="On"/>
+			</control>
+		</subgroup>
+	</group>
 	<group name="Color settings">
 		<subgroup name="Brightness and Contrast" pattern="brightnesscontrast">
 			<control id="brightness" type="value" name="Brightness" address="0x10"/>
@@ -349,7 +371,7 @@
 				<value id="cannotsupply" name="Display cannot suply orientation" value="0xFF"/>
 			</control>
 		</subgroup>
-        <subgroup name="Ratio">
+	<subgroup name="Ratio">
 			<control id="ratio" type="list" name="Screen ratio" address="0xF5">
 				<value id="1to1" name="1:1" value="0"/>
 				<value id="wide" name="Wide" value="1"/>
@@ -498,7 +520,7 @@
 				<value id="finnish"       name="Suomi (Finnish)"/>
 				<value id="german"        name="Deutsch (German)"/>
 				<value id="italian"       name="Italiano (Italian)"/>
-                <value id="korean"        name="한국어 (Korean)"/>
+				<value id="korean"        name="한국어 (Korean)"/>
 				<value id="spanish"       name="Castellano (Spanish)"/>
 				<value id="russian"       name="Русский (Russian)"/>
 				<value id="swedish"       name="Svenska (Swedish)"/>
@@ -538,6 +560,10 @@
 				<value id="off" name="Off"/>
 				<value id="low" name="Low"/>
 				<value id="high" name="High"/>
+			</control>
+			<control id="energysaving2" type="list" name="Force energy saving" address="0xe0">
+				<value id="off" name="Off"/>
+				<value id="on" name="On"/>
 			</control>
 		</subgroup>
 		<subgroup name="Buttons and leds">
