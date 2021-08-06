@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<monitor name="Dell P2719HC" init="standard">
+	<caps add="(prot(monitor)type(lcd)model(P2719HC)cmds(01 02 03 07 0C E3 F3)vcp(04 05 08 10 12 14(05 08 0B 0C) 16 18 1A 52 60( 0F 11 1B) AA(01 02 04) AC AE B2 B6 C6 C8 C9 CC(02 03 04 06 09 0A 0D 0E) D6(01 04 05) DC(00 03 05 ) DF E0 E1 E2(00 02 04 0E 12 14 1D) F0(00 0C) F1 F2 FD)mccs_ver(2.1)mswhql(1))" remove="(vcp(02))" />
+    <!-- VCP: 02 04 05 08 10 12 14 16 18 1a 52 60 aa ac ae b2 b6 c6 c8 c9 cc d6 dc df e0 e1 e2 f0 f1 f2 fd -->
+	<controls>
+		<!-- Controls (valid/current/max) [Description - Value name]: -->
+		<!-- Control 0x02: +/1/2 C [Secondary Degauss - Secondary Degauss] -->
+		<!-- Control 0x04: +/0/255 C [Restore Factory Defaults] -->
+		<control id="defaults" address="0x04" delay="2000"/>
+		<!-- Control 0x05: +/0/1 C [Restore Brightness and Contrast] -->
+		<control id="defaultluma" address="0x05" delay="2000"/>
+		<!-- Control 0x08: +/0/255 C [Restore Factory Default Color] -->
+		<control id="defaultcolor" address="0x08" delay="2000"/>
+		<!-- Control 0x0b: +/0/24028   [???] -->
+		<!-- Control 0x0c: +/1/255   [???] -->
+		<!-- Control 0x0e: +/50/100   [???] -->
+		<!-- Control 0x10: +/75/100 C [Brightness] -->
+		<control id="brightness" address="0x10"/>
+		<!-- Control 0x12: +/75/100 C [Contrast] -->
+		<control id="contrast" address="0x12"/>
+		<!-- Control 0x14: +/5/13 C [Color Preset] -->
+		<control id="colorpreset" address="0x14">
+			<value id="normal" value="0x05"/>
+			<value id="warm" value="0x11"/>
+			<value id="cool" value="0x08"/>
+			<value id="user" value="0x0c"/>
+			<value id="comfort" value="0x0d"/>
+		</control>
+		<!-- Control 0x16: +/100/100 C [Red maximum level] -->
+		<control id="red" address="0x16"/>
+		<!-- Control 0x18: +/100/100 C [Green maximum level] -->
+		<control id="green" address="0x18"/>
+		<!-- Control 0x1a: +/100/100 C [Blue maximum level] -->
+		<control id="blue" address="0x1a"/>
+		<!-- Control 0x1e: +/0/2   [???] -->
+		<!-- Control 0x20: +/237/100   [???] -->
+		<!-- Control 0x30: +/11/100   [???] -->
+		<!-- Control 0x3e: +/50/100   [???] -->
+		<!-- Control 0x52: +/0/255 C [???] -->
+		<!-- Control 0x5c: +/254/255   [???] -->
+		<!-- Control 0x60: +/3855/27 C [Input Source Select (Main)] -->
+		<control id="inputsource" type="list" address="0x60">
+			<value id="usb-c" value="0xf1b"/>
+			<value id="dp" value="0xf0f"/>
+			<value id="hdmi" value="0xf11"/>
+		</control>
+		<!-- Control 0x62: +/0/255   [???] -->
+		<!-- Control 0x6c: +/128/255   [???] -->
+		<!-- Control 0x6e: +/128/255   [???] -->
+		<!-- Control 0x70: +/128/255   [???] -->
+		<!-- Control 0x8d: +/0/255   [???] -->
+		<!-- Control 0xa8: +/0/3   [???] -->
+		<!-- Control 0xaa: +/1/255 C [OSD Orientation - Landscape] -->
+		<!-- Control 0xac: +/1864/1 C [???] -->
+		<!-- Control 0xae: +/5990/0 C [???] -->
+		<!-- Control 0xb2: +/1/8 C [???] -->
+		<!-- Control 0xb4: +/1/2   [???] -->
+		<!-- Control 0xb6: +/3/5 C [???] -->
+		<!-- Control 0xc0: +/995/65535   [???] -->
+		<!-- Control 0xc6: +/17868/65535 C [???] -->
+		<!-- Control 0xc8: +/22021/0 C [???] -->
+		<!-- Control 0xc9: +/10761/65535 C [???] -->
+		<!-- Control 0xca: +/2/2   [???] -->
+		<!-- Control 0xcc: +/2/255 C [???] -->
+		<control id="language" type="list" address="0xcc">
+			<value id="english" value="0x02"/>
+			<value id="french" value="0x03"/>
+			<value id="german" value="0x04"/>
+			<value id="japanese" value="0x06"/>
+			<value id="russian" value="0x09"/>
+			<value id="spanish" value="0x0a"/>
+			<value id="chinese" value="0x0d"/>
+			<value id="brazilian" value="0x0e"/>
+		</control>
+		<!-- Control 0xd6: +/1/255 C [DPMS Control - On] -->
+		<control id="dpms" address="0xd6">
+			<value id="on" value="1"/>
+			<value id="standby" value="4"/>
+			<value id="off" value="5"/>
+		</control>
+		<!-- Control 0xdc: +/0/255 C [???] -->
+		<control id="magicbright" address="0xdc">
+			<value id="standard" value="0x00"/>
+			<value id="movie" value="0x03"/>
+			<value id="game" value="0x05"/>
+		</control>
+		<!-- Control 0xdf: +/513/65535 C [???] -->
+		<!-- Control 0xe0: +/0/1 C [???] -->
+		<!-- Control 0xe1: +/0/1 C [Power control - Off] -->
+		<control id="power" type="list" address="0xe1">
+			<value id="on" value="0"/>
+			<value id="off" value="1"/>
+		</control>
+		<!-- Control 0xe2: +/0/255 C [???] -->
+		<!-- Control 0xe3: +/0/1   [???] -->
+		<!-- Control 0xf0: +/0/255 C [???] -->
+		<control id="dellpaper" address="0xf0"/>
+		<!-- Control 0xf1: +/11/255 C [???] -->
+		<!-- Control 0xf2: +/0/255 C [???] -->
+		<!-- Control 0xf6: +/1792/65535   [???] -->
+		<!-- Control 0xfa: +/0/65535   [???] -->
+		<!-- Control 0xfd: +/116/65535 C [???] -->
+		<!-- Control 0xff: +/0/65535   [???] -->
+	</controls>
+</monitor>
