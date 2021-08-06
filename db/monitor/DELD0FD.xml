@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<monitor name="Dell P2720DC" init="standard">
+	<include file="DELD0FB"/>
+</monitor>

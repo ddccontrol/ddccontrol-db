@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<monitor name="Dell P2720DC" init="standard">
+    <controls>
+        <!-- Control 0x02: +/2/255 C [New Control Value - Some values changed] -->
+        <control id="newcontrolvalue" address="0x02">
+            <value id="nochanges" value="1"/>
+            <value id="changed" value="2"/>
+        </control>
+
+        <!-- Control 0x04: +/0/1 C [Restore Factory Defaults] -->
+        <control id="defaults" address="0x04" delay="2000"/>
+        <!-- Control 0x05: +/0/1 C [Restore Brightness and Contrast] -->
+        <control id="defaultluma" address="0x05" delay="2000"/>
+        <!-- Control 0x08: +/0/1 C [Restore Factory Default Color] -->
+        <control id="defaultcolor" address="0x08" delay="2000"/>
+
+        <!-- Control 0x10: +/100/100 C [Brightness] -->
+        <control id="brightness" address="0x10"/>
+        <!-- Control 0x12: +/80/100 C [Contrast] -->
+        <control id="contrast" address="0x12"/>
+        <!-- Control 0x16: +/100/100 C [Red maximum level] -->
+        <control id="red" address="0x16"/>
+        <!-- Control 0x18: +/100/100 C [Green maximum level] -->
+        <control id="green" address="0x18"/>
+        <!-- Control 0x1a: +/100/100 C [Blue maximum level] -->
+        <control id="blue" address="0x1A"/>
+
+        <!-- Control 0x60: +/3855/4626 C [Input Source Select (Main)] -->
+        <control id="inputsource" type="list" address="0x60">
+            <value id="dp" value="3855"/>
+            <value id="usb-c" value="3867"/>
+            <value id="hdmi" value="3857"/>
+        </control>
+
+        <!-- Control 0xe1: +/0/1 C [Power control - Off] -->
+        <control id="power" type="list" address="0xe1">
+            <value id="off" value="0"/>
+            <value id="on" value="1"/>
+        </control>
+    </controls>
+</monitor>
