@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<monitor name="Dell P3222QE (DP)" init="standard">
+	<caps add="(prot(monitor)type(LCD)model(P3222QE)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 10 12 14(05 08 0B 0C) 16 18 1A 52 60(1B 0F 11 ) AA(01 02 04 ) AC AE B2 B6 C6 C8 C9 CA CC(02 0A 03 04 08 09 0D 06 ) D6(01 04 05) DC(00 03 05 ) DF E0 E1 E2(00 02 04 0E 12 14 ) EA F1 F2 FD)mswhql(1)asset_eep(40)mccs_ver(2.1))" />
+
+	<!-- Use the settings from the USB-C version of the monitor -->
+	<include file="DEL4245"/>
+</monitor>

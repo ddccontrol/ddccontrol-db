@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<monitor name="Dell P3222QE (USB-C)" init="standard">
+	<caps add="(prot(monitor)type(LCD)model(P3222QE)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 10 12 14(05 08 0B 0C) 16 18 1A 52 60(1B 0F 11 ) AA(01 02 04 ) AC AE B2 B6 C6 C8 C9 CA CC(02 0A 03 04 08 09 0D 06 ) D6(01 04 05) DC(00 03 05 ) DF E0 E1 E2(00 02 04 0E 12 14 ) EA F1 F2 FD)mswhql(1)asset_eep(40)mccs_ver(2.1))" />
+	<controls>
+		<control id="colorpreset" type="list" address="0x14">
+			<value id="native" value="0x05"/>
+			<value id="cool" value="0x08"/>
+			<value id="warm" value="0x0b"/>
+			<value id="custom" value="0x0c"/>
+		</control>
+
+		<control id="inputsource" type="list" address="0x60">
+			<value id="usb-c" value="0xf1b"/>
+			<value id="dp" value="0xf0f"/>
+			<value id="hdmi" value="0xf11"/>
+		</control>
+
+		<control id="osdorientation" address="0xaa">
+			<value id="landscape" value="1"/>
+			<value id="portraitleft" value="2"/>
+			<value id="portraitright" value="4"/>
+		</control>
+
+		<control id="language" type="list" address="0xcc">
+			<value id="english" value="0x02"/>
+			<value id="french" value="0x03"/>
+			<value id="german" value="0x04"/>
+			<value id="japanese" value="0x06"/>
+			<value id="brazilian" value="0x08"/>
+			<value id="russian" value="0x09"/>
+			<value id="spanish" value="0x0a"/>
+			<value id="chinese" value="0x0d"/>
+		</control>
+
+		<control id="magicbright" type="list" address="0xdc">
+			<value id="standard" value="0x00"/>
+			<value id="multimedia" value="0x03"/>
+			<value id="game" value="0x05"/>
+		</control>
+
+		<!-- this is inverted from VESA -->
+		<control id="power" type="list" address="0xe1">
+			<value id="on" value="0"/>
+			<value id="off" value="1"/>
+		</control>
+	</controls>
+
+	<include file="VESA"/>
+</monitor>
