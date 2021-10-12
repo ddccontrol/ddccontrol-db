@@ -45,6 +45,7 @@
 				<value id="movie" name="Movie"/>
 				<value id="standard" name="Standard"/>
 				<value id="nature" name="Nature"/>
+				<value id="cinema" name="Cinema"/>
 			</control>
 			<control id="dvmode" type="list" name="DV Mode"  address="0xf9">
 				<value id="standard" name="Standard"/>
@@ -65,6 +66,7 @@
 				<value id="middle" name="Middle"/>
 				<value id="low" name="Low"/>
 				<value id="auto" name="Auto"/>
+				<value id="off" name="Off"/>
 			</control>
 			<control id="fengine" type="list" name="f-Engine">
 				<value id="photo" name="Photo" />
@@ -199,6 +201,9 @@
 				<value id="2.2" name="2.2"/>
 				<value id="2.4" name="2.4"/>
 				<value id="2.6" name="2.6"/>
+				<value id="mode1" name="Mode1"/>
+				<value id="mode2" name="Mode2"/>
+				<value id="mode3" name="Mode3"/>
 			</control>
 			<control id="gammamode" type="list" name="Gamma" address="0xfe" >
 				<value id="mode1" name="Mode 1"/>
@@ -473,6 +478,7 @@
 			<control id="defaults" type="command" name="Restore Factory Defaults" address="0x04" refresh="all"/>
 			<control id="defaultluma" type="command" name="Restore Brightness and Contrast" address="0x05" refresh="all"/>
 			<control id="defaultgeom" type="command" name="Restore Factory Default Geometry" address="0x06" refresh="all"/>
+			<control id="defaultsharpness" type="command" name="Restore Factory Default Sharpness" address="0x06" refresh="all"/>
 			<control id="defaultcolor" type="command" name="Restore Factory Default Color" address="0x08" refresh="all"/>
 			<control id="defaultposition" type="command" name="Restore Factory Default Position" address="0x0A" refresh="all"/>
 			<control id="defaultsize" type="command" name="Restore Factory Default Size" address="0x0C" refresh="all"/>
@@ -603,6 +609,11 @@
 				<value id="high" name="High" value="1"/>
 				<value id="middle" name="Middle" value="2"/>
 				<value id="low" name="Low" value="3"/>
+
+				<!-- address="0xF3" -->
+				<value id="standard" name="Standard"/>
+				<value id="faster" name="Faster"/>
+				<value id="fastest" name="Fastest"/>
 			</control>
 			<control id="blackstabilization" type="value" name="Black Stabilization" address="0xf9" />
 		</subgroup>
