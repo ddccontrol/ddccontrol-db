@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<monitor name="Samsung S24F354FHU" init="standard">
+	<caps add="(prot(monitor)type(LCD)model(550)mccs_ver(2.0)vcp(04 05 08 10 12 14(03 04 02 07 08 0B) 16 18 1A 60(01 05 06) 87 B0(01 02) B6 C6 C8 C9 D6(01 04) DC(01 02 03 04 05 06 F0 F1 F2 F9 FA FB) DB(00 04 FD FE) DF EB(00 01 09 FD) EC(00 01 02 03 04 06 05) F2 F3(00 01 02) F6 F7(00 02 03) )mswhql(1))" />
+	<caps add="(vcp(CC))"/> <!-- menu language -->
+	<caps add="(vcp(06))"/> <!-- restore factory default sharpnes -->
+	<controls>
+		<control id="magicbright" type="list" address="0xdc" refresh="all">
+			<value id="standard" value="1"/>
+			<value id="cinema" value="2"/>
+			<value id="custom" value="6"/>
+			<value id="dynamic" value="240"/>
+		</control>
+		<control id="gamma" type="list" address="0xf2">
+			<value id="mode1" value="0"/>
+			<value id="mode2" value="1"/>
+			<value id="mode3" value="2"/>
+		</control>
+		<control id="responsetime" type="list" name="Response Time" address="0xf3">
+			<value id="standard" value="0"/>
+			<value id="faster" value="1"/>
+			<value id="fastest" value="2"/>
+		</control>
+		<control id="colorpreset" type="list" address="0x14">
+			<value id="cool2" value="8"/>
+			<value id="cool1" value="7"/>
+			<value id="normal" value="2"/>
+			<value id="warm1" value="4"/>
+			<value id="warm2" value="3"/>
+			<value id="custom" value="11"/>
+		</control>
+		<control id="ecomode" type="list" name="ECO Mode" address="0xf7" refresh="all">
+			<value id="off" value="0"/>
+			<value id="auto" value="4"/>
+			<value id="low" value="2"/>
+			<value id="high" value="3"/>
+		</control>
+		<control id="language" type="list" address="0xcc">
+			<!-- <value id="chinese_tw" value="1"/> --> <!-- FIXME: needs verification -->
+			<value id="english" value="2"/>
+			<value id="french" value="3"/>
+			<value id="german" value="4"/>
+			<value id="italian" value="5"/>
+			<value id="japanese" value="6"/>
+			<value id="korean" value="7"/>
+			<value id="portuguese" value="8"/>
+			<value id="russian" value="9"/>
+			<value id="spanish" value="10"/>
+			<value id="swedish" value="11"/>
+			<value id="turkish" value="12"/>
+			<value id="hungarian" value="26"/>
+			<value id="polish" value="30"/>
+		</control>
+
+		<control id="defaultsharpness" address="0x06" delay="2000"/>
+
+		<!-- write only -->
+		<control id="inputsource" type="list" address="0x60">
+			<value id="analog" value="1"/>
+			<value id="digital" value="3"/>
+		</control>
+	</controls>
+	<include file="SAMlcd"/>
+</monitor>
