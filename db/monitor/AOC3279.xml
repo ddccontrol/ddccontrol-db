@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<monitor name="AOC Q3279VWF" init="standard">
+	<caps add="(prot(monitor)type(lcd)model(MStar)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 0B 0C 10 12 14(01 05 06 08 0B) 16 18 1A 1E(00 01 02) 20 30 52 60(01 03 11 0F) 62 68 6C 6E 70 72 8D(01 02) A8 AA AC AE B6 C0 C6 C8 C9 CA(01 02) CC(02 03 04 05 07 08 09 0A 0D 01 06 0B 12 14 16 1E) D6(01 05) DA(00) DF E9(00 02) F0(00 01) F8 FE FF)mswhql(1)asset_eep(40)mccs_ver(2.2))" />
+
+	<!-- TODO: vcp(D6(new settings) DA F0) --> -->
+	<!--  Only vga and hdmi tested  -->
+	<controls>
+		<control id="inputsource" type="list" address="0x60">
+			<value id="vga" value="0x01"/>
+			<value id="dvi" value="0x03"/>
+			<value id="hdmi" value="0x11"/>
+			<value id="dp" value="0x0f"/>
+		</control>
+
+		<control id="language" type="list" address="0xcc">
+			<value id="english" value="0x02"/>
+			<value id="french" value="0x03"/>
+			<value id="german" value="0x04"/>
+			<value id="italian" value="0x05"/>
+			<value id="korean" value="0x07"/>
+			<value id="portuguese" value="0x08"/>
+			<value id="russian" value="0x09"/>
+			<value id="spanish" value="0x0a"/>
+			<value id="chinese" value="0x0d"/>
+			<value id="chinese_tw" value="0x01"/>
+			<value id="japanese" value="0x06"/>
+			<value id="swedish" value="0x0a"/>
+			<value id="czech" value="0x12"/>
+			<value id="dutch" value="0x14"/>
+			<value id="finnish" value="0x16"/>
+			<value id="polish" value="0x1e"/>
+		</control>
+
+		<control id="audiospeakermute" type="list" address="0x8d">
+			<value id="mute" value="1"/>
+			<value id="unmute" value="2"/>
+		</control>
+
+		<control id="osd" type="list" address="0xca">
+			<value id="disable" value="1"/>
+			<value id="enable" value="2"/>
+		</control>
+
+		<control id="dpms" type ="list" address="0xd6">
+			<value id="on" value="1"/>
+			<value id="standby" value="2"/>
+			<value id="suspend" name="Suspend" value="3"/>
+			<value id="off" value="4"/>
+			<value id="poweroff" name="Turn off the monitor" value="5"/>
+		</control>
+
+		<!-- 	Not tested	 -->
+		<control id="freesync" type="list" address="0xF8">
+			<value id="off" value="0"/>
+			<value id="on" value="1"/>
+		</control>
+
+		<!--  From ddcui - Auto setup, x00 - Not active, x01 - Perform Auto setup, x02 - Enable continuous/periodic suto setup, not tested -->
+		<control id="auto" type="list" address="0x1e" delay="1000">
+			<value id="disabled" name="Disabled" value="x00"/>
+			<value id="perform" name="Perform once" value="x01"/>
+			<value id="continuous" name="Perfiodic auto adjustment" value="x02"/>
+		</control>
+
+		<!--  From ddcui Read-write "Color temetarute request" feature, continuous value from 0 to 85 -->
+		<!--control id="colortempreq" type="value" address="0x0c"/-->
+
+		<!--  From ddcui Read-write unknown feature, "mh=0x00, ml=0x05, sh=0x00, sl=0x09" in my case  -->
+		<!--control id="unknown" type="value" address="0x68"/-->
+
+		<!--  From ddcui Read-write "Gamma" feature, "0x0000 - Mode: White absolute adjustment (sl=0x00), gamma=1.00 (sh=0x00)" in my case  -->
+		<!--control id="gammaval" type="value" address="0x72"/-->
+
+		<!--  From ddcui Read-write unknown feature, "mh=0x00, ml=0x03, sh=0x00, sl=0x00" in my case  -->
+		<!--control id="unknown" type="value" address="xa8"/-->
+
+		<!--  From ddcui Read-write unknown feature, "mh=0x00, ml=0x02, sh=0x00, sl=0x00" in my case  -->
+		<!--control id="unknown" type="value" address="0xe9"-->
+
+		<!--  From ddcui Read-only "Color temperature increment", "100 degree(s) Kelvin" in my case  -->
+		<!--control id="colortempinc" type="value" address="0x0b"/-->
+
+		<!--  From ddcui Read-only "Active control", "0x00" in my case  -->
+		<!--control id="activecontrol" type="value" address="0x52"/-->
+
+		<!--  From ddcui Read-only "Screen Orientation" feature, "0 degrees (sl=0x01)" in my case  -->
+		<!--control id="osdorientation" type="value" address="0xaa"-->
+
+		<!--  From ddcui Read-only "Horizontal frequency" feature, continuous value, "100 hz" in my case  -->
+		<!--control id="hfreq" type="value" address="0xac"-->
+
+		<!--  From ddcui Read-only "Vertical frequency" feature, continuous value, "100 hz" in my case  -->
+		<!--control id="vfreq" type="value" address="0xae"-->
+
+		<!--  From ddcui Read-only "Display technology type" feature, "LCD (active matrix) (sl=0x03)" in my case  -->
+		<!--control id="disptype" type="value" address="0xb6"-->
+
+		<!--  From ddcui Read-only "Display usage time" feature, continuous value, "Usage time (hours) = 6955 (0x001b2b) mh=0xff, sh=0x1b, sl=0x2b" in my case  -->
+		<!--control id="usagetime" type="value" address="0xc0"-->
+
+		<!--  From ddcui Read-only "Application enable key" feature, "0x006f" in my case  -->
+		<!--control id="appkey" type="value" address="0xc6"-->
+
+		<!--  From ddcui Read-only "Display Controller type" feature, "Mfg: Mstar (sl=0x05), controller number: mh=0xff, ml=0x16, sh=0x00" in my case  -->
+		<!--control id="ctrltype" type="value" address="0xc8"-->
+
+		<!--  From ddcui Read-only "Display firmware level" feature, "0.8" in my case  -->
+		<!--control id="ctrltype" type="value" address="0xc9"-->
+
+		<!--  From ddcui Read-only "VCP Version" feature, "2.2" in my case  -->
+		<!--control id="ctrltype" type="value" address="0xdf"-->
+	</controls>
+	<!--  include AOC family -->
+	<include file="AOClcd"/>
+</monitor>
