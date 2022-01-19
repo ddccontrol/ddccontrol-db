@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<monitor name="LG UltraFine 24MD4KL-B" init="standard">
+	<caps add="(vcp(10))" />
+	<controls>
+		<control id="brightness" address="0x10" />
+	</controls>
+</monitor>
