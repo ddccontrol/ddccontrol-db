@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<monitor name="Iiyama X2483HSU" init="standard">
+	<controls>
+		<control id="newcontrolvalue" address="0x02">
+			<value id="nochanges" value="1" />
+			<value id="changed" value="2" />
+		</control>
+
+		<control id="defaults" address="0x04" delay="2000" />
+		<control id="defaultluma" address="0x05" delay="2000" />
+		<control id="defaultcolor" address="0x08" delay="2000" />
+
+		<control id="brightness" address="0x10" />
+		<control id="contrast" address="0x12" />
+		<control id="red" address="0x16" />
+		<control id="green" address="0x18" />
+		<control id="blue" address="0x1A" />
+
+		<control id="inputsource" type="list" address="0x60">
+			<value id="dvi1" value="0x03" />
+			<value id="hdmi1" value="0x11" />
+			<value id="vga1" value="0x01" />
+		</control>
+
+		<control id="dpms" address="0xd6">
+			<value id="on" value="1" />
+			<value id="standby" value="5" />
+		</control>
+
+		<control id="audiospeakervolume" address="0x62" />
+
+		<control id="language" type="list" address="0xcc">
+			<value id="english" value="0x02" />
+			<value id="french" value="0x03" />
+			<value id="german" value="0x04" />
+			<value id="italian" value="0x05" />
+			<value id="japanese" value="0x06" />
+			<value id="russian" value="0x09" />
+			<value id="spanish" value="0x0a" />
+			<value id="czech" value="0x12" />
+			<value id="polish" value="0x1e" />
+			<value id="chinese" value="0x0d" />
+		</control>
+	</controls>
+</monitor>
