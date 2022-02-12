@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<monitor name="C49RG9x" init="standard">
+       <caps add="(prot(monitor)type(lcd)SAMSUNGcmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 10 12 14(05 08 0B 0C) 16 18 1A 52 60( 12 0F 10) AA(01 02 03 FF) AC AE B2 B6 C6 C8 C9 D6(01 04 05) DC(00 02 03 05 ) DF FD)mccs_ver(2.1)mswhql(1))" />
+       <controls>
+
+               <control id="responsetime" type="list" name="Response Time" address="0xf3">
+                       <value id="standard" value="0"/>
+                       <value id="faster" value="1"/>
+                       <value id="fastest" value="2"/>
+               </control>
+
+               <control id="language" type="list" address="0xcc">
+                       <value id="english" value="2"/>
+                       <value id="french" value="3"/>
+                       <value id="german" value="4"/>
+                       <value id="italian" value="5"/>
+                       <value id="japanese" value="6"/>
+                       <value id="korean" value="7"/>
+                       <value id="portuguese" value="8"/>
+                       <value id="russian" value="9"/>
+                       <value id="spanish" value="10"/>
+                       <value id="swedish" value="11"/>
+                       <value id="turkish" value="12"/>
+                       <value id="hungarian" value="26"/>
+                       <value id="polish" value="30"/>
+               </control>
+
+               <!-- write only -->
+               <control id="inputsource" type="list" address="0x60">
+                       <value id="DisplayPort-2" value="3"/>
+                       <value id="HDMI" value="6"/>
+                       <value id="DisplayPort-1" value="9"/>
+               </control>
+
+       </controls>
+       <include file="SAMlcd"/>
+</monitor>
