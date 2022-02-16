@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<monitor name="Dell U4919DW (HDMI-2)" init="standard">
+	<include file="U4919DW" />
+</monitor>
