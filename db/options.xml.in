@@ -544,6 +544,9 @@
 				<value id="finnish" name="Suomalainen (Finnish)"/>
 				<value id="turkish" name="Türk (Turkish)"/>
 				<value id="brazilian"    name="Português do Brasil (Brazilian Portuguese)"/>
+				<value id="malay"        name="Bahasa Melayu (Malay)"/>
+				<value id="thai"         name="ภาษาไทย (Thai)"/>
+				<value id="arabic"       name="العربية (Arabic)"/>
 			</control>
 			<!-- If "changed", read 0x52 register value to get address of the control changed using OSD menu -->
 			<control id="newcontrolvalue" type="list" name="New Control Value" address="0x02">
