@@ -1,70 +1,60 @@
 <?xml version="1.0"?>
 <monitor name="ASUS TUF VG27AQ" init="standard">
-	<caps add="(prot(monitor)type(lcd)model(VG27AQ)cmds(01 02 03 07 0C 4E F3 E3)vcp(02 04 05 08 10 12 14(05 06 08 0B) 16 18 1A 52 60( 11 12 0F) 62 87 8A 8D(01 02) AC AE B6 C0 C6 C8 C9 CC( 01 02 03 04 05 06 07 08 09 0A 0C 0D 11 12 14 1A 1E 1F 30 23 31) D6(01 04 05) DF E2(00 01 02 03 04 05) E4(00 01) E6(00 01) E7(00 01) E9(00 01) EA(00 01) EB(00 01) EF(00 01 02 03) F0(00 01 02 03 04) ) mswhql(1)mccs_ver(2.2)asset_eep(32)mpu_ver(01))"/>
+	<caps add="(prot(monitor)type(lcd)model(VG27AQ)cmds(01 02 03 07 0C 4E F3 E3)vcp(02 04 05 08 10 12 14(05 06 08 0B) 16 18 1A 52 60( 11 12 0F) 62 87 8A 8D(01 02) AC AE B6 C0 C6 C8 C9 CC( 01 02 03 04 05 06 07 08 09 0A 0C 0D 11 12 14 1A 1E 1F 30 23 31) D6(01 04 05) DC(0B 11 03 12 13 0D 14) DF E2(00 01 02 03 04 05) E4(00 01) E6(00 01) E7(00 01) E9(00 01) EA(00 01) EB(00 01) EF(00 01 02 03) F0(00 01 02 03 04) ) mswhql(1)mccs_ver(2.2)asset_eep(32)mpu_ver(01))"/>
 	<controls>
 		<!-- GAME VISUAL MENU -->
-		<control name="GameVisual" type="list" address="0xdc">
-			<value name="Scenery" value="11"/>
-			<value name="Racing" value="17"/>
-			<value name="Cinema" value="3"/>
-			<value name="RTS/RPG" value="18"/>
-			<value name="FPS" value="19"/>
-			<value name="sRGB" value="13"/>
-			<value name="MOBA" value="20"/>
+		<!-- Had to add DC(0B 11 03 12 13 0D 14) directly to the caps since it was not being detected -->
+		<control id="preset_profile" type="list" address="0xdc">
+			<value id="scenery" value="0x0B"/>
+			<value id="racing" value="0x11"/>
+			<value id="cinema" value="0x03"/>
+			<value id="rts_rpg" value="0x12"/>
+			<value id="fps" value="0x13"/>
+			<value id="srgb" value="0x0D"/>
+			<value id="moba" value="0x14"/>
 		</control>
 
 		<!-- BLUE LIGHT FILTER MENU -->
-		<control name="Blue Light Filter" type="list" address="0xf0">
-			<value name="Level 0" value="0"/>
-			<value name="Level 1" value="1"/>
-			<value name="Level 2" value="2"/>
-			<value name="Level 3" value="3"/>
+		<control id="bluelightfilter" type="list" address="0xf0">
+			<!-- For some reason it switches the preset_profile to scenery whenever you select one of the values -->
+			<value id="level-0" value="0"/>
+			<value id="level-1" value="1"/>
+			<value id="level-2" value="2"/>
+			<value id="level-3" value="3"/>
+			<value id="level-4" value="4"/>
 		</control>
 
 		<!-- COLOR MENU -->
-		<control name="Brightness" id="brightness" address="0x10"/>
-		<control name="Contrast" id="contrast" address="0x12"/>
-		<control name="Saturation" id="saturation" address="0x8a"/>
-		<control name="Color Temp." id="colorpreset" type="list" address="0x14">
+		<!-- BRIGHTNESS managed by VESA -->
+		<!-- CONTRAST managed by VESA -->
+		<control id="saturation" address="0x8a"/>
+		<control id="colorpreset" type="list" address="0x14">
+			<!-- Named Color Temperature in the OSD -->
 			<value id="cool" value="0x08"/>
-			<value id="standard" name="Normal" value="0x06"/>
+			<value id="standard" value="0x06"/>
 			<value id="warm" value="0x05"/>
-			<value id="custom" name="User Mode" value="0x0b"/>
+			<value id="custom" value="0x0b"/>
 		</control>
 		<!-- TODO: Skin Tone: could not find it since when I change it from the OSD no value changes -->
 
 		<!-- IMAGE MENU -->
 		<!-- TODO: HDR: could not find it since when I change it from the OSD no value changes -->
 		<!-- TODO: Over Clocking: could not find it since when I change it from the OSD no value changes -->
-		<control id="sharpness" type="list" address="0x87">
-			<value value="0x00"/>
-			<value value="0x0A"/>
-			<value value="0x14"/>
-			<value value="0x1E"/>
-			<value value="0x28"/>
-			<value value="0x32"/>
-			<value value="0x3C"/>
-			<value value="0x46"/>
-			<value value="0x50"/>
-			<value value="0x5A"/>
-			<value value="0x64"/>
-		</control>
+		<!-- SHARPNESS can have these values [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100] -->
+		<!-- Any value in-between these ranges will be automatically truncated to the nearest smallest value -->
+		<control id="sharpness" type="list" address="0x87"/>
 		<!-- TODO: VividPixel: could not find it since when I change it from the OSD no value changes  -->
-		<control id="freesync" type="list" name="Adaptative-Sync" address="0xe6">
-			<!-- Explicitly mentioned as Adaptative-Sync, but I think it's very similar to FreeSync, correct me otherwise -->
-			<value id="off" value="0"/>
-			<value id="on" name="On (G-SYNC compatible)" value="1"/>
-		</control>
+		<!-- AdaptativeSync/FreeSync is a read-only control -->
 		<!-- TODO: ELMB SYNC: could not find it since when I change it from the OSD no value changes -->
-		<control id="shadowboost" type="list" name="Shadow Boost" address="0xef">
-			<value name="None" value="0"/>
-			<value name="Level 1" value="1"/>
-			<value name="Level 2" value="2"/>
-			<value name="Level 3" value="3"/>
+		<control id="shadowboost" type="list" address="0xef">
+			<value id="none" value="0"/>
+			<value id="level-1" value="1"/>
+			<value id="level-2" value="2"/>
+			<value id="level-3" value="3"/>
 		</control>
 
 		<!-- SOUND MENU -->
-		<control id="audiospeakervolume" address="0x62"/>
+		<!-- AUDIO VOLUME managed by VESA -->
 		<control id="audiospeakermute" type="list" address="0x8d">
 			<value id="mute" value="1"/>
 			<value id="unmute" value="2"/>
@@ -81,7 +71,7 @@
 		<!-- TODO: GAMEVISUAL DEMO MODE -->
 		<control id="ecomode" type="list" address="0xe7">
 			<value id="off" value="0"/>
-			<value id="high"  name="1"/>
+			<value id="on" value="1"/>
 		</control>
 		<!-- TODO: OSD SETUP / OSD TIMEOUT: could not find it since when I change it from the OSD no value changes -->
 		<!-- TODO: OSD SETUP / DDC/CI: could not find it since the option is greyed out -->
@@ -108,34 +98,31 @@
 			<value id="thai" value="35"/>
 			<value id="malay" value="49"/>
 		</control>
-		<control id="osd" type="list" name="Key Lock" address="0xe9">
+		<control id="osd" type="list" address="0xe9">
 			<!-- Shows up as Key Lock in the menu: when ON you cannot open the OSD menu until you turn it off -->
 			<!-- Also mapped to 0xca, but values for that register are 1 and 2 respectively -->
 			<value id="enable" name="OFF" value="0"/>
 			<value id="disable" name="ON" value="1"/>
 		</control>
-		<control id="powerled" type="list" address="0xea">
-			<value id="off" value="0"/>
-			<value id="on"  name="1"/>
-		</control>
+		<!-- Power Indicator is a read-only control -->
 
-		<!-- TODO: MYFAVORITE MENU: could not find it since when I change it from the OSD no value changes -->
-
-		<!-- STANDARD VALUES -->
-		<control id="newcontrolvalue" address="0x02">
-			<value id="nochanges" value="1"/>
-			<value id="changed" value="2"/>
-		</control>
-		<control id="defaults" address="0x04"/>
-		<control id="defaultluma" address="0x05"/>
-		<control id="defaultcolor" address="0x08"/>
-		<control id="red" address="0x16"/>
-		<control id="green" address="0x18"/>
-		<control id="blue" address="0x1A"/>
+		<!-- MISC CONTROLS -->
 		<control id="dpms" type="list" address="0xd6">
 			<value id="on" value="1"/>
 			<value id="standby" value="4"/>
 			<value id="off" value="5"/>
 		</control>
+
+		<!-- READONLY CONTROLS
+		<control id="powerled" type="list" address="0xea">
+			<value id="off" value="0"/>
+			<value id="on" value="1"/>
+		</control>
+		<control id="freesync" type="list" address="0xe6">
+			<value id="off" value="0"/>
+			<value id="on" value="1"/>
+		</control>
+		-->
 	</controls>
+	<include file="VESA"/>
 </monitor>
