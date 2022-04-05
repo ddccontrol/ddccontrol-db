@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <monitor name="ASUS TUF VG27AQ" init="standard">
 	<caps add="(prot(monitor)type(lcd)model(VG27AQ)cmds(01 02 03 07 0C 4E F3 E3)vcp(02 04 05 08 10 12 14(05 06 08 0B) 16 18 1A 52 60( 11 12 0F) 62 87 8A 8D(01 02) AC AE B6 C0 C6 C8 C9 CC( 01 02 03 04 05 06 07 08 09 0A 0C 0D 11 12 14 1A 1E 1F 30 23 31) D6(01 04 05) DC(0B 11 03 12 13 0D 14) DF E2(00 01 02 03 04 05) E4(00 01) E6(00 01) E7(00 01) E9(00 01) EA(00 01) EB(00 01) EF(00 01 02 03) F0(00 01 02 03 04) ) mswhql(1)mccs_ver(2.2)asset_eep(32)mpu_ver(01))"/>
+	<!-- NOTE: All the controls were tested via the DisplayPort port -->
 	<controls>
 		<!-- GAME VISUAL MENU -->
 		<!-- Had to add DC(0B 11 03 12 13 0D 14) directly to the caps since it was not being detected -->
