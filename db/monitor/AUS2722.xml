@@ -31,7 +31,7 @@
 		<control id="colorpreset" type="list" address="0x14">
 			<!-- Named Color Temperature in the OSD -->
 			<value id="cool" value="0x08"/>
-			<value id="standard" value="0x06"/>
+			<value id="normal" value="0x06"/>
 			<value id="warm" value="0x05"/>
 			<value id="custom" value="0x0b"/>
 		</control>
@@ -101,8 +101,8 @@
 		<control id="osd" type="list" address="0xe9">
 			<!-- Shows up as Key Lock in the menu: when ON you cannot open the OSD menu until you turn it off -->
 			<!-- Also mapped to 0xca, but values for that register are 1 and 2 respectively -->
-			<value id="enable" name="OFF" value="0"/>
-			<value id="disable" name="ON" value="1"/>
+			<value id="enable" value="0"/>
+			<value id="disable" value="1"/>
 		</control>
 		<!-- Power Indicator is a read-only control -->
 
