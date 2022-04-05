@@ -16,7 +16,7 @@
 
 		<!-- BLUE LIGHT FILTER MENU -->
 		<control id="bluelightfilter" type="list" address="0xf0">
-			<!-- For some reason it switches the preset_profile to scenery whenever you select one of the values -->
+			<!-- For some reason it switches the preset_profile to racing whenever you select one of the values -->
 			<value id="level-0" value="0"/>
 			<value id="level-1" value="1"/>
 			<value id="level-2" value="2"/>
