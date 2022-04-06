@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<monitor name="ASUS TUF VG27AQ" init="standard">
+	<caps add="(prot(monitor)type(lcd)model(VG27AQ)cmds(01 02 03 07 0C 4E F3 E3)vcp(02 04 05 08 10 12 14(05 06 08 0B) 16 18 1A 52 60( 11 12 0F) 62 87 8A 8D(01 02) AC AE B6 C0 C6 C8 C9 CC( 01 02 03 04 05 06 07 08 09 0A 0C 0D 11 12 14 1A 1E 1F 30 23 31) D6(01 04 05) DC(0B 11 03 12 13 0D 14) DF E2(00 01 02 03 04 05) E4(00 01) E6(00 01) E7(00 01) E9(00 01) EA(00 01) EB(00 01) EF(00 01 02 03) F0(00 01 02 03 04) ) mswhql(1)mccs_ver(2.2)asset_eep(32)mpu_ver(01))"/>
+	<!-- NOTE: All the controls were tested via the DisplayPort port -->
+	<controls>
+		<!-- GAME VISUAL MENU -->
+		<!-- Had to add DC(0B 11 03 12 13 0D 14) directly to the caps since it was not being detected -->
+		<control id="preset_profile" type="list" address="0xdc">
+			<value id="scenery" value="0x0B"/>
+			<value id="racing" value="0x11"/>
+			<value id="cinema" value="0x03"/>
+			<value id="rts_rpg" value="0x12"/>
+			<value id="fps" value="0x13"/>
+			<value id="srgb" value="0x0D"/>
+			<value id="moba" value="0x14"/>
+		</control>
+
+		<!-- BLUE LIGHT FILTER MENU -->
+		<control id="bluelightfilter" type="list" address="0xf0">
+			<!-- For some reason it switches the preset_profile to racing whenever you select one of the values -->
+			<value id="level-0" value="0"/>
+			<value id="level-1" value="1"/>
+			<value id="level-2" value="2"/>
+			<value id="level-3" value="3"/>
+			<value id="level-4" value="4"/>
+		</control>
+
+		<!-- COLOR MENU -->
+		<!-- BRIGHTNESS managed by VESA -->
+		<!-- CONTRAST managed by VESA -->
+		<control id="saturation" address="0x8a"/>
+		<control id="colorpreset" type="list" address="0x14">
+			<!-- Named Color Temperature in the OSD -->
+			<value id="cool" value="0x08"/>
+			<value id="normal" value="0x06"/>
+			<value id="warm" value="0x05"/>
+			<value id="custom" value="0x0b"/>
+		</control>
+		<!-- TODO: Skin Tone: could not find it since when I change it from the OSD no value changes -->
+
+		<!-- IMAGE MENU -->
+		<!-- TODO: HDR: could not find it since when I change it from the OSD no value changes -->
+		<!-- TODO: Over Clocking: could not find it since when I change it from the OSD no value changes -->
+		<!-- SHARPNESS can have these values [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100] -->
+		<!-- Any value in-between these ranges will be automatically truncated to the nearest smallest value -->
+		<control id="sharpness" type="list" address="0x87"/>
+		<!-- TODO: VividPixel: could not find it since when I change it from the OSD no value changes  -->
+		<!-- AdaptativeSync/FreeSync is a read-only control -->
+		<!-- TODO: ELMB SYNC: could not find it since when I change it from the OSD no value changes -->
+		<control id="shadowboost" type="list" address="0xef">
+			<value id="none" value="0"/>
+			<value id="level-1" value="1"/>
+			<value id="level-2" value="2"/>
+			<value id="level-3" value="3"/>
+		</control>
+
+		<!-- SOUND MENU -->
+		<!-- AUDIO VOLUME managed by VESA -->
+		<control id="audiospeakermute" type="list" address="0x8d">
+			<value id="mute" value="1"/>
+			<value id="unmute" value="2"/>
+		</control>
+
+		<!-- INPUT SELECT MENU -->
+		<control id="inputsource" type="list" address="0x60">
+			<value id="hdmi1" value="0x11"/>
+			<value id="hdmi2" value="0x12"/>
+			<value id="dp" value="0x0f"/>
+		</control>
+
+		<!-- SYSTEM MENU MENU -->
+		<!-- TODO: GAMEVISUAL DEMO MODE -->
+		<control id="ecomode" type="list" address="0xe7">
+			<value id="off" value="0"/>
+			<value id="on" value="1"/>
+		</control>
+		<!-- TODO: OSD SETUP / OSD TIMEOUT: could not find it since when I change it from the OSD no value changes -->
+		<!-- TODO: OSD SETUP / DDC/CI: could not find it since the option is greyed out -->
+		<!-- TODO: OSD SETUP / TRANSPARENCY: could not find it since when I change it from the OSD no value changes -->
+		<control id="language" type="list" address="0xcc">
+			<!-- Sorted by order in the menu -->
+			<value id="english" value="2"/>
+			<value id="french" value="3"/>
+			<value id="german" value="4"/>
+			<value id="spanish" value="10"/>
+			<value id="italian" value="5"/>
+			<value id="dutch" value="20"/>
+			<value id="russian" value="9"/>
+			<value id="polish" value="30"/>
+			<value id="czech" value="18"/>
+			<value id="serbocroatian" value="17"/>
+			<value id="portuguese" value="8"/>
+			<value id="turkish" value="12"/>
+			<value id="chinese" value="13"/>
+			<value id="chinese_tw" value="1"/>
+			<value id="japanese" value="6"/>
+			<value id="korean" value="7"/>
+			<value id="arabic" value="48"/>
+			<value id="thai" value="35"/>
+			<value id="malay" value="49"/>
+		</control>
+		<control id="osd" type="list" address="0xe9">
+			<!-- Shows up as Key Lock in the menu: when ON you cannot open the OSD menu until you turn it off -->
+			<!-- Also mapped to 0xca, but values for that register are 1 and 2 respectively -->
+			<value id="enable" value="0"/>
+			<value id="disable" value="1"/>
+		</control>
+		<!-- Power Indicator is a read-only control -->
+
+		<!-- MISC CONTROLS -->
+		<control id="dpms" type="list" address="0xd6">
+			<value id="on" value="1"/>
+			<value id="standby" value="4"/>
+			<value id="off" value="5"/>
+		</control>
+
+		<!-- READONLY CONTROLS
+		<control id="powerled" type="list" address="0xea">
+			<value id="off" value="0"/>
+			<value id="on" value="1"/>
+		</control>
+		<control id="freesync" type="list" address="0xe6">
+			<value id="off" value="0"/>
+			<value id="on" value="1"/>
+		</control>
+		-->
+	</controls>
+	<include file="VESA"/>
+</monitor>

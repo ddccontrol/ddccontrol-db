@@ -15,6 +15,12 @@
 				<value id="fps" name="FPS"/>
 				<value id="rts" name="RTS"/>
 				<value id="rpg" name="RPG"/>
+				<value id="rts_rpg" name="RTS/RPG"/>
+				<value id="scenery" name="Scenery"/>
+				<value id="racing" name="Racing"/>
+				<value id="cinema" name="Cinema"/>
+				<value id="srgb" name="sRGB"/>
+				<value id="moba" name="MOBA"/>
 			</control>
 			<control id="preset_moviemode" type="list" name="Movie Mode" refresh="all">
 				<value id="off" name="Off"/>
@@ -66,6 +72,7 @@
 				<value id="middle" name="Middle"/>
 				<value id="low" name="Low"/>
 				<value id="auto" name="Auto"/>
+				<value id="on" name="On"/>
 				<value id="off" name="Off"/>
 			</control>
 			<control id="fengine" type="list" name="f-Engine">
@@ -315,6 +322,20 @@
 			</control>
 			<!-- ACR0692 -->
 			<control id="blackboost" type="value" name="Black Boost"/>
+			<!-- AUS2722 -->
+			<control id="bluelightfilter" type="list" name="Blue Light Filter" refresh="all">
+				<value id="level-0" name="Level 0"/>
+				<value id="level-1" name="Level 1"/>
+				<value id="level-2" name="Level 2"/>
+				<value id="level-3" name="Level 3"/>
+				<value id="level-4" name="Level 4"/>
+			</control>
+			<control id="shadowboost" type="list" name="Shadow Boost" address="0xef">
+				<value id="none" name="None" value="0"/>
+				<value id="level-1" name="Level 1" value="1"/>
+				<value id="level-2" name="Level 2" value="2"/>
+				<value id="level-3" name="Level 3" value="3"/>
+			</control>
 		</subgroup>
 	</group>
 	<group name="Position and size">
@@ -544,6 +565,9 @@
 				<value id="finnish" name="Suomalainen (Finnish)"/>
 				<value id="turkish" name="Türk (Turkish)"/>
 				<value id="brazilian"    name="Português do Brasil (Brazilian Portuguese)"/>
+				<value id="malay"        name="Bahasa Melayu (Malay)"/>
+				<value id="thai"         name="ภาษาไทย (Thai)"/>
+				<value id="arabic"       name="العربية (Arabic)"/>
 			</control>
 			<!-- If "changed", read 0x52 register value to get address of the control changed using OSD menu -->
 			<control id="newcontrolvalue" type="list" name="New Control Value" address="0x02">
