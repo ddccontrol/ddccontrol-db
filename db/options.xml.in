@@ -436,6 +436,91 @@
 				<value id="PiP large" name="PiP Large"/>
 				<value id="PiP small" name="PiP Small"/>
 			</control>
+			<control id="kvm-switch" type="list" name="KVM switch">
+			    <!-- TODO not the best approach should be some sort of matrix but there is no type for that-->
+			    <value id="HDMI:USB1_DP:USB1_USB-C:USB1" name="HDMI:USB1 DP:USB1 USB-C:USB1"/>
+			    <value id="HDMI:USB1_DP:USB1_USB-C:USB2" name="HDMI:USB1 DP:USB1 USB-C:USB2"/>
+			    <value id="HDMI:USB1_DP:USB1_USB-C:USB-C1" name="HDMI:USB1 DP:USB1 USB-C:USB-C1"/>
+			    <value id="HDMI:USB1_DP:USB1_USB-C:USB-C2" name="HDMI:USB1 DP:USB1 USB-C:USB-C2"/>
+
+			    <value id="HDMI:USB1_DP:USB2_USB-C:USB1" name="HDMI:USB1 DP:USB2 USB-C:USB1"/>
+                <value id="HDMI:USB1_DP:USB2_USB-C:USB2" name="HDMI:USB1 DP:USB2 USB-C:USB2"/>
+                <value id="HDMI:USB1_DP:USB2_USB-C:USB-C1" name="HDMI:USB1 DP:USB2 USB-C:USB-C1"/>
+                <value id="HDMI:USB1_DP:USB2_USB-C:USB-C2" name="HDMI:USB1 DP:USB2 USB-C:USB-C2"/>
+
+                <value id="HDMI:USB1_DP:USB-C1_USB-C:USB1" name="HDMI:USB1 DP:USB-C1 USB-C:USB1"/>
+                <value id="HDMI:USB1_DP:USB-C1_USB-C:USB2" name="HDMI:USB1 DP:USB-C1 USB-C:USB2"/>
+                <value id="HDMI:USB1_DP:USB-C1_USB-C:USB-C1" name="HDMI:USB1 DP:USB-C1 USB-C:USB-C1"/>
+                <value id="HDMI:USB1_DP:USB-C1_USB-C:USB-C2" name="HDMI:USB1 DP:USB-C1 USB-C:USB-C2"/>
+
+                <value id="HDMI:USB1_DP:USB-C2_USB-C:USB1" name="HDMI:USB1 DP:USB-C2 USB-C:USB1"/>
+                <value id="HDMI:USB1_DP:USB-C2_USB-C:USB2" name="HDMI:USB1 DP:USB-C2 USB-C:USB2"/>
+                <value id="HDMI:USB1_DP:USB-C2_USB-C:USB-C1" name="HDMI:USB1 DP:USB-C2 USB-C:USB-C1"/>
+                <value id="HDMI:USB1_DP:USB-C2_USB-C:USB-C2" name="HDMI:USB1 DP:USB-C2 USB-C:USB-C2"/>
+
+
+                <value id="HDMI:USB2_DP:USB1_USB-C:USB1" name="HDMI:USB2 DP:USB1 USB-C:USB1"/>
+                <value id="HDMI:USB2_DP:USB1_USB-C:USB2" name="HDMI:USB2 DP:USB1 USB-C:USB2"/>
+                <value id="HDMI:USB2_DP:USB1_USB-C:USB-C1" name="HDMI:USB2 DP:USB1 USB-C:USB-C1"/>
+                <value id="HDMI:USB2_DP:USB1_USB-C:USB-C2" name="HDMI:USB2 DP:USB1 USB-C:USB-C2"/>
+
+                <value id="HDMI:USB2_DP:USB2_USB-C:USB1" name="HDMI:USB2 DP:USB2 USB-C:USB1"/>
+                <value id="HDMI:USB2_DP:USB2_USB-C:USB2" name="HDMI:USB2 DP:USB2 USB-C:USB2"/>
+                <value id="HDMI:USB2_DP:USB2_USB-C:USB-C1" name="HDMI:USB2 DP:USB2 USB-C:USB-C1"/>
+                <value id="HDMI:USB2_DP:USB2_USB-C:USB-C2" name="HDMI:USB2 DP:USB2 USB-C:USB-C2"/>
+
+                <value id="HDMI:USB2_DP:USB-C1_USB-C:USB1" name="HDMI:USB2 DP:USB-C1 USB-C:USB1"/>
+                <value id="HDMI:USB2_DP:USB-C1_USB-C:USB2" name="HDMI:USB2 DP:USB-C1 USB-C:USB2"/>
+                <value id="HDMI:USB2_DP:USB-C1_USB-C:USB-C1" name="HDMI:USB2 DP:USB-C1 USB-C:USB-C1"/>
+                <value id="HDMI:USB2_DP:USB-C1_USB-C:USB-C2" name="HDMI:USB2 DP:USB-C1 USB-C:USB-C2"/>
+
+                <value id="HDMI:USB2_DP:USB-C2_USB-C:USB1" name="HDMI:USB2 DP:USB-C2 USB-C:USB1"/>
+                <value id="HDMI:USB2_DP:USB-C2_USB-C:USB2" name="HDMI:USB2 DP:USB-C2 USB-C:USB2"/>
+                <value id="HDMI:USB2_DP:USB-C2_USB-C:USB-C1" name="HDMI:USB2 DP:USB-C2 USB-C:USB-C1"/>
+                <value id="HDMI:USB2_DP:USB-C2_USB-C:USB-C2" name="HDMI:USB2 DP:USB-C2 USB-C:USB-C2"/>
+
+
+                <value id="HDMI:USB-C1_DP:USB1_USB-C:USB1" name="HDMI:USB-C1 DP:USB1 USB-C:USB1"/>
+                <value id="HDMI:USB-C1_DP:USB1_USB-C:USB2" name="HDMI:USB-C1 DP:USB1 USB-C:USB2"/>
+                <value id="HDMI:USB-C1_DP:USB1_USB-C:USB-C1" name="HDMI:USB-C1 DP:USB1 USB-C:USB-C1"/>
+                <value id="HDMI:USB-C1_DP:USB1_USB-C:USB-C2" name="HDMI:USB-C1 DP:USB1 USB-C:USB-C2"/>
+
+                <value id="HDMI:USB-C1_DP:USB2_USB-C:USB1" name="HDMI:USB-C1 DP:USB2 USB-C:USB1"/>
+                <value id="HDMI:USB-C1_DP:USB2_USB-C:USB2" name="HDMI:USB-C1 DP:USB2 USB-C:USB2"/>
+                <value id="HDMI:USB-C1_DP:USB2_USB-C:USB-C1" name="HDMI:USB-C1 DP:USB2 USB-C:USB-C1"/>
+                <value id="HDMI:USB-C1_DP:USB2_USB-C:USB-C2" name="HDMI:USB-C1 DP:USB2 USB-C:USB-C2"/>
+
+                <value id="HDMI:USB-C1_DP:USB-C1_USB-C:USB1" name="HDMI:USB-C1 DP:USB-C1 USB-C:USB1"/>
+                <value id="HDMI:USB-C1_DP:USB-C1_USB-C:USB2" name="HDMI:USB-C1 DP:USB-C1 USB-C:USB2"/>
+                <value id="HDMI:USB-C1_DP:USB-C1_USB-C:USB-C1" name="HDMI:USB-C1 DP:USB-C1 USB-C:USB-C1"/>
+                <value id="HDMI:USB-C1_DP:USB-C1_USB-C:USB-C2" name="HDMI:USB-C1 DP:USB-C1 USB-C:USB-C2"/>
+
+                <value id="HDMI:USB-C1_DP:USB-C2_USB-C:USB1" name="HDMI:USB-C1 DP:USB-C2 USB-C:USB1"/>
+                <value id="HDMI:USB-C1_DP:USB-C2_USB-C:USB2" name="HDMI:USB-C1 DP:USB-C2 USB-C:USB2"/>
+                <value id="HDMI:USB-C1_DP:USB-C2_USB-C:USB-C1" name="HDMI:USB-C1 DP:USB-C2 USB-C:USB-C1"/>
+                <value id="HDMI:USB-C1_DP:USB-C2_USB-C:USB-C2" name="HDMI:USB-C1 DP:USB-C2 USB-C:USB-C2"/>
+
+
+                <value id="HDMI:USB-C2_DP:USB1_USB-C:USB1" name="HDMI:USB-C2 DP:USB1 USB-C:USB1"/>
+                <value id="HDMI:USB-C2_DP:USB1_USB-C:USB2" name="HDMI:USB-C2 DP:USB1 USB-C:USB2"/>
+                <value id="HDMI:USB-C2_DP:USB1_USB-C:USB-C1" name="HDMI:USB-C2 DP:USB1 USB-C:USB-C1"/>
+                <value id="HDMI:USB-C2_DP:USB1_USB-C:USB-C2" name="HDMI:USB-C2 DP:USB1 USB-C:USB-C2"/>
+
+                <value id="HDMI:USB-C2_DP:USB2_USB-C:USB1" name="HDMI:USB-C2 DP:USB2 USB-C:USB1"/>
+                <value id="HDMI:USB-C2_DP:USB2_USB-C:USB2" name="HDMI:USB-C2 DP:USB2 USB-C:USB2"/>
+                <value id="HDMI:USB-C2_DP:USB2_USB-C:USB-C1" name="HDMI:USB-C2 DP:USB2 USB-C:USB-C1"/>
+                <value id="HDMI:USB-C2_DP:USB2_USB-C:USB-C2" name="HDMI:USB-C2 DP:USB2 USB-C:USB-C2"/>
+
+                <value id="HDMI:USB-C2_DP:USB-C1_USB-C:USB1" name="HDMI:USB-C2 DP:USB-C1 USB-C:USB1"/>
+                <value id="HDMI:USB-C2_DP:USB-C1_USB-C:USB2" name="HDMI:USB-C2 DP:USB-C1 USB-C:USB2"/>
+                <value id="HDMI:USB-C2_DP:USB-C1_USB-C:USB-C1" name="HDMI:USB-C2 DP:USB-C1 USB-C:USB-C1"/>
+                <value id="HDMI:USB-C2_DP:USB-C1_USB-C:USB-C2" name="HDMI:USB-C2 DP:USB-C1 USB-C:USB-C2"/>
+
+                <value id="HDMI:USB-C2_DP:USB-C2_USB-C:USB1" name="HDMI:USB-C2 DP:USB-C2 USB-C:USB1"/>
+                <value id="HDMI:USB-C2_DP:USB-C2_USB-C:USB2" name="HDMI:USB-C2 DP:USB-C2 USB-C:USB2"/>
+                <value id="HDMI:USB-C2_DP:USB-C2_USB-C:USB-C1" name="HDMI:USB-C2 DP:USB-C2 USB-C:USB-C1"/>
+                <value id="HDMI:USB-C2_DP:USB-C2_USB-C:USB-C2" name="HDMI:USB-C2 DP:USB-C2 USB-C:USB-C2"/>
+            </control>
 		</subgroup>
 		<subgroup name="Input sources">
 			<control id="inputlevel" type="list" name="Input level Select" address="0x5E">
