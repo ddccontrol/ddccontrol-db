@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<monitor name="Dell P3223QE (USB-C)" init="standard">
+<monitor name="Dell P3223QE" init="standard">
 	<controls>
 		<control id="colorpreset" type="list" address="0x14">
 			<value id="10000k" value="0x09"/>

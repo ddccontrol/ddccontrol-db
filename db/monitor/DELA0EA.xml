@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<monitor name="Dell U2718 (HDMI)" init="standard">
+	<include file="U2718Q"/>
+</monitor>
