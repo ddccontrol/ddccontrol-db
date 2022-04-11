@@ -1,4 +1,4 @@
 <?xml version="1.0"?>
-<monitor name="Dell U3223QE (HDMI HDR)" init="standard">
+<monitor name="Dell U3223QE (HDMI PBP)" init="standard">
 	<include file="U3223QE"/>
 </monitor>

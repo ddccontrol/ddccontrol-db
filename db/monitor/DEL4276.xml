@@ -1,4 +1,4 @@
 <?xml version="1.0"?>
-<monitor name="Dell P3223QE (USB-C)" init="standard">
+<monitor name="Dell P3223QE (USB-C HDR)" init="standard">
 	<include file="U3223QE"/>
 </monitor>
