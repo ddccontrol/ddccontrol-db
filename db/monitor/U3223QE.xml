@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<monitor name="Dell P3223QE" init="standard">
+	<controls>
+		<control id="colorpreset" type="list" address="0x14">
+			<value id="10000k" value="0x09"/>
+			<value id="9300k" value="0x08"/>
+			<value id="7500k" value="0x06"/>
+			<value id="6500k" value="0x05"/>
+			<value id="5700k" value="0x0B"/>
+			<value id="5000k" value="0x04"/>
+			<value id="normal" value="0x05"/>
+			<value id="movie" value="0x0C"/>
+			<value id="custom" value="0x01"/>
+		</control>
+
+		<control id="PbP" type="list" address="0xe9">
+			<value id="Off" value="0x00"/>
+			<value id="PbP" value="0x24"/>
+			<value id="PiP large" value="0x22"/>
+			<value id="PiP small" value="0x21"/>
+		</control>
+
+		<control id="inputsource" type="list" address="0x60">
+			<value id="usb-c" value="0x1b"/>
+			<value id="dp" value="0x0f"/>
+			<value id="hdmi" value="0x11"/>
+		</control>
+
+		<control id="inputsource_sub1" type="list" address="0xe8">
+			<value id="usb-c" value="0x1b"/>
+			<value id="dp" value="0x0f"/>
+			<value id="hdmi" value="0x11"/>
+		</control>
+
+		<control id="kvm-switch" address="0xe7">
+			<value id="HDMI:USB-C1_DP:USB-C1_USB-C:USB-C1" value="0x2A"/>
+			<value id="HDMI:USB-C1_DP:USB-C2_USB-C:USB-C1" value="0x2E"/>
+			<value id="HDMI:USB-C2_DP:USB-C1_USB-C:USB-C1" value="0x3A"/>
+			<value id="HDMI:USB-C2_DP:USB-C2_USB-C:USB-C1" value="0x3E"/>
+		</control>
+
+		<control id="osdorientation" address="0xaa">
+			<value id="landscape" value="1"/>
+			<value id="portraitleft" value="2"/>
+			<value id="portraitright" value="4"/>
+		</control>
+
+		<control id="language" type="list" address="0xcc">
+			<value id="english" value="0x02"/>
+			<value id="french" value="0x03"/>
+			<value id="german" value="0x04"/>
+			<value id="japanese" value="0x06"/>
+			<value id="brazilian" value="0x08"/>
+			<value id="russian" value="0x09"/>
+			<value id="spanish" value="0x0a"/>
+			<value id="chinese" value="0x0d"/>
+		</control>
+
+		<control id="magicbright" type="list" address="0xdc">
+			<value id="standard" value="0x00"/>
+			<value id="movie" value="0x03"/>
+			<value id="game" value="0x05"/>
+		</control>
+
+		<control id="power" type="list" address="0xe1">
+			<value id="on" value="0"/>
+			<value id="off" value="1"/>
+		</control>
+
+		<control id="energysaving2" address="0xe0">
+			<value id="on" value="1"/>
+			<value id="off" value="0"/>
+		</control>
+
+		<control id="dellpaper" address="0xf0">
+			<value id="set" value="0x08"/>
+		</control>
+
+
+		<!--		0x0e: +/50/100 [???] -->
+		<!--		0x1f: +/1/1   [???]-->
+		<!--		0x20: +/50/100   [???]-->
+		<!--		0x30: +/50/100   [???]-->
+		<!--		0x3e: +/50/100   [???]-->
+		<!--		0x52: +/204/255 C [???]-->
+		<!--		0x62: +/100/100   [???]-->
+		<!--		0xac: +/164/1 C [???]-->
+		<!--		0xae: +/3000/65535 C [???]-->
+		<!--		0xb2: +/1/1 C [???]-->
+		<!--		0xb6: +/3/5 C [???]-->
+		<!--		0xc0: +/21/65535   [???]-->
+		<!--		0xc6: +/17868/65535 C [???]-->
+		<!--		0xc8: +/5897/39 C [???]-->
+		<!--		0xc9: +/16641/65535 C [???]-->
+		<!--		0xca: +/2/2 C [???]-->
+		<!--		0xdf: +/513/65535 C [???]-->
+		<!--		0xe2: +/15/255 C [???]-->
+		<!--		0xe4: +/0/2   [???]-->
+		<!--		0xe5: +/0/255 C [???]-->
+		<!--		0xe7: +/62/63 C [???]-->
+		<!--		0xea: +/64513/65535 C [???]-->
+		<!--		0xeb: +/1/1   [???]-->
+		<!--		0xef: +/0/255 C [???]-->
+		<!--		0xf1: +/16651/65535 C [???]-->
+		<!--		0xf2: +/0/255 C [???]-->
+		<!--		0xfd: +/116/255 C [???]-->
+	</controls>
+
+	<include file="VESA"/>
+</monitor>

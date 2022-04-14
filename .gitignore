@@ -43,3 +43,6 @@ Makefile.in
 /db/options.xml
 /db/options.xml.h
 
+#idea
+/.idea
+

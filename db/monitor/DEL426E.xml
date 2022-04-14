@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<monitor name="Dell U3223QE (HDMI PIP)" init="standard">
+	<include file="U3223QE"/>
+</monitor>
