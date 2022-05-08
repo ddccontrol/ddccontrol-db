@@ -32,6 +32,12 @@
 
 		<control id="audiospeakervolume" address="0x62"/>
 
+
+		<control id="displayscaling" type="list" address="0x86">
+			<value value="0x02"/>
+			<value value="0xb"/>
+		</control>
+
 		<control id="sharpness" type="list" address="0x87">
 			<value value="0x00"/>
 			<value value="0x0A"/>
@@ -47,5 +53,108 @@
 		</control>
 
 		<control id="saturation" address="0x8A"/>
+
+		<control id="sourcecolorcoding" type="list" address="0xB5">
+			<value value="0x00"/>
+			<value value="0x01"/>
+		</control>
+
+		<control id="osdlanguage" type="list" address="0xCC">
+			<value id="Chinese?" value="0x01"/>
+			<value id="English" value="0x02"/>
+			<value id="French" value="0x03"/>
+			<value id="German" value="0x04"/>
+			<value id="Italian" value="0x05"/>
+			<value id="Japanese" value="0x06"/>
+			<value id="Korean" value="0x07"/>
+			<value id="Portuguese" value="0x08"/>
+			<value id="Rusian" value="0x09"/>
+			<value id="Spanish" value="0x0A"/>
+			<value id="Turkish" value="0x0B"/>
+			<value id="Chinese?" value="0x0D"/>
+			<value id="Croatian" value="0x11"/>
+			<value id="Czech" value="0x12"/>
+			<value id="Dutch" value="0x14"/>
+			<value id="Hungarian" value="0x1A"/>
+			<value id="Polish" value="0x1E"/>
+			<value id="Romanian" value="0x1F"/>
+			<value id="Thai" value="0x23"/>
+			<value id="Persian" value="0x30"/>
+			<value id="Indonesian" value="0x31"/>
+		</control>
+
+		<control id="powermode" address="0xD6">
+			<value value="0x01"/>
+			<value value="0x05"/>
+		</control>
+
+		<control id="skintone" address="0xE0">
+			<value id="Reddish" value="0x01"/>
+			<value id="Natural" value="0x02"/>
+			<value id="Yellowish" value="0x03"/>
+		</control>
+
+		<control id="smartview" address="0xE1">
+			<value id="off" value="0x00"/>
+			<value id="on" value="0x01"/>
+		</control>
+
+		<control id="tracefree" address="0xE2">
+			<value id="0" value="0x00"/>
+			<value id="20" value="0x14"/>
+			<value id="40" value="0x28"/>
+			<value id="60" value="0x3C"/>
+			<value id="80" value="0x50"/>
+			<value id="100" value="0x64"/>
+		</control>
+
+		<control id="vividpixel" address="0xE3">
+			<value id="0" value="0x00"/>
+			<value id="25" value="0x19"/>
+			<value id="50" value="0x32"/>
+			<value id="75" value="0x4B"/>
+			<value id="100" value="0x64"/>
+		</control>
+
+		<control id="ascr" address="0xE4">
+			<value id="off" value="0x00"/>
+			<value id="on" value="0x01"/>
+		</control>
+
+		<control id="bluelightfilter" address="0xE6">
+			<value id="Level 0" value="0x00"/>
+			<value id="Level 1" value="0x01"/>
+			<value id="Level 2" value="0x02"/>
+			<value id="Level 3" value="0x03"/>
+			<value id="Level 4" value="0x04"/>
+		</control>
+
+		<control id="ecomode" address="0xE7">
+			<value id="off" value="0x00"/>
+			<value id="on" value="0x01"/>
+		</control>
+
+		<!-- Freesync? readonly ?
+		<control id="MS8" address="0xE8">
+			<value id="off" value="0x00"/>
+			<value id="on" value="0x01"/>
+		</control>
+		 -->
+
+		<control id="keylock" address="0xE9">
+			<value id="off" value="0x00"/>
+			<value id="on" value="0x01"/>
+		</control>
+
+		<control id="powerindicator" address="0xEA">
+			<value id="off" value="0x00"/>
+			<value id="on" value="0x01"/>
+		</control>
+
+		<control id="powerkeylock" address="0xEB">
+			<value id="off" value="0x00"/>
+			<value id="on" value="0x01"/>
+		</control>
+
 	</controls>
 </monitor>
