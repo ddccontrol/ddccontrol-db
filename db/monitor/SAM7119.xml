@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!--- "Standard" controls -->
+<monitor name="Samsung Odyssey G5" init="standard">
+	<controls>
+		<control id="newcontrolvalue" address="0x02">
+			<value id="nochanges" value="1"/>
+			<value id="changed" value="2"/>
+		</control>
+		
+		<control id="defaults" address="0x04" delay="2000"/>
+		<control id="defaultluma" address="0x05" delay="2000"/>
+		<control id="defaultgeom" address="0x06" delay="2000"/>
+		<control id="defaultcolor" address="0x08" delay="2000"/>
+		
+		<control id="brightness" address="0x10"/>
+		<control id="contrast" address="0x12"/>
+		<control id="red" address="0x16"/>
+		<control id="green" address="0x18"/>
+		<control id="blue" address="0x1A"/>
+		<control id="focus" address="0x1C"/>
+		<control id="auto" address="0x1e" delay="1000">
+			<value id="pos" value="1"/>
+		</control>
+		
+		<control id="inputsource" type="list" address="0x60">
+			<value id="dp"  value="9"/>
+			<value id="hdmi" value="6"/>
+		</control>
+
+		<control id="language" type="list" address="0xcc">
+			<value id="english" value="0x02"/>
+			<value id="french" value="0x03"/>
+			<value id="german" value="0x04"/>
+			<value id="italian" value="0x05"/>
+			<value id="portuguese" value="0x08"/>
+			<value id="russian" value="0x09"/>
+			<value id="swedish" value="0x0b"/>
+			<value id="turkish" value="0x0c"/>
+			<value id="hungarian" value="0x1a"/>
+			<value id="polish" value="0x1e"/>
+			<value id="spanish" value="0x0a"/>
+			<value id="chinese" value="0x01"/>
+			<value id="japanese" value="0x06"/>
+			<value id="korean" value="0x07"/>
+		</control>
+		
+		<control id="settings" address="0xb0" delay="1000"/>
+		
+		<control id="dpms" address="0xd6">
+			<value id="on" value="1"/>
+			<value id="standby" value="4"/>
+		</control>
+	</controls>
+</monitor>
