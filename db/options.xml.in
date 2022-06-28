@@ -186,6 +186,13 @@
 				<value id="fpsgame2" name="FPS Game 2" value="29"/>
 				<value id="photo" name="Photo" value="32"/>
 				<value id="cinema" name="Cinema" value="48"/>
+				<value id="vivid" name="Vivid"/>
+				<value id="hdreffect" name="HDR Effect"/>
+				<value id="dcip3" name="DCI-P3"/>
+				<value id="fps" name="FPS"/>
+				<value id="rts" name="RTS"/>
+				<value id="ebu" name="EBU"/>
+				<value id="rec709" name="REC709"/>
 			</control>
 		</subgroup>
 		<subgroup name="Gamma" >
@@ -357,6 +364,11 @@
 				<value id="coarsefine" name="Clock and clock phase"/>
 				<value id="posfast" name="H/V Position (fast mode)"/>
 			</control>
+			<control id="ratio" type="list" name="Aspect Ratio" address="0xF5">
+				<value id="1to1" name="1:1" value="0x00"/>
+				<value id="wide" name="Full Wide" value="0x01"/>
+				<value id="original" name="Original" value="0x02"/>
+			</control>
 		</subgroup>
 	</group>
 	<group name="Geometry">
@@ -395,13 +407,6 @@
 				<value id="landscape" name="Landscape (0 degrees)" value="0x01"/>
 				<value id="portrait" name="Portrait (90 degrees)" value="0x02"/>
 				<value id="cannotsupply" name="Display cannot suply orientation" value="0xFF"/>
-			</control>
-		</subgroup>
-	<subgroup name="Ratio">
-			<control id="ratio" type="list" name="Screen ratio" address="0xF5">
-				<value id="1to1" name="1:1" value="0"/>
-				<value id="wide" name="Wide" value="1"/>
-				<value id="original" name="Original" value="2"/>
 			</control>
 		</subgroup>
 	</group>
@@ -626,7 +631,7 @@
 				<value id="portraitleft" name="Portrait (Left)"/>
 				<value id="portraitright" name="Portrait (Right)"/>
 			</control>
-			<control id="language" type="list" name="Language select" address="0x68">
+			<control id="language" type="list" name="Language">
 				<value id="english"       name="English"/>
 				<value id="french"        name="Français (French)"/>
 				<value id="finnish"       name="Suomi (Finnish)"/>
@@ -647,17 +652,22 @@
 				<value id="portuguese"    name="Português (Portuguese)"/>
 				<value id="serbocroatian" name="SiGC/BiH/CRO (Serbo-Croatian)"/>
 				<value id="hindi"         name="हिन्दी (India)"/>
-				<value id="finnish" name="Suomalainen (Finnish)"/>
-				<value id="turkish" name="Türk (Turkish)"/>
-				<value id="brazilian"    name="Português do Brasil (Brazilian Portuguese)"/>
-				<value id="malay"        name="Bahasa Melayu (Malay)"/>
-				<value id="thai"         name="ภาษาไทย (Thai)"/>
-				<value id="arabic"       name="العربية (Arabic)"/>
+				<value id="finnish"       name="Suomalainen (Finnish)"/>
+				<value id="turkish"       name="Türk (Turkish)"/>
+				<value id="brazilian"     name="Português do Brasil (Brazilian Portuguese)"/>
+				<value id="malay"         name="Bahasa Melayu (Malay)"/>
+				<value id="thai"          name="ภาษาไทย (Thai)"/>
+				<value id="arabic"        name="العربية (Arabic)"/>
+				<value id="ukrainian"     name="українська (Ukrainian)"/>
 			</control>
 			<!-- If "changed", read 0x52 register value to get address of the control changed using OSD menu -->
 			<control id="newcontrolvalue" type="list" name="New Control Value" address="0x02">
 				<value id="nochanges" name="No changes" value="0x01"/>
 				<value id="changed" name="Some values changed" value="0x02"/>
+			</control>
+			<control id="osdlock" type="list" name="OSD Lock">
+				<value id="off" name="Off"/>
+				<value id="on" name="On"/>
 			</control>
 		</subgroup>
 		<subgroup name="Power control">
