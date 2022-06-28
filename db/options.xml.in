@@ -631,7 +631,7 @@
 				<value id="portraitleft" name="Portrait (Left)"/>
 				<value id="portraitright" name="Portrait (Right)"/>
 			</control>
-			<control id="language" type="list" name="Language">
+			<control id="language" type="list" name="Language" address="0x68">
 				<value id="english"       name="English"/>
 				<value id="french"        name="Français (French)"/>
 				<value id="finnish"       name="Suomi (Finnish)"/>
