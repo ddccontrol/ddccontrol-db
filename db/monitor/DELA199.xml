@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<monitor name="Dell S2721D (DP)" init="standard">
+	<caps add="(prot(monitor)type(LCD)model(S2721D)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 10 12 14(05 08 0B 0C) 16 18 1A 52 60(0F 11 12 ) 62 AC AE B2 B6 C6 C8 C9 CA CC(02 0A 03 04 08 09 0D 06 ) D6(01 04 05) DC(00 03 05 ) DF E0 E1 E2(00 1D 02 22 20 21 0E 12 14 ) F0(0C 0F 10 11 ) F1 F2 FD)mswhql(1)asset_eep(40)mccs_ver(2.1))" />
+	<controls>
+		<control id="preset" type="list" address="0x14">
+			<value id="standard" value="5" name="Standard"/>
+			<value id="warm" value="11" name="Warm"/>
+			<value id="cool" value="8" name="Cool"/>
+			<value id="custom" value="12" name="Custom"/>
+		</control>
+		<control id="preset_profile" type="list" address="0xf0">
+			<value id="off" value="0" name="Off"/>
+			<value id="comfort" value="12" name="ComfortView"/>
+			<value id="fps" value="15" name="FPS"/>
+			<value id="rts" value="16" name="RTS"/>
+			<value id="rpg" value="17" name="RPG"/>
+		</control>
+		<control id="preset_moviemode" type="list" address="0xdc">
+			<value id="off" value="0" name="Off"/>
+			<value id="movie" value="3" name="Movie"/>
+		</control>
+
+		<control id="language" type="list" address="0xcc">
+			<value id="english" value="2"/>
+			<value id="spanish" value="10"/>
+			<value id="french" value="3"/>
+			<value id="german" value="4"/>
+			<value id="portuguese" value="8"/>
+			<value id="russian" value="9"/>
+			<value id="chinese_tw" value="13"/>
+			<value id="japanese" value="6"/>
+		</control>
+
+		<control id="inputsource" type="list" address="0x60">
+			<value id="dp" value="0x110f" name="DisplayPort"/>
+			<value id="hdmi1" value="0x1111" name="HDMI-1"/>
+			<value id="hdmi2" value="0x1112" name="HDMI-2"/>
+		</control>
+
+		<control id="osd" type="list" address="0xca">
+			<value id="disable" value="1" name="Disable"/>
+			<value id="enable" value="2" name="Enable"/>
+		</control>
+
+		<control id="dpms" address="0xd6">
+			<value id="on" value="1"/>
+			<value id="standby" value="4"/>
+			<value id="off" value="5"/>
+		</control>
+
+		<control id="energysaving2" address="0xe0">
+			<!-- This seems to be a "hidden" feature that doesn't appear in the monitor's own OSD 
+			     it locks the brightness to lowest setting and prevent changing brightness through 
+			     standard MCCS brightness control -->
+			<value id="on" value="1"/>
+			<value id="off" value="0"/>
+		</control>
+	</controls>
+	<include file="VESA"/>
+</monitor>
