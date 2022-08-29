@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<monitor name="Dell U2723QE (HDMI HDR)" init="standard">
+	<include file="U2723QE"/>
+</monitor>
