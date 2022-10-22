@@ -1,0 +1,388 @@
+<?xml version="1.0"?>
+
+<!--
+The profiles are divided into 3 registers on this monitor [0xdc, 0xf0, 0x14]
+Since actually only one of them can be activated at a time, there are several problems.
+This software is currently all displayed as a separate list, only one of them is up-to-date and the other 2 lists are not set correctly.
+The software can also not directly read some other values ​​for certain profiles. (Error when querying the value: preset).
+After reloading all values, it works again.
+So the setting works (sometimes with errors but the change works), only the output is bugged.
+All other functions worked without a problem.
+Other functions such as hdr, ... cannot be configured via ddc. perhaps via the usb chip 0424:274b Microchip Technology, Inc. (formerly SMSC) Hub Controller.
+-->
+
+<monitor name="DELL S2721DGFA" init="standard">
+	<controls>
+		<!-- Control 0x00: +/.../65535   [???] -->
+		<!-- Control 0x01: +/.../65535   [???] -->
+
+		<!-- Control 0x02: +/.../255 C [New Control Value] -->
+		<control id="newcontrolvalue" address="0x02"/>
+
+		<!-- Control 0x03: +/.../255   [???] -->
+
+		<!-- Control 0x04: +/.../1 C [Restore Factory Defaults] -->
+		<control id="defaults" address="0x04" delay="2000"/>
+
+		<!-- Control 0x05: +/.../1 C [Restore Brightness and Contrast] -->
+		<control id="defaultluma" address="0x05" delay="2000"/>
+
+		<!-- Control 0x06: +/.../1   [???] -->
+		<!-- Control 0x07: +/.../1   [???] -->
+
+		<!-- Control 0x08: +/.../1 C [Restore Factory Default Color] -->
+		<control id="defaultcolor" address="0x08" delay="2000"/>
+
+		<!-- Control 0x09: +/.../1   [???] -->
+		<!-- Control 0x0a: +/.../1   [???] -->
+		<!-- Control 0x0b: +/.../1   [???] -->
+		<!-- Control 0x0c: +/.../1   [???] -->
+		<!-- Control 0x0d: +/.../1   [???] -->
+		<!-- Control 0x0e: +/.../100   [???] -->
+		<!-- Control 0x0f: +/.../100   [???] -->
+
+		<!-- Control 0x10: +/.../100 C [Brightness] -->
+		<control id="brightness" address="0x10"/>
+
+		<!-- Control 0x11: +/.../100   [???] -->
+
+		<!-- Control 0x12: +/.../100 C [Contrast] -->
+		<control id="contrast" address="0x12" />
+
+		<!-- Control 0x13: +/.../100   [???] -->
+
+		<!-- Control 0x14: +/.../100 C [Color preset] -->
+		<control id="preset" type="list" address="0x14" refresh="all">
+			<value id="standard" value="0x01"/> <!-- ddc:srgb -->
+			<value id="cool" value="0x08"/> <!-- Cold ddc:9300k -->
+			<value id="warm" value="0x0b"/> <!-- Warm ddc:User 1 -->
+			<value id="custom" value="0x0c"/> <!-- Custom Color ddc:User 2 -->
+		</control>
+
+		<!-- Control 0x15: +/.../100   [???] -->
+
+		<!-- Control 0x16: +/.../100 C [Red maximum level] -->
+		<control id="red" address="0x16"/>
+
+		<!-- Control 0x17: +/.../100   [???] -->
+
+		<!-- Control 0x18: +/.../100 C [Green maximum level] -->
+		<control id="green" address="0x18"/>
+
+		<!-- Control 0x19: +/.../100   [???] -->
+
+		<!-- Control 0x1a: +/.../100 C [Blue maximum level] -->
+		<control id="blue" address="0x1A"/>
+
+		<!-- Control 0x1b: +/.../100   [???] -->
+		<!-- Control 0x1c: +/.../100   [???] -->
+		<!-- Control 0x1d: +/.../100   [???] -->
+		<!-- Control 0x1e: +/.../1   [???] -->
+		<!-- Control 0x1f: +/.../1   [???] -->
+		<!-- Control 0x20: +/.../100   [???] -->
+		<!-- Control 0x21: +/.../100   [???] -->
+		<!-- Control 0x22: +/.../100   [???] -->
+		<!-- Control 0x23: +/.../100   [???] -->
+		<!-- Control 0x24: +/.../100   [???] -->
+		<!-- Control 0x25: +/.../100   [???] -->
+		<!-- Control 0x26: +/.../100   [???] -->
+		<!-- Control 0x27: +/.../100   [???] -->
+		<!-- Control 0x28: +/.../100   [???] -->
+		<!-- Control 0x29: +/.../100   [???] -->
+		<!-- Control 0x2a: +/.../100   [???] -->
+		<!-- Control 0x2b: +/.../100   [???] -->
+		<!-- Control 0x2c: +/.../100   [???] -->
+		<!-- Control 0x2d: +/.../100   [???] -->
+		<!-- Control 0x2e: +/.../100   [???] -->
+		<!-- Control 0x2f: +/.../100   [???] -->
+		<!-- Control 0x30: +/.../100   [???] -->
+		<!-- Control 0x31: +/.../100   [???] -->
+		<!-- Control 0x32: +/.../100   [???] -->
+		<!-- Control 0x33: +/.../100   [???] -->
+		<!-- Control 0x34: +/.../100   [???] -->
+		<!-- Control 0x35: +/.../100   [???] -->
+		<!-- Control 0x36: +/.../100   [???] -->
+		<!-- Control 0x37: +/.../100   [???] -->
+		<!-- Control 0x38: +/.../100   [???] -->
+		<!-- Control 0x39: +/.../100   [???] -->
+		<!-- Control 0x3a: +/.../100   [???] -->
+		<!-- Control 0x3b: +/.../100   [???] -->
+		<!-- Control 0x3c: +/.../100   [???] -->
+		<!-- Control 0x3d: +/.../100   [???] -->
+		<!-- Control 0x3e: +/.../100   [???] -->
+		<!-- Control 0x3f: +/.../100   [???] -->
+		<!-- Control 0x40: +/.../100   [???] -->
+		<!-- Control 0x41: +/.../100   [???] -->
+		<!-- Control 0x42: +/.../100   [???] -->
+		<!-- Control 0x43: +/.../100   [???] -->
+		<!-- Control 0x44: +/.../100   [???] -->
+		<!-- Control 0x45: +/.../100   [???] -->
+		<!-- Control 0x46: +/.../100   [???] -->
+		<!-- Control 0x47: +/.../100   [???] -->
+		<!-- Control 0x48: +/.../100   [???] -->
+		<!-- Control 0x49: +/.../100   [???] -->
+		<!-- Control 0x4a: +/.../100   [???] -->
+		<!-- Control 0x4b: +/.../100   [???] -->
+		<!-- Control 0x4c: +/.../100   [???] -->
+		<!-- Control 0x4d: +/.../100   [???] -->
+		<!-- Control 0x4e: +/.../100   [???] -->
+		<!-- Control 0x4f: +/.../100   [???] -->
+		<!-- Control 0x50: +/.../100   [???] -->
+		<!-- Control 0x51: +/.../100   [???] -->
+		<!-- Control 0x52: +/.../255 C [Active control] -->
+		<!-- Control 0x53: +/.../255   [???] -->
+		<!-- Control 0x54: +/.../255   [???] -->
+		<!-- Control 0x55: +/.../255   [???] -->
+		<!-- Control 0x56: +/.../255   [???] -->
+		<!-- Control 0x57: +/.../255   [???] -->
+		<!-- Control 0x58: +/.../255   [???] -->
+		<!-- Control 0x59: +/.../255   [???] -->
+		<!-- Control 0x5a: +/.../255   [???] -->
+		<!-- Control 0x5b: +/.../255   [???] -->
+		<!-- Control 0x5c: +/.../255   [???] -->
+		<!-- Control 0x5d: +/.../255   [???] -->
+		<!-- Control 0x5e: +/.../255   [???] -->
+		<!-- Control 0x5f: +/.../255   [???] -->
+
+		<!-- Control 0x60: +/.../4626 C [Input Source Select] -->
+		<control id="inputsource" type="list" address="0x60">
+			<value id="hdmi1" value="0x11"/>
+			<value id="hdmi2" value="0x12"/>
+			<value id="dp" value="0x0f" />
+		</control>
+
+		<!-- Control 0x61: +/.../4626   [???] -->
+
+		<!-- Control 0x62: +/.../100 C [Audio Speaker Volume Adjust] -->
+		<control id="audiospeakervolume" address="0x62"/>
+
+		<!-- Control 0x63: +/.../100   [???] -->
+		<!-- Control 0x64: +/.../100   [???] -->
+		<!-- Control 0x65: +/.../100   [???] -->
+		<!-- Control 0x66: +/.../100   [???] -->
+		<!-- Control 0x67: +/.../100   [???] -->
+		<!-- Control 0x68: +/.../100   [???] -->
+		<!-- Control 0x69: +/.../100   [???] -->
+		<!-- Control 0x6a: +/.../100   [???] -->
+		<!-- Control 0x6b: +/.../100   [???] -->
+		<!-- Control 0x6c: +/.../100   [???] -->
+		<!-- Control 0x6d: +/.../100   [???] -->
+		<!-- Control 0x6e: +/.../100   [???] -->
+		<!-- Control 0x6f: +/.../100   [???] -->
+		<!-- Control 0x70: +/.../100   [???] -->
+		<!-- Control 0x71: +/.../100   [???] -->
+		<!-- Control 0x72: +/.../100   [???] -->
+		<!-- Control 0x73: +/.../100   [???] -->
+		<!-- Control 0x74: +/.../100   [???] -->
+		<!-- Control 0x75: +/.../100   [???] -->
+		<!-- Control 0x76: +/.../100   [???] -->
+		<!-- Control 0x77: +/.../100   [???] -->
+		<!-- Control 0x78: +/.../100   [???] -->
+		<!-- Control 0x79: +/.../100   [???] -->
+		<!-- Control 0x7a: +/.../100   [???] -->
+		<!-- Control 0x7b: +/.../100   [???] -->
+		<!-- Control 0x7c: +/.../100   [???] -->
+		<!-- Control 0x7d: +/.../100   [???] -->
+		<!-- Control 0x7e: +/.../100   [???] -->
+		<!-- Control 0x7f: +/.../100   [???] -->
+		<!-- Control 0x80: +/.../100   [???] -->
+		<!-- Control 0x81: +/.../100   [???] -->
+		<!-- Control 0x82: +/.../100   [???] -->
+		<!-- Control 0x83: +/.../100   [???] -->
+		<!-- Control 0x84: +/.../100   [???] -->
+		<!-- Control 0x85: +/.../100   [???] -->
+		<!-- Control 0x86: +/.../100   [???] -->
+		<!-- Control 0x87: +/.../100   [???] -->
+		<!-- Control 0x88: +/.../100   [???] -->
+		<!-- Control 0x89: +/.../100   [???] -->
+		<!-- Control 0x8a: +/.../100   [???] -->
+		<!-- Control 0x8b: +/.../100   [???] -->
+		<!-- Control 0x8c: +/.../100   [???] -->
+		<!-- Control 0x8d: +/.../100   [???] -->
+		<!-- Control 0x8e: +/.../100   [???] -->
+		<!-- Control 0x8f: +/.../100   [???] -->
+		<!-- Control 0x90: +/.../100   [???] -->
+		<!-- Control 0x91: +/.../100   [???] -->
+		<!-- Control 0x92: +/.../100   [???] -->
+		<!-- Control 0x93: +/.../100   [???] -->
+		<!-- Control 0x94: +/.../100   [???] -->
+		<!-- Control 0x95: +/.../100   [???] -->
+		<!-- Control 0x96: +/.../100   [???] -->
+		<!-- Control 0x97: +/.../100   [???] -->
+		<!-- Control 0x98: +/.../100   [???] -->
+		<!-- Control 0x99: +/.../100   [???] -->
+		<!-- Control 0x9a: +/.../100   [???] -->
+		<!-- Control 0x9b: +/.../100   [???] -->
+		<!-- Control 0x9c: +/.../100   [???] -->
+		<!-- Control 0x9d: +/.../100   [???] -->
+		<!-- Control 0x9e: +/.../100   [???] -->
+		<!-- Control 0x9f: +/.../100   [???] -->
+		<!-- Control 0xa0: +/.../100   [???] -->
+		<!-- Control 0xa1: +/.../100   [???] -->
+		<!-- Control 0xa2: +/.../100   [???] -->
+		<!-- Control 0xa3: +/.../100   [???] -->
+		<!-- Control 0xa4: +/.../100   [???] -->
+		<!-- Control 0xa5: +/.../100   [???] -->
+		<!-- Control 0xa6: +/.../100   [???] -->
+		<!-- Control 0xa7: +/.../100   [???] -->
+		<!-- Control 0xa8: +/.../100   [???] -->
+		<!-- Control 0xa9: +/.../100   [???] -->
+		<!-- Control 0xaa: +/.../4   [???] -->
+		<!-- Control 0xab: +/.../4   [???] -->
+		<!-- Control 0xac: +/.../3 C [???] -->
+		<!-- Control 0xad: +/.../3   [???] -->
+		<!-- Control 0xae: +/.../65535 C [???] -->
+		<!-- Control 0xaf: +/.../65535   [???] -->
+		<!-- Control 0xb0: +/.../65535   [???] -->
+		<!-- Control 0xb1: +/.../65535   [???] -->
+		<!-- Control 0xb2: +/.../1 C [???] -->
+		<!-- Control 0xb3: +/.../1   [???] -->
+		<!-- Control 0xb4: +/.../1   [???] -->
+		<!-- Control 0xb5: +/.../1   [???] -->
+		<!-- Control 0xb6: +/.../5 C [Monitor Type] -->
+		<!-- Control 0xb7: +/.../5   [???] -->
+		<!-- Control 0xb8: +/.../5   [???] -->
+		<!-- Control 0xb9: +/.../5   [???] -->
+		<!-- Control 0xba: +/.../5   [???] -->
+		<!-- Control 0xbb: +/.../5   [???] -->
+		<!-- Control 0xbc: +/.../5   [???] -->
+		<!-- Control 0xbd: +/.../5   [???] -->
+		<!-- Control 0xbe: +/.../5   [???] -->
+		<!-- Control 0xbf: +/.../5   [???] -->
+		<!-- Control 0xc0: +/.../65535   [???] -->
+		<!-- Control 0xc1: +/.../65535   [???] -->
+		<!-- Control 0xc2: +/.../65535   [???] -->
+		<!-- Control 0xc3: +/.../65535   [???] -->
+		<!-- Control 0xc4: +/.../65535   [???] -->
+		<!-- Control 0xc5: +/.../65535   [???] -->
+		<!-- Control 0xc6: +/.../65535 C [???] -->
+		<!-- Control 0xc7: +/.../65535   [???] -->
+		<!-- Control 0xc8: +/.../39 C [Display controller type] -->
+		<!-- Control 0xc9: +/.../65535 C [???] -->
+
+		<!-- Control 0xca: +/.../2 C [Button Access] -->
+		<control id="buttonaccess" address="0xCA">
+			<value id="locked" value="0x1"/>
+			<value id="unlocked" value="0x2"/>
+		</control>
+
+		<!-- Control 0xcb: +/.../2   [???] -->
+
+		<!-- Control 0xcc: +/.../13 C [Language] -->
+		<control id="language" type="list" address="0xcc">
+			<value id="english" value="0x02"/>
+			<value id="spanish" value="0x0a"/>
+			<value id="french" value="0x03"/>
+			<value id="german" value="0x04"/>
+			<value id="brazilian" value="0x08"/>
+			<value id="russian" value="0x09"/>
+			<value id="chinese" value="0x0d"/>
+			<value id="japanese" value="0x06"/>
+		</control>
+
+		<!-- Control 0xcd: +/.../13   [???] -->
+		<!-- Control 0xce: +/.../13   [???] -->
+		<!-- Control 0xcf: +/.../13   [???] -->
+		<!-- Control 0xd0: +/.../13   [???] -->
+		<!-- Control 0xd1: +/.../13   [???] -->
+		<!-- Control 0xd2: +/.../13   [???] -->
+		<!-- Control 0xd3: +/.../13   [???] -->
+		<!-- Control 0xd4: +/.../13   [???] -->
+		<!-- Control 0xd5: +/.../13   [???] -->
+
+		<!-- Control 0xd6: +/.../5 C [DPMS] -->
+		<control id="dpms" address="0xd6">
+			<value id="on" value="1"/>
+			<value id="standby" value="4"/>
+			<value id="off" value="5"/>
+		</control>
+
+
+		<!-- Control 0xd7: +/.../5   [???] -->
+		<!-- Control 0xd8: +/.../5   [???] -->
+		<!-- Control 0xd9: +/.../5   [???] -->
+		<!-- Control 0xda: +/.../5   [???] -->
+		<!-- Control 0xdb: +/.../5   [???] -->
+
+		<!-- Control 0xdc: +/.../5 C [???] -->
+		<control id="preset_gamemode" address="0xdc" refresh="all" delay="2000">
+			<value id="standard" value="0x00"/> <!-- Standard ddc:Standard/Default mode -->
+			<!-- 0x00 Standard -->
+			<!-- 0x00 FPS -->
+			<!-- 0x00 MOBA/RTS -->
+			<!-- 0x00 RPG -->
+			<!-- 0x00 SPORT -->
+			<value id="game1" value="0x05"/> <!-- Game1 ddc:Games -->
+			<!-- 0x00 Game2 -->
+			<!-- 0x00 Game3 -->
+			<!-- 0x00 ComfortView -->
+			<!-- 0x00 Warm -->
+			<!-- 0x00 Cool -->
+			<!-- 0x00 Custom Color -->
+
+		</control>
+
+		<!-- Control 0xdd: +/.../5   [???] -->
+		<!-- Control 0xde: +/.../5   [???] -->
+		<!-- Control 0xdf: +/.../65535 C [DCP Version] -->
+
+		<!-- Control 0xe0: +/.../1 C [Energy saving] -->
+		<control id="energysaving2" address="0xe0">
+			<value id="on" value="1"/>
+			<value id="off" value="0"/>
+		</control>
+
+		<!-- Control 0xe1: +/.../1 C [Power control] -->
+		<control id="power" type="list" address="0xe1">
+			<value id="on" value="0"/>
+			<value id="off" value="1"/>
+		</control>
+
+		<!-- Control 0xe2: +/.../255 C [???] -->
+		<!-- Control 0xe3: +/.../255 C [???] -->
+		<!-- Control 0xe4: +/.../2   [???] -->
+		<!-- Control 0xe5: +/.../255   [???] -->
+		<!-- Control 0xe6: +/.../0   [Freesync] -->
+		<!-- Control 0xe7: +/.../63   [???] -->
+		<!-- Control 0xe8: +/.../65535   [???] -->
+		<!-- Control 0xe9: +/.../255   [???] -->
+		<!-- Control 0xea: +/.../65535 C [???] -->
+		<!-- Control 0xeb: +/.../1   [???] -->
+		<!-- Control 0xec: +/.../1   [???] -->
+		<!-- Control 0xed: +/.../1   [???] -->
+		<!-- Control 0xee: +/.../1   [???] -->
+		<!-- Control 0xef: +/.../1   [???] -->
+
+		<!-- Control 0xf0: +/.../255 C [Profile] -->
+		<control id="preset_profile" type="list" address="0xf0" refresh="all" delay="2000">
+			<!-- 0x00 Standard (!!! do not write 0x00 because the monitor crashes; only read !!!)-->
+			<value id="fps" value="0x0f"/> <!-- FPS -->
+			<value id="rts" value="0x10"/> <!-- MOBA/RTS -->
+			<value id="rpg" value="0x11"/> <!-- RPG -->
+			<value id="sport" value="0x13"/> <!-- SPORT -->
+			<!-- 0x00 GAME 1 -->
+			<value id="game2" value="0x0d"/> <!-- Game2 -->
+			<value id="game3" value="0x0e"/> <!-- Game3 -->
+			<value id="comfort" value="0x0c"/> <!-- ComfortView -->
+			<!-- 0x00 Warm -->
+			<!-- 0x00 Cool -->
+			<!-- 0x00 Custom Color -->
+		</control>
+
+		<!-- Control 0xf1: +/.../65535 C [???] -->
+		<!-- Control 0xf2: +/.../255 C [???] -->
+		<!-- Control 0xf3: +/.../255   [???] -->
+		<!-- Control 0xf4: +/.../255   [???] -->
+		<!-- Control 0xf5: +/.../255   [???] -->
+		<!-- Control 0xf6: +/.../255   [???] -->
+		<!-- Control 0xf7: +/.../255   [???] -->
+		<!-- Control 0xf8: +/.../255   [???] -->
+		<!-- Control 0xf9: +/.../255   [???] -->
+		<!-- Control 0xfa: +/.../255   [???] -->
+		<!-- Control 0xfb: +/.../255   [???] -->
+		<!-- Control 0xfc: +/.../255   [???] -->
+		<!-- Control 0xfd: +/.../255 C [???] -->
+		<!-- Control 0xfe: +/.../255   [???] -->
+		<!-- Control 0xff: +/.../255   [???] -->
+	</controls>
+</monitor>
