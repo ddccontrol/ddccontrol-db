@@ -21,6 +21,15 @@
 				<value id="cinema" name="Cinema"/>
 				<value id="srgb" name="sRGB"/>
 				<value id="moba" name="MOBA"/>
+				<!-- Dell S2721DGFA -->
+				<value id="sport" name="Sport"/>
+				<value id="game2" name="Game 2"/>
+				<value id="game3" name="Game 3"/>
+			</control>
+			<!-- Dell S2721DGFA -->
+			<control id="preset_gamemode" type="list" name="Game Mode" refresh="all">
+				<value id="standard" name="Standard"/>
+				<value id="game1" name="Game 1"/>
 			</control>
 			<control id="preset_moviemode" type="list" name="Movie Mode" refresh="all">
 				<value id="off" name="Off"/>
