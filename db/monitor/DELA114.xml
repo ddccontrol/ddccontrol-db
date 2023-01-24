@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<monitor name="Dell P2219H" init="standard">
+  <caps add="(prot(monitor)type(LCD)model(P2219H)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 10 12 14(05 08 0B 0C) 16 18 1A 52 60(01 0F 11 ) AA(01 02 04 ) AC AE B2 B6 C6 C8 C9 CC(02 0A 03 04 08 09 0D 06 ) D6(01 04 05) DC(00 03 05 ) DF E0 E1 E2(00 1D 02 04 0E 12 14 ) F0(0C ) F1 F2 FD)mswhql(1)asset_eep(40)mccs_ver(2.1))/">
+    <controls>
+      <control id="Secondary Degauss - Secondary Degauss" address="0x02" /></control>
+      <control id="Restore Factory Defaults" address="0x04" /></control>
+      <control id="Restore Brightness and Contrast" address="0x05" /></control>
+      <control id="Restore Factory Default Color" address="0x08" /></control>
+      <control id="Brightness" address="0x10" /></control>
+      <control id="Contrast" address="0x12" /></control>
+      <control id="Red maximum level" address="0x16" /></control>
+      <control id="Green maximum level" address="0x18" /></control>
+      <control id="Blue maximum level" address="0x1a" /></control>
+      <control id="Input Source Select" address="0x60" /></control>
+      <control id="OSD Orientation - Landscape" address="0xaa" /></control>
+      <control id="DPMS Control - On" address="0xd6" /></control>
+      <control id="Power control - Off" address="0xe1" /></control>
+    </controls>
+    <include file="VESA" /></include>
+  </caps>
+</monitor>
