@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<monitor name="Dell U2412M (DVI)" init="standard">
+	<caps add="(prot(monitor)type(LCD)model(U2412M)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 06 08 10 12 14(04 05 06 08 09 0B 0C) 16 18 1A 52 60(01 03 0F) AA(01 02) AC AE B2 B6 C6 C8 C9 D6(01 04 05) DC(00 02 03 05) DF E0 E1 F0 FD)mswhql(1)asset_eep(40)mccs_ver(2.1))"/>
+	<controls>
+		<control id="inputsource" type="list" address="0x60">
+			<value id="vga" value="1"/>
+			<value id="dvi" value="3"/>
+			<value id="dp" value="15"/>
+		</control>
+
+		<!-- power is inverted from VESA -->
+		<control id="power" type="list" address="0xe1">
+			<value id="on" value="0"/>
+			<value id="off" value="1"/>
+		</control>
+		<!-- Control 0x02: +/1/2 C [Secondary Degauss - Secondary Degauss] -->
+		<!-- Control 0x0b: +/100/0   [???] -->
+		<!-- Control 0x0e: +/117/100   [???] -->
+		<!-- Control 0x1e: +/0/1   [???] -->
+		<!-- Control 0x1f: +/1/1   [???] -->
+		<!-- Control 0x20: +/78/100   [???] -->
+		<!-- Control 0x30: +/41/100   [???] -->
+		<!-- Control 0x3e: +/138/100   [???] -->
+		<!-- Control 0x52: +/0/255 C [???] -->
+		<!-- Control 0xac: +/8664/1 C [???] -->
+		<!-- Control 0xae: +/6000/65535 C [???] -->
+		<!-- Control 0xb2: +/1/1 C [???] -->
+		<!-- Control 0xb6: +/3/5 C [???] -->
+		<!-- Control 0xc0: +/2706/65535   [???] -->
+		<!-- Control 0xc6: +/17868/65535 C [???] -->
+		<!-- Control 0xc8: +/34313/36 C [???] -->
+		<!-- Control 0xc9: +/0/65535 C [???] -->
+		<!-- Control 0xca: +/1/2   [???] -->
+		<!-- Control 0xcc: +/2/11   [???] -->
+		<!-- Control 0xd6: +/1/5 C [DPMS Control - On] -->
+		<!-- Control 0xdc: +/0/5 C [???] -->
+		<!-- Control 0xdf: +/513/65535 C [???] -->
+		<!-- Control 0xe0: +/0/1 C [???] -->
+		<!-- Control 0xe1: +/0/1 C [Power control - Off] -->
+		<!-- Control 0xf0: +/0/255 C [???] -->
+		<!-- Control 0xfd: +/98/255 C [???] -->
+	</controls>
+	<include file="VESA"/>
+</monitor>
