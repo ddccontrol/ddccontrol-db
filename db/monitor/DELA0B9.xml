@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<monitor name="Dell U2415 (DisplayPort 2)" init="standard">
+	<controls>
+	</controls>
+	<include file="DELA0B8"/>
+</monitor>
