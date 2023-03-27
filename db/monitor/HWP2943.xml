@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<monitor name="HWP2943" init="standard">
+  <caps add="(prot(monitor)type(lcd)model(LA2006x)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 0B 0C 10 12 14(04 05 08 0B) 16 18 1A 52 60(01 03 0F) 6C 6E 70 AC AE B2 B6 C0 C6 C8 C9 CA CC(01 02 03 04 05 06 08 0A 0D 14) D6(01 04 05) DF EF(01 02 03 04 05) F0 FA(00 01 02) FB FC FD FE(00 01 02 04))mswhql(1)mccs_ver(2.2)asset_eep(32)mpu(01))">
+    <controls>
+      <control id="Secondary Degauss - Secondary Degauss" address="0x02" /></control>
+      <control id="Restore Factory Defaults" address="0x04" /></control>
+      <control id="Restore Brightness and Contrast" address="0x05" /></control>
+      <control id="Restore Factory Default Color" address="0x08" /></control>
+      <control id="Brightness" address="0x10" /></control>
+      <control id="Contrast" address="0x12" /></control>
+      <control id="Red maximum level" address="0x16" /></control>
+      <control id="Green maximum level" address="0x18" /></control>
+      <control id="Blue maximum level" address="0x1a" /></control>
+      <control id="Red maximum level" address="0x6c" /></control>
+      <control id="Green maximum level" address="0x6e" /></control>
+      <control id="Blue maximum level" address="0x70" /></control>
+      <control id="Input Source Select" address="0x60" /></control>
+      <control id="OSD Orientation - Landscape" address="0xaa" /></control>
+      <control id="DPMS Control - On" address="0xd6" /></control>
+      <control id="Power control - Off" address="0xe1" /></control>
+    </controls>
+    <include file="VESA" /></include>
+  </caps>
+</monitor>
