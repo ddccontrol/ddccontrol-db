@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<monitor name="LG 34WK95U-W Display Port" init="standard">
+	<include file="GSM770X"/>
+</monitor>
