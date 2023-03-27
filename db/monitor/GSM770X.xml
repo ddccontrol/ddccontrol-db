@@ -87,6 +87,7 @@
 		<!-- Control 0xf5: +/1/255 C [Aspect Ratio] READ ONLY -->
 		<!-- Easter Egg... set address 0x60 to value 3/4 gives "off menu" 21:9 aspect ratios -->
 		<control id="ratio" address="0xF5">
+			<value id="1to1" name="1:1" value="0x00" />
 			<value id="wide" name="Full Wide" value="0x01"/>
 			<value id="original" name="Original" value="0x02"/>
 		</control>
