@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<monitor name="BenQ GW2283" init="standard">
+    <!-- CAPS: prot(monitor)
+               type(LCD)
+               model(GW2283)
+               cmds(01 02 03 07 0C F3)
+               vcp(02 04 05 08 0B 0C 10 12 14(04 05 08 0B) 16 18 1A 52 60(01 11 12)62 8D(01 02)AC AE B2 B6 C0 C6 C8 C9 CA(01 02) CC(01 02 03 04 05 06 09 0A 0B 0D 0E 0F 12 14 1A 1E 1F 20)D6(01 05) DF)
+               mswhql(1)
+               mccs_ver(2.1)
+               asset_eep(32)
+               mpu_ver(1.02)
+    -->
+
+    <!-- Fix Color Presets - Add sRGB -->
+    <caps remove="(vcp(14(04 05 08 0B)))" />
+    <caps add="(vcp(14(01 04 05 08 0B)))" />
+
+    <!-- Fix OSD Language settings to match the supported ones, remove Serbian and add Korean -->
+    <caps remove="(vcp(CC(01 02 03 04 05 06 09 0A 0B 0D 0E 0F 12 14 1A 1E 1F 20)))" />
+    <!-- <caps add="(vcp(CC(01 02 03 04 05 06 07 09 0A 0B 0D 0E 0F 12 14 1A 1E 1F)))" /> -->
+
+    <!-- Enable Brightness Intelligence -->
+    <caps add="(vcp(E2 E3))" />
+
+    <controls>
+        <!-- Controls (valid/current/max) [Description - Value name]: -->
+        <!-- Control 0x0b: +/50/50 C [???] -->
+        <!-- Control 0x0c: +/0/65535 C [???] -->
+        <control id="colorpreset" type="list" address="0x14">
+            <value id="srgb"   value="0x01"/>
+            <value id="warm"   value="0x04"/>
+            <value id="normal" value="0x05"/>
+            <value id="cool"   value="0x08"/>
+            <value id="user"   value="0x0b"/>
+		</control>
+        <!-- Control 0x52: +/0/65535 C [???] -->
+        <control id="inputsource" type="list" address="0x60">
+            <value id="vga"    value="0x01"/>
+            <value id="hdmi1"  value="0x11"/>
+            <value id="hdmi2"  value="0x12"/>
+        </control>
+        <control id="mute" type="list" address="0x8d">
+            <value id="mute"   value="0x01"/>
+            <value id="normal" value="0x02"/>
+        </control>
+        <!-- Control 0xac: +/2464/1 C [???] -->
+        <!-- Control 0xae: +/6000/65535 C [???] -->
+        <!-- Control 0xb2: +/1/8 C [???] -->
+        <!-- Control 0xb6: +/3/5 C [???] -->
+        <!-- Control 0xc0: +/3214/65535 C [???] -->
+        <!-- Control 0xc6: +/90/255 C [???] -->
+        <!-- Control 0xc8: +/5/88 C [???] -->
+        <!-- Control 0xc9: +/778/65535 C [???] -->
+        <control id="osd" type="list" address="0xca">
+            <value id="disable" value="0x01"/>
+            <value id="enable" value="0x02"/>
+        </control>
+        <!-- Control 0xcb: +/2/6   [???] -->
+        <control id="language" type="list" address="0xcc">
+            <value id="english"       value="0x02"/>
+            <value id="french"        value="0x03"/>
+            <value id="german"        value="0x04"/>
+            <value id="italian"       value="0x05"/>
+            <value id="spanish"       value="0x0a"/>
+            <value id="polish"        value="0x1e"/>
+            <value id="czech"         value="0x12"/>
+            <value id="hungarian"     value="0x1a"/>
+            <value id="romanian"      value="0x1f"/>
+            <value id="dutch"         value="0x14"/>
+            <value id="russian"       value="0x09"/>
+            <value id="swedish"       value="0x0b"/>
+            <value id="portuguese"    value="0x0e"/>
+            <value id="japanese"      value="0x06"/>
+            <value id="chinese_tw"    value="0x01"/>
+            <value id="chinese"       value="0x0d"/>
+            <value id="arabic"        value="0x0f"/>
+            <value id="korean"        value="0x07"/>
+        </control>
+        <control id="dpms" address="0xd6">
+            <value id="on"  value="0x01"/>
+            <value id="off" value="0x05"/>
+        </control>
+        <!-- Control 0xdf: +/513/65535 C [???] -->
+        <control id="bnqbrightintelligence" type="list" address="0xe2">
+            <value id="off" value="0x00"/>
+            <value id="on" value="0x01"/>
+        </control>
+        <control id="bnqlightmeter" type="list" address="0xe3">
+            <value id="off" value="0x00"/>
+            <value id="on" value="0x01"/>
+        </control>
+        <!-- Control 0xfe: +/0/65535   [???] -->
+    </controls>
+    <include file="VESA" />
+</monitor>
