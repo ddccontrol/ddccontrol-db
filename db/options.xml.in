@@ -193,13 +193,16 @@
 				<value id="srgb" name="sRGB" value="15"/>
 				<value id="fpsgame1" name="FPS Game 1" value="28"/>
 				<value id="fpsgame2" name="FPS Game 2" value="29"/>
+				<value id="fps" name="FPS" value="30"/>
+				<value id="rts" name="RTS" value="31"/>
 				<value id="photo" name="Photo" value="32"/>
+				<value id="standard" name="Standard (HDR Only)" value="36"/>
+				<value id="hdreffect" name="HDR Effect" value="39"/>
+				<value id="gamer1" name="Gamer 1" value="45"/>
+				<value id="gamer2" name="Gamer 2" value="46"/>
 				<value id="cinema" name="Cinema" value="48"/>
-				<value id="vivid" name="Vivid"/>
-				<value id="hdreffect" name="HDR Effect"/>
+				<value id="vivid" name="Vivid" value="49"/>
 				<value id="dcip3" name="DCI-P3"/>
-				<value id="fps" name="FPS"/>
-				<value id="rts" name="RTS"/>
 				<value id="ebu" name="EBU"/>
 				<value id="rec709" name="REC709"/>
 			</control>
@@ -271,6 +274,7 @@
 				<!-- SAM00BA@0xe0 -->
 				<value id="normal" name="Normal"/>
 				<value id="custom" name="Custom"/>
+				<value id="manual" name="Manual"/>
 				<value id="warm" name="Warm"/>
 				<value id="cool" name="Cool"/>
 				<value id="warm1" name="Warm1"/>
@@ -316,6 +320,23 @@
 				<value id="bluelight" name="Blue Light"/>
 			</control>
 			<control id="colortemp" type="value" name="Color Temperature Request"/>
+
+			<!-- GSM5B7F -->
+			<control id="colortempreqmanual" type="command" name="Color Temperature Manual" refresh="all"/>
+			<control id="colortempmanual" type="list" name="Color Temperature Manual"  address="0x69">
+				<value id="5000" name="5000" value="5000"/>
+				<value id="5500" name="5500" value="5500"/>
+				<value id="6000" name="6000" value="6000"/>
+				<value id="6500" name="6500" value="6500"/>
+				<value id="7000" name="7000" value="7000"/>
+				<value id="7500" name="7500" value="7500"/>
+				<value id="8000" name="8000" value="8000"/>
+				<value id="8500" name="8500" value="8500"/>
+				<value id="9000" name="9000" value="9000"/>
+				<value id="9300" name="9300" value="9300"/> <!-- Note that 9300K is supported instead of 9500K. (cf manual) -->
+				<value id="10000" name="10000" value="10000"/>
+			</control>
+
 			<control id="magiccolor" type="list" name="MagicColor" address="0xF0">
 				<value id="off" name="Off"/>
 				<value id="demo" name="Demo"/>
@@ -740,10 +761,43 @@
 
 				<!-- address="0xF3" -->
 				<value id="standard" name="Standard"/>
+				<value id="normal" name="Normal"/>
+				<value id="fast" name="Fast"/>
 				<value id="faster" name="Faster"/>
 				<value id="fastest" name="Fastest"/>
 			</control>
-			<control id="blackstabilization" type="value" name="Black Stabilization" address="0xf9" />
+			<!-- GSM5B7F -->
+			<!--
+				NOTE: blackstabilization has values of 0 to 100, but it needs
+				to be set on a scale of 0 to 20 (ie 0=>0 10=>50 20=>100).
+				There probably should be a better way to do this, but for now
+				provide all the possible values here, and then in the monitor
+				definition file just provide a limited subset to use.
+			-->
+			<control id="blackstabilization" type="list" name="Black Stabilization" address="0xf9">
+				<value id="0"   name="0"   value="0"/>
+				<value id="5"   name="5"   value="1"/>
+				<value id="10"   name="10"   value="2"/>
+				<value id="15"   name="15"   value="3"/>
+				<value id="20"   name="20"   value="4"/>
+				<value id="25"   name="25"   value="5"/>
+				<value id="30"   name="30"   value="6"/>
+				<value id="35"   name="35"   value="7"/>
+				<value id="40"   name="40"   value="8"/>
+				<value id="45"   name="45"   value="9"/>
+				<value id="50"   name="50"   value="10"/>
+				<value id="55"   name="55"   value="11"/>
+				<value id="60"   name="60"   value="12"/>
+				<value id="65"   name="65"   value="13"/>
+				<value id="70"   name="70"   value="14"/>
+				<value id="75"   name="75"   value="15"/>
+				<value id="80"   name="80"   value="16"/>
+				<value id="85"   name="85"   value="17"/>
+				<value id="90"   name="90"   value="18"/>
+				<value id="95"   name="95"   value="19"/>
+				<value id="100"   name="100"   value="20"/>
+			</control>
 		</subgroup>
 	</group>
+
 </options>

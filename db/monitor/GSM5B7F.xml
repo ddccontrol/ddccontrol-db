@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+<!-- https://www.lg.com/us/monitors/lg-27GL850-B-gaming-monitor -->
+<!-- Note: This model is referred to as both LG-27GL850 and LG-27GL850-B -->
+<monitor name="LG UltraGear 27GL850" init="standard">
+	<caps add="(prot(monitor)type(lcd)GL850cmds(01 02 03 0C E3 F3)vcp(02 04 05 08 0b 0c 10 12 14(05 07 08 0B DC) 16 18 1A 52 59 5a 5b 5c 5d 5e 60( 11 12 0F 10) 69(5000 5500 6000 6500 7000 7500 8000 8500 9000 9300 10000) 6C 6E 70 9b 9c 9d 9e 9f a0 AC AE B6 C0 C6 C8 C9 D6(01 04) DF 62 8D 87 F4 F5(00 01 02) F6(00 01 02) 4D 4E 4F 15(01 06 09 10 11 13 14 28 29 32  44 48) F7(00 01 02 03) F8(00 01) F9 EF EB FD(00 01) FE(00 01 02) FF)mccs_ver(2.1)mswhql(1))"/>
+
+	<!-- Unknown features: F4 4D 4E 4F EF FE -->
+
+	<controls>
+		<control id="defaults" address="0x04" delay="2000"/>
+		<control id="defaultluma" address="0x05" delay="2000"/>
+		<control id="defaultcolor" address="0x08" delay="2000"/>
+
+		<control id="sharpness" address="0x87"/>
+
+		<control id="colorpreset" address="0x14">
+			<value id="custom" value="0x0b"/>
+			<value id="warm" value="0x05"/>
+			<value id="normal" value="0x07"/> <!-- Medium in OSD -->
+			<value id="cool" value="0x08"/>
+			<!-- can't set this directly, need to trigger 0x0c.
+			also ddccontrol doesn't seem to read this value properly -->
+			<value id="manual" value="0xdc"/>
+		</control>
+
+		<!-- These values will only work on custom preset -->
+		<control id="red" type="value" name="Red" address="0x16"/>
+		<control id="green" type="value" name="Green" address="0x18"/>
+		<control id="blue" type="value" name="Blue" address="0x1A"/>
+
+		<!-- Writing this register activates the manual color temperature -->
+		<!-- Might do something else depending on the value written because
+		sometimes it changes the colortemp. But either way, you still need
+		to write the colortemp with register 0x69 -->
+		<control id="colortempreqmanual" type="command" name="Color Temperature Manual" address="0x0c"/>
+		<!-- This value will only work on the manual color preset -->
+		<!-- BUG: ddccontrol doesn't support 16bit values. Can set these values with `ddcutil -f -b 8 setvcp 0x69 7500` -->
+		<control id="colortempmanual" address="0x69">
+			<value id="5000" value="5000"/>
+			<value id="5500" value="5500"/>
+			<value id="6000" value="6000"/>
+			<value id="6500" value="6500"/>
+			<value id="7000" value="7000"/>
+			<value id="7500" value="7500"/>
+			<value id="8000" value="8000"/>
+			<value id="8500" value="8500"/>
+			<value id="9000" value="9000"/>
+			<!-- Note that 9300K is supported instead of 9500K. (cf manual) -->
+			<value id="9300" value="9300"/>
+			<value id="10000" value="10000"/>
+		</control>
+
+		<control id="lgmode" address="0x15">
+			<value id="reader" value="1"/>
+			<value id="srgb" value="15"/>
+			<value id="fps" value="30"/>
+			<value id="rts" value="31"/>
+			<value id="standard" value="36"/> <!-- NOTE: Only works when display has a HDR signal. -->
+			<value id="hdreffect" value="39"/>
+			<value id="gamer1" value="45"/>
+			<value id="gamer2" value="46"/>
+			<value id="vivid" value="49"/>
+		</control>
+
+		<control id="dpms" address="0xd6">
+			<value id="on" value="1"/>
+			<value id="off" value="4"/>
+		</control>
+
+		<control id="inputsource" address="0x60">
+			<value id="dp1" value="0x0f"/>
+			<!-- NOTE: this monitor only has 1 display port even though the capabilities suggests 2-->
+			<!-- <value id="dp2" value="0x10"/> -->
+			<value id="hdmi1" value="0x11"/>
+			<value id="hdmi2" value="0x12"/>
+		</control>
+
+		<!-- Only some of these values seem to actually do anything? -->
+		<control id="redhue" address="0x9b"/>
+		<control id="greenhue" address="0x9d"/>
+		<control id="bluehue" address="0x9f"/>
+		<control id="yellowhue" address="0x9c"/>
+		<control id="magentahue" address="0xa0"/>
+		<control id="cyanhue" address="0x9e"/>
+
+		<control id="redsaturate" address="0x59"/>
+		<control id="yellowsaturate" address="0x5a"/>
+		<control id="greensaturate" address="0x5b"/>
+		<control id="cyansaturate" address="0x5c"/>
+		<control id="bluesaturate" address="0x5d"/>
+		<control id="magentasaturate" address="0x5e"/>
+
+		<control id="audiospeakermute" address="0x8d">
+			<value id="mute" value="1"/>
+			<value id="unmute" value="2"/>
+		</control>
+
+		<!-- READ ONLY -->
+		<!-- Feature: 52 (Active control) -->
+		<!-- Feature: AC (Horizontal frequency) -->
+		<!-- Feature: AE (Vertical frequency) -->
+		<!-- Feature: B6 (Display technology type) -->
+		<!-- Feature: C0 (Display usage time (hours)) -->
+		<!-- Feature: C6 (Application enable key) -->
+		<!-- Feature: C8 (Display controller type) -->
+		<!-- Feature: C9 (Display firmware level) -->
+
+		<control id="energysaving" address="0xf6">
+			<value id="off" value="0"/>
+			<value id="low" value="1"/>
+			<value id="high" value="2"/>
+		</control>
+
+		<control id="freesync" address="0xf8">
+			<value id="off" value="0"/>
+			<value id="on" value="1"/>
+		</control>
+
+		<control id="responsetime" address="0xf7">
+			<value id="off" value="0"/>
+			<value id="faster" value="1"/>
+			<value id="fast" value="2"/>
+			<value id="normal" value="3"/>
+		</control>
+
+		<control id="blackstabilization" address="0xf9">
+			<value id="0"   value="0"/>
+			<value id="10"   value="2"/>
+			<value id="20"   value="4"/>
+			<value id="30"   value="6"/>
+			<value id="40"   value="8"/>
+			<value id="50"   value="10"/>
+			<value id="60"   value="12"/>
+			<value id="70"   value="14"/>
+			<value id="80"   value="16"/>
+			<value id="90"   value="18"/>
+			<value id="100"   value="20"/>
+		</control>
+
+		<!-- NOTE: Gamma can only be changed on gamer 1 and gamer 2
+		profiles.
+		BUG: ddccontrol doesn't work properly with 16bit values
+		can set with `ddcutil -b 8 setvcp 0x72 0x6400` though
+		-->
+		<control id="gammamode" address="0x72" >
+			<value id="mode1" value="0x6400"/>
+			<value id="mode2" value="0x7800"/>
+			<value id="mode3" value="0x8c00"/>
+			<value id="mode4" value="0xa000"/>
+		</control>
+
+		<control id="ratio" address="0xf5">
+			<value id="1to1" name="Just Scan" value="0x00" />
+			<value id="wide" value="0x01"/>
+			<value id="original" value="0x02"/>
+		</control>
+
+		<!-- Seems to behave differently than when set manually -->
+		<control id="osdlock" address="0xeb">
+			<value id="on" value="1"/>
+			<value id="off" value="0"/>
+		</control>
+	</controls>
+
+	<include file="VESA"/>
+</monitor>
