@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<!--- "Standard" controls -->
+<monitor name="Dell U4021QW DP PbP/PiP" init="standard">
+	<include file="DEL4206"/>
+</monitor>

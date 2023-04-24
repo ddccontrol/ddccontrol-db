@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<!--- "Standard" controls -->
+<monitor name="Dell U4021QW" init="standard">
+	<caps add="(prot(monitor)type(lcd)model(U4021QW)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 10 12 14(01 04 05 06 08 09 0B 0C) 16 18 1A 52 60( 19 0F 11 12) 62 AC AE B2 B6 C6 C8 C9 CC(02 03 04 06 09 0A 0D 0E) D6(01 04 05) DC(00 03 05) DF E0 E1 E2(00 02 04 0C 0D 0F 10 11 13 0B 1B 14) E4 E5 E7(00 02) E8 E9(00 01 02 21 22 24 27 28 29 2A) F0(00 05 06 0A) F1 F2 FE FD)mccs_ver(2.1)mswhql(1))" />
+	<controls>
+		<control id="defaults" address="0x04" delay="2000"/>
+		<control id="defaultluma" address="0x05" delay="2000"/>
+		<control id="defaultcolor" address="0x08" delay="2000"/>
+		
+		<control id="brightness" address="0x10"/>
+		<control id="contrast" address="0x12"/>
+
+		<control id="colorpreset" address="0x14">
+			<value id="srgb" value="0x01"/>
+			<value id="5000k" value="0x04"/>
+			<value id="5700k" value="0x0b"/>
+			<value id="6500k" value="0x05"/>
+			<value id="7500k" value="0x06"/>
+			<value id="9300k" value="0x08"/>
+			<value id="10000k" value="0x09"/>
+			<value id="user" value="0x0c"/>
+		</control>
+
+		<control id="red" address="0x16"/>
+		<control id="green" address="0x18"/>
+		<control id="blue" address="0x1A"/>
+
+		<!-- 
+			0x00 no pbp/pip
+			0x01 cycle pip position
+			0x02 pip small / big
+			0x24 PbP 50:50
+			0x27 PbP 20:80
+			0x28 PbP 80:20
+			0x28 PbP 25:75
+			0x2a PbP 75:25
+		-->
+     	<control id="PbP" type="list" address="0xe9">
+            <value id="Off"         value="0x00"/>
+     		<value id="PbP"         value="0x24"/>
+			<value id="PiP large"	value="0x22"/>
+			<value id="PiP small"	value="0x21"/>
+     	</control>
+
+		<!-- Controls by the OSD's "USB" settings.
+		     The base value appears to be 0xFF02.
+		     Assigning an input source to "USB-B" sets the bit to 0.
+		     Assigning an input source to "USB-C" sets the bit to 1.
+		     The "DP"    assignment sets the 4th least significant bit, hence adding 0x08.
+		     The "HDMI1" assignment sets the 6th least significant bit, hence adding 0x20.
+		     The "HDMI2" assignment sets the 8th least significant bit, hence adding 0x80.
+			 USB-C is HDMI2 here, as this is missing
+		     So, setting assigning only "DP" to "USB-C" results in 0xFF0A
+		     and setting all inputs to "USB-C" in 0xFFAA.
+		-->
+		<control id="kvm-switch" type="list" address="0xe7">
+			<value id="HDMI:USB1_DP:USB1_USB-C:USB1" name="HDMI:USB1 DP:USB1 USB-C:USB1" value="0xFF02"/>
+			<value id="HDMI:USB1_DP:USB1_USB-C:USB-C1" name="HDMI:USB1 DP:USB1 USB-C:USB-C1" value="0xFF83"/>
+			<value id="HDMI:USB1_DP:USB-C1_USB-C:USB1" name="HDMI:USB1 DP:USB-C1 USB-C:USB1" value="0xFF0B"/>
+			<value id="HDMI:USB-C1_DP:USB1_USB-C:USB1" name="HDMI:USB-C1 DP:USB1 USB-C:USB1" value="0xFF23"/>
+			<value id="HDMI:USB-C1_DP:USB1_USB-C:USB-C1" name="HDMI:USB-C1 DP:USB1 USB-C:USB-C1" value="0xFFA3"/>
+			<value id="HDMI:USB1_DP:USB-C1_USB-C:USB-C1" name="HDMI:USB1 DP:USB-C1 USB-C:USB-C1" value="0xFF8B"/>
+			<value id="HDMI:USB-C1_DP:USB-C1_USB-C:USB1" name="HDMI:USB-C1 DP:USB-C1 USB-C:USB1" value="0xFF2B"/>
+			<value id="HDMI:USB-C1_DP:USB-C1_USB-C:USB-C1" name="HDMI:USB-C1 DP:USB-C1 USB-C:USB-C1" value="0x2A"/>
+		</control>
+
+
+		<control id="inputsource" type="list" address="0x60">
+			<value id="usb-c" value="0x19"/>
+			<value id="dp" value="0x0f"/>
+			<value id="hdmi1" value="0x11"/>
+			<value id="hdmi2" value="0x12"/>
+		</control>
+		<control id="inputsource_sub1" type="list" address="0xe8">
+			<value id="usb-c" value="0x19"/>
+			<value id="dp" value="0x0f"/>
+			<value id="hdmi1" value="0x11"/>
+			<value id="hdmi2" value="0x12"/>
+		</control>
+		<control id="audiospeakervolume" address="0x62"/>
+		
+		<control id="redblack" address="0x6C"/>
+		<control id="greenblack" address="0x6E"/>
+		<control id="blueblack" address="0x70"/>
+		
+		<control id="settings" address="0xb0" delay="1000"/>
+		
+		<control id="language" type="list" address="0xcc">
+			<value id="english" value="0x02"/>
+			<value id="french" value="0x03"/>
+			<value id="german" value="0x04"/>
+			<value id="japanese" value="0x06"/>
+			<value id="russian" value="0x09"/>
+			<value id="spanish" value="0x0a"/>
+			<value id="chinese" value="0x0d"/>
+			<value id="brazilian" value="0x0e"/>
+		</control>
+
+		<control id="osd" type="list" address="0xca">
+			<value id="disable" value="1"/>
+			<value id="enable" value="2"/>
+		</control>
+
+		<control id="dpms" address="0xd6">
+			<value id="on" value="1"/>
+			<value id="standby" value="4"/>
+			<value id="off" value="5"/>
+		</control>
+
+		<control id="magicbright" address="0xdc">
+			<value id="standard" value="0x00"/>
+			<value id="movie" value="0x03"/>
+			<value id="game" value="0x05"/>
+		</control>
+
+		<!--control id="Brightness off" address="0xE0"-->
+		<!--control id="Unityformaty Compensation" address="0xE4">
+			<value id="off" value="0"/>
+			<value id="on" value="1"/>
+		</control-->
+		
+		<!--control id="unknown" address="0xe1"-->
+	</controls>
+</monitor>
