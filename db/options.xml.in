@@ -92,6 +92,16 @@
 				<value id="movie" name="Movie" />
 			</control>
 		</subgroup>
+		<subgroup name="BenQ Bright Intelligence">
+			<control id="bnqbrightintelligence" type="list" name="Bright Intelligence">
+				<value id="off" name="Off" />
+				<value id="on" name="On" />
+			</control>
+			<control id="bnqlightmeter" type="list" name="Light Meter">
+				<value id="off" name="Off" />
+				<value id="on" name="On" />
+			</control>
+		</subgroup>
 		<!-- sub group for modes on recent Acer monitors (e.g. ACR0692) -->
 		<subgroup name="Modes">
 			<!-- NEWLY ADDED for ACR0692-->
