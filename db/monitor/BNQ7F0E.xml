@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<monitor name="BenQ RL2450" init="standard">
+	<caps add="(prot(monitor)type(LCD)model(RL2450H)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 0B 0C 10 12 14(04 05 08 0B) 16 18 1A 52 60(01 03 04) 62 8D(01 02) AC AE B2 B6 C0 C6 C8 C9 CA(01 02) CC(01 02 03 04 05 06 08 09 0A 0B 0D 12 14 1A 1E 1F 20) D6(01 05) DF)mswhql(1)asset_eep(40)mccs_ver(2.1))"/>
+	<controls>
+		<control id="colorpreset" type="list" address="0x14">
+			<value id="warm" value="0x04"/>
+			<value id="normal" value="0x05"/>
+			<value id="cool" value="0x08"/>
+			<value id="user" value="0x0b"/>
+		</control>
+		<control id="inputsource" type="list" address="0x60">
+			<!-- overrides values from VESA.xml -->
+			<value id="vga" value="0x01"/>
+			<value id="dvi" value="0x03"/>
+			<value id="hdmi" value="0x04"/>
+		</control>
+		<control id="mute" type="list" address="0x8d">
+			<value id="mute" value="0x01"/>
+			<value id="normal" value="0x02"/>
+		</control>
+		<!-- Read-only, Horizontal frequency (hsyncfrequency)
+			<control id="?" address="0xac">
+				<value id="1920x1080@60" value="2064"/>
+				<value id="1920x1080@50" value="56300"/>
+			</control>
+		-->
+		<!-- Read-only, Vertical frequency (vsyncfrequency)
+			<control id="?" address="0xae">
+				<value id="1920x1080@60" value="6010"/>
+				<value id="1920x1080@50" value="5000"/>
+			</control>
+		-->
+		<!-- Read-only: Flat panel sub-pixel layout
+			<control id="?" type="value" address="0xb2">
+		-->
+		<!-- Read-only: Display technology type
+			<control id="?" type="value" address="0xb6">
+		-->
+		<!-- Read-only: Power on hours
+			<control id="?" type="value" address="0xc0"/>
+		-->
+		<control id="osd" type="list" address="0xca">
+			<value id="disable" value="0x01"/>
+			<value id="enable" value="0x02"/>
+		</control>
+		<control id="language" type="list" address="0xcc">
+			<value id="chinese_tw" value="0x01"/>
+			<value id="english" value="0x02"/>
+			<value id="french" value="0x03"/>
+			<value id="german" value="0x04"/>
+			<value id="italian" value="0x05"/>
+			<value id="japanese" value="0x06"/>
+			<value id="portuguese" value="0x08"/>
+			<value id="russian" value="0x09"/>
+			<value id="spanish" value="0x0a"/>
+			<value id="swedish" value="0x0b"/>
+			<value id="chinese" value="0x0d"/>
+			<value id="czech" value="0x12"/>
+			<value id="dutch" value="0x14"/>
+			<value id="hungarian" value="0x1a"/>
+			<value id="polish" value="0x1e"/>
+			<value id="romanian" value="0x1f"/>
+			<value id="serbocroatian" value="0x20"/>
+			<!-- full list on OSD: (english, french, german, italian, spanish, polish, czech, hungarian, serbian, romanian, dutch, russian, swedish, portuguese, japanese, chinese traditional, chinese simplified) -->
+			<!-- setting some of the missing values using physical keys writes weird values to the field 0xcc -->
+		</control>
+	</controls>
+	<!-- Needs to be at the end because we override "inputsource" values above -->
+	<include file="VESA"/>
+</monitor>
