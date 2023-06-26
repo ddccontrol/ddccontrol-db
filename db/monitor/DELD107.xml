@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<monitor name="DELL S3221QS" init="standard">
+	<caps add="(prot(monitor)type(LCD)model(S3221QS)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 10 12 14(01 04 05 06 08 09 0B 0C) 16 18 1A 20 30 52 60(01 03 04 0C 0F 11 12 13 14 15) 62 6C 6E 70 AA(01 02) AC AE B2 B6 C6 C8 C9 CA(01 02) CC(02 03 04 06 08 09 0A 0D) D6(01 04 05) DC(00 02 03 04 05) DF E0 E1 E2(00 1D 02 04 0C 0D 0F 10 11 13 14) E1(00 01) E4(00 01) E5 E7(00 01 02) E8(01 03 04 0C 0F 11 12 13 14 15) E9(00 01 02 21 22 24) EA(00 01 02 03 04 05 06 07 08) F0(0C ) F1 F2 FD)mswhql(1)asset_eep(40)mccs_ver(2.1))"/>
+
+	<controls>
+		<control id="degauss" address="0x00"/>
+
+		<control id="newcontrolvalue" address="0x02">
+			<value id="nochanges" value="1"/>
+			<value id="changed" value="2"/>
+		</control>
+
+		<control id="defaults" address="0x04" delay="2000"/>
+		<control id="defaultluma" address="0x05" delay="2000"/>
+		<control id="defaultgeom" address="0x06" delay="2000"/>
+
+		<control id="defaultcolor" address="0x08" delay="2000"/>
+
+		<control id="coarse" address="0x0E"/>
+		<control id="brightness" address="0x10"/>
+		<control id="contrast" address="0x12"/>
+		<control id="colorpreset" address="0x14">
+			<value id="srgb" value="0x01"/>
+			<value id="5000k" value="0x04"/> <!-- Not Working -->
+			<value id="native"  value="0x05"/>
+			<value id="7500k" value="0x06"/> <!-- Not Working -->
+			<value id="cool"  value="0x08"/>
+			<value id="10000k" value="0x09"/> <!-- Not Working -->
+			<value id="warm" value="0x0b"/>
+			<value id="user" value="0x0c"/>
+		</control>
+		
+		<!-- Color Maximum Level -->
+		<control id="red" address="0x16"/>
+		<control id="green" address="0x18"/>
+		<control id="blue" address="0x1a"/>
+		
+		<control id="focus" address="0x1c"/>
+		<control id="auto" address="0x1e" delay="1000">
+			<value id="pos" value="1"/>
+		</control>
+
+		<control id="hpos" address="0x20"/>
+		<control id="hsize" address="0x22"/>
+		<control id="hpincushion" address="0x24"/>
+		<control id="hpincushionbalance" address="0x26"/>
+		<control id="hmisconvergence" address="0x28"/>
+		<control id="vpos" address="0x30"/>
+		<control id="vsize" address="0x32"/>
+		<control id="vmisconvergence" address="0x38"/>
+		<control id="vlinearity"  address="0x3A"/>
+		<control id="vlinearitybalance" address="0x3C"/>
+		<control id="fine" address="0x3e"/>
+		
+		<control id="keybalance" address="0x40"/>
+		<control id="key" address="0x42"/>
+		<control id="tilt" address="0x44"/>
+		<control id="tdistortionctrl" address="0x46"/>
+		<control id="tdistortionbalance" address="0x48"/>
+		<control id="bdistortionctrl" address="0x4A"/>
+		<control id="bdistortionbalance" address="0x4C"/>
+		<control id="colortemp" address="0x54"/>
+		<control id="hmoire" address="0x56"/>
+		<control id="vmoire" address="0x58"/>
+
+		<!-- Input Sources -->
+		<control id="inputsource" type="list" address="0x60">
+			<value id="vga" value="0x01"/>
+			<value id="dvi1" value="0x03"/>
+			<value id="dvi2" value="0x04"/>
+			<value id="component" value="0x0c"/>
+			<value id="dp"    value="0x0f"/>
+			<value id="hdmi1"   value="0x11"/>
+			<value id="hdmi2"  value="0x12"/>
+			<value id="usb-c"    value="0x13"/>
+			<value id="Auto Select"    value="0x14"/>
+			<value id="Reset Input Source"    value="0x15"/>
+		</control>
+
+		<control id="audiospeakervolume" address="0x62"/>
+
+		<!-- Color minimum level -->
+		<control id="redblack" address="0x6c"/>
+		<control id="greenblack" address="0x6e"/>
+		<control id="blueblack" address="0x70"/>
+
+		<!-- Lock menu display -->
+		<control id="osd" address="0xca">
+			<value id="disable" value="0x01"/>
+			<value id="enable" value="0x02"/>
+		</control>
+		
+		<control id="osdorientation" type="list" address="0xaa">
+			<value id="landscape" value="1"/>
+			<value id="portrait" value="2"/>
+		</control>		
+
+		<control id="settings" address="0xb0" delay="1000"/>
+
+		<!-- Change Menu Language -->
+		<control id="language" type="list" address="0xcc">
+			<value id="english"  value="0x02"/>
+			<value id="french"   value="0x03"/>
+			<value id="german"   value="0x04"/>
+			<value id="japanese" value="0x06"/>
+			<value id="russian"  value="0x09"/>
+			<value id="spanish"  value="0x0a"/>
+			<value id="chinese"  value="0x0d"/>
+			<value id="portuguese" value="0x0e"/>
+		</control>
+
+		<!-- Unknown -->
+		<control id="Unknown" type="list" address="0xe2">
+			<value id="A_00" value="0x00"/>
+			<value id="A_1d" value="0x1d"/>
+			<value id="A_02" value="0x02"/>
+			<value id="A_20" value="0x20"/>
+			<value id="A_21" value="0x21"/>
+			<value id="A_22" value="0x22"/>
+			<value id="A_0b" value="0x0b"/>
+			<value id="A_1b" value="0x1b"/>
+			<value id="A_0e" value="0x0e"/>
+			<value id="A_12" value="0x12"/>
+			<value id="A_14" value="0x14"/>
+			<value id="A_23" value="0x23"/>
+			<value id="A_24" value="0x24"/>
+			<value id="A_27" value="0x27"/>
+		</control>
+
+		<control id="dpms" address="0xd6">
+			<value id="on" value="1"/>
+			<value id="standby" value="4"/>
+			<value id="off" value="5"/>
+		</control>
+		
+		<control id="magicbright" address="0xdc">
+			<value id="standard"  value="0x00"/>
+			<value id="multimedia"  value="0x02"/>
+			<value id="movie"  value="0x03"/>
+			<value id="custom" value="0x04"/>
+			<value id="game" value="0x05"/>
+		</control>
+
+		<control id="power" type="list" address="0xe1">
+			<value id="off" value="0x01"/>
+			<value id="on"  value="0x00"/>
+		</control>
+
+		<!-- Not Working -->
+		<control id="subinputsource" type="list" address="0xe8">
+			<value id="vga" value="0x01"/>
+			<value id="dvi1" value="0x03"/>
+			<value id="dvi2" value="0x04"/>
+			<value id="component" value="0x0c"/>
+			<value id="dp"    value="0x0f"/>
+			<value id="hdmi1"   value="0x11"/>
+			<value id="hdmi2"  value="0x12"/>
+			<value id="usb-c"    value="0x13"/>
+			<value id="Auto Select"    value="0x14"/>
+			<value id="Reset Input Source"    value="0x15"/>
+		</control>
+
+		<control id="PbP" type="list"	address="0xe9">
+			<value id="Off"				value="0x00"/>
+			<value id="NoName_1"		value="0x01"/>
+			<value id="NoName_2"		value="0x02"/>
+			<value id="PiP small"		value="0x21"/>
+			<value id="PiP large"		value="0x22"/>
+			<value id="PbP"				value="0x24"/>
+		</control>
+
+		<!-- Not Working -->
+		<control id="PiPPosition" type="list" address="0xea">
+			<value id="Top Left"   value="0xA1"/>
+			<value id="Top Right"  value="0xA2"/>
+			<value id="Bottom Left"    value="0xA3"/>
+			<value id="Bottom Right"    value="0xA4"/>
+		</control>
+	
+		<control id="febrightness" address="0xf1"/>  <!-- nothing happened + interface off -->  
+	</controls>
+</monitor>
