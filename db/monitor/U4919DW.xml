@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <monitor name="DELL U4919DW" init="standard" >
-	<caps add="prot(monitor)type(lcd)model(U4919DW)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 10 12 14(04 05 06 08 09 0B 0C) 16 18 1A 52 60(11 12 1B 0F) AC AE B2 B6 C6 C8 C9 CC(02 03 04 06 09 0A 0D 0E) D6(01 04 05) DC(00 03 05) DF E0 E1 E2(00 02 04 0C 0D 0F 10 11 13 14 1D) E4 E5 E7(00 01 02) E8 E9(00 24) F0(00 0C) F1 F2 FD)mccs_ver(2.1)mswhql(1))"/>
+	<caps add="(prot(monitor)type(lcd)model(U4919DW)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 10 12 14(04 05 06 08 09 0B 0C) 16 18 1A 52 60(11 12 1B 0F) AC AE B2 B6 C6 C8 C9 CC(02 03 04 06 09 0A 0D 0E) D6(01 04 05) DC(00 03 05) DF E0 E1 E2(00 02 04 0C 0D 0F 10 11 13 14 1D) E4 E5 E7(00 01 02) E8 E9(00 24) F0(00 0C) F1 F2 FD)mccs_ver(2.1)mswhql(1))"/>
 
 	<controls>
 		<control id="PbP" type="list" address="0xe9">
