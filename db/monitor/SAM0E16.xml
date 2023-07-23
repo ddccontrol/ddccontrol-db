@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<monitor name="Samsung C27HG70" init="standard">
+	<controls>
+		<control id="defaultcolor" name="Restore Factory Default Color" address="0x08"/>
+		
+		<control id="brightness" name="Brightness" address="0x10"/>
+		<control id="contrast" name="Contrast" address="0x12"/>
+
+		<control id="inputsource" type="list" name="Input Source Select (main)" address="0x60">
+			<value id="hdmi1" name="HDMI 1" value="5"/>
+			<value id="hdmi2" name="HDMI 2" value="6"/>
+			<value id="dp" name="Display Port" value="9"/>
+		</control>
+
+		<control id="red" name="Red maximum level" address="0x16"/>
+		<control id="green" name="Green maximum level" address="0x18"/>
+		<control id="blue" name="Blue maximum level" address="0x1A"/>
+	</controls>
+</monitor>
