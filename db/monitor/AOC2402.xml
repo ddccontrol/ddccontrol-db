@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<monitor name="AOC 24G2" init="standard">
+	<caps add="(prot(monitor)type(LCD)model(24G2U)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 0C 10 12 14(01 05 06 08 0B) 16 18 1A 52 60(01 0F 11 12 ) 86(01 02 05 0B 0C 0D 0E 0F 10 11)  AC AE B2 B6 C6 C8 CA CC(01 02 03 04 05 06 07 09 0A 0B 0D 0E 12 14 16 1E) D6(01 04 05) DC(00 0B 0C 0D 0E 0F 10) DF ED FF)mswhql(1)asset_eep(40)mccs_ver(2.2))" />
+	<controls>
+		<control id="brightness" address="0x10"/>
+		<control id="contrast" address="0x12"/>
+		<control id="defaults" address="0x04"/>
+
+		<control id="inputsource" address="0x60">
+			<value id="vga" name="VGA" value="1"/>
+			<value id="dp" name="DisplayPort" value="15"/>
+			<value id="hdmi1" name="HDMI-1" value="17"/>
+			<value id="hdmi2" name="HDMI-2" value="18"/>
+		</control>
+
+		<!-- Sometimes works sometimes not -->
+		<control id="language" type="list" address="0xcc">
+			<value id="chinese_tw" value="1"/>
+			<value id="english" value="2"/>
+			<value id="french" value="3"/>
+			<value id="german" value="4"/>
+			<value id="italian" value="5"/>
+			<value id="japanese" value="6"/>
+			<value id="korean" value="7"/>
+			<value id="portuguese" value="8"/>
+			<value id="russian" value="9"/>
+			<value id="spanish" value="10"/>
+			<value id="swedish" value="11"/>
+			<value id="turkish" value="12"/>
+			<value id="chinese" value="13"/>
+			<value id="czech" value="18"/>
+			<value id="dutch" value="20"/>
+			<value id="finnish" value="22"/>
+			<value id="polish" value="30"/>
+		</control>
+
+		<control id="audiospeakervolume" address="0x62"/>
+
+		<control id="osd" type="list" address="0xca">
+			<value id="disable" value="1"/>
+			<value id="enable" value="2"/>
+		</control>
+
+		<control id="dpms" type ="list" address="0xd6">
+			<value id="on" value="1"/>
+			<value id="standby" value="2"/>
+			<value id="off" value="4"/>
+		</control>
+
+		<!-- read only
+		<control id="freesync" type="list" address="0xe6">
+				<value id="off" value="0"/>
+				<value id="on" value="1"/>
+		</control>
+		-->
+
+		<control id="preset_profile" type="list" name="Game Mode" address="0xdc">
+			<value id="off" value="0"/>
+			<value id="fps" value="11"/>
+			<value id="rts" value="12"/>
+			<value id="racing" value="13"/>
+			<value id="sport" name="Gamer 1" value="14"/>
+			<value id="game2" name="Gamer 2" value="15"/>
+			<value id="game3" name="Gamer 3" value="16"/>
+		</control>
+
+	</controls>
+	<include file="AOClcd"/>
+</monitor>
