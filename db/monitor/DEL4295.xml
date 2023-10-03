@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<monitor name="Dell P3223DE (USB-C)" init="standard">
+	<controls>
+		<control id="colorpreset" type="list" address="0x14">
+			<value id="normal" value="0x05"/>
+			<value id="cool" value="0x08"/>
+			<value id="warm" value="0x0B"/>
+			<value id="custom" value="0x0C"/>
+		</control>
+
+		<control id="inputsource" type="list" address="0x60">
+			<value id="usb-c" value="0x1b"/>
+			<value id="dp" value="0x0f"/>
+			<value id="hdmi" value="0x11"/>
+		</control>
+
+		<control id="osdorientation" address="0xaa">
+			<value id="landscape" value="1"/>
+			<value id="portraitleft" value="2"/>
+			<value id="portraitright" value="4"/>
+		</control>
+
+		<control id="language" type="list" address="0xcc">
+			<value id="english" value="0x02"/>
+			<value id="french" value="0x03"/>
+			<value id="german" value="0x04"/>
+			<value id="japanese" value="0x06"/>
+			<value id="russian" value="0x09"/>
+			<value id="spanish" value="0x0a"/>
+			<value id="chinese" value="0x0d"/>
+			<value id="brazilian" value="0x0e"/>
+		</control>
+
+		<control id="magicbright" type="list" address="0xdc">
+			<value id="standard" value="0x00"/>
+			<value id="movie" value="0x03"/>
+			<value id="game" value="0x05"/>
+		</control>
+
+		<control id="power" type="list" address="0xe1">
+			<value id="on" value="0"/>
+			<value id="off" value="1"/>
+		</control>
+
+		<control id="energysaving2" address="0xe0">
+			<value id="on" value="1"/>
+			<value id="off" value="0"/>
+		</control>
+
+    <!--    0x06: +/0/255   [???] -->
+    <!--    0x0b: +/0/24028   [???] -->
+    <!--    0x0c: +/1/255   [???] -->
+    <!--    0x0e: +/50/100   [???] -->
+    <!--    0x14: +/5/12 C [???] -->
+    <!--    0x1e: +/0/2   [???] -->
+    <!--    0x20: +/0/100   [???] -->
+    <!--    0x30: +/0/100   [???] -->
+    <!--    0x3e: +/50/100   [???] -->
+    <!--    0x52: +/96/255 C [???] -->
+    <!--    0x60: +/6939/14 C [Input Source Select (Main)] -->
+    <!--    0x62: +/50/100   [???] -->
+    <!--    0x6c: +/50/255   [???] -->
+    <!--    0x6e: +/50/255   [???] -->
+    <!--    0x70: +/50/255   [???] -->
+    <!--    0xa8: +/0/3   [???] -->
+    <!--    0xaa: +/1/255 C [OSD Orientation - Landscape] -->
+    <!--    0xac: +/23364/1 C [???] -->
+    <!--    0xae: +/6003/0 C [???] -->
+    <!--    0xb2: +/1/8 C [???] -->
+    <!--    0xb4: +/1/2   [???] -->
+    <!--    0xb6: +/3/5 C [???] -->
+    <!--    0xc0: +/393/65535   [???] -->
+    <!--    0xc6: +/17868/65535 C [???] -->
+    <!--    0xc8: +/22021/0 C [???] -->
+    <!--    0xc9: +/16641/65535 C [???] -->
+    <!--    0xca: +/2/2   [???] -->
+    <!--    0xcc: +/2/14 C [???] -->
+    <!--    0xd6: +/1/255 C [DPMS Control - On] -->
+    <!--    0xdc: +/0/255 C [???] -->
+    <!--    0xde: +/0/0   [???] -->
+    <!--    0xdf: +/513/255 C [???] -->
+    <!--    0xe0: +/0/1 C [???] -->
+    <!--    0xe1: +/0/1 C [Power control - Off] -->
+    <!--    0xe2: +/0/255 C [???] -->
+    <!--    0xe3: +/0/1   [???] -->
+    <!--    0xf1: +/16651/16651 C [???] -->
+    <!--    0xf2: +/0/65280 C [???] -->
+    <!--    0xfa: +/0/65535   [???] -->
+    <!--    0xfd: +/116/65535 C [???] -->
+	</controls>
+
+	<include file="VESA"/>
+</monitor>
