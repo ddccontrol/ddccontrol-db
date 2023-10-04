@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<monitor name="Hanns.G HT231" init="standard">
+	<caps
+		add="(prot(monitor)type(lcd)model(FALCON)cmds(01 02 03 07 0C 4E F3 E3)vcp(02 04 05 08 10 12 14(04 05 08 0B) 16 18 1A 6C 6E 70 AC AE B6 C0 C6 C8 C9 CC(01 02 03 04 05 06 07 09 08 0A 0D 14) D6(01 04) DF 60(01 03) 62 8D FF)mswhql(1)mccs_ver(2.0)asset_eep(32)mpu_ver(01))" />
+	<controls>
+		<control id="newcontrolvalue" address="0x02">
+			<value id="nochanges" value="1" />
+			<value id="changed" value="2" />
+		</control>
+		<control id="defaults" address="0x04" delay="2000" />
+		<control id="defaultluma" address="0x05" delay="2000" />
+		<control id="defaultcolor" address="0x08" delay="2000" />
+		<control id="brightness" address="0x10" />
+		<control id="contrast" address="0x12" />
+		<control id="colorpreset" address="0x14">
+			<value id="warm" value="0x04" />
+			<value id="normal" value="0x05" />
+			<value id="cool" value="0x08" />
+			<value id="user" value="0x0B" />
+		</control>
+		<control id="red" address="0x16" />
+		<control id="green" address="0x18" />
+		<control id="blue" address="0x1A" />
+		<control id="inputsource" type="list" address="0x60">
+			<value id="analog" value="1" />
+			<value id="digital" value="3" />
+		</control>
+		<control id="audiospeakervolume" address="0x62" />
+		<control id="redblack" address="0x6C" />
+		<control id="greenblack" address="0x6E" />
+		<control id="blueblack" address="0x70" />
+		<control id="audiospeakermute" type="list" address="0x8d">
+			<value id="mute" value="1" />
+			<value id="unmute" value="2" />
+		</control>
+		<control id="language" type="list" address="0xCC">
+			<value id="chinese_tw" value="1" />
+			<value id="english" value="2" />
+			<value id="french" value="3" />
+			<value id="german" value="4" />
+			<value id="italian" value="5" />
+			<value id="japanese" value="6" />
+			<value id="korean" value="7" />
+			<value id="portuguese" value="8" />
+			<value id="russian" value="9" />
+			<value id="spanish" value="10" />
+			<value id="chinese" value="13" />
+			<value id="dutch" value="20" />
+		</control>
+		<control id="dpms" type="list" address="0xd6">
+			<value id="on" value="1" />
+			<value id="standby" value="4" />
+		</control>
+	</controls>
+</monitor>
