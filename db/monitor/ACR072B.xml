@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<monitor name="Acer KA242Y" init="standard">
+	<controls>
+		<control id="defaults" address="0x04"/>
+		<control id="defaultluma" address="0x05"/>
+		<control id="defaultcolor" address="0x08"/>
+		<control id="brightness" address="0x10"/>
+		<control id="contrast" address="0x12"/>
+
+		<control id="red" type="value" name="Red maximum level" address="0x16"/>
+		<control id="green" type="value" name="Green maximum level" address="0x18"/>
+		<control id="blue" type="value" name="Blue maximum level" address="0x1A"/>
+		<control id="redblack" type="value" name="Red minimum level" address="0x6C"/>
+		<control id="greenblack" type="value" name="Green minimum level" address="0x6E"/>
+		<control id="blueblack" type="value" name="Blue minimum level" address="0x70"/>
+
+		<control id="redhue" address="0x9b"/>
+		<control id="greenhue" address="0x9d"/>
+		<control id="bluehue" address="0x9f"/>
+		<control id="yellowhue" address="0x9c"/>
+		<control id="magentahue" address="0xa0"/>
+		<control id="cyanhue" address="0x9e"/>
+
+		<control id="redsaturate" address="0x59"/>
+		<control id="greensaturate" address="0x5b"/>
+		<control id="bluesaturate" address="0x5d"/>
+		<control id="yellowsaturate" address="0x5a"/>
+		<control id="magentasaturate" address="0x5e"/>
+		<control id="cyansaturate" address="0x5c"/>
+
+		<control id="mode" type="list" name="Mode" address="0xe2">
+			<value id="user" name="User" value="0"/>
+			<value id="darkroom" name="DarkRoom" value="13"/>
+			<value id="reading" name="Reading" value="12"/>
+			<value id="srgb" name="sRGB" value="9"/>
+			<value id="standard" name="Standard" value="1"/>
+			<value id="eco" name="Eco" value="2"/>
+			<value id="graphics" name="Graphics" value="3"/>
+			<value id="movie" name="Movie" value="4"/>
+		</control>
+		<control id="gamma" name="Gamma" address="0x72">
+			<value id="1.8" name="1.8" value="80"/>
+			<value id="2.2" name="2.2" value="120"/>
+			<value id="2.4" name="2.4" value="140"/>
+		</control>
+		<control id="colorpreset" address="0x14">
+			<value id="bluelight" value="5"/>
+			<value id="warm" value="5"/>
+			<value id="normal" value="6"/>
+			<value id="cool" value="8"/>
+			<value id="user" value="11"/>
+		</control>
+		<control id="blackboost" type="value" name="Black Boost" address="0xe5"/>
+		<control id="inputsource" address="0x60">
+			<value id="vga" value="1"/>
+			<value id="hdmi" value="17"/>
+		</control>
+		<control id="language" type="list"  address="0xcc">
+			<value id="chinese_tw" value="1"/>
+			<value id="english"  value="2"/>
+			<value id="french" value="3"/>
+			<value id="german" value="4"/>
+			<value id="italian" value="5"/>
+			<value id="japanese" value="6"/>
+			<value id="portuguese" value="8"/>
+			<value id="russian" value="9"/>
+			<value id="spanish" value="10"/>
+			<value id="turkish" value="12"/>
+			<value id="chinese" value="13"/>
+			<value id="brazilian" value="14"/>
+			<value id="dutch" value="20"/>
+			<value id="finnish" value="22"/>
+			<value id="polish" value="30"/>
+		</control>
+		<control id="dpms" type="list" address="0xd6">
+			<value id="on" value="1"/>
+			<value id="standby" value="4"/>
+			<value id="off" value="5"/>
+		</control>
+	</controls>
+</monitor>
+
+<!--
+`ddccontrol -p -c -d` output:
+
+ioctl(): Inappropriate ioctl for device
+ioctl returned -1
+ioctl(): Inappropriate ioctl for device
+ioctl returned -1
+ioctl(): Inappropriate ioctl for device
+ioctl returned -1
+ioctl(): Inappropriate ioctl for device
+ioctl returned -1
+ioctl(): Inappropriate ioctl for device
+ioctl returned -1
+ioctl(): Inappropriate ioctl for device
+ioctl returned -1
+ioctl(): Inappropriate ioctl for device
+ioctl returned -1
+ioctl(): Inappropriate ioctl for device
+ioctl returned -1
+ioctl(): Inappropriate ioctl for device
+ioctl returned -1
+Capabilities read fail.
+ddccontrol version 0.6.0
+Copyright 2004-2005 Oleg I. Vdovikin (oleg@cs.msu.su)
+Copyright 2004-2006 Nicolas Boichat (nicolas@boichat.ch)
+This program comes with ABSOLUTELY NO WARRANTY.
+You may redistribute copies of this program under the terms of the GNU General Public License.
+
+Detected monitors :
+ - Device: dev:/dev/i2c-10
+   DDC/CI supported: Yes
+   Monitor Name: Acer KA242Y
+   Input type: Digital
+  (Automatically selected)
+Reading EDID and initializing DDC/CI at bus dev:/dev/i2c-10...
+
+EDID readings:
+	Plug and Play ID: ACR072B [Acer KA242Y]
+	Input type: Analog
+
+Capabilities:
+
+Controls (valid/current/max) [Description - Value name]:
+Control 0x02: +/2/2 C [???]
+Control 0x04: +/0/1 C [Restore Factory Defaults]
+Control 0x05: +/0/1 C [???]
+Control 0x06: +/0/1   [???]
+Control 0x08: +/1/1 C [???]
+Control 0x0b: +/100/0 C [???]
+Control 0x0c: +/35/63 C [???]
+Control 0x0e: +/50/100   [???]
+Control 0x10: +/100/100 C [Brightness]
+Control 0x12: +/50/100 C [Contrast]
+Control 0x14: +/5/11 C [Color Preset - Warm]
+Control 0x16: +/50/100 C [Red maximum level]
+Control 0x18: +/50/100 C [Green maximum level]
+Control 0x1a: +/50/100 C [Blue maximum level]
+Control 0x1e: +/0/1   [???]
+Control 0x1f: +/1/1   [???]
+Control 0x20: +/50/100   [???]
+Control 0x30: +/50/100   [???]
+Control 0x3e: +/23/100   [???]
+Control 0x52: +/4/255 C [???]
+Control 0x59: +/50/100 C [???]
+Control 0x5a: +/50/100 C [???]
+Control 0x5b: +/50/100 C [???]
+Control 0x5c: +/50/100 C [???]
+Control 0x5d: +/50/100 C [???]
+Control 0x5e: +/50/100 C [???]
+Control 0x60: +/17/18 C [Input Source Select (Main) - HDMI]
+Control 0x62: +/70/100   [???]
+Control 0x6c: +/50/100 C [Red minimum level]
+Control 0x6e: +/50/100 C [Green minimum level]
+Control 0x70: +/50/100 C [Blue minimum level]
+Control 0x72: +/120/160 C [Gamma - 2.2]
+Control 0x8d: +/1/2   [???]
+Control 0x9b: +/50/100 C [???]
+Control 0x9c: +/50/100 C [???]
+Control 0x9d: +/50/100 C [???]
+Control 0x9e: +/50/100 C [???]
+Control 0x9f: +/50/100 C [???]
+Control 0xa0: +/50/100 C [???]
+Control 0xac: +/2064/1 C [???]
+Control 0xae: +/6010/65535 C [???]
+Control 0xb2: +/1/2 C [???]
+Control 0xb3: +/0/1   [???]
+Control 0xb6: +/3/5 C [???]
+Control 0xc6: +/60/65535 C [???]
+Control 0xc8: +/8713/37 C [???]
+Control 0xc9: +/1/65535 C [???]
+Control 0xca: +/1/65535 C [???]
+Control 0xcc: +/2/30 C [???]
+Control 0xd6: +/1/5 C [DPMS Control]
+Control 0xdf: +/514/65535 C [???]
+Control 0xe0: +/255/6 C [???]
+Control 0xe1: +/255/6 C [???]
+Control 0xe2: +/0/27 C [Mode - User]
+Control 0xe3: +/19/65535 C [???]
+Control 0xe4: +/2/3 C [???]
+Control 0xe5: +/5/10 C [Black Boost]
+Control 0xe6: +/257/0   [???]
+Control 0xe7: +/255/3 C [???]
+Control 0xe8: +/255/3 C [???]
+Control 0xe9: +/255/3   [???]
+Control 0xea: +/255/3   [???]
+-->
