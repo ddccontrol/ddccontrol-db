@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<monitor name="Samsung Odyssey Neo G9 LS57CG952NNXZA" init="standard">
+	<caps add="(vcp(2F DB(0 1 2 3 4 5 6 7 8 9)))" />
+	<include file="SAM7119" />
+	<controls>
+		<control id="screensize" address="0xdb">
+			<value id="auto" value="0" />
+			<value id="wide" value="1" />
+			<value id="17_4_3" value="2" />
+			<value id="19_4_3" value="3" />
+			<value id="19_wide_16_10" value="4" />
+			<value id="21_5_wide_16_9" value="5" />
+			<value id="22_wide_16_10" value="6" />
+			<value id="23_wide_16_9" value="7" />
+			<value id="27_wide_16_9" value="8" />
+			<value id="29_wide_21_9" value="9" />
+		</control>
+	</controls>
+</monitor>
+<!--
+Control 0x02: +/255/2 C [New Control Value]
+Control 0x08: +/0/0 C [Restore Factory Default Color]
+Control 0x09: +/120/1   [???]
+Control 0x0a: +/0/1   [???]
+Control 0x0d: +/3/6   [???]
+Control 0x0f: +/3/6   [???]
+Control 0x10: +/40/50 C [Brightness]
+Control 0x12: +/50/50 C [Contrast]
+Control 0x14: +/4/5 C [???]
+Control 0x16: +/50/100 C [Red maximum level]
+Control 0x18: +/50/100 C [Green maximum level]
+Control 0x1a: +/50/100 C [Blue maximum level]
+Control 0x23: +/1/3   [???]
+Control 0x25: +/4/23   [???]
+Control 0x28: +/0/0   [???]
+Control 0x29: +/0/0   [???]
+Control 0x2a: +/0/0   [???]
+Control 0x2b: +/1/1   [???]
+Control 0x2c: +/0/1   [???]
+Control 0x2d: +/0/6   [???]
+Control 0x2e: +/0/3   [???]
+Control 0x2f: +/5/10   [Black Equalizer (read only)]
+Control 0x60: +/15/3 C [Input Source Select (Main)]
+Control 0x62: +/0/100 C [???]
+Control 0x87: +/10/20   [???]
+Control 0x8d: +/0/255 C [???]
+Control 0xaa: +/0/0   [???]
+Control 0xb6: +/3/9   [???]
+Control 0xc6: +/1/1   [???]
+Control 0xc8: +/5/16   [???]
+Control 0xc9: +/1/1   [???]
+Control 0xca: +/2/2   [???]
+Control 0xcc: +/2/30   [???]
+Control 0xd6: +/0/0   [???]
+Control 0xdb: +/0/9   [Screen Size]
+Control 0xdc: +/8/3   [???]
+Control 0xdf: +/512/514   [???]
+Control 0xe0: +/4/5   [???]
+Control 0xe5: +/0/1   [???]
+Control 0xe6: +/0/0   [???]
+Control 0xe7: +/0/0   [???]
+Control 0xe9: +/0/1   [???]
+Control 0xf7: +/0/3   [???]
+Control 0xfe: +/2/2   [???]
+-->
