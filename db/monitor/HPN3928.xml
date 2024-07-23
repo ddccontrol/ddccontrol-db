@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<monitor name="HP 27h 737K9AA (DisplayPort)" init="standard">
+    <!-- <caps add=""/> -->
+    <controls>
+        <!-- Control 0x60: +/17/3 C [Input Source Select (Main)] -->
+        <control id="inputsource" type="list" address="0x60">
+            <value id="vga" value="1"/>
+            <value id="hdmi" value="17"/>
+            <value id="dp" value="15"/>
+        </control>
+
+        <!--
+        Controls (valid/current/max) [Description - Value name]:
+        Control 0x02: +/1/2 C [New Control Value - No changes]
+        Control 0x04: +/0/1 C [Restore Factory Defaults]
+        Control 0x05: +/0/1 C [Restore Brightness and Contrast]
+        Control 0x06: +/0/255   [???]
+        Control 0x08: +/0/1 C [Restore Factory Default Color]
+        Control 0x0b: +/50/50 C [???]
+        Control 0x0c: +/0/126 C [???]
+        Control 0x0e: +/0/255   [???]
+        Control 0x10: +/52/100 C [Brightness]
+        Control 0x12: +/100/100 C [Contrast]
+        Control 0x14: +/5/15   [???]
+        Control 0x16: +/255/255 C [Red maximum level]
+        Control 0x18: +/255/255 C [Green maximum level]
+        Control 0x1a: +/255/255 C [Blue maximum level]
+        Control 0x1e: +/0/2   [???]
+        Control 0x1f: +/0/1   [???]
+        Control 0x20: +/0/255   [???]
+        Control 0x2e: +/0/3 C [???]
+        Control 0x30: +/0/255   [???]
+        Control 0x3e: +/0/255   [???]
+        Control 0x52: +/16/255 C [???]
+        Control 0x60: +/17/3 C [Input Source Select (Main) - HDMI]
+        Control 0x62: +/73/100 C [Audio Speaker Volume Adjust]
+        Control 0x6c: +/50/255 C [Red minimum level]
+        Control 0x6e: +/50/255 C [Green minimum level]
+        Control 0x70: +/50/255 C [Blue minimum level]
+        Control 0x86: +/2/2 C [???]
+        Control 0x87: +/4/7 C [???]
+        Control 0x8d: +/2/2 C [???]
+        Control 0xa8: +/0/3   [???]
+        Control 0xac: +/1864/65281 C [???]
+        Control 0xae: +/5990/65535 C [???]
+        Control 0xb2: +/1/8 C [???]
+        Control 0xb4: +/1/2   [???]
+        Control 0xb6: +/3/5 C [???]
+        Control 0xc0: +/1855/65535 C [???]
+        Control 0xc6: +/90/0 C [???]
+        Control 0xc8: +/22021/0 C [???]
+        Control 0xc9: +/256/65535 C [???]
+        Control 0xca: +/2/2 C [???]
+        Control 0xcc: +/2/20 C [???]
+        Control 0xd6: +/1/5 C [DPMS Control - On]
+        Control 0xdc: +/21/33 C [???]
+        Control 0xdf: +/514/255   [???]
+        Control 0xe0: +/9/9   [???]
+        Control 0xe1: +/0/0   [???]
+        Control 0xe2: +/0/0   [???]
+        Control 0xe3: +/0/0   [???]
+        Control 0xe6: +/1/1   [???]
+        Control 0xe7: +/0/1   [???]
+        Control 0xe8: +/0/0   [???]
+        Control 0xea: +/0/1   [???]
+        Control 0xeb: +/1/4   [???]
+        Control 0xec: +/1/1   [???]
+        Control 0xed: +/1/1   [???]
+        Control 0xee: +/2/3   [???]
+        Control 0xf4: +/0/1   [???]
+        Control 0xf5: +/771/0   [???]
+        Control 0xf6: +/0/0   [???]
+        Control 0xff: +/0/65535   [???]
+        -->
+    </controls>
+    <include file="VESA"/>
+</monitor>
+

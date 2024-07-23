@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<monitor name="HP 27h 737K9AA (HDMI)" init="standard">
+    <controls>
+    </controls>
+    <include file="HPN3928"/>
+</monitor>
