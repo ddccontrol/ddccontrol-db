@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<monitor name="iiyama PL2791Q" init="standard">
+	<include file="IVM6646"/>
+</monitor>
