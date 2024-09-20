@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<monitor name="iiyama PL2791Q" init="standard">
+	<controls>
+		<control id="colorpreset" type="list" address="0x14">
+			<value id="6500k" value="0x05"/>
+			<value id="7500k" value="0x06"/>
+			<value id="9300k" value="0x08"/>
+			<value id="custom" value="0xb"/>
+		</control>
+		<control id="inputsource" type="list" address="0x60">
+			<value id="dvi"  value="0x03"/>
+			<value id="dp" value="0x0f"/>
+			<value id="hdmi" value="0x11"/>
+		</control>
+		<control id="language" type="list" address="0xcc">
+			<value id="english" value="0x02"/>
+			<value id="french" value="0x03"/>
+			<value id="german" value="0x04"/>
+			<value id="italian" value="0x05"/>
+			<value id="polish" value="0x1e"/>
+			<value id="spanish" value="0xa"/>
+			<value id="dutch" value="0x14"/>
+			<value id="czech" value="0x12"/>
+			<value id="russian" value="0x09"/>
+			<value id="japanese" value="0x06"/>
+			<value id="chinese" value="0xd"/>
+		</control>
+	</controls>
+	<include file="VESA"/>
+</monitor>
