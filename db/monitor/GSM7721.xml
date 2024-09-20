@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<monitor name="LG 34BK95U-W" init="standard">
+	<include file="GSM770X"/>
+</monitor>
