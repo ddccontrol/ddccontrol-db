@@ -393,6 +393,19 @@
 		<subgroup name="Size">
 			<control id="hsize" type="value" name="Horizontal Size" address="0x22"/>
 			<control id="vsize" type="value" name="Vertical Size" address="0x32"/>
+			<!-- SAM7476-->
+			<control id="screensize" type="list" name="Screen Size" address="0xdb">
+				<value id="auto" name="Auto" />
+				<value id="wide" name="Wide" />
+				<value id="17_4_3" name="17&quot; 4:3" />
+				<value id="19_4_3" name="19&quot; 4:3" />
+				<value id="19_wide_16_10" name="17&quot; Wide 16:10" />
+				<value id="21_5_wide_16_9" name="21.5&quot; Wide 16:9" />
+				<value id="22_wide_16_10" name="22&quot; Wide 16:10"/>
+				<value id="23_wide_16_9" name="23&quot; Wide 16:9"/>
+				<value id="27_wide_16_9" name="27&quot; Wide 16:9" />
+				<value id="29_wide_21_9" name="29&quot; Wide 21:9" />
+			</control>
 		</subgroup>
 		<subgroup name="Automatic adjustments">
 			<control id="autosize" type="list" name="Auto Size Center" address="0x5A">
