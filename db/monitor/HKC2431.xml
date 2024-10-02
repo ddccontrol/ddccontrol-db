@@ -1,4 +1,17 @@
 <?xml version="1.0"?>
 <monitor name="Koorui 24E3" init="standard">
+	<controls>
+		<group name="Color Settings">
+			<subgroup name="Brightness and Contrast">
+				<control id="brightness" address="0x10"/>
+				<control id="contrast" address="0x12"/>
+			</subgroup>
+			<subgroup name="Color maximum level">
+				<control id="red" address="0x16"/>
+				<control id="green" address="0x18"/>
+				<control id="blue" address="0x1A"/>
+			</subgroup>
+		</group>
+	</controls>
 	<include file="VESA"/>
 </monitor>
