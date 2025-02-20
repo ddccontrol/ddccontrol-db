@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<monitor name="LG 32GS95UV-W Monitor" init="standard">
+	<controls>
+		<!-- Control 0x04: +/0/255 C [Restore Factory Defaults] -->
+		<control id="defaults" address="0x04" delay="2000"/>
+		<!-- Control 0x05: +/0/1 C [Restore Brightness and Contrast] -->
+		<control id="defaultluma" address="0x05" delay="2000"/>
+		<!-- Control 0x08: +/0/255 C [Restore Factory Default Color] -->
+		<control id="defaultcolor" address="0x08" delay="2000"/>
+		<!-- Control 0x10: +/40/100 C [Brightness] -->
+		<control id="brightness" address="0x10"/>
+		<!-- Control 0x12: +/70/100 C [Contrast] -->
+		<control id="contrast" address="0x12"/>
+		<!-- Control 0x16: +/50/100 C [Red maximum level] -->
+		<control id="red" address="0x16"/>
+		<!-- Control 0x18: +/50/100 C [Green maximum level] -->
+		<control id="green" address="0x18"/>
+		<!-- Control 0x1a: +/50/100 C [Blue maximum level] -->
+		<control id="blue" address="0x1A"/>
+		<!-- Control 0x62: +/32/100 C [Audio Speaker Volume Adjust] -->
+		<control id="audiospeakervolume" address="0x62"/>
+		<!-- Control 0x87: +/50/100   [Sharpness] -->
+		<control id="sharpness" address="0x87"/>
+		<!-- Control 0x8d: +/2/100 C [Audio Speaker Mute - Unmute] -->
+		<control id="audiospeakermute" address="0x8D">
+			<value id="mute" value="0x01"/>
+			<value id="unmute" value="0x02"/>
+		</control>
+		<!-- Control 0xd6: +/1/5 C [DPMS Control - On] -->
+		<control id="power" address="0xD6">
+			<value id="on" value="0x01"/>
+			<value id="off" value="0x05"/>
+		</control>
+		<!-- Control 0xeb: +/0/1   [OSD Lock] -->
+		<control id="osdlock" address="0xEB">
+			<value id="off" value="0x00"/>
+			<value id="on" value="0x01"/>
+		</control>
+		<!-- Control 0xf6: +/0/255 C [Smart Energy Saving] -->
+		<control id="energysaving" address="0xF6">
+			<value id="off" value="0x00"/>
+			<value id="low" value="0x01"/>
+			<value id="high" value="0x02"/>
+		</control>
+	</controls>
+</monitor>
