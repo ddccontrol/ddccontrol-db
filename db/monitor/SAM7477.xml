@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<monitor name="Samsung Odyssey Neo G9 LS57CG952NNXZA" init="standard">
+	<include file="SAM7476" />
+</monitor>
