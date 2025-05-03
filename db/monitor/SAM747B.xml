@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<monitor name="Samsung Odyssey Neo G9 LS57CG952NNXZA (PBP: Mode 3, Source: DP-1)" init="standard">
+	<include file="SAM7476" />
+</monitor>
