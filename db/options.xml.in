@@ -383,6 +383,21 @@
 				<value id="level-2" name="Level 2" value="2"/>
 				<value id="level-3" name="Level 3" value="3"/>
 			</control>
+			<control id="coloreffect" type="list" name="Color Effect" address="0xea">
+				<value id="off" name="Off"/>
+				<value id="grayscale" name="Grayscale"/>
+				<value id="green" name="Green"/>
+				<value id="aqua" name="Aqua"/>
+				<value id="sepia" name="Sepia"/>
+			</control>
+			<control id="magicangle" type="list" name="Magic Angle Mode" address="0xec">
+				<value id="off" name="Off"/>
+				<value id="leanback1" name="Lean Back Mode 1"/>
+				<value id="leanback2" name="Lean Back Mode 2"/>
+				<value id="standing" name="Standing Mode"/>
+				<value id="side" name="Side Mode"/>
+				<value id="custom" name="Custom"/>
+			</control>
 		</subgroup>
 	</group>
 	<group name="Position and size">
@@ -749,9 +764,12 @@
 			<control id="customkey" type="list" name="Custom key" address="0xe8">
 				<value id="magicbright" name="MagicBright"/>
 				<value id="magiccolor" name="MagicColor"/>
+				<value id="magicangle" name="MagicAngle"/>
+				<value id="magiceco" name="MagicEco"/>
 				<value id="autosetup" name="Automatic setup"/>
 				<value id="inputsource" name="Input Source Select"/>
 				<value id="colortone" name="Color Tone"/>
+				<value id="imagesize" name="Image Size"/>
 			</control>
 
 			<!-- a switch to enable/disable the power led only (no other functionality,
