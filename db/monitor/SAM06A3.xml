@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<monitor name="Samsung SyncMaster E1920" init="standard">
+	<caps add="(prot(monitor)type(LCD)model(PLUM)mccs_ver(2.0)vcp(02 04 05 06 08 0E 10 12 16 18 1A 1E 20 30 3E 87 CA(01 02) CC(02 03 04 05 08 09 0A 0B 0C 1A 1E) D6(01 04) DB(00 04) DC(01 02 03 06 F0 FB) DB(00 04 FE) E0 E8(00 07 09 0A FE) E9(00 01) EA(00 01 02 03 04) EC(00 01 02 03 04 05) F0(00 01 02 03) F2(00 01 02) F5(01 02) F7(00 01 02 03))mswhql(1))"
+		remove="(vcp(14(02 03 0A 0B) 54 60 62 6C 6E 70 AA B0(01 02) B6 C6 C8 C9 DF E1 E2 E4 E5 ED EE EF F3 F6 FE))"/>
+	<controls>
+	       <!-- e4 does some sort of pixel refresh -->
+		<control id="buttonaccess" address="0xe9">
+			<value id="locked" value="1"/>
+			<value id="unlocked" value="0"/>
+		</control>
+		<control id="screensize" address="0xdb">
+			<value id="auto" value="0"/>
+			<value id="wide" value="4" />
+		</control>
+		<control id="magicbright" address="0xdc">
+			<value id="custom" value="6"/>
+			<value id="standard" value="1"/>
+			<value id="game" value="2"/>
+			<value id="cinema" value="3"/>
+			<value id="dynamic" value="240" />
+		</control>
+		<control id="magicangle" address="0xec">
+			<value id="off" value="0"/>
+			<value id="leanback1" value="1"/>
+			<value id="leanback2" value="2"/>
+			<value id="standing" value="3"/>
+			<value id="side" value="4" />
+			<value id="custom" value="5" />
+		</control>
+		<control id="coloreffect" address="0xea">
+			<value id="off" value="0"/>
+			<value id="grayscale" value="1"/>
+			<value id="green" value="2"/>
+			<value id="aqua" value="3"/>
+			<value id="sepia" value="4"/>
+		</control>
+		<control id="gamma" address="0xf2">
+			<value id="mode1" value="0"/>
+			<value id="mode2" value="1"/>
+			<value id="mode3" value="2"/>
+		</control>
+		<control id="customkey" address="0xe8">
+			<value id="magicbright" value="0"/>
+			<value id="magicangle"  value="9"/>
+			<value id="magiceco"     value="10"/>
+			<value id="imagesize"    value="7"/>
+		</control>
+		<control id="ecomode" address="0xf7">
+			<value id="off" value="0"/>
+			<value id="low" value="1"/>
+			<value id="middle" value="2"/>
+			<value id="high" value="3"/>
+		</control>
+		<control id="language" address="0xcc">
+			<value id="english" value="2"/>
+			<value id="french"  value="3"/>
+			<value id="german"  value="4"/>
+			<value id="italian" value="5"/>
+			<value id="russian" value="9"/>
+			<value id="spanish" value="10"/>
+			<value id="swedish" value="11"/>
+			<value id="portuguese" value="8"/>
+			<value id="turkish"  value="12"/>
+			<value id="polish"  value="30"/>
+			<value id="hungarian" value="26"/>
+		</control>
+	</controls>
+	<include file="SAMlcd"/>
+</monitor>
