@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<monitor name="HP w19b (DVI)" init="standard">
+	<include file="HWP26A0"/>
+</monitor>

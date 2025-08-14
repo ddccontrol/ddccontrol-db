@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<monitor name="HP w19b (VGA)" init="standard">
+    <caps add="(prot(monitor)type(LCD)mccs_ver(2.1)vcp(02 04 05 06 08 0E 10 12 14(05 06 08 0B) 16 18 1A 1E 20 30 3E 60(01 03) 62 CC(01 02 03 04 05 0A)))" remove="(vcp(AC AE B6 C0 C6 C8 C9 CA DF D6 9B 9D 9F))"/>
+    <controls>
+		<control id="colorpreset" address="0x14">
+			<value id="warm" value="0x05"/>
+			<value id="cool" value="0x06"/>
+			<value id="srgb" value="0x08"/>
+			<value id="user" value="0x0B"/>
+		</control>
+		<control id="language" address="0xcc">
+			<value id="chinese"	value="0x01"/>
+			<value id="english"	value="0x02"/>
+			<value id="french"		value="0x03"/>
+			<value id="german"	value="0x04"/>
+			<value id="italian"		value="0x05"/>
+			<value id="spanish"	value="0x0A"/>
+		</control>
+	</controls>
+	<include file="VESA"/>
+</monitor>
