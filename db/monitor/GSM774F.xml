@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<!-- Same as LG 32BN67UP-B (DisplayPort) [GSM7750] -->
+<monitor name="LG 32BN67UP-B (HDMI)" init="standard">
+	<include file="GSM7750"/>
+</monitor>
