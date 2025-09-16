@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--- Samsung SAM7184
+      Detected controls from ddccontrol -p -c -d:
+      0x02: New Control Value (255/255)
+      0x04: Restore Factory Defaults (0/1)
+      0x05: Restore Brightness and Contrast (0/1)
+      0x08: Restore Factory Default Color (0/1)
+      0x0b: Unknown (50/65535)
+      0x0c: Unknown (40/170)
+      0x10: Brightness - missing but should be included from VESA
+      0x12: Contrast (70/100)
+      0x14: Unknown (4/11)
+      0x16: Red maximum level (70/100)
+      0x18: Green maximum level (70/100)
+      0x1a: Blue maximum level (70/100)
+      0x52: Unknown (0/255)
+      0x60: Input Source Select (6/3)
+      0x6c: Red minimum level - missing in caps but detected in initial probe
+      0x6e: Green minimum level (50/100)
+      0x70: Blue minimum level (50/100)
+      0xae: Unknown (6000/65535)
+      0xb2: Unknown (1/8)
+      0xb6: Unknown (3/4)
+      0xc0: Unknown (166/65535)
+      0xc9: Unknown (544/65535)
+      0xca: On Screen Display (2/2)
+      0xcc: Language (2/36)
+      0xd6: DPMS Control (1/4)
+      0xdc: Magic Bright Mode - missing in caps but detected in initial probe
+      0xdf: VCP Version (513/65535)
+      0xfe: Unknown (2/2)
+      0xff: Unknown (0/1)
+-->
+<monitor name="Samsung SAM7184">
+	<caps add="(vcp(02 04 05 08 0B 0C 10 12 14 16 18 1A 52 60 62 6C 6E 70 AE B2 B6 C0 C9 CA CC D6 DC DF FE FF))"/>
+	<include file="SAMlcd"/>
+</monitor>
