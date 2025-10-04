@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<monitor name="LG 27MK400H-B">
+<monitor name="LG FULL HD">
   <!--- CAPS:
       prot(monitor)
       type(lcd)
@@ -81,6 +81,11 @@
     <!-- OSD / Picture / Game Adjust / Black Stabil..: ...   -->
     <!-- OSD / Picture / Game Adjust / Cross hair : ? -->
     <!-- OSD / General / Standbye : ? -->
+  <control id="inputsource" type="list" address="0x60">
+    <value id="vga"  value="3"/>
+    <value id="hdmi1" value="4"/>
+    <value id="hdmi2" value="5"/>
+  </control>
   </controls>
   <include file="VESA"/>
 </monitor>
