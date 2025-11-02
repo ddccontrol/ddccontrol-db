@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<!-- Tested for DisplayPort and HDMI (not tested: DVI and VGA) -->
+<monitor name="Asus PB277Q" init="standard">
+	<!-- ioctl(): Inappropriate ioctl for device - Capabilities read fail. -->
+	<!-- Therefore this custom capabilities string was added -->
+	<caps add="(prot(monitor)type(lcd)model(ACI27B5)vcp(04 05 08 10 12 16 18 1A 62 6C 6E 70 8D CC))"/>
+	<controls>
+		<!-- Control 0x02: +/2/2 C [New Control Value - Some values changed] -->
+		<!-- <control id="newcontrolvalue" address="0x02"/> -->
+		<!-- Control 0x04: +/0/255 C [Restore Factory Defaults] -->
+		<control id="defaults" address="0x04" delay="2000"/>
+		<!-- Control 0x05: +/0/1 C [Restore Brightness and Contrast] -->
+		<control id="defaultluma" address="0x05" delay="2000"/>
+		<!-- Control 0x08: +/0/255 C [Restore Factory Default Color] -->
+		<control id="defaultcolor" address="0x08" delay="2000"/>
+		<!-- Control 0x10: +/42/100 C [Brightness] -->
+		<control id="brightness" address="0x10"/>
+		<!-- Control 0x12: +/70/100 C [Contrast] -->
+		<control id="contrast" address="0x12"/>
+
+		<!-- Control 0x16: +/50/100 C [Red maximum level] -->
+		<control id="red" address="0x16"/>
+		<!-- Control 0x18: +/50/100 C [Green maximum level] -->
+		<control id="green" address="0x18"/>
+		<!-- Control 0x1a: +/50/100 C [Blue maximum level] -->
+		<control id="blue" address="0x1A"/>
+
+		<!-- Control 0x62: +/0/100 C [Audio Speaker Volume Adjust] -->
+		<control id="audiospeakervolume" address="0x62"/>
+
+		<!-- Control 0x8d: +/2/100 C [???] -->
+		<!-- Audio Speaker Mute - Unmute -->
+		<control id="audiospeakermute" address="0x8D">
+			<value id="mute" value="0x01"/>
+			<value id="unmute" value="0x02"/>	
+		</control>	
+
+		<!-- Control 0xcc: +/0/16   [???] -->
+		<!-- Language -->
+		<control id="language" name="Language" address="0xCC">
+			<value id="english" value="0x02"/>
+			<value id="german" value="0x04"/>
+			<value id="french" value="0x03"/>
+			<value id="spanish" value="0x0A"/>
+			<value id="italian" value="0x05"/>
+			<value id="dutch" value="0x14"/>
+			<value id="russian" value="0x09"/>
+			<value id="polish" value="0x1E"/>
+			<value id="czech" value="0x12"/>
+			<value id="croatian" value="0x11"/>
+			<value id="hungarian" value="0x1A"/>
+			<value id="romanian" value="0x1F"/>
+			<value id="portuguese" value="0x08"/>
+			<value id="turkish" value="0x0C"/>
+			<value id="chinese" value="0x0D"/>
+			<value id="chinese_tw" value="0x01"/>
+			<value id="japanese" value="0x06"/>
+			<value id="korean" value="0x07"/>
+			<value id="persian" value="0x72"/>
+			<value id="thai" value="0x23"/>
+			<value id="indonesian" value="0x73"/>
+		</control>
+
+		<!-- Control 0x6c: +/50/100   [???] -->
+		<!-- Red minimum level -->
+		<control id="redblack" address="0x6C"/>
+		<!-- Control 0x6e: +/50/100   [???] -->
+		<!-- Green minimum level -->
+		<control id="greenblack" address="0x6E"/>
+		<!-- Control 0x70: +/50/100   [???] -->
+		<!-- Blue minimum level -->
+		<control id="blueblack" address="0x70"/>
+		
+
+	</controls>
+</monitor>
+
+<!-- 
+EDID readings:
+	Plug and Play ID: ACI27B5 [VESA standard monitor]
+	Input type: Analog
+
+Controls (valid/current/max) [Description - Value name]:
+Control 0x02: +/2/255 C [New Control Value - Some values changed]
+Control 0x04: +/0/1 C [Restore Factory Defaults]
+Control 0x05: +/0/1 C [Restore Brightness and Contrast]
+Control 0x08: +/0/1 C [Restore Factory Default Color]
+Control 0x0b: +/50/65535 C [???]
+Control 0x0c: +/70/126 C [???]
+Control 0x10: +/42/100 C [Brightness]
+Control 0x12: +/70/100 C [Contrast]
+Control 0x14: +/11/11 C [???]
+Control 0x16: +/100/100 C [Red maximum level]
+Control 0x18: +/100/100 C [Green maximum level]
+Control 0x1a: +/100/100 C [Blue maximum level]
+Control 0x52: +/0/255   [???]
+Control 0x60: +/17/3 C [Input Source Select (Main)]
+Control 0x62: +/0/100 C [Audio Speaker Volume Adjust]
+Control 0x6c: +/50/100 C [Red minimum level]
+Control 0x6e: +/50/100 C [Green minimum level]
+Control 0x70: +/50/100 C [Blue minimum level]
+Control 0x8d: +/1/2 C [???]
+Control 0xac: +/45864/65281 C [???]
+Control 0xae: +/7460/65535 C [???]
+Control 0xb2: +/1/8   [???]
+Control 0xb6: +/3/4 C [???]
+Control 0xc0: +/19598/65535 C [???]
+Control 0xc6: +/111/65535 C [???]
+Control 0xc8: +/18/65535 C [???]
+Control 0xc9: +/8/65535 C [???]
+Control 0xca: +/2/2   [???]
+Control 0xcc: +/2/255 C [???]
+Control 0xd6: +/1/4 C [DPMS Control - On]
+Control 0xdc: +/4/8   [???]
+Control 0xdf: +/513/65535 C [???]
+Control 0xfe: +/0/255   [???]
+Control 0xff: +/0/1   [???] -->
