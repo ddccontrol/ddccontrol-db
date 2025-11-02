@@ -1,0 +1,227 @@
+<?xml version="1.0"?>
+<!-- This model number is for the DisplayPort-port of the "LG 32BN67UP-B". For HDMI-Ports the type is "GSM774F". -->
+<monitor name="LG 32BN67UP-B (DP)" init="standard">
+	<!-- ioctl(): Inappropriate ioctl for device - Capabilities read fail. -->
+	<!-- Therefore this custom capabilities string was added -->
+	<caps add="(prot(monitor)type(lcd)model(GSM7750)vcp(04 05 08 10 12 15 16 18 1A 62 6C 6E 70 87 8D CC EB F5 F6 F7 F8 F9 FE))"/>
+	<controls>
+		<!-- Control 0x02: +/2/2 C [New Control Value - Some values changed] -->
+		<!-- <control id="newcontrolvalue" address="0x02"/> -->
+		<!-- Control 0x04: +/0/255 C [Restore Factory Defaults] -->
+		<control id="defaults" address="0x04" delay="2000"/>
+		<!-- Control 0x05: +/0/1 C [Restore Brightness and Contrast] -->
+		<control id="defaultluma" address="0x05" delay="2000"/>
+		<!-- Control 0x08: +/0/255 C [Restore Factory Default Color] -->
+		<control id="defaultcolor" address="0x08" delay="2000"/>
+		<!-- Control 0x10: +/42/100 C [Brightness] -->
+		<control id="brightness" address="0x10"/>
+		<!-- Control 0x12: +/70/100 C [Contrast] -->
+		<control id="contrast" address="0x12"/>
+
+		<!-- Control 0x15: +/11/255 C [???] -->
+		<!-- Picture Mode -->
+		<control id="lgmode" address="0x15" delay="500">
+			<value id="custom" value="0x0B"/>
+			<value id="vivid" value="0x31"/>
+			<value id="hdreffect" value="0x27"/>
+			<value id="reader" value="0x01"/>
+			<value id="cinema" value="0x30"/>
+			<value id="fps" value="0x1E"/>
+			<value id="rts" value="0x1F"/>
+			<value id="colorweaknes" value="0x06"/>
+		</control>
+
+		<!-- Control 0x16: +/50/100 C [Red maximum level] -->
+		<control id="red" address="0x16"/>
+		<!-- Control 0x18: +/50/100 C [Green maximum level] -->
+		<control id="green" address="0x18"/>
+		<!-- Control 0x1a: +/50/100 C [Blue maximum level] -->
+		<control id="blue" address="0x1A"/>
+
+		<!-- Control 0x60: +/0/18 C [Input Source Select (Main)] -->
+		<!-- stays 0x00 for each input -->
+		<!-- <control id="inputsource" type="list" address="0x60"> -->
+				<!-- <value id="dp" value="0x00"/> -->
+				<!-- <value id="hdmi1" value="0x01"/> -->
+				<!-- <value id="hdmi2" value="0x02"/> -->
+		<!-- </control> -->
+	
+		<!-- Control 0x62: +/0/100 C [Audio Speaker Volume Adjust] -->
+		<control id="audiospeakervolume" address="0x62"/>
+
+		<!-- Control 0x6c: +/128/100   [???] -->
+		<!-- Red minimum level -->
+		<control id="redblack" address="0x6C"/>
+		<!-- Control 0x6e: +/128/100   [???] -->
+		<!-- Green minimum level -->
+		<control id="greenblack" address="0x6E"/>
+		<!-- Control 0x70: +/128/100   [???] -->
+		<!-- Blue minimum level -->
+		<control id="blueblack" address="0x70"/>
+
+		<!-- Control 0x87: +/60/100   [???] -->
+		<!-- SHARPNESS can have these values [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100] -->
+		<!-- Any value in-between these ranges will be automatically truncated to the nearest smallest value -->
+		<control id="sharpness" type="list" address="0x87"/>
+
+		<!-- Control 0x8d: +/2/100 C [???] -->
+		<!-- Audio Speaker Mute - Unmute -->
+		<control id="audiospeakermute" address="0x8D">
+			<value id="mute" value="0x01"/>
+			<value id="unmute" value="0x02"/>	
+		</control>	
+
+		<!-- Control 0xc0: +/3926/65535 C [???] -->
+		<!-- Total Power On Time (in h) -->
+
+		<!-- Control 0xcc: +/0/16   [???] -->
+		<!-- Language -->
+		<control id="language" name="Language" address="0xCC">
+			<value id="english" value="0x00"/>
+			<value id="german" value="0x01"/>
+			<value id="french" value="0x02"/>
+			<value id="spanish" value="0x03"/>
+			<value id="italian" value="0x04"/>
+			<value id="swedish" value="0x05"/>
+			<value id="finnish" value="0x06"/>
+			<value id="portuguese" value="0x07"/>
+			<value id="brazilian" value="0x08"/>
+			<value id="polish" value="0x09"/>
+			<value id="russian" value="0x0A"/>
+			<value id="greek" value="0x0B"/>
+			<value id="ukrainian" value="0x0C"/>
+			<value id="chinese" value="0x0D"/>
+			<value id="chinese_tw" value="0x0E"/>
+			<value id="japanese" value="0x0F"/>
+			<value id="korean" value="0x10"/>
+			<value id="hindi" value="0x11"/>
+		</control>
+
+		<!-- Control 0xd6: +/1/5 C [DPMS Control - On] -->
+		<!-- could not vary the value - always 0x01 -->
+		<!-- <control id="power" address="0xD6">
+			<value id="on" value="0x01"/>
+			<value id="off" value="0x05"/>
+		</control> -->
+
+		<!-- Control 0xeb: +/0/1   [OSD Lock] -->
+		<control id="osdlock" address="0xEB">
+			<value id="off" value="0x00"/>
+			<value id="on" value="0x01"/>
+		</control>
+
+		<!-- Control 0xf5: +/2/255 C [???] -->
+		<!-- Aspect Ratio -->
+		<control id="ratio" address="0xF5">
+			<value id="justscan" name="Just Scan" value="0x00" />
+			<value id="wide" name="Full Wide" value="0x01"/>
+			<value id="original" name="Original" value="0x02"/>
+		</control>
+
+		<!-- Control 0xf6: +/2/255 C [???] -->
+		<!-- SMART ENERGY SAVING -->
+		<control id="energysaving" address="0xF6">
+			<value id="off" value="0x00"/>
+			<value id="low" value="0x01"/>
+			<value id="high" value="0x02"/>
+		</control>
+		
+		<!-- Control 0xf7: +/2/255 C [???] -->
+		<!-- Response Time -->
+		<control id="responsetime" address="0xF7">
+			<value id="off" name="Just Scan" value="0x00"/>
+			<value id="high" name="Faster" value="0x01"/>
+			<value id="middle" name="Fast" value="0x02"/>
+			<value id="low" name="Normal" value="0x03"/>
+		</control>
+
+		<!-- Control 0xf8: +/3/255 C [???] -->
+		<!-- FreeSync -->
+		<control id="freesync" address="0xF8">
+			<value id="off" value="0x00"/>
+			<value id="base" value="0x02"/>
+			<value id="extended" value="0x03"/>
+		</control>
+
+		<!-- Control 0xf9: +/50/255 C [???] -->
+		<!-- Black Stabilizer - scale is incorrect -->
+		<!-- <control id="blackstabilization" address="0xF9" min="0" max="100"/> -->
+
+		<!-- Control 0xfe: +/16/255 C [???]-->
+		<!-- Gamma - READ ONLY -->
+		<control id="gammamode" address="0xFE">
+			<value id="mode1" value="0x02"/>
+			<value id="mode2" value="0x03"/>
+			<value id="mode3" value="0x04"/>
+			<value id="mode4" value="0x10"/>
+		</control>
+
+	</controls>
+</monitor>
+
+<!-- 
+EDID readings:
+	Plug and Play ID: GSM7750 [LG Standard LCD]
+	Input type: Analog
+
+Controls (valid/current/max) [Description - Value name]:
+Control 0x02: +/2/2 C [New Control Value - Some values changed]
+Control 0x04: +/0/255 C [Restore Factory Defaults]
+Control 0x05: +/0/1 C [Restore Brightness and Contrast]
+Control 0x06: +/0/255   [???]
+Control 0x08: +/0/255 C [Restore Factory Default Color]
+Control 0x0b: +/0/24028   [???]
+Control 0x0c: +/35/100   [???]
+Control 0x0e: +/50/100   [???]
+Control 0x10: +/42/100 C [Brightness]
+Control 0x12: +/70/100 C [Contrast]
+Control 0x14: +/11/11 C [???]
+Control 0x15: +/39/255 C [???]
+Control 0x16: +/50/100 C [Red maximum level]
+Control 0x18: +/50/100 C [Green maximum level]
+Control 0x1a: +/50/100 C [Blue maximum level]
+Control 0x1e: +/0/2   [???]
+Control 0x20: +/0/100   [???]
+Control 0x30: +/0/100   [???]
+Control 0x3e: +/50/100   [???]
+Control 0x45: +/0/255   [???]
+Control 0x4d: +/35/65535 C [???]
+Control 0x4e: +/16384/65535 C [???]
+Control 0x4f: +/6658/65535 C [???]
+Control 0x52: +/0/255 C [???]
+Control 0x60: +/0/18 C [Input Source Select (Main)]
+Control 0x62: +/0/100 C [Audio Speaker Volume Adjust]
+Control 0x6c: +/128/100   [???]
+Control 0x6e: +/128/100   [???]
+Control 0x70: +/128/100   [???]
+Control 0x87: +/60/100   [???]
+Control 0x8d: +/2/100 C [???]
+Control 0xac: +/4028/2 C [???]
+Control 0xae: +/13510/0 C [???]
+Control 0xb6: +/3/5 C [???]
+Control 0xc0: +/3926/65535 C [???]
+Control 0xc6: +/104/65535 C [???]
+Control 0xc8: +/9/255 C [???]
+Control 0xc9: +/775/65535 C [???]
+Control 0xca: +/2/2   [???]
+Control 0xcc: +/0/16   [???]
+Control 0xd6: +/1/5 C [DPMS Control - On]
+Control 0xdf: +/513/255 C [???]
+Control 0xe4: +/0/255 C [???]
+Control 0xe5: +/35/0 C [???]
+Control 0xe7: +/0/65535 C [???]
+Control 0xe8: +/0/255 C [???]
+Control 0xe9: +/178/255 C [???]
+Control 0xea: +/0/255 C [???]
+Control 0xeb: +/0/1 C [???]
+Control 0xef: +/4/65535 C [???]
+Control 0xf4: +/6/65535 C [???]
+Control 0xf5: +/2/255 C [???]
+Control 0xf6: +/2/255 C [???]
+Control 0xf7: +/2/255 C [???]
+Control 0xf8: +/3/255 C [???]
+Control 0xf9: +/50/255 C [???]
+Control 0xfa: +/255/255   [???]
+Control 0xfb: +/2/65535   [???]
+Control 0xfe: +/16/255 C [???] 
+-->
