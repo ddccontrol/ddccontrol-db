@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<monitor name="Iiyama PL3494WQ" init="standard">
+<!--identifies as IVM7631 when connected via DisplayPort-->
+	<caps add="(prot(monitor)type(LCD)model(XCB3494WQSN)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 0B 0C 10 12 14(01 05 06 08 0B) 16 18 1A 52 60(0F 10 11) 62 86(01 02 05) 87 8D(01 02) AC AE B2 B6 C0 C6 C8 C9 CA(01 02) CC(02 03 04 05 06 08 09 0A 12 14 1E) D6(01 05) D8 DC(00 03 05) DF)mswhql(1)asset_eep(40)mccs_ver(2.2))" />
+	<controls>
+		<control id="newcontrolvalue" address="0x02">
+			<value id="nochanges" value="0x01"/>
+			<value id="changed" value="0x02"/>
+		</control>
+		<control id="defaults" address="0x04" delay="2000"/>
+		<control id="defaultluma" address="0x05" delay="2000"/>
+		<control id="defaultcolor" address="0x08" delay="2000"/>
+		<!--control id="colortempinc" address="0x0b"/-->
+		<control id="colortemp" address="0x0c"/>
+		<control id="brightness" address="0x10"/>
+		<control id="contrast" address="0x12"/>
+		<control id="colorpreset" type="list" address="0x14">
+			<value id="srgb" value="0x01"/>
+			<value id="6500k" value="0x05"/>
+			<value id="7500k" value="0x06"/>
+			<value id="9300k" value="0x08"/>
+			<value id="user1" value="0x0b"/>
+		</control>
+		<control id="red" address="0x16"/>
+		<control id="green" address="0x18"/>
+		<control id="blue" address="0x1a"/>
+		<control id="inputsource" type="list" address="0x60">
+			<value id="dp" value="0x0f"/>
+			<value id="usb-c" value="0x10"/>
+			<value id="hdmi" value="0x11"/>
+		</control>
+		<control id="audiospeakervolume" address="0x62"/>
+		<control id="ratio" type="list" address="0x86">
+			<value id="1to1" value="0x01"/>
+			<value id="original" value="0x02"/>
+			<value id="wide" value="0x05"/>
+		</control>
+		<control id="sharpness" address="0x87"/>
+		<control id="audiospeakermute" type="list" address="0x8d">
+			<value id="mute" value="0x01"/>
+			<value id="unmute" value="0x02"/>
+		</control>
+		<!--control id="hsyncfrequency" address="0xac"/-->
+		<!--control id="vsyncfrequency" address="0xae"/-->
+		<!--control id="subpixellayout" address="0xb2"-->
+		<!--control id="technologytype" address="0xb6"-->
+		<!--control id="poweronhours" address="0xc0"/-->
+		<!--control id="applicationenablekey" address="0xc6"/-->
+		<!--control id="controllertype" address="0xc8"/-->
+		<!--control id="firmwarelevel" address="0xc9"/-->
+		<control id="osd" type="list" address="0xca">
+			<value id="disable" value="0x01"/>
+			<value id="enable" value="0x02"/>
+		</control>
+		<control id="language" type="list" address="0xcc">
+			<value id="english" value="0x02"/>
+			<value id="french" value="0x03"/>
+			<value id="german" value="0x04"/>
+			<value id="italian" value="0x05"/>
+			<value id="japanese" value="0x06"/>
+			<value id="portuguese" value="0x08"/>
+			<value id="russian" value="0x09"/>
+			<value id="spanish" value="0x0a"/>
+			<value id="czech" value="0x12"/>
+			<value id="dutch" value="0x14"/>
+			<value id="polish" value="0x1e"/>
+		</control>
+		<control id="dpms" address="0xd6">
+			<value id="on" value="0x01"/>
+			<value id="standby" value="0x04"/><!--value not declared in caps but verified to work-->
+			<value id="off" value="0x05"/>
+		</control>
+		<!--control id="declared_in_caps_but_not_available" address="0xd8"/-->
+		<control id="iiyama_preset" type="list" address="0xdc">
+			<value id="mode0" name="Standard/Default" value="0x00"/>
+			<value id="mode3" name="Movie" value="0x03"/>
+			<value id="mode5" name="Games" value="0x05"/>
+		</control>
+		<!--control id="vcpversion" address="0xdf"-->
+	</controls>
+</monitor>
