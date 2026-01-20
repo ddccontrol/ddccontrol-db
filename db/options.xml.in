@@ -35,6 +35,12 @@
 				<value id="off" name="Off"/>
 				<value id="movie" name="On"/>
 			</control>
+			<!-- Iiyama PL3494WQ (IVM7631) -->
+			<control id="iiyama_preset" type="list" name="Display Mode" refresh="all">
+				<value id="mode0" name="Standard/Default" value="0x00"/>
+				<value id="mode3" name="Movie" value="0x03"/>
+				<value id="mode5" name="Games" value="0x05"/>
+			</control>
 		</subgroup>
 	</group>
 	<group name="Color settings">
