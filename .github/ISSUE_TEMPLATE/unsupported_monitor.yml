@@ -1,4 +1,5 @@
 name: "Unsupported monitor"
+description: "Template for adding a new unsupported monitor issue"
 title: "[monitor] "
 labels: ["unsupported-monitor"]
 body:
