@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<monitor name="ViewSonic VG2253" init="standard">
+  <caps add="(prot(monitor)type(LCD)model(VG2253)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 06 08 0B 0C 10 12 14(01 04 05 06 08 0B) 16 18 1A 52 60(01 0F 10 11) 62 87 8D(01 02) AC AE B2 B6 C6 C8 CA CC(01 02 03 04 05 06 07 09 0A 0C 0D 16) D6(01 04 05) DF)mswhql(1)asset_eep(40)mccs_ver(2.2))" />
+  <controls>
+    <control id="defaults" address="0x04"/>
+    <control id="defaultluma" address="0x05"/>
+    <control id="defaultgeom" address="0x06"/>
+    <control id="defaultcolor" address="0x08"/>
+
+    <control id="brightness" address="0x10"/>
+    <control id="contrast" address="0x12"/>
+    <control id="sharpness" address="0x87"/>
+
+    <control id="colortemp" address="0x0c" refresh="all"/>
+    <control id="colorpreset" type="list" address="0x14" refresh="all">
+      <value id="srgb" value="0x01"/>
+      <value id="5000k" name="5000 K" value="0x04"/>
+      <value id="6500k" name="6500 K" value="0x05"/>
+      <value id="7500k" name="7500 K" value="0x06"/>
+      <value id="9300k" name="9300 K" value="0x08"/>
+      <value id="user1" name="User 1" value="0x0b"/>
+    </control>
+
+    <control id="red" address="0x16"/>
+    <control id="green" address="0x18"/>
+    <control id="blue" address="0x1A"/>
+
+    <control id="inputsource" address="0x60">
+      <value id="vga" value="0x01"/>
+      <value id="dp" value="0x0f"/>
+      <value id="mdp" value="0x10"/>
+      <value id="hdmi" value="0x11"/>
+    </control>
+
+    <control id="audiospeakervolume" address="0x62"/>
+    <control id="audiospeakermute" address="0x8d">
+      <value id="mute" value="01"/>
+      <value id="unmute" value="02"/>
+    </control>
+ 
+    <control id="osd" address="0xca">
+      <value id="disable" value="1"/>
+      <value id="enable" value="2"/>
+    </control>
+
+    <control id="language" address="0xcc">
+      <value id="chinese_tw" value="0x01"/>
+      <value id="english" value="0x02"/>
+      <value id="french" value="0x03"/>
+      <value id="german" value="0x04"/>
+      <value id="italian" value="0x05"/>
+      <value id="japanese" value="0x06"/>
+      <value id="korean" value="0x07"/>
+      <value id="russian" value="0x09"/>
+      <value id="spanish" value="0x0a"/>
+      <value id="turkish" value="0x0c"/>
+      <value id="chinese" value="0x0d"/>
+      <value id="finnish" value="0x16"/>
+    </control>
+
+    <control id="dpms" address="0xd6">
+      <value id="on" value="0x01"/>
+      <value id="standby" value="0x04"/>
+      <value id="off" value="0x05"/>
+    </control>
+
+    <!--
+	Unhandled fields. Most are read-only.
+
+        Feature:  0x02 (New control value)            RW
+        Feature:  0x0b (Color temperature increment)  RO
+	Feature:  0x52 (Active control)               RO
+	Feature:  0xac (Horizontal frequency)         RO
+	Feature:  0xae (Vertical frequency)           RO
+	Feature:  0xb2 (Flat panel sub-pixel layout)  RO
+	Feature:  0xb6 (Display technology type)      RO
+	Feature:  0xc6 (Application enable key)       RO
+	Feature:  0xc8 (Display controller type)      RO
+	Feature:  0xdf (VCP Version)                  RO
+    -->
+  </controls>
+</monitor>
