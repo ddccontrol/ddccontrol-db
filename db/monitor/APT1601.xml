@@ -33,14 +33,13 @@
 		<!-- Control 0xb2: +/1/1   [???] -->
 		<!-- Control 0xb6: +/3/5   [???] -->
 		<!-- Control 0xc6: +/90/255   [???] -->
-		<!-- Control 0xc8: +/9/0   [???] -->
+		<!-- Control 0xc8: +/9/0   [???] (issue data reports max=0) -->
 		<!-- Control 0xc9: +/1/65535   [???] -->
 		<!-- Control 0xca: +/1/2   [???] -->
 		<!-- Control 0xcc: +/2/13   [???] -->
 		<!-- Control 0xd6: +/1/5   [???] -->
 		<!-- Control 0xdf: +/514/65535   [???] -->
-		<!-- Control 0xe6: +/1/0   [???] -->
-		<!-- Note: max value is reported as 0 for 0xc8 and 0xe6 in the issue data. -->
+		<!-- Control 0xe6: +/1/0   [???] (issue data reports max=0) -->
 	</controls>
 
 	<include file="VESA"/>
