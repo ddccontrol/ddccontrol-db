@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/284 -->
+<monitor name="Philips standard LCD" init="standard">
+	<controls>
+		<!-- Controls (valid/current/max) [Description - Value name]: -->
+		<!-- Control 0x02: +/2/2 C [New Control Value - Some values changed] -->
+		<control id="newcontrolvalue" address="0x02">
+			<value id="nochanges" value="1"/>
+			<value id="changed" value="2"/>
+		</control>
+
+		<!-- Control 0x04: +/0/0 C [Restore Factory Defaults] -->
+		<control id="defaults" address="0x04" delay="2000"/>
+		<!-- Control 0x06: +/0/0 C [Restore Factory Default Geometry] -->
+		<control id="defaultgeom" address="0x06" delay="2000"/>
+
+		<!-- Control 0x0b: +/100/100 C [???] -->
+		<!-- Control 0x0c: +/35/85 C [???] -->
+
+		<!-- Control 0x10: +/50/100 C [Brightness] -->
+		<control id="brightness" address="0x10"/>
+		<!-- Control 0x12: +/50/100 C [Contrast] -->
+		<control id="contrast" address="0x12"/>
+		<!-- Control 0x14: +/5/13 C [Color Preset - 6500K] -->
+		<control id="colorpreset" address="0x14">
+			<value id="srgb" value="0x1"/>
+			<value id="native" value="0x2"/>
+			<value id="5000k" value="0x4"/>
+			<value id="6500k" value="0x5"/>
+			<value id="7500k" value="0x6"/>
+			<value id="8200k" value="0x7"/>
+			<value id="9300k" value="0x8"/>
+			<value id="11500k" value="0xA"/>
+			<value id="user1" value="0xB"/>
+		</control>
+		<!-- Control 0x16: +/100/100 C [Red maximum level] -->
+		<control id="red" address="0x16"/>
+		<!-- Control 0x18: +/100/100 C [Green maximum level] -->
+		<control id="green" address="0x18"/>
+		<!-- Control 0x1a: +/100/100 C [Blue maximum level] -->
+		<control id="blue" address="0x1a"/>
+
+		<!-- Control 0x1e: +/0/1   [???] -->
+		<!-- Control 0x52: +/0/255 C [???] -->
+
+		<!-- Control 0x60: +/8725/13589 C [Input Source Select (Main)] -->
+		<control id="inputsource" type="list" address="0x60">
+			<value id="analog" value="1"/>
+			<value id="digital" value="3"/>
+		</control>
+		<!-- Control 0x62: +/40/100 C [Audio Speaker Volume Adjust] -->
+		<control id="audiospeakervolume" address="0x62"/>
+		<!-- Control 0x68: +/0/5   [???] -->
+		<!-- Control 0x6c: +/50/100 C [Red minimum level] -->
+		<control id="redblack" address="0x6c"/>
+		<!-- Control 0x6e: +/50/100 C [Green minimum level] -->
+		<control id="greenblack" address="0x6e"/>
+		<!-- Control 0x70: +/50/100 C [Blue minimum level] -->
+		<control id="blueblack" address="0x70"/>
+		<!-- Control 0x72: +/120/160 C [???] -->
+		<!-- Control 0x86: +/0/27 C [???] -->
+		<!-- Control 0x87: +/50/100 C [???] -->
+		<!-- Control 0x8d: +/2/2 C [???] -->
+		<!-- Control 0xa4: +/0/65535 C [???] -->
+		<!-- Control 0xa5: +/0/65535 C [???] -->
+		<!-- Control 0xa8: +/0/3   [???] -->
+		<!-- Control 0xaa: +/1/5   [???] -->
+		<!-- Control 0xac: +/23364/1 C [???] -->
+		<!-- Control 0xae: +/6003/0 C [???] -->
+		<!-- Control 0xb4: +/1/2   [???] -->
+		<!-- Control 0xb6: +/3/8 C [???] -->
+		<!-- Control 0xc0: +/749/65535 C [???] -->
+		<!-- Control 0xc6: +/111/65535 C [???] -->
+		<!-- Control 0xc8: +/5/65302 C [???] -->
+		<!-- Control 0xc9: +/10/65535 C [???] -->
+		<!-- Control 0xca: +/2/2 C [???] -->
+		<!-- Control 0xcc: +/2/36 C [???] -->
+
+		<!-- Control 0xd6: +/1/4 C [DPMS Control - On] -->
+		<control id="dpms" address="0xd6">
+			<value id="on" value="1"/>
+			<value id="standby" value="4"/>
+		</control>
+
+		<!-- Control 0xda: +/0/2 C [???] -->
+		<!-- Control 0xdc: +/0/5 C [???] -->
+		<!-- Control 0xdf: +/768/255 C [???] -->
+		<!-- Control 0xe0: +/5/5 C [???] -->
+		<!-- Control 0xe6: +/1/1   [???] -->
+		<!-- Control 0xe9: +/0/2 C [???] -->
+		<!-- Control 0xeb: +/0/255   [???] -->
+		<!-- Control 0xec: +/0/1027 C [???] -->
+		<!-- Control 0xed: +/1/1 C [???] -->
+		<!-- Control 0xee: +/1/515 C [???] -->
+		<!-- Control 0xef: +/255/255 C [???] -->
+		<!-- Control 0xf0: +/0/1 C [???] -->
+		<!-- Control 0xf2: +/3/4 C [???] -->
+		<!-- Control 0xf7: +/66/66 C [???] -->
+		<!-- Control 0xf9: +/0/4   [???] -->
+	</controls>
+
+	<include file="VESA"/>
+</monitor>
