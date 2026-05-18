@@ -17,6 +17,7 @@
 		<!-- Keep VESA defaults for 0x60 for now; monitor-specific enum mapping remains unverified. -->
 
 		<!-- Unknown controls from the issue output (left commented for future investigation): -->
+		<!-- Some scan entries have inconsistent current/max values; kept verbatim and unverified. -->
 		<!-- Control 0x06: +/0/255   [???] -->
 		<!-- Control 0x0b: +/0/24028   [???] -->
 		<!-- Control 0x0c: +/35/100   [???] -->
