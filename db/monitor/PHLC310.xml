@@ -22,6 +22,7 @@
 		<!-- Control 0x12: +/50/100 C [Contrast] -->
 		<control id="contrast" address="0x12"/>
 		<!-- Control 0x14: +/5/13 C [Color Preset - 6500K] -->
+		<!-- Preset mapping follows the existing Philips generic profile (PHLlcd). -->
 		<control id="colorpreset" address="0x14">
 			<value id="srgb" value="0x1"/>
 			<value id="native" value="0x2"/>
@@ -65,6 +66,7 @@
 		<!-- Control 0xa5: +/0/65535 C [???] -->
 		<!-- Control 0xa8: +/0/3   [???] -->
 		<!-- Control 0xaa: +/1/5   [???] -->
+		<!-- Reported current values for 0xac/0xae exceed the reported max from probe output. -->
 		<!-- Control 0xac: +/23364/1 C [???] -->
 		<!-- Control 0xae: +/6003/0 C [???] -->
 		<!-- Control 0xb4: +/1/2   [???] -->
