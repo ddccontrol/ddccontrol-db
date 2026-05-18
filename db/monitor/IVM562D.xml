@@ -4,7 +4,7 @@
 	<caps add="(prot(monitor)type(LCD)model(IIYAMA)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 06 08 0B 0C 0E 10 12 14(01 02 04 05 06 08 0B) 16 18 1A 1E 1F 20 30 3E 52 60(01 03 0F) 62 6E 6C 70 87 AC AE B2 B6 C6 C8 C9 CA CC(02 03 04 06 09 14 1E) D6(01 04) DF FD FF)mswhql(1)asset_eep(40)mccs_ver(2.2)"/>
  <!-- Capabilities as originally returned by "ddccontrol -c -d" (with gaps inserted for easy comparison):
 	           (prot(monitor)type(LCD)model(IIYAMA)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 06 08 0B 0C    10 12 14(01 02 04 05 06 08 0B) 16 18 1A                52 60(01 03 0F) 62          87 AC AE B2 B6 C6 C8    CA CC(02 03 04 06 09 14 1E) D6(01 04) DF FD FF)mswhql(1)asset_eep(40)mccs_ver(2.2)
- Manually added "sucessfully probed features": 0E, 1E, 1F, 20, 30, 3E, 6E, 6C, 70, C9.
+ Manually added "successfully probed features": 0E, 1E, 1F, 20, 30, 3E, 6E, 6C, 70, C9.
  This file includes all capabilities, those being "claimed" by the monitor,
  as well as everything which could be "probed".
  Anything I found to "not really work" is commented out below.
@@ -35,8 +35,8 @@
 			BUT TAKES EFFECT ONLY AFTER SWITCHING AS WELL ONCE AGAIN TO THE "custom" COLOUR TEMPERATURE SETTING, EVEN IF THIS IS ALREADY CURRENTLY ACTIVE ("native" DISPLAYED). -->
 <!--		<control id="colorreturn" type="value" name="CT Increment" address="0x0B"/> INCLUDED IN CAPABILITIES, BUT APPARENTLY NOT CHANGEABLE! (I TRIED TO "ABUSE" THE ID "colorreturn" for 0x0B)
 		<control id="colortemp" address="0x0C"/> WORKS, BUT CHANGES THE COLOUR TEMPERATURE (FIXED PRESET VALUES ONLY) NON-INTUITIVELY WHEN USING "gddccontrol"!
-					COMMENTED OUT, BECAUSE 0x14 BELOW EFFECTIVELY PROVIDES THE SAME FUNCIONALITY, BUT BETTER, DUE TO BEING (ALMOST) SELF-EXPLANATORY.
-	NOT IN CAPABILITIES, SUCESSFULLY PROBED, BUT NO EFFECT:
+					COMMENTED OUT, BECAUSE 0x14 BELOW EFFECTIVELY PROVIDES THE SAME FUNCTIONALITY, BUT BETTER, DUE TO BEING (ALMOST) SELF-EXPLANATORY.
+	NOT IN CAPABILITIES, SUCCESSFULLY PROBED, BUT NO EFFECT:
 		<control id="coarse" type="value" name="Image Lock Coarse (Clock)" address="0x0e"/> VALUE 50 NOT CHANGEABLE -->
 		<control id="brightness" address="0x10"/>
 		<control id="contrast" address="0x12"/>
@@ -57,7 +57,7 @@
 		<control id="red" address="0x16"/>
 		<control id="green" address="0x18"/>
 		<control id="blue" address="0x1A"/>
-<!--	5 FOLLOWING SETTINGS NOT IN CAPABILITIES, BUT NO EFFECT DESPITE SUCESSFULLY "PROBED":
+<!--	5 FOLLOWING SETTINGS NOT IN CAPABILITIES, BUT NO EFFECT DESPITE SUCCESSFULLY "PROBED":
 		<control id="auto" type="command" name="Automatically adjust" address="0x1E">		NO EFFECT
 		<control id="autolevel" type="command" address="0x1F"/> (I TRIED TO "ABUSE" THE ID "autolevel" for 0x1F) NO EFFECT
 		<control id="hpos" type="value" name="Horizontal Position" address="0x20"/>		VALUE 50 NOT CHANGEABLE
