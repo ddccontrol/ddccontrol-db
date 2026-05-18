@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!-- https://github.com/ddccontrol/ddccontrol-db/issues/284 -->
-<monitor name="Philips standard LCD" init="standard">
+<monitor name="Philips PHLC310" init="standard">
 	<controls>
 		<!-- Controls (valid/current/max) [Description - Value name]: -->
 		<!-- Control 0x02: +/2/2 C [New Control Value - Some values changed] -->
@@ -30,8 +30,8 @@
 			<value id="7500k" value="0x6"/>
 			<value id="8200k" value="0x7"/>
 			<value id="9300k" value="0x8"/>
-			<value id="11500k" value="0xA"/>
-			<value id="user1" value="0xB"/>
+			<value id="11500k" value="0xa"/>
+			<value id="user1" value="0xb"/>
 		</control>
 		<!-- Control 0x16: +/100/100 C [Red maximum level] -->
 		<control id="red" address="0x16"/>
