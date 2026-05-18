@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+<monitor name="Lenovo ThinkVision E27q-20" init="standard">
+	<caps
+		add="(prot(monitor)type(LCD)model(ThinkVision E27q-20)cmds(01 02 03 07 0C E3 F3)vcp(02 04(4C 31 2E 31) 05 08 10 12 14(01 05 06 08 0B) 16 18 1A 52 60(0F 11) 62 AC AE B2 B6 C6(02 01 C7 00 A0 E0 00 D8 00 C0 00 00 08 00 44 00 00) C8 CA CC(02 03 04 05 06 09 0A 0D) D6(01 04 05) DF E0(00 01 02) EA(00 01) EB(00 01) F0(11 0F) FA(10 12 EA 14 DC) FD)mswhql(1)asset_eep(40)mccs_ver(2.2))"
+	/>
+	<controls>
+		<control id="newcontrolvalue" address="0x02">
+			<value id="nochanges" value="1" />
+			<value id="changed" value="2" />
+		</control>
+
+		<control id="defaults" address="0x04" delay="2000" />
+		<control id="defaultluma" address="0x05" delay="2000" />
+		<control id="defaultcolor" address="0x08" delay="2000" />
+
+		<control id="brightness" address="0x10" />
+		<control id="contrast" address="0x12" />
+
+		<control id="colorpreset" type="list" address="0x14">
+			<value id="srgb" value="1" />
+			<value id="6500k" value="5" />
+			<value id="7500k" value="6" />
+			<value id="9300k" value="8" />
+			<value id="user1" value="11" />
+		</control>
+
+		<control id="red" address="0x16" />
+		<control id="green" address="0x18" />
+		<control id="blue" address="0x1A" />
+
+		<control id="inputsource" type="list" address="0x60">
+			<value id="dp1" value="15" />
+			<value id="hdmi1" value="11" />
+		</control>
+
+		<control id="audiospeakervolume" address="0x62" />
+
+		<control id="osd" type="list" address="0xCA">
+			<value id="disable" value="1" />
+			<value id="enable" value="2" />
+		</control>
+
+		<control id="language" type="list" address="0xCC">
+			<value id="english" value="2" />
+			<value id="french" value="3" />
+			<value id="german" value="4" />
+			<value id="italian" value="5" />
+			<value id="japanese" value="6" />
+			<value id="russian" value="9" />
+			<value id="spanish" value="10" />
+			<value id="chinese" value="13" />
+		</control>
+
+		<control id="dpms" type="list" address="0xD6">
+			<value id="on" value="1" />
+			<value id="standby" value="4" />
+		</control>
+
+	</controls>
+</monitor>
