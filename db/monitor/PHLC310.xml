@@ -45,6 +45,7 @@
 		<!-- Control 0x52: +/0/255 C [???] -->
 
 		<!-- Control 0x60: +/8725/13589 C [Input Source Select (Main)] -->
+		<!-- Probe current value (8725) does not map cleanly to VESA values; keep generic mapping for now. -->
 		<control id="inputsource" type="list" address="0x60">
 			<value id="analog" value="1"/>
 			<value id="digital" value="3"/>
@@ -87,6 +88,7 @@
 
 		<!-- Control 0xda: +/0/2 C [???] -->
 		<!-- Control 0xdc: +/0/5 C [???] -->
+		<!-- Control 0xdf reports current 768 with max 255 in probe output; kept verbatim for traceability. -->
 		<!-- Control 0xdf: +/768/255 C [???] -->
 		<!-- Control 0xe0: +/5/5 C [???] -->
 		<!-- Control 0xe6: +/1/1   [???] -->
