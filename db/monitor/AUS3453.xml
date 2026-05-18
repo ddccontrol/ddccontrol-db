@@ -28,7 +28,7 @@
 			<value id="style-6" value="0x0c"/>
 		</control>
 
-		<!-- Controls (valid/current/max) [Description - Value name]: -->
+		<!-- Controls (valid/current/max) [Description - Value name], copied verbatim from issue report: -->
 		<!-- Control 0x05: +/0/1   [???] -->
 		<!-- Control 0x06: +/0/1   [???] -->
 		<!-- Control 0x0b: +/100/0   [???] -->
