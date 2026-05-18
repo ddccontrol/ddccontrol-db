@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/274 -->
+<monitor name="BenQ EW2440" init="standard">
+	<!-- Capabilities reported in issue #274 -->
+	<!-- ioctl(): Inappropriate ioctl for device -->
+	<!-- ioctl returned -1 -->
+	<!-- Capabilities read fail. -->
+
+	<!-- Unknown controls were not enumerated in the issue output due capability read failure. -->
+
+	<include file="VESA"/>
+</monitor>
