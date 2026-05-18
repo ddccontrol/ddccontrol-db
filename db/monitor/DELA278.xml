@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!-- Based on: https://github.com/ddccontrol/ddccontrol-db/issues/299 -->
+<monitor name="Dell Pro 34 Plus USB-C Hub Monitor - P3425WE" init="standard">
+<controls>
+<!-- Controls (valid/current/max) [Description - Value name]: -->
+
+<!-- Control 0x02: +/2/2 C [New Control Value - Some values changed] -->
+<control id="newcontrolvalue" address="0x02">
+<value id="nochanges" value="1"/>
+<value id="changed" value="2"/>
+</control>
+
+<!-- Control 0x03: +/2/255   [???] -->
+
+<!-- Control 0x04: +/0/255 C [Restore Factory Defaults] -->
+<control id="defaults" address="0x04" delay="2000"/>
+<!-- Control 0x05: +/0/1 C [Restore Brightness and Contrast] -->
+<control id="defaultluma" address="0x05" delay="2000"/>
+<!-- Control 0x06: +/0/255   [???] -->
+<!-- Control 0x08: +/0/255 C [Restore Factory Default Color] -->
+<control id="defaultcolor" address="0x08" delay="2000"/>
+<!-- Control 0x0b: +/0/24028   [???] -->
+<!-- Control 0x0c: +/1/255   [???] -->
+<!-- Control 0x0e: +/50/100   [???] -->
+
+<!-- Control 0x10: +/0/100 C [Brightness] -->
+<control id="brightness" address="0x10"/>
+<!-- Control 0x12: +/75/100 C [Contrast] -->
+<control id="contrast" address="0x12"/>
+<!-- Control 0x14: +/5/12 C [???] -->
+
+<!-- Control 0x16: +/100/100 C [Red maximum level] -->
+<control id="red" address="0x16"/>
+<!-- Control 0x18: +/100/100 C [Green maximum level] -->
+<control id="green" address="0x18"/>
+<!-- Control 0x1a: +/100/100 C [Blue maximum level] -->
+<control id="blue" address="0x1a"/>
+
+<!-- Control 0x1e: +/0/2   [???] -->
+<!-- Control 0x20: +/0/100   [???] -->
+<!-- Control 0x30: +/0/100   [???] -->
+<!-- Control 0x3e: +/50/100   [???] -->
+<!-- Control 0x52: +/18/255 C [???] -->
+
+<!-- Control 0x60: +/4369/14 C [Input Source Select (Main)] -->
+<!-- The reported current value (4369 / 0x1111) does not map 1:1 to per-input values.
+     These values follow the same Dell ultrawide input mapping used in DELA181. -->
+<control id="inputsource" type="list" address="0x60">
+<value id="usb-c" value="0xf1b"/>
+<value id="dp" value="0xf0f"/>
+<value id="hdmi1" value="0xf11"/>
+<value id="hdmi2" value="0xf12"/>
+</control>
+
+<!-- Control 0x62: +/50/100   [???] -->
+<!-- Control 0x6c: +/50/255   [???] -->
+<!-- Control 0x6e: +/50/255   [???] -->
+<!-- Control 0x70: +/50/255   [???] -->
+<!-- Control 0x87: +/50/100 C [???] -->
+<!-- Control 0xa8: +/0/3   [???] -->
+<!-- Control 0xac: +/23364/1 C [???] -->
+<!-- Control 0xae: +/6003/0 C [???] -->
+<!-- Control 0xb2: +/1/8 C [???] -->
+<!-- Control 0xb4: +/1/2   [???] -->
+<!-- Control 0xb6: +/3/5 C [???] -->
+<!-- Control 0xc0: +/144/65535   [???] -->
+<!-- Control 0xc6: +/17868/65535 C [???] -->
+<!-- Control 0xc8: +/22021/0 C [???] -->
+<!-- Control 0xc9: +/16643/65535 C [???] -->
+<!-- Control 0xca: +/0/255 C [???] -->
+<!-- Control 0xcc: +/2/14 C [???] -->
+
+<!-- Control 0xd6: +/1/255 C [DPMS Control - On] -->
+<control id="dpms" address="0xd6">
+<value id="on" value="1"/>
+<value id="standby" value="4"/>
+<value id="off" value="5"/>
+</control>
+
+<!-- Control 0xdc: +/0/255 C [???] -->
+<!-- Control 0xde: +/0/0   [???] -->
+<!-- Control 0xdf: +/513/255 C [???] -->
+<!-- Control 0xe0: +/0/1 C [???] -->
+<!-- Control 0xe2: +/0/255 C [???] -->
+<!-- Control 0xe3: +/0/1   [???] -->
+<!-- Control 0xe5: +/0/2 C [???] -->
+<!-- Control 0xe7: +/5120/65535 C [???] -->
+<!-- Control 0xe8: +/27/65535 C [???] -->
+<!-- Control 0xe9: +/0/255 C [???] -->
+<!-- Control 0xea: +/63489/63489 C [???] -->
+<!-- Control 0xee: +/65288/65535 C [???] -->
+<!-- Control 0xf1: +/24842/24842 C [???] -->
+<!-- Control 0xf2: +/0/65280 C [???] -->
+<!-- Control 0xfa: +/0/65535   [???] -->
+<!-- Control 0xfd: +/98/65535 C [???] -->
+<!-- Control 0xfe: +/160/65535 C [???] -->
+</controls>
+</monitor>
