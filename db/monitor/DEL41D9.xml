@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<monitor name="DELL S2721DGFA" init="standard">
+  <caps add="(prot(monitor)type(LCD)model(S2721DGFA)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 10 12 14(05 08 0B 0C) 16 18 1A 52 60(0F 11 12 ) 62 AC AE B2 B6 C6 C8 C9 CA CC(02 0A 03 04 08 09 0D 06 ) D6(01 04 05) DC(00 05 ) DF E0 E1 E2(00 20 21 22 2F 04 1E 1F 1D 0E 12 14 27 23 24 3A ) E3 EA(FE00 FE01) F0(0D 0E 0C 0F 10 11 13 31 32 34 36 ) F1 F2 FD)mswhql(1)asset_eep(40)mccs_ver(2.1))"/>
+  <controls>
+    <control id="newcontrolvalue" address="0x02"/>
+    <control id="defaults" address="0x04" delay="2000"/>
+    <control id="defaultluma" address="0x05" delay="2000"/>
+    <control id="defaultcolor" address="0x08" delay="2000"/>
+    <control id="brightness" address="0x10"/>
+    <control id="contrast" address="0x12"/>
+    <!-- [Color preset] -->
+    <control id="preset" type="list" address="0x14" refresh="all">
+      <value id="standard" value="0x01"/>
+      <value id="cool" value="0x08"/>
+      <value id="warm" value="0x0b"/>
+      <value id="custom" value="0x0c"/>
+    </control>
+    <control id="red" address="0x16"/>
+    <control id="green" address="0x18"/>
+    <control id="blue" address="0x1A"/>
+    <control id="audiospeakervolume" address="0x62"/>
+    <control id="buttonaccess" address="0xCA">
+      <value id="locked" value="0x1"/>
+      <value id="unlocked" value="0x2"/>
+    </control>
+    <control id="language" type="list" address="0xcc">
+      <value id="english" value="0x02"/>
+      <value id="spanish" value="0x0a"/>
+      <value id="french" value="0x03"/>
+      <value id="german" value="0x04"/>
+      <value id="brazilian" value="0x08"/>
+      <value id="russian" value="0x09"/>
+      <value id="chinese" value="0x0d"/>
+      <value id="japanese" value="0x06"/>
+    </control>
+    <control id="inputsource" type="list" address="0x60">
+      <value id="digital" value="0x00"/> <!-- Auto option -->
+      <value id="dp" value="0x0F"/>
+      <value id="hdmi1" value="0x11"/>
+      <value id="hdmi2" value="0x12"/>
+    </control>
+    <control id="preset_gamemode" address="0xdc" refresh="all" delay="2000">
+      <value id="standard" value="0x00"/>
+      <value id="game1" value="0x05"/>
+    </control>
+    <control id="energysaving2" type="boolean" address="0xE0">
+      <value id="off" value="0x00"/>
+      <value id="on" value="0x01"/>
+    </control>
+    <control id="power" type="list" address="0xe1">
+      <value id="on" value="0"/>
+      <value id="off" value="1"/>
+    </control>
+    <control id="preset_profile" type="list" address="0xf0" refresh="all" delay="2000">
+      <!-- 0x00  monitor crashe only read)-->
+      <value id="fps" value="0x0f"/>
+      <value id="rts" value="0x10"/>
+      <value id="rpg" value="0x11"/>
+      <value id="sport" value="0x13"/>
+      <value id="game2" value="0x0d"/>
+      <value id="game3" value="0x0e"/>
+      <value id="comfort" value="0x0c"/>
+    </control>
+    <control id="dpms" address="0xd6">
+      <value id="on" value="1"/>
+      <value id="standby" value="4"/>
+      <value id="off" value="5"/>
+    </control>
+  </controls>
+</monitor>
