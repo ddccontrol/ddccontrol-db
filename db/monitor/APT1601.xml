@@ -1,47 +1,47 @@
 <?xml version="1.0"?>
 <!-- https://github.com/ddccontrol/ddccontrol-db/issues/309 -->
 <monitor name="UPerfect B118" init="standard">
-<controls>
-<!-- Model name from issue title; EDID output reports only "VESA standard monitor". -->
-<!-- Control 0x02: +/1/2 C [New Control Value - No changes] -->
-<!-- Provided by <include file="VESA"/>: <control id="newcontrolvalue" address="0x02"/> -->
+	<controls>
+		<!-- Model name from issue title; EDID output reports only "VESA standard monitor". -->
+		<!-- Control 0x02: +/1/2 C [New Control Value - No changes] -->
+		<!-- Provided by <include file="VESA"/>: <control id="newcontrolvalue" address="0x02"/> -->
 
-<!-- Control 0x04: +/0/1   [???] -->
-<!-- Control 0x05: +/0/1   [???] -->
-<!-- Control 0x06: +/0/1   [???] -->
-<!-- Control 0x08: +/0/1   [???] -->
-<!-- Control 0x0b: +/100/0   [???] -->
-<!-- Control 0x0c: +/35/63   [???] -->
-<!-- Control 0x10: +/50/100   [???] -->
-<!-- Control 0x12: +/50/100   [???] -->
-<!-- Control 0x14: +/11/11   [???] -->
-<!-- Control 0x16: +/48/100   [???] -->
-<!-- Control 0x18: +/48/100   [???] -->
-<!-- Control 0x1a: +/50/100   [???] -->
-<!-- Control 0x1e: +/0/1   [???] -->
-<!-- Control 0x20: +/0/100   [???] -->
-<!-- Control 0x30: +/0/100   [???] -->
-<!-- Control 0x52: +/0/100   [???] -->
-<!-- Control 0x60: +/0/100   [???] -->
-<!-- Control 0x62: +/100/100   [???] -->
-<!-- Control 0x6c: +/80/100   [???] -->
-<!-- Control 0x6e: +/80/100   [???] -->
-<!-- Control 0x70: +/80/100   [???] -->
-<!-- Control 0x87: +/2/4   [???] -->
-<!-- Control 0xac: +/3/892   [???] -->
-<!-- Control 0xae: +/12010/65535   [???] -->
-<!-- Control 0xb2: +/1/1   [???] -->
-<!-- Control 0xb6: +/3/5   [???] -->
-<!-- Control 0xc6: +/90/255   [???] -->
-<!-- Control 0xc8: +/9/0   [???] -->
-<!-- Control 0xc9: +/1/65535   [???] -->
-<!-- Control 0xca: +/1/2   [???] -->
-<!-- Control 0xcc: +/2/13   [???] -->
-<!-- Control 0xd6: +/1/5   [???] -->
-<!-- Control 0xdf: +/514/65535   [???] -->
-<!-- Control 0xe6: +/1/0   [???] -->
-<!-- Note: max value is reported as 0 for 0xc8 and 0xe6 in the issue data. -->
-</controls>
+		<!-- Control 0x04: +/0/1   [???] -->
+		<!-- Control 0x05: +/0/1   [???] -->
+		<!-- Control 0x06: +/0/1   [???] -->
+		<!-- Control 0x08: +/0/1   [???] -->
+		<!-- Control 0x0b: +/100/0   [???] -->
+		<!-- Control 0x0c: +/35/63   [???] -->
+		<!-- Control 0x10: +/50/100   [???] -->
+		<!-- Control 0x12: +/50/100   [???] -->
+		<!-- Control 0x14: +/11/11   [???] -->
+		<!-- Control 0x16: +/48/100   [???] -->
+		<!-- Control 0x18: +/48/100   [???] -->
+		<!-- Control 0x1a: +/50/100   [???] -->
+		<!-- Control 0x1e: +/0/1   [???] -->
+		<!-- Control 0x20: +/0/100   [???] -->
+		<!-- Control 0x30: +/0/100   [???] -->
+		<!-- Control 0x52: +/0/100   [???] -->
+		<!-- Control 0x60: +/0/100   [???] -->
+		<!-- Control 0x62: +/100/100   [???] -->
+		<!-- Control 0x6c: +/80/100   [???] -->
+		<!-- Control 0x6e: +/80/100   [???] -->
+		<!-- Control 0x70: +/80/100   [???] -->
+		<!-- Control 0x87: +/2/4   [???] -->
+		<!-- Control 0xac: +/3/892   [???] -->
+		<!-- Control 0xae: +/12010/65535   [???] -->
+		<!-- Control 0xb2: +/1/1   [???] -->
+		<!-- Control 0xb6: +/3/5   [???] -->
+		<!-- Control 0xc6: +/90/255   [???] -->
+		<!-- Control 0xc8: +/9/0   [???] -->
+		<!-- Control 0xc9: +/1/65535   [???] -->
+		<!-- Control 0xca: +/1/2   [???] -->
+		<!-- Control 0xcc: +/2/13   [???] -->
+		<!-- Control 0xd6: +/1/5   [???] -->
+		<!-- Control 0xdf: +/514/65535   [???] -->
+		<!-- Control 0xe6: +/1/0   [???] -->
+		<!-- Note: max value is reported as 0 for 0xc8 and 0xe6 in the issue data. -->
+	</controls>
 
-<include file="VESA"/>
+	<include file="VESA"/>
 </monitor>
