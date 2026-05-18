@@ -2,6 +2,7 @@
 <!-- https://github.com/ddccontrol/ddccontrol-db/issues/309 -->
 <monitor name="UPerfect B118" init="standard">
 <controls>
+<!-- Model name from issue title; EDID output reports only "VESA standard monitor". -->
 <!-- Control 0x02: +/1/2 C [New Control Value - No changes] -->
 <!-- Provided by <include file="VESA"/>: <control id="newcontrolvalue" address="0x02"/> -->
 
@@ -39,6 +40,7 @@
 <!-- Control 0xd6: +/1/5   [???] -->
 <!-- Control 0xdf: +/514/65535   [???] -->
 <!-- Control 0xe6: +/1/0   [???] -->
+<!-- Note: max value is reported as 0 for 0xc8 and 0xe6 in the issue data. -->
 </controls>
 
 <include file="VESA"/>
