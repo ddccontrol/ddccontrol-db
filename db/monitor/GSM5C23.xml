@@ -5,9 +5,10 @@
 		Conservative profile based on issue-provided scan output.
 		Do not expose reset-style controls until explicitly validated.
 	-->
-	<caps add="(type(lcd)vcp(02 04 05 08 10 12 16 18 1A 60 62 D6))" remove="(vcp(04 05 08))"/>
+	<caps add="(type(lcd)vcp(02 10 12 16 18 1A 60 62 D6))"/>
 	<controls>
-		<!-- Known controls from issue output kept disabled due destructive behavior risk: -->
+		<!-- Known controls from issue output kept disabled due to destructive behavior risk. -->
+		<!-- Scan format reminder: +/current/max C [Description] -->
 		<!-- Control 0x04: +/0/255 C [Restore Factory Defaults] -->
 		<!-- Control 0x05: +/0/1 C [Restore Brightness and Contrast] -->
 		<!-- Control 0x08: +/0/255 C [Restore Factory Default Color] -->
