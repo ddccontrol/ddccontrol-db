@@ -66,7 +66,8 @@
 		<!-- Control 0xa5: +/0/65535 C [???] -->
 		<!-- Control 0xa8: +/0/3   [???] -->
 		<!-- Control 0xaa: +/1/5   [???] -->
-		<!-- Reported current values for 0xac/0xae exceed the reported max from probe output. -->
+		<!-- Reported current values for 0xac/0xae exceed the reported max from probe output.
+		     Kept verbatim from issue #284 for traceability; behavior is currently unknown. -->
 		<!-- Control 0xac: +/23364/1 C [???] -->
 		<!-- Control 0xae: +/6003/0 C [???] -->
 		<!-- Control 0xb4: +/1/2   [???] -->
