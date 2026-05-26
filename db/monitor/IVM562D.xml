@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/283 -->
+<monitor name="Iiyama PL2390 (ProLite XUB2390HS)" init="standard">
+	<caps add="(prot(monitor)type(LCD)model(IIYAMA)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 06 08 0B 0C 0E 10 12 14(01 02 04 05 06 08 0B) 16 18 1A 1E 1F 20 30 3E 52 60(01 03 0F) 62 6E 6C 70 87 AC AE B2 B6 C6 C8 C9 CA CC(02 03 04 06 09 14 1E) D6(01 04) DF FD FF)mswhql(1)asset_eep(40)mccs_ver(2.2)"/>
+ <!-- Capabilities as originally returned by "ddccontrol -c -d" (with gaps inserted for easy comparison):
+	           (prot(monitor)type(LCD)model(IIYAMA)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 06 08 0B 0C    10 12 14(01 02 04 05 06 08 0B) 16 18 1A                52 60(01 03 0F) 62          87 AC AE B2 B6 C6 C8    CA CC(02 03 04 06 09 14 1E) D6(01 04) DF FD FF)mswhql(1)asset_eep(40)mccs_ver(2.2)
+ Manually added "successfully probed features": 0E, 1E, 1F, 20, 30, 3E, 6E, 6C, 70, C9.
+ This file includes all capabilities, those being "claimed" by the monitor,
+ as well as everything which could be "probed".
+ Anything I found to "not really work" is commented out below.
+ If you want to test such features, you can "comment in" those individually and make changes.
+ If you remove the comment marks around the 'include file="VESA"' statement,
+ the default controls for most of those settings will be shown in "gddccontrol",
+ most likely having no noticeable effect.
+ I've chosen this approach in order to make it easier to enhance this file further,
+ so people don't have to spend time on things which probably won't work.
+ Enhancing this file will most likely involve changing "options.xml" as well,
+ especially see the comments below about colour temperature settings,
+ which are a bit counter-intuitive to set with "gddccontrol" as of now.
+ The OSD menu of this monitor has many more settings than the small number of functions contained in this file.
+ However, I wasn't able to make changes to anything via DDC not being included in this file.
+ This file is free software. Licence: GPL 2.0
+ To contact the author (please delete spaces): christoph @ alte - pflasterei . de
+ Christoph Franzen, July 19th 2025 -->
+	<controls>
+<!--		<control id="newcontrolvalue" address="0x02"> NOT USEABLE!
+			<value id="nochanges" value="1"/>
+			<value id="changed" value="2"/>
+		</control> -->
+		<control id="defaults" type="command" address="0x04" refresh="all"/> <!-- BEWARE, RESETS THE 2 SETTINGS BELOW, BUT ALSO MANY SETTINGS NOT CHANGEABLE AT ALL VIA DDC/CI,
+			THUS THOSE CAN BE RESTORED ONLY VIA OSD; SO I'D PREFER "gddccontrol" TO WARN ABOUT THIS, WHICH SEEMS IMPOSSIBLE BY MEANS OF THIS FILE ALONE, HOWEVER. -->
+		<control id="defaultluma" type="command" address="0x05" refresh="all"/> <!-- RESETS BRIGHTNESS AND CONTRAST BOTH TO 50. -->
+<!--		<control id="defaultgeom" type="command" address="0x06" refresh="all"/> THIS COMMAND RESULTS IN NO VISIBLE CHANGE, HENCE COMMENTED OUT. -->
+		<control id="defaultcolor" type="command" address="0x08" refresh="all"/> <!-- RESETS ALL 3 CUSTOM COLOUR TEMPERATURE RGB VALUES TO 50,
+			BUT TAKES EFFECT ONLY AFTER SWITCHING AS WELL ONCE AGAIN TO THE "custom" COLOUR TEMPERATURE SETTING, EVEN IF THIS IS ALREADY CURRENTLY ACTIVE ("native" DISPLAYED). -->
+<!--		<control id="colorreturn" type="value" name="CT Increment" address="0x0B"/> INCLUDED IN CAPABILITIES, BUT APPARENTLY NOT CHANGEABLE! (I TRIED TO "ABUSE" THE ID "colorreturn" for 0x0B)
+		<control id="colortemp" address="0x0C"/> WORKS, BUT CHANGES THE COLOUR TEMPERATURE (FIXED PRESET VALUES ONLY) NON-INTUITIVELY WHEN USING "gddccontrol"!
+					COMMENTED OUT, BECAUSE 0x14 BELOW EFFECTIVELY PROVIDES THE SAME FUNCTIONALITY, BUT BETTER, DUE TO BEING (ALMOST) SELF-EXPLANATORY.
+	NOT IN CAPABILITIES, SUCCESSFULLY PROBED, BUT NO EFFECT:
+		<control id="coarse" type="value" name="Image Lock Coarse (Clock)" address="0x0e"/> VALUE 50 NOT CHANGEABLE -->
+		<control id="brightness" address="0x10"/>
+		<control id="contrast" address="0x12"/>
+		<control id="colorpreset" type="list" address="0x14"> <!-- BETTER ALTERNATIVE; SEE ALSO 0x0B, 0x0C ABOVE FOR THE WORSE ONE. -->
+			<value id="srgb" value="0x1"/>
+			<value id="native" value="0x2"/> <!-- CANNOT BE SET TO "native" DIRECTLY, THIS VALUE IS RETURNED WHEN RE-READING AFTER SETTING TO "custom"!
+			<value id="5000k" value="0x4"/> INCLUDED IN CAPABILITIES, BUT DOES NOT WORK!
+					IF YOU ATTEMPT TO SET IT TO 0x4, THE CURRENT SETTING REMAINS UNCHANGED, HENCE COMMENTED OUT. -->
+			<value id="6500k" value="0x5"/>
+			<value id="7500k" value="0x6"/>
+			<value id="9300k" value="0x8"/>
+			<value id="custom" value="0xB" /> <!-- IF SET TO THIS VALUE, COLOUR TEMPERATURE IS SET VIA 0x16, 0x18, 0x1A, AND 0x14 IS RESET TO 0x2 RATHER THAN REMAINING SET TO 0xB. -->
+		</control>
+<!--	THE FOLLOWING 3 LINES ARE FOR THE CUSTOM COLOUR TEMPERATURE SETTING RATHER THAN REALLY BEING UPPER LIMITS: THEY BECOME EFFECTIVE, IF 0x14 IS SET TO THE VALUE 0xB.
+	CHANGING ONE OF THESE ALSO SETS 0x14 TO 0x2 ("native"), RESULTING IN THOSE 3 RGB VALUES BECOMING THE IMMEDIATELY EFFECTIVE CURRENT COLOUR TEMPERATURE SETTING.
+	THE SETTINGS RESTRICT THE "POSSIBLE OVERALL BRIGHTNESS" ONLY IF ACTIVE, WHENEVER THE COLOUR TEMPERATURE IS NOT SET TO ONE OF THE 4 FIXED VALUES FROM THE LIST ABOVE, BUT TO "custom" INSTEAD.
+	SO THE NAME "Color maximum level" DISPLAYED IN "gddccontrol" IS SOMEWHAT MISLEADING… -->
+		<control id="red" address="0x16"/>
+		<control id="green" address="0x18"/>
+		<control id="blue" address="0x1A"/>
+<!--	5 FOLLOWING SETTINGS NOT IN CAPABILITIES, BUT NO EFFECT DESPITE SUCCESSFULLY "PROBED":
+		<control id="auto" type="command" name="Automatically adjust" address="0x1E">		NO EFFECT
+		<control id="autolevel" type="command" address="0x1F"/> (I TRIED TO "ABUSE" THE ID "autolevel" for 0x1F) NO EFFECT
+		<control id="hpos" type="value" name="Horizontal Position" address="0x20"/>		VALUE 50 NOT CHANGEABLE
+		<control id="vpos" type="value" name="Vertical Position" address="0x30"/>		VALUE 50 NOT CHANGEABLE
+		<control id="fine" type="value" name="Image Lock Fine (Clock Phase)" address="0x3E"/>	VALUE 50 NOT CHANGEABLE -->
+		<control id="inputsource" type="list" address="0x60">
+			<value id="vga"  value="0x1"/>
+			<value id="dvi" value="0x3"/>
+			<value id="hdmi" value="0xF"/>
+		</control>
+		<control id="audiospeakervolume" address="0x62"/>
+<!-- FOR THE FOLLOWING ENTRIES, VALUES CAN BE WRITTEN WITHOUT ERROR MESSAGES, BUT CHANGES SEEM TO HAVE NO EFFECT:
+	NOT IN CAPABILITIES, BUT WRITE- AND READABLE:
+		<control id="redblack" address="0x6C"/>		CHANGEABLE 0…100, BUT NO EFFECT
+		<control id="greenblack" address="0x6E"/>	CHANGEABLE 0…100, BUT NO EFFECT
+		<control id="blueblack" address="0x70"/>	CHANGEABLE 0…100, BUT NO EFFECT
+	INCLUDED IN CAPABILITIES, BUT NO FUNCTION:
+		<control id="sharpness" address="0x87"/>	CHANGEABLE (POSSIBLE VALUES = 0…4 => 0, 25, 50, 75, 100), BUT NO VISIBLE EFFECT
+	INCLUDED IN CAPABILITIES, BUT NOT CHANGEABLE:
+		<control id="buttonaccess" address="0xCA">	ALL PHYSICAL MONITOR BUTTONS REMAIN FUNCTIONAL, REGARDLESS OF 0x0 BEING WRITTEN HERE:
+			<value id="locked" value="0x0"/>	CANNOT BE SET TO "locked",
+			<value id="unlocked" value="0x1"/>	RETURNS ALWAYS "unlocked" IF VALUE READ.
+		</control> -->
+		<control id="language" type="list" address="0xCC"> <!-- TESTED OTHER CODES AS WELL, BUT ONLY THOSE "OFFICIALLY ADVERTISED" WORK
+			(SAME SET AS AVAILABLE VIA OSD, SO NO "HIDDEN LANGUAGES" IN THE FIRMWARE).
+			 THIS SETTING SWITCHES ONLY THE OSD LANGUAGE, NOT THE DISPLAY IN "gddccontrol", WHICH REMAINS ENGLISH ONLY. -->
+			<value id="english" value="0x2"/>
+			<value id="french" value="0x3"/>
+			<value id="german" value="0x4"/>
+			<value id="japanese" value="0x6"/>
+			<value id="russian" value="0x9"/>
+			<value id="dutch" value="0x14"/>
+			<value id="polish" value="0x1e"/>
+		</control>
+		<control id="dpms" type="list" address="0xD6">
+			<value id="on" value="1"/>
+			<value id="standby" value="4"/>
+		</control>
+	</controls>
+<!--	<include file="VESA"/> NOT NEEDED: IF UNCOMMENTED, ALL POTENTIALLY RELEVANT VESA SETTINGS ARE OVERRIDDEN WITH THE SETTINGS ABOVE!
+		THE VESA FILE DOES NOT CONTAIN ANYTHING NOT ALSO ADJUSTABLE BY CHANGING THE SETTINGS OR REMOVING COMMENTS ABOVE.
+		IF YOU INCLUDE THE VESA FILE HERE, MOST FUNCTIONS COMMENTED OUT ABOVE WILL BECOME VISIBLE IN "gddccontrol",
+		BUT NONETHELESS REMAIN NON-FUNCTIONAL AS DESCRIBED IN THE COMMENTS.
+		ANOTHER APPROACH WOULD HAVE BEEN TO REMOVE THESE "NON-CAPABILITIES" (ALSO) FROM THE "caps add=" LINE AT THE TOP OF THIS FILE. -->
+</monitor>
