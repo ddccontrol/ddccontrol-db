@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/301 -->
+<monitor name="Dell E2414Ht" init="standard">
+	<controls>
+		<!-- Unknown controls from probe output in issue #301 -->
+		<!-- Control 0x0b: +/100/0   [???] -->
+		<!-- Control 0x14: +/5/12 C [???] -->
+		<!-- Control 0x1f: +/1/1   [???] -->
+		<!-- Control 0x52: +/48/255 C [???] -->
+		<!-- Control 0x6c: +/1/17   [???] -->
+		<!-- Control 0x6e: +/1/17   [???] -->
+		<!-- Control 0x70: +/1/17   [???] -->
+		<!-- Control 0xaa: +/1/255   [???] -->
+		<!-- Control 0xac: +/1764/1 C [???] -->
+		<!-- Control 0xae: +/5990/65535 C [???] -->
+		<!-- Control 0xb2: +/1/1 C [???] -->
+		<!-- Control 0xb6: +/3/5 C [???] -->
+		<!-- Control 0xc0: +/25763/65535   [???] -->
+		<!-- Control 0xc6: +/17868/65535 C [???] -->
+		<!-- Control 0xc8: +/4361/17 C [???] -->
+		<!-- Control 0xc9: +/0/65535 C [???] -->
+		<!-- Control 0xca: +/1/2   [???] -->
+		<!-- Control 0xcc: +/2/11   [???] -->
+		<!-- Control 0xdc: +/0/5 C [???] -->
+		<!-- Control 0xdf: +/513/65535 C [???] -->
+		<!-- Control 0xe0: +/0/1 C [???] -->
+		<!-- Control 0xe2: +/0/22 C [???] -->
+		<!-- Control 0xf0: +/0/255 C [???] -->
+		<!-- Control 0xf1: +/1/255 C [???] -->
+		<!-- Control 0xf2: +/0/255   [???] -->
+		<!-- Control 0xfd: +/116/255 C [???] -->
+	</controls>
+
+	<include file="VESA"/>
+</monitor>
