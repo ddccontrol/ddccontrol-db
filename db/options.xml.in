@@ -375,6 +375,7 @@
 			</control>
 			<!-- ACR0692 -->
 			<control id="blackboost" type="value" name="Black Boost"/>
+			<control id="supersharpness" type="value" name="Super Sharpness"/>
 			<!-- AUS2722 -->
 			<control id="bluelightfilter" type="list" name="Blue Light Filter" refresh="all">
 				<value id="level-0" name="Level 0"/>
