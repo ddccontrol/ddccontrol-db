@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/274 -->
+<monitor name="BenQ EW2440" init="standard">
+	<!-- Capability detection failed with "ioctl(): Inappropriate ioctl for device". -->
+	<!-- ddccontrol reported "Capabilities read fail." and did not list monitor-specific VCP codes. -->
+
+	<!-- Unknown controls were not enumerated in the issue output due to capability read failure. -->
+
+	<include file="VESA"/>
+</monitor>
