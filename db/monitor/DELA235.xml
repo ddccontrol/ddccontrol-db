@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<monitor name="Dell U2424HE" init="standard">
+<controls>
+<control id="inputsource" type="list" address="0x60">
+<value id="usb-c" value="0xf1b"/>
+<value id="dp" value="0xf0f"/>
+<value id="hdmi" value="0xf11"/>
+</control>
+
+<!-- this is inverted from VESA -->
+<control id="power" type="list" address="0xe1">
+<value id="on" value="0"/>
+<value id="off" value="1"/>
+</control>
+</controls>
+
+<include file="VESA"/>
+</monitor>
