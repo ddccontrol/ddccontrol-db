@@ -33,23 +33,6 @@ body:
     validations:
       required: true
 
-  - type: input
-    id: device
-    attributes:
-      label: I2C device
-    validations:
-      required: false
-
-  - type: dropdown
-    id: fallback_profile
-    attributes:
-      label: Fallback vendor profile used
-      options:
-        - "yes"
-        - "no"
-    validations:
-      required: true
-
   - type: textarea
     id: report
     attributes:

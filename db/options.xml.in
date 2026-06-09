@@ -375,6 +375,7 @@
 			</control>
 			<!-- ACR0692 -->
 			<control id="blackboost" type="value" name="Black Boost"/>
+			<control id="supersharpness" type="value" name="Super Sharpness"/>
 			<!-- AUS2722 -->
 			<control id="bluelightfilter" type="list" name="Blue Light Filter" refresh="all">
 				<value id="level-0" name="Level 0"/>
@@ -701,6 +702,7 @@
 			</control>
 			<control id="osdorientation" type="list" name="OSD Orientation" address="0xaa">
 				<value id="landscape" name="Landscape"/>
+				<value id="landscape180" name="Landscape (180 degrees)"/>
 				<value id="portrait" name="Portrait"/>
 				<value id="portraitleft" name="Portrait (Left)"/>
 				<value id="portraitright" name="Portrait (Right)"/>
