@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/300 -->
+<monitor name="ASUS TUF VG328QA1A" init="standard">
+	<!-- Reporter note: controls below were tested over DisplayPort unless marked otherwise. -->
+	<controls>
+		<control id="preset_profile" type="list" address="0xdc">
+			<value id="scenery" value="0x02"/>
+			<value id="racing" value="0x05"/>
+			<value id="cinema" value="0x01"/>
+			<value id="rts_rpg" value="0x06"/>
+			<value id="fps" value="0x07"/>
+			<value id="srgb" value="0x03"/>
+			<value id="moba" value="0x08"/>
+		</control>
+
+		<control id="bluelightfilter" type="list" address="0xe6">
+			<value id="level-0" value="0x00"/>
+			<value id="level-1" value="0x01"/>
+			<value id="level-2" value="0x02"/>
+			<value id="level-3" value="0x03"/>
+			<value id="level-4" value="0x04"/>
+		</control>
+
+		<control id="saturation" address="0x8a"/>
+
+		<control id="colorpreset" type="list" address="0x14">
+			<value id="cool" value="0x08"/>
+			<value id="normal" value="0x06"/>
+			<value id="warm" value="0x05"/>
+			<value id="custom" value="0x0b"/>
+		</control>
+
+		<control id="shadowboost" type="list" address="0xe5">
+			<value id="none" value="0x00"/>
+			<value id="level-1" value="0x01"/>
+			<value id="level-2" value="0x02"/>
+			<value id="level-3" value="0x03"/>
+		</control>
+
+		<!-- VESA is not included because its 'power' control (0xe1) conflicts with this device-specific ecomode. -->
+		<control id="ecomode" type="list" address="0xe1">
+			<value id="off" value="0x00"/>
+			<value id="on" value="0x01"/>
+		</control>
+
+		<control id="language" type="list" address="0x68">
+			<value id="english" value="0x00"/>
+			<value id="french" value="0x01"/>
+			<value id="german" value="0x02"/>
+			<value id="spanish" value="0x03"/>
+			<value id="italian" value="0x04"/>
+			<value id="dutch" value="0x05"/>
+			<value id="russian" value="0x06"/>
+			<value id="polish" value="0x07"/>
+			<value id="czech" value="0x08"/>
+			<value id="serbocroatian" value="0x09"/>
+			<value id="hungarian" value="0x0a"/>
+			<value id="romanian" value="0x0b"/>
+			<value id="portuguese" value="0x0c"/>
+			<value id="turkish" value="0x0d"/>
+			<value id="chinese" value="0x0e"/>
+			<value id="chinese_tw" value="0x0f"/>
+			<value id="japanese" value="0x10"/>
+			<value id="korean" value="0x11"/>
+			<value id="arabic" value="0x12"/>
+			<value id="thai" value="0x13"/>
+			<value id="malay" value="0x14"/>
+			<value id="ukrainian" value="0x15"/>
+		</control>
+
+		<control id="osd" type="list" address="0xca">
+			<value id="enable" value="0x02"/>
+			<value id="disable" value="0x01"/>
+		</control>
+
+		<!-- Present in the issue report but not enabled here because mappings are untested. -->
+		<!--
+		<control id="audiospeakermute" type="list" address="0x8d">
+			<value id="mute" value="0x01"/>
+			<value id="unmute" value="0x02"/>
+		</control>
+
+		<control id="inputsource" type="list" address="0x60">
+			<value id="hdmi1" value="0x11"/>
+			<value id="hdmi2" value="0x12"/>
+			<value id="dp" value="0x0f"/>
+		</control>
+
+		<control id="dpms" type="list" address="0xd6">
+			<value id="on" value="0x01"/>
+			<value id="standby" value="0x04"/>
+			<value id="off" value="0x05"/>
+		</control>
+		-->
+
+		<!-- Unknown or unverified controls from the issue for future investigation. -->
+		<!-- 0xe0 variableod candidate values: 0x00..0x05 -->
+		<!-- 0xe4 timer candidate values: 0x00..0x05 -->
+		<!-- 0xe7 alignmentframe candidate values: 0x00/0x01 -->
+		<!-- 0xea fps-counter candidate values: 0x00/0x01/0x02 -->
+		<!-- Controls reported as changing no values: overclock, ASCR, auto input detection, vivid pixel, AdaptiveSync/FreeSync, ELMB. -->
+	</controls>
+
+</monitor>
