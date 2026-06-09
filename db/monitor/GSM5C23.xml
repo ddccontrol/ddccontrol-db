@@ -5,7 +5,7 @@
 		Conservative profile based on issue-provided scan output.
 		Do not expose reset-style controls until explicitly validated.
 	-->
-	<caps add="(type(lcd)vcp(02 10 12 16 18 1A 60 62 D6))"/>
+	<caps add="(type(lcd)vcp(02 10 12 16 18 1A 60 62 D6))" remove="(vcp(04 05 06 08 0E 1E 20 30 3E 6C 6E 70))"/>
 	<controls>
 		<!-- Known controls from issue output kept disabled due to destructive behavior risk. -->
 		<!-- Scan format reminder: +/current/max C [Description] -->
@@ -87,5 +87,6 @@
 		<!-- Control 0xfb: +/2/15   [???] -->
 		<!-- Control 0xfe: +/7/255 C [???] -->
 	</controls>
+	<!-- VESA include is safe: reset and unverified codes (04 05 06 08 0E 1E 20 30 3E 6C 6E 70) are explicitly removed above. -->
 	<include file="VESA"/>
 </monitor>
