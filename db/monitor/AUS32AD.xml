@@ -100,5 +100,4 @@
 		<!-- Controls reported as changing no values: overclock, ASCR, auto input detection, vivid pixel, AdaptiveSync/FreeSync, ELMB. -->
 	</controls>
 
-	<include file="VESA"/>
 </monitor>
