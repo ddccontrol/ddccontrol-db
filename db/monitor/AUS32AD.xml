@@ -68,8 +68,8 @@
 		</control>
 
 		<control id="osd" type="list" address="0xca">
-			<value id="enable" value="0x01"/>
-			<value id="disable" value="0x02"/>
+			<value id="enable" value="0x02"/>
+			<value id="disable" value="0x01"/>
 		</control>
 
 		<!-- Present in the issue report but not enabled here because mappings are untested. -->
