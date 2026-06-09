@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/292 -->
+<monitor name="ASUS TUF VG34VQ3B" init="standard">
+	<controls>
+		<control id="bluelightfilter" type="list" address="0xe6">
+			<value id="level-0" value="0x00"/>
+			<value id="level-1" value="0x01"/>
+			<value id="level-2" value="0x02"/>
+			<value id="level-3" value="0x03"/>
+			<value id="level-4" value="0x04"/>
+		</control>
+
+		<control id="saturation" address="0x8a"/>
+
+		<control id="fpscounter" type="list" address="0xea">
+			<value id="off" value="0x00"/>
+			<value id="on" value="0x01"/>
+			<value id="graph" value="0x02"/>
+		</control>
+
+		<control id="crosshair" type="list" address="0xe3">
+			<value id="off" value="0x00"/>
+			<value id="style-1" value="0x07"/>
+			<value id="style-2" value="0x08"/>
+			<value id="style-3" value="0x09"/>
+			<value id="style-4" value="0x0a"/>
+			<value id="style-5" value="0x0b"/>
+			<value id="style-6" value="0x0c"/>
+		</control>
+
+		<!-- Controls (valid/current/max) [Description - Value name], copied verbatim from issue report: -->
+		<!-- Control 0x05: +/0/1   [???] -->
+		<!-- Control 0x06: +/0/1   [???] -->
+		<!-- Control 0x0b: +/100/0   [???] -->
+		<!-- Control 0x0c: +/35/63   [???] -->
+		<!-- Control 0x14: +/11/11 C [???] -->
+		<!-- Control 0x1e: +/0/1   [???] -->
+		<!-- Control 0x20: +/0/1   [???] -->
+		<!-- Control 0x30: +/0/1   [???] -->
+		<!-- Control 0x52: +/16/255 C [???] -->
+		<!-- Control 0x6c: +/80/100   [???] -->
+		<!-- Control 0x6e: +/80/100   [???] -->
+		<!-- Control 0x70: +/80/100   [???] -->
+		<!-- Control 0x72: +/120/160   [???] -->
+		<!-- Control 0x86: +/2/11   [???] -->
+		<!-- Control 0x87: +/50/100 C [???] -->
+		<!-- Control 0x8d: +/1/2 C [???] -->
+		<!-- Control 0xac: +/4/21856   [???] -->
+		<!-- Control 0xae: +/17990/65535   [???] -->
+		<!-- Control 0xb2: +/1/1   [???] -->
+		<!-- Control 0xb6: +/3/5   [???] -->
+		<!-- Control 0xc6: +/132/255   [???] -->
+		<!-- Control 0xc8: +/9/0   [???] -->
+		<!-- Control 0xc9: +/1/65535   [???] -->
+		<!-- Control 0xca: +/2/2   [???] -->
+		<!-- Control 0xcc: +/2/39 C [???] -->
+		<!-- Control 0xdc: +/5/10 C [???] -->
+		<!-- Control 0xdd: +/5/10   [???] -->
+		<!-- Control 0xdf: +/514/65535   [???] -->
+		<!-- Control 0xe0: +/3/5 C [???] -->
+		<!-- Control 0xe2: +/0/254 C [???] -->
+		<!-- Control 0xe4: +/0/5 C [???] -->
+		<!-- Control 0xe5: +/0/3 C [???] -->
+		<!-- Control 0xe7: +/0/1 C [???] -->
+		<!-- Control 0xe9: +/5150/25720 C [???] -->
+		<!-- Control 0xee: +/254/254 C [???] -->
+		<!-- Control 0xef: +/177/519 C [???] -->
+		<!-- Control 0xf0: +/0/0 C [???] -->
+		<!-- Control 0xf1: +/1/65535   [???] -->
+		<!-- Control 0xf2: +/254/254   [???] -->
+		<!-- Control 0xf3: +/254/254   [???] -->
+		<!-- Control 0xf4: +/0/8 C [???] -->
+		<!-- Control 0xf5: +/0/0 C [???] -->
+		<!-- Control 0xf6: +/0/0 C [???] -->
+		<!-- Control 0xf7: +/0/0 C [???] -->
+		<!-- Control 0xfa: +/1/3 C [???] -->
+		<!-- Control 0xfb: +/2307/65535 C [???] -->
+		<!-- Control 0xfc: +/25/33951 C [???] -->
+		<!-- Control 0xfd: +/1/253 C [???] -->
+		<!-- Control 0xff: +/16/101 C [???] -->
+	</controls>
+
+	<include file="VESA"/>
+</monitor>
