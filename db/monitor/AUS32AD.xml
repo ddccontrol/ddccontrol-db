@@ -37,6 +37,7 @@
 			<value id="level-3" value="0x03"/>
 		</control>
 
+		<!-- VESA is not included because its 'power' control (0xe1) conflicts with this device-specific ecomode. -->
 		<control id="ecomode" type="list" address="0xe1">
 			<value id="off" value="0x00"/>
 			<value id="on" value="0x01"/>
