@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/273 -->
+<monitor name="LG Standard LCD" init="standard">
+	<!--
+		Conservative profile based on issue-provided scan output.
+		Do not expose reset-style controls until explicitly validated.
+	-->
+	<caps add="(type(lcd)vcp(02 10 12 16 18 1A 60 62 D6))" remove="(vcp(04 05 06 08 0E 1E 20 30 3E 6C 6E 70))"/>
+	<controls>
+		<!-- Known controls from issue output kept disabled due to destructive behavior risk. -->
+		<!-- Scan format reminder: +/current/max C [Description] -->
+		<!-- Control 0x04: +/0/255 C [Restore Factory Defaults] -->
+		<!-- Control 0x05: +/0/1 C [Restore Brightness and Contrast] -->
+		<!-- Control 0x08: +/0/255 C [Restore Factory Default Color] -->
+
+		<!-- Input source values were not explicitly confirmed in the issue output. -->
+		<!-- Keep VESA defaults for 0x60 for now; monitor-specific enum mapping remains unverified. -->
+
+		<!-- Unknown controls from the issue output (left commented for future investigation): -->
+		<!-- Some scan entries have inconsistent current/max values; kept verbatim and unverified. -->
+		<!-- Notable anomalies: 0x6c/0x6e/0x70, 0xac/0xae, 0xdf, 0xe9. -->
+		<!-- Control 0x06: +/0/255   [???] -->
+		<!-- Control 0x0b: +/0/24028   [???] -->
+		<!-- Control 0x0c: +/35/100   [???] -->
+		<!-- Control 0x0e: +/50/100   [???] -->
+		<!-- Control 0x14: +/11/65535 C [???] -->
+		<!-- Control 0x15: +/15/255 C [???] -->
+		<!-- Control 0x1e: +/0/2   [???] -->
+		<!-- Control 0x20: +/0/100   [???] -->
+		<!-- Control 0x30: +/0/100   [???] -->
+		<!-- Control 0x3e: +/50/100   [???] -->
+		<!-- Control 0x45: +/1152/65535   [???] -->
+		<!-- Control 0x4d: +/32769/65535 C [???] -->
+		<!-- Control 0x4e: +/2/65535 C [???] -->
+		<!-- Control 0x4f: +/32768/65535 C [???] -->
+		<!-- Control 0x50: +/2/15   [???] -->
+		<!-- Control 0x52: +/0/255 C [???] -->
+		<!-- Control 0x55: +/0/1   [???] -->
+		<!-- Control 0x69: +/6500/65535   [???] -->
+		<!-- Control 0x6a: +/527/65535   [???] -->
+		<!-- Control 0x6c: +/128/100   [???] -->
+		<!-- Control 0x6e: +/128/100   [???] -->
+		<!-- Control 0x70: +/128/100   [???] -->
+		<!-- Control 0x72: +/101/65535   [???] -->
+		<!-- Control 0x7a: +/16128/65535   [???] -->
+		<!-- Control 0x83: +/256/9906   [???] -->
+		<!-- Control 0x85: +/1/255   [???] -->
+		<!-- Control 0x87: +/50/100   [???] -->
+		<!-- Control 0x8d: +/2/100 C [???] -->
+		<!-- Control 0xa1: +/27/65535   [???] -->
+		<!-- Control 0xac: +/100/0 C [???] -->
+		<!-- Control 0xae: +/10/0 C [???] -->
+		<!-- Control 0xaf: +/0/255   [???] -->
+		<!-- Control 0xb6: +/3/5 C [???] -->
+		<!-- Control 0xc0: +/934/65535 C [???] -->
+		<!-- Control 0xc1: +/5/300   [???] -->
+		<!-- Control 0xc5: +/0/1   [???] -->
+		<!-- Control 0xc6: +/104/65535 C [???] -->
+		<!-- Control 0xc8: +/20/255 C [???] -->
+		<!-- Control 0xc9: +/1025/65535 C [???] -->
+		<!-- Control 0xca: +/2/2   [???] -->
+		<!-- Control 0xcb: +/0/65535   [???] -->
+		<!-- Control 0xcc: +/10/16   [???] -->
+		<!-- Control 0xcf: +/1025/65535   [???] -->
+		<!-- Control 0xd7: +/1/255   [???] -->
+		<!-- Control 0xd8: +/1/255   [???] -->
+		<!-- Control 0xdf: +/513/255 C [???] -->
+		<!-- Control 0xe2: +/1/65535   [???] -->
+		<!-- Control 0xe4: +/0/255 C [???] -->
+		<!-- Control 0xe5: +/0/179 C [???] -->
+		<!-- Control 0xe6: +/0/65535 C [???] -->
+		<!-- Control 0xe7: +/0/65535 C [???] -->
+		<!-- Control 0xe8: +/0/255 C [???] -->
+		<!-- Control 0xe9: +/12978/255 C [???] -->
+		<!-- Control 0xea: +/0/255 C [???] -->
+		<!-- Control 0xeb: +/1/1 C [???] -->
+		<!-- Control 0xec: +/1/255   [???] -->
+		<!-- Control 0xef: +/49268/65535 C [???] -->
+		<!-- Control 0xf2: +/0/255   [???] -->
+		<!-- Control 0xf4: +/6/65535 C [???] -->
+		<!-- Control 0xf5: +/1/255 C [???] -->
+		<!-- Control 0xf6: +/1/255 C [???] -->
+		<!-- Control 0xf7: +/2/255 C [???] -->
+		<!-- Control 0xf8: +/3/255 C [???] -->
+		<!-- Control 0xf9: +/50/255 C [???] -->
+		<!-- Control 0xfa: +/255/255 C [???] -->
+		<!-- Control 0xfb: +/2/15   [???] -->
+		<!-- Control 0xfe: +/7/255 C [???] -->
+	</controls>
+	<!-- VESA include is safe: reset and unverified codes (04 05 06 08 0E 1E 20 30 3E 6C 6E 70) are explicitly removed above. -->
+	<include file="VESA"/>
+</monitor>
