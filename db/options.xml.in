@@ -97,6 +97,14 @@
 				<value id="text" name="Text" />
 				<value id="movie" name="Movie" />
 			</control>
+			<!-- LEN66C9 -->
+			<control id="hdr" type="list" name="HDR" address="0xEF">
+				<value id="off" name="Off" value="0"/>
+				<value id="hdr" name="HDR" value="6"/>
+				<value id="hdr-game" name="HDR Game" value="7"/>
+				<value id="hdr-movie" name="HDR Movie" value="8"/>
+				<value id="hdr-photo" name="HDR Photo" value="9"/>
+			</control>
 		</subgroup>
 		<subgroup name="BenQ Bright Intelligence">
 			<control id="bnqbrightintelligence" type="list" name="Bright Intelligence">
@@ -124,6 +132,14 @@
 				<value id="action" name="Action" value="5"/>
 				<value id="racing" name="Racing" value="6"/>
 				<value id="sports" name="Sports" value="7"/>
+			</control>
+			<!-- LEN66C9 -->
+			<control id="scenario" type="list" name="Scenario" address="0xDC">
+				<value id="panel-native" name="Panel Native" value="0"/>
+				<value id="image-creation" name="Image Creation" value="1"/>
+				<value id="digital-cinema" name="Digital Cinema" value="3"/>
+				<value id="video-creation" name="Video Creation" value="5"/>
+				<value id="low-blue-light" name="Low Blue Light" value="6"/>
 			</control>
 		</subgroup>
 <!-- Following sub group valid for LG F-Engine monitors -->
@@ -292,6 +308,7 @@
 				<value id="custom" name="Custom"/>
 				<value id="manual" name="Manual"/>
 				<value id="warm" name="Warm"/>
+				<value id="neutral" name="Neutral"/>
 				<value id="cool" name="Cool"/>
 				<value id="warm1" name="Warm1"/>
 				<value id="warm2" name="Warm2"/>
@@ -304,6 +321,8 @@
 				<value id="cool7" name="Cool7"/>
 				<value id="srgb" name="sRGB"/>
 				<value id="argb" name="Adobe RGB"/>
+				<value id="bt709" name="BT.709"/>
+				<value id="dci-p3" name="DCI-P3"/>
 				<value id="4000k" name="4000K"/>
 				<value id="5000k" name="5000K"/>
 				<value id="5700k" name="5700K"/>

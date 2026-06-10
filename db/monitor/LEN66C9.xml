@@ -1,4 +1,60 @@
 <?xml version="1.0"?>
 <monitor name="Lenovo L32p-30" init="standard">
-<include file="VESA"/>
+	<controls>
+		<control id="dynamiccontrast" type="list" name="DCR" address="0xEA">
+			<value id="off" value="0"/>
+			<value id="on" value="1"/>
+		</control>
+
+		<control id="variableod" type="list" name="Overdrive" address="0xE0">
+			<value id="off" value="0"/>
+			<value id="level-1" value="3"/>
+			<value id="level-2" value="4"/>
+			<value id="level-3" value="5"/>
+			<value id="level-4" value="6"/>
+		</control>
+
+		<control id="freesync" type="list" name="FreeSync" address="0xAE">
+			<value id="on" value="6000"/>
+			<value id="off" value="6010"/>
+		</control>
+
+		<control id="hdr" type="list" name="HDR" address="0xEF">
+			<value id="off" value="0"/>
+			<value id="hdr" name="HDR" value="6"/>
+			<value id="hdr-game" name="HDR Game" value="7"/>
+			<value id="hdr-movie" name="HDR Movie" value="8"/>
+			<value id="hdr-photo" name="HDR Photo" value="9"/>
+		</control>
+
+		<control id="scenario" type="list" name="Scenario" address="0xDC">
+			<value id="panel-native" name="Panel Native" value="0"/>
+			<value id="image-creation" name="Image Creation" value="1"/>
+			<value id="digital-cinema" name="Digital Cinema" value="3"/>
+			<value id="video-creation" name="Video Creation" value="5"/>
+			<value id="low-blue-light" name="Low Blue Light" value="6"/>
+		</control>
+
+		<control id="language" type="list" address="0xCC">
+			<value id="english" value="2"/>
+			<value id="french" value="3"/>
+			<value id="german" value="4"/>
+			<value id="italian" value="5"/>
+			<value id="japanese" value="6"/>
+			<value id="russian" value="9"/>
+			<value id="spanish" value="10"/>
+			<value id="chinese" value="13"/>
+		</control>
+
+		<control id="colorpreset" type="list" address="0x14">
+			<value id="srgb" value="1"/>
+			<value id="warm" value="5"/>
+			<value id="neutral" name="Neutral" value="6"/>
+			<value id="cool" value="8"/>
+			<value id="custom" value="11"/>
+			<value id="bt709" name="BT.709" value="14"/>
+			<value id="dci-p3" name="DCI-P3" value="15"/>
+		</control>
+	</controls>
+	<include file="VESA"/>
 </monitor>
