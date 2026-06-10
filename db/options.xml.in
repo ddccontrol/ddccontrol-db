@@ -430,11 +430,6 @@
 			</control>
 		</subgroup>
 		<subgroup name="Automatic adjustments">
-			<!-- AUS32AD -->
-			<control id="alignmentframe" type="list" name="Alignment Frame" address="0xe7">
-				<value id="off" name="Off" value="0"/>
-				<value id="on" name="On" value="1"/>
-			</control>
 			<control id="autosize" type="list" name="Auto Size Center" address="0x5A">
 				<value id="enable" name="Enable" value="0x00"/>
 				<value id="disable" name="Disable" value="0x01"/>
@@ -837,6 +832,15 @@
 				<value id="level-3" name="Level 3" value="3"/>
 				<value id="level-4" name="Level 4" value="4"/>
 				<value id="level-5" name="Level 5" value="5"/>
+			</control>
+			<control id="fps-counter" type="list" name="FPS Counter" address="0xea">
+				<value id="off" name="Off" value="0x00"/>
+				<value id="on" name="On" value="0x01"/>
+				<value id="graph" name="Graph" value="0x02"/>
+			</control>
+			<control id="alignmentframe" type="list" name="Alignment Frame" address="0xe7">
+				<value id="off" name="Off" value="0"/>
+				<value id="on" name="On" value="1"/>
 			</control>
 			<!-- GSM5B7F -->
 			<!--
