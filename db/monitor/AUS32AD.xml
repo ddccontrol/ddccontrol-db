@@ -93,6 +93,7 @@
 		</control>
 		-->
 
+		<!-- Candidate values from issue #300, enabled with matching definitions in options.xml.in. -->
 		<control id="variableod" type="list" address="0xe0"/>
 		<control id="timer" type="list" address="0xe4"/>
 		<control id="alignmentframe" type="list" address="0xe7"/>
