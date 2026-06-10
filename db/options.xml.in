@@ -745,6 +745,15 @@
 				<value id="off" name="Off"/>
 				<value id="on" name="On"/>
 			</control>
+			<!-- AUS32AD -->
+			<control id="timer" type="list" name="OSD Timer" address="0xe4">
+				<value id="timer-disable" name="Disable" value="0x00"/>
+				<value id="timer-30" name="30 Minutes" value="0x01"/>
+				<value id="timer-40" name="40 Minutes" value="0x02"/>
+				<value id="timer-50" name="50 Minutes" value="0x03"/>
+				<value id="timer-60" name="60 Minutes" value="0x04"/>
+				<value id="timer-90" name="90 Minutes" value="0x05"/>
+			</control>
 		</subgroup>
 		<subgroup name="Power control">
 			<control id="dpms" type="list" name="DPMS Control" address="0xd6">
@@ -814,6 +823,24 @@
 				<value id="fast" name="Fast"/>
 				<value id="faster" name="Faster"/>
 				<value id="fastest" name="Fastest"/>
+			</control>
+			<!-- AUS32AD -->
+			<control id="variableod" type="list" name="Variable Overdrive" address="0xe0">
+				<value id="off" name="Off" value="0"/>
+				<value id="level-1" name="Level 1" value="1"/>
+				<value id="level-2" name="Level 2" value="2"/>
+				<value id="level-3" name="Level 3" value="3"/>
+				<value id="level-4" name="Level 4" value="4"/>
+				<value id="level-5" name="Level 5" value="5"/>
+			</control>
+			<control id="fps-counter" type="list" name="FPS Counter" address="0xea">
+				<value id="off" name="Off" value="0x00"/>
+				<value id="on" name="On" value="0x01"/>
+				<value id="graph" name="Graph" value="0x02"/>
+			</control>
+			<control id="alignmentframe" type="list" name="Alignment Frame" address="0xe7">
+				<value id="off" name="Off" value="0"/>
+				<value id="on" name="On" value="1"/>
 			</control>
 			<!-- GSM5B7F -->
 			<!--

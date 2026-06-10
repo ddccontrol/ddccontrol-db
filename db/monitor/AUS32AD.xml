@@ -93,11 +93,13 @@
 		</control>
 		-->
 
-		<!-- Unknown or unverified controls from the issue for future investigation. -->
-		<!-- 0xe0 variableod candidate values: 0x00..0x05 -->
-		<!-- 0xe4 timer candidate values: 0x00..0x05 -->
-		<!-- 0xe7 alignmentframe candidate values: 0x00/0x01 -->
-		<!-- 0xea fps-counter candidate values: 0x00/0x01/0x02 -->
+		<!-- Values from issue #300, enabled with matching definitions in options.xml.in. -->
+		<control id="variableod" type="list" address="0xe0"/>
+		<control id="timer" type="list" address="0xe4"/>
+		<control id="fps-counter" type="list" address="0xea"/>
+		<control id="alignmentframe" type="list" address="0xe7"/>
+
+		<!-- Other controls from the issue for future investigation. -->
 		<!-- Controls reported as changing no values: overclock, ASCR, auto input detection, vivid pixel, AdaptiveSync/FreeSync, ELMB. -->
 	</controls>
 
