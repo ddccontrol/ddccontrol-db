@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/283 -->
+<monitor name="Iiyama PL2390 (ProLite XUB2390HS)" init="standard">
+	<caps add="(prot(monitor)type(LCD)model(IIYAMA)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 06 08 0B 0C 0E 10 12 14(01 02 04 05 06 08 0B) 16 18 1A 1E 1F 20 30 3E 52 60(01 03 0F) 62 6E 6C 70 87 AC AE B2 B6 C6 C8 C9 CA CC(02 03 04 06 09 14 1E) D6(01 04) DF FD FF)mswhql(1)asset_eep(40)mccs_ver(2.2))"/>
+	<!--
+	Capabilities as originally returned by ddccontrol -c -d:
+	(prot(monitor)type(LCD)model(IIYAMA)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 06 08 0B 0C 10 12 14(01 02 04 05 06 08 0B) 16 18 1A 52 60(01 03 0F) 62 87 AC AE B2 B6 C6 C8 CA CC(02 03 04 06 09 14 1E) D6(01 04) DF FD FF)mswhql(1)asset_eep(40)mccs_ver(2.2)
+
+	Features 0E, 1E, 1F, 20, 30, 3E, 6E, 6C, 70, and C9 were added after
+	successful probing. This file keeps claimed and probed capabilities in the
+	caps string, but leaves non-working or misleading controls commented below
+	to document the monitor firmware behavior and future investigation points.
+	-->
+	<controls>
+		<!--
+		<control id="newcontrolvalue" address="0x02">
+			<value id="nochanges" value="1"/>
+			<value id="changed" value="2"/>
+		</control>
+		0x02 was advertised but was not useful.
+		-->
+
+		<!--
+		This resets OSD-only settings too, so restoring them requires the monitor
+		OSD. gddccontrol does not currently have database metadata for warning
+		before such destructive commands.
+		-->
+		<control id="defaults" type="command" address="0x04" refresh="all" delay="2000"/>
+		<!-- This resets brightness and contrast to 50. -->
+		<control id="defaultluma" type="command" address="0x05" refresh="all" delay="2000"/>
+		<!--
+		0x06 was advertised but produced no visible change.
+		<control id="defaultgeom" type="command" address="0x06" refresh="all" delay="2000"/>
+		-->
+		<!--
+		This resets RGB gains to 50, but takes effect only after switching to the
+		custom color preset again, even when the monitor currently reports native.
+		-->
+		<control id="defaultcolor" type="command" address="0x08" refresh="all" delay="2000"/>
+
+		<!--
+		0x0B is advertised but apparently read-only on this monitor. It was tested
+		with the colorreturn id only as a possible placeholder.
+		<control id="colorreturn" type="value" name="CT Increment" address="0x0B"/>
+
+		0x0C works but is less intuitive than 0x14 because it changes only fixed
+		preset values.
+		<control id="colortemp" address="0x0C"/>
+
+		0x0E was probed successfully but its value remained fixed at 50.
+		<control id="coarse" type="value" name="Image Lock Coarse (Clock)" address="0x0E"/>
+		-->
+
+		<control id="brightness" address="0x10"/>
+		<control id="contrast" address="0x12"/>
+		<control id="colorpreset" type="list" address="0x14">
+			<value id="srgb" value="0x01"/>
+			<!-- This cannot be selected directly, but is returned after setting custom RGB values. -->
+			<value id="native" value="0x02"/>
+			<!--
+			5000K is advertised but could not be set; writing 0x04 left the current
+			setting unchanged.
+			<value id="5000k" value="0x04"/>
+			-->
+			<value id="6500k" value="0x05"/>
+			<value id="7500k" value="0x06"/>
+			<value id="9300k" value="0x08"/>
+			<!-- Setting this enables RGB gains, then reads back as native. -->
+			<value id="custom" value="0x0B"/>
+		</control>
+
+		<!--
+		These RGB gains act as the custom color temperature controls. Changing one
+		of them also makes 0x14 read back as native. The controls therefore behave
+		like custom RGB gains, not generic maximum color levels.
+		-->
+		<control id="red" address="0x16"/>
+		<control id="green" address="0x18"/>
+		<control id="blue" address="0x1A"/>
+
+		<!--
+		The following were probed successfully but produced no effect:
+		<control id="auto" type="command" name="Automatically adjust" address="0x1E"/>
+		<control id="autolevel" type="command" address="0x1F"/>
+		<control id="hpos" type="value" name="Horizontal Position" address="0x20"/>
+		<control id="vpos" type="value" name="Vertical Position" address="0x30"/>
+		<control id="fine" type="value" name="Image Lock Fine (Clock Phase)" address="0x3E"/>
+		0x20, 0x30, and 0x3E remained fixed at 50.
+		-->
+
+		<control id="inputsource" type="list" address="0x60">
+			<value id="vga" value="0x01"/>
+			<value id="dvi" value="0x03"/>
+			<value id="hdmi" value="0x0F"/>
+		</control>
+		<control id="audiospeakervolume" address="0x62"/>
+
+		<!--
+		These are writable/readable over the range 0..100 but did not visibly
+		change the image:
+		<control id="redblack" address="0x6C"/>
+		<control id="greenblack" address="0x6E"/>
+		<control id="blueblack" address="0x70"/>
+
+		0x87 is advertised and writable, with effective values 0, 25, 50, 75, and
+		100, but did not visibly change sharpness.
+		<control id="sharpness" address="0x87"/>
+
+		0xCA always reads back as unlocked and physical buttons remain functional:
+		<control id="buttonaccess" address="0xCA">
+			<value id="locked" value="0x00"/>
+			<value id="unlocked" value="0x01"/>
+		</control>
+		-->
+
+		<control id="language" type="list" address="0xCC">
+			<!-- Only the advertised OSD language codes worked. -->
+			<value id="english" value="0x02"/>
+			<value id="french" value="0x03"/>
+			<value id="german" value="0x04"/>
+			<value id="japanese" value="0x06"/>
+			<value id="russian" value="0x09"/>
+			<value id="dutch" value="0x14"/>
+			<value id="polish" value="0x1E"/>
+		</control>
+		<control id="dpms" type="list" address="0xD6">
+			<value id="on" value="0x01"/>
+			<value id="standby" value="0x04"/>
+		</control>
+	</controls>
+	<!--
+	<include file="VESA"/>
+	VESA is intentionally not included. It would expose most commented controls in
+	gddccontrol, but they would still remain non-functional as documented above.
+	-->
+</monitor>
