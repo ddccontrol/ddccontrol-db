@@ -25,12 +25,12 @@
                        <value id="polish" value="30"/>
                </control>
 
-               <!-- write only -->
-               <control id="inputsource" type="list" address="0x60">
-                       <value id="DisplayPort-2" value="3"/>
-                       <value id="HDMI" value="6"/>
-                       <value id="DisplayPort-1" value="9"/>
-               </control>
+	               <!-- write only -->
+	               <control id="inputsource" type="list" address="0x60">
+	                       <value id="dp2" value="3"/>
+	                       <value id="hdmi" value="6"/>
+	                       <value id="dp1" value="9"/>
+	               </control>
 
        </controls>
        <include file="SAMlcd"/>

@@ -56,11 +56,11 @@
 		</control>
 
 		<!--  From ddcui - Auto setup, x00 - Not active, x01 - Perform Auto setup, x02 - Enable continuous/periodic suto setup, not tested -->
-		<control id="auto" type="list" address="0x1e" delay="1000">
-			<value id="disabled" name="Disabled" value="x00"/>
-			<value id="perform" name="Perform once" value="x01"/>
-			<value id="continuous" name="Perfiodic auto adjustment" value="x02"/>
-		</control>
+			<control id="autosetup" type="list" address="0x1e" delay="1000">
+				<value id="disabled" value="0x00"/>
+				<value id="perform" value="0x01"/>
+				<value id="continuous" value="0x02"/>
+			</control>
 
 		<!--  From ddcui Read-write "Color temetarute request" feature, continuous value from 0 to 85 -->
 		<!--control id="colortempreq" type="value" address="0x0c"/-->

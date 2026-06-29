@@ -34,64 +34,64 @@
 
 
 		<control id="displayscaling" type="list" address="0x86">
-			<value value="0x02"/>
-			<value value="0xb"/>
+			<value id="2" value="0x02"/>
+			<value id="11" value="0xb"/>
 		</control>
 
 		<control id="sharpness" type="list" address="0x87">
-			<value value="0x00"/>
-			<value value="0x0A"/>
-			<value value="0x14"/>
-			<value value="0x1E"/>
-			<value value="0x28"/>
-			<value value="0x32"/>
-			<value value="0x3C"/>
-			<value value="0x46"/>
-			<value value="0x50"/>
-			<value value="0x5A"/>
-			<value value="0x64"/>
+			<value id="0" value="0x00"/>
+			<value id="10" value="0x0A"/>
+			<value id="20" value="0x14"/>
+			<value id="30" value="0x1E"/>
+			<value id="40" value="0x28"/>
+			<value id="50" value="0x32"/>
+			<value id="60" value="0x3C"/>
+			<value id="70" value="0x46"/>
+			<value id="80" value="0x50"/>
+			<value id="90" value="0x5A"/>
+			<value id="100" value="0x64"/>
 		</control>
 
 		<control id="saturation" address="0x8A"/>
 
 		<control id="sourcecolorcoding" type="list" address="0xB5">
-			<value value="0x00"/>
-			<value value="0x01"/>
+			<value id="0" value="0x00"/>
+			<value id="1" value="0x01"/>
 		</control>
 
-		<control id="osdlanguage" type="list" address="0xCC">
-			<value id="Chinese?" value="0x01"/>
-			<value id="English" value="0x02"/>
-			<value id="French" value="0x03"/>
-			<value id="German" value="0x04"/>
-			<value id="Italian" value="0x05"/>
-			<value id="Japanese" value="0x06"/>
-			<value id="Korean" value="0x07"/>
-			<value id="Portuguese" value="0x08"/>
-			<value id="Rusian" value="0x09"/>
-			<value id="Spanish" value="0x0A"/>
-			<value id="Turkish" value="0x0B"/>
-			<value id="Chinese?" value="0x0D"/>
-			<value id="Croatian" value="0x11"/>
-			<value id="Czech" value="0x12"/>
-			<value id="Dutch" value="0x14"/>
-			<value id="Hungarian" value="0x1A"/>
-			<value id="Polish" value="0x1E"/>
-			<value id="Romanian" value="0x1F"/>
-			<value id="Thai" value="0x23"/>
-			<value id="Persian" value="0x30"/>
-			<value id="Indonesian" value="0x31"/>
+		<control id="language" type="list" address="0xCC">
+			<value id="chinese_tw" value="0x01"/>
+			<value id="english" value="0x02"/>
+			<value id="french" value="0x03"/>
+			<value id="german" value="0x04"/>
+			<value id="italian" value="0x05"/>
+			<value id="japanese" value="0x06"/>
+			<value id="korean" value="0x07"/>
+			<value id="portuguese" value="0x08"/>
+			<value id="russian" value="0x09"/>
+			<value id="spanish" value="0x0A"/>
+			<value id="turkish" value="0x0B"/>
+			<value id="chinese" value="0x0D"/>
+			<value id="serbocroatian" value="0x11"/>
+			<value id="czech" value="0x12"/>
+			<value id="dutch" value="0x14"/>
+			<value id="hungarian" value="0x1A"/>
+			<value id="polish" value="0x1E"/>
+			<value id="romanian" value="0x1F"/>
+			<value id="thai" value="0x23"/>
+			<value id="persian" value="0x30"/>
+			<value id="indonesian" value="0x31"/>
 		</control>
 
-		<control id="powermode" address="0xD6">
-			<value value="0x01"/>
-			<value value="0x05"/>
+		<control id="dpms" address="0xD6">
+			<value id="on" value="0x01"/>
+			<value id="off" value="0x05"/>
 		</control>
 
 		<control id="skintone" address="0xE0">
-			<value id="Reddish" value="0x01"/>
-			<value id="Natural" value="0x02"/>
-			<value id="Yellowish" value="0x03"/>
+			<value id="reddish" value="0x01"/>
+			<value id="natural" value="0x02"/>
+			<value id="yellowish" value="0x03"/>
 		</control>
 
 		<control id="smartview" address="0xE1">
@@ -122,11 +122,11 @@
 		</control>
 
 		<control id="bluelightfilter" address="0xE6">
-			<value id="Level 0" value="0x00"/>
-			<value id="Level 1" value="0x01"/>
-			<value id="Level 2" value="0x02"/>
-			<value id="Level 3" value="0x03"/>
-			<value id="Level 4" value="0x04"/>
+			<value id="level-0" value="0x00"/>
+			<value id="level-1" value="0x01"/>
+			<value id="level-2" value="0x02"/>
+			<value id="level-3" value="0x03"/>
+			<value id="level-4" value="0x04"/>
 		</control>
 
 		<control id="ecomode" address="0xE7">
@@ -146,7 +146,7 @@
 			<value id="on" value="0x01"/>
 		</control>
 
-		<control id="powerindicator" address="0xEA">
+		<control id="powerled" address="0xEA">
 			<value id="off" value="0x00"/>
 			<value id="on" value="0x01"/>
 		</control>

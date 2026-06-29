@@ -301,6 +301,15 @@
 		<subgroup name="Various color settings">
 			<control id="hue" type="value" name="Hue" address="0x1C"/>
 			<control id="saturation" type="value" name="Saturation" address="0x50"/>
+			<control id="skintone" type="list" name="Skin Tone" address="0xe0">
+				<value id="reddish" name="Reddish" value="0x01"/>
+				<value id="natural" name="Natural" value="0x02"/>
+				<value id="yellowish" name="Yellowish" value="0x03"/>
+			</control>
+				<control id="sourcecolorcoding" type="list" name="Source Color Coding" address="0xb5">
+					<value id="0" name="0" value="0x00"/>
+					<value id="1" name="1" value="0x01"/>
+				</control>
 			<control id="colorcurve" type="value" name="Color curve adjust" address="0x52"/>
 			<control id="colorpreset" type="list" name="Color Preset" address="0x14">
 				<!-- SAM00BA@0xe0 -->
@@ -445,24 +454,34 @@
 				<value id="22_wide_16_10" name="22&quot; Wide 16:10"/>
 				<value id="23_wide_16_9" name="23&quot; Wide 16:9"/>
 				<value id="27_wide_16_9" name="27&quot; Wide 16:9" />
-				<value id="29_wide_21_9" name="29&quot; Wide 21:9" />
-			</control>
-		</subgroup>
+					<value id="29_wide_21_9" name="29&quot; Wide 21:9" />
+				</control>
+				<control id="displayscaling" type="list" name="Display Scaling" address="0x86">
+					<value id="2" name="2" value="0x02"/>
+					<value id="11" name="11" value="0x0b"/>
+				</control>
+			</subgroup>
 		<subgroup name="Automatic adjustments">
 			<control id="autosize" type="list" name="Auto Size Center" address="0x5A">
 				<value id="enable" name="Enable" value="0x00"/>
 				<value id="disable" name="Disable" value="0x01"/>
 			</control>
-			<control id="auto" type="command" name="Automatically adjust" address="0x1e">
-				<value id="pos" name="H/V Position"/>
-				<value id="coarsefine" name="Clock and clock phase"/>
-				<value id="posfast" name="H/V Position (fast mode)"/>
-			</control>
-			<control id="ratio" type="list" name="Aspect Ratio" address="0xF5">
-				<value id="1to1" name="1:1" value="0x00"/>
-				<value id="wide" name="Full Wide" value="0x01"/>
-				<value id="original" name="Original" value="0x02"/>
-			</control>
+				<control id="auto" type="command" name="Automatically adjust" address="0x1e">
+					<value id="pos" name="H/V Position"/>
+					<value id="coarsefine" name="Clock and clock phase"/>
+					<value id="posfast" name="H/V Position (fast mode)"/>
+				</control>
+				<control id="autosetup" type="list" name="Auto Setup" address="0x1e">
+					<value id="disabled" name="Disabled" value="0x00"/>
+					<value id="perform" name="Perform once" value="0x01"/>
+					<value id="continuous" name="Periodic auto adjustment" value="0x02"/>
+				</control>
+  <control id="ratio" type="list" name="Aspect Ratio" address="0xF5">
+    <value id="justscan" name="Just Scan" value="0x00"/>
+    <value id="1to1" name="1:1" value="0x00"/>
+    <value id="wide" name="Full Wide" value="0x01"/>
+    <value id="original" name="Original" value="0x02"/>
+  </control>
 		</subgroup>
 	</group>
 	<group name="Geometry">
@@ -535,9 +554,12 @@
 				<value id="PiP large" name="PiP Large"/>
 				<value id="PiP small" name="PiP Small"/>
 			</control>
-			<control id="kvm-switch" type="list" name="KVM switch">
-			    <!-- TODO not the best approach should be some sort of matrix but there is no type for that-->
-			    <value id="HDMI:USB1_DP:USB1_USB-C:USB1" name="HDMI:USB1 DP:USB1 USB-C:USB1" value="0x00"/>
+				<control id="kvm-switch" type="list" name="KVM switch">
+				    <!-- TODO not the best approach should be some sort of matrix but there is no type for that-->
+				    <value id="kvm1-to-dp" name="KVM1 to DP" value="0x00"/>
+				    <value id="kvm2-to-dp" name="KVM2 to DP" value="0x40"/>
+				    <value id="kvm1-to-usb-c" name="KVM1 to USB-C" value="0x80"/>
+				    <value id="HDMI:USB1_DP:USB1_USB-C:USB1" name="HDMI:USB1 DP:USB1 USB-C:USB1" value="0x00"/>
 			    <value id="HDMI:USB1_DP:USB1_USB-C:USB2" name="HDMI:USB1 DP:USB1 USB-C:USB2" value="0x01"/>
 			    <value id="HDMI:USB1_DP:USB1_USB-C:USB-C1" name="HDMI:USB1 DP:USB1 USB-C:USB-C1" value="0x02"/>
 			    <value id="HDMI:USB1_DP:USB1_USB-C:USB-C2" name="HDMI:USB1 DP:USB1 USB-C:USB-C2" value="0x03"/>
@@ -642,10 +664,11 @@
 				<value id="hdmi1" name="HDMI-1"/>
 				<value id="hdmi2" name="HDMI-2"/>
 				<value id="hdmi3" name="HDMI-3"/>
-				<value id="hdmi-mhl" name="HDMI (MHL)"/>
-				<value id="mdp" name="mDP"/>
-				<value id="vga" name="VGA"/>
-				<value id="component" name="Component"/>
+					<value id="hdmi-mhl" name="HDMI (MHL)"/>
+					<value id="mdp" name="mDP"/>
+					<value id="vga" name="VGA"/>
+					<value id="vga1" name="VGA-1"/>
+					<value id="component" name="Component"/>
 				<value id="s-video" name="S-Video"/>
 				<value id="composite" name="Composite"/>
 				<value id="usb-c" name="USB-C"/>
@@ -740,8 +763,9 @@
 				<value id="chinese"       name="简体中文 (Simplified Chinese)"/>
 				<value id="dutch"         name="Nederlands (Dutch)"/>
 				<value id="japanese"      name="日本語 (Japanese)"/>
-				<value id="polish"        name="Polski (Polish)"/>
-				<value id="czech"         name="Český (Czech)"/>
+					<value id="polish"        name="Polski (Polish)"/>
+					<value id="greek"         name="Ελληνικά (Greek)"/>
+					<value id="czech"         name="Český (Czech)"/>
 				<value id="hungarian"     name="Magyar (Hungarian)"/>
 				<value id="romanian"      name="Română (Romanian)"/>
 				<value id="portuguese"    name="Português (Portuguese)"/>
@@ -754,16 +778,22 @@
 				<value id="thai"          name="ภาษาไทย (Thai)"/>
 				<value id="arabic"        name="العربية (Arabic)"/>
 				<value id="ukrainian"     name="українська (Ukrainian)"/>
+				<value id="persian"       name="فارسی (Persian)"/>
+				<value id="indonesian"    name="Bahasa Indonesia (Indonesian)"/>
 			</control>
 			<!-- If "changed", read 0x52 register value to get address of the control changed using OSD menu -->
 			<control id="newcontrolvalue" type="list" name="New Control Value" address="0x02">
 				<value id="nochanges" name="No changes" value="0x01"/>
 				<value id="changed" name="Some values changed" value="0x02"/>
 			</control>
-			<control id="osdlock" type="list" name="OSD Lock">
-				<value id="off" name="Off"/>
-				<value id="on" name="On"/>
-			</control>
+				<control id="osdlock" type="list" name="OSD Lock">
+					<value id="off" name="Off"/>
+					<value id="on" name="On"/>
+				</control>
+				<control id="keylock" type="list" name="Key Lock" address="0xe9">
+					<value id="off" name="Off" value="0x00"/>
+					<value id="on" name="On" value="0x01"/>
+				</control>
 			<!-- AUS32AD -->
 			<control id="timer" type="list" name="OSD Timer" address="0xe4">
 				<value id="timer-disable" name="Disable" value="0x00"/>
@@ -775,11 +805,13 @@
 			</control>
 		</subgroup>
 		<subgroup name="Power control">
-			<control id="dpms" type="list" name="DPMS Control" address="0xd6">
-				<value id="on" name="On"/>
-				<value id="standby" name="Standby"/>
-				<value id="off" name="Off"/>
-			</control>
+				<control id="dpms" type="list" name="DPMS Control" address="0xd6">
+					<value id="on" name="On"/>
+					<value id="standby" name="Standby"/>
+					<value id="suspend" name="Suspend"/>
+					<value id="off" name="Off"/>
+					<value id="poweroff" name="Power off"/>
+				</control>
 			<control id="power" type="list" name="Power control" address="0xe1">
 				<value id="off" name="Off"/>
 				<value id="standby" name="Standby"/>
@@ -810,14 +842,18 @@
 
 			<!-- a switch to enable/disable the power led only (no other functionality,
 				it seems) -->
-			<control id="powerled" type="list" name="Power LED" address="0xfd">
-				<value id="off" name="Off"/>
-				<value id="on"  name="On"/>
-				<value id="1"   name="1"/>
-				<value id="2"   name="2"/>
-				<value id="3"   name="3"/>
-				<value id="4"   name="4"/>
-			</control>
+				<control id="powerled" type="list" name="Power LED" address="0xfd">
+					<value id="off" name="Off"/>
+					<value id="on"  name="On"/>
+					<value id="1"   name="1"/>
+					<value id="2"   name="2"/>
+					<value id="3"   name="3"/>
+					<value id="4"   name="4"/>
+				</control>
+				<control id="powerkeylock" type="list" name="Power Key Lock" address="0xeb">
+					<value id="off" name="Off" value="0x00"/>
+					<value id="on" name="On" value="0x01"/>
+				</control>
 			<control id="buttonaccess" type="list" name="Button Access">
 				<value id="locked" name="Locked"/>
 				<value id="unlocked" name="Unlocked"/>
@@ -844,15 +880,47 @@
 				<value id="fastest" name="Fastest"/>
 			</control>
 			<!-- AUS32AD -->
-			<control id="variableod" type="list" name="Variable Overdrive" address="0xe0">
-				<value id="off" name="Off" value="0"/>
-				<value id="level-1" name="Level 1" value="1"/>
-				<value id="level-2" name="Level 2" value="2"/>
-				<value id="level-3" name="Level 3" value="3"/>
-				<value id="level-4" name="Level 4" value="4"/>
-				<value id="level-5" name="Level 5" value="5"/>
-			</control>
-			<control id="fps-counter" type="list" name="FPS Counter" address="0xea">
+				<control id="variableod" type="list" name="Variable Overdrive" address="0xe0">
+					<value id="off" name="Off" value="0"/>
+					<value id="level-1" name="Level 1" value="1"/>
+					<value id="level-2" name="Level 2" value="2"/>
+					<value id="level-3" name="Level 3" value="3"/>
+					<value id="level-4" name="Level 4" value="4"/>
+					<value id="level-5" name="Level 5" value="5"/>
+				</control>
+				<control id="smartview" type="list" name="Smart View" address="0xe1">
+					<value id="off" name="Off" value="0x00"/>
+					<value id="on" name="On" value="0x01"/>
+				</control>
+				<control id="tracefree" type="list" name="Trace Free" address="0xe2">
+					<value id="0" name="0" value="0x00"/>
+					<value id="20" name="20" value="0x14"/>
+					<value id="40" name="40" value="0x28"/>
+					<value id="60" name="60" value="0x3c"/>
+					<value id="80" name="80" value="0x50"/>
+					<value id="100" name="100" value="0x64"/>
+				</control>
+				<control id="vividpixel" type="list" name="VividPixel" address="0xe3">
+					<value id="0" name="0" value="0x00"/>
+					<value id="25" name="25" value="0x19"/>
+					<value id="50" name="50" value="0x32"/>
+					<value id="75" name="75" value="0x4b"/>
+					<value id="100" name="100" value="0x64"/>
+				</control>
+				<control id="crosshair" type="list" name="Crosshair" address="0xe3">
+					<value id="off" name="Off" value="0x00"/>
+					<value id="style-1" name="Style 1" value="0x07"/>
+					<value id="style-2" name="Style 2" value="0x08"/>
+					<value id="style-3" name="Style 3" value="0x09"/>
+					<value id="style-4" name="Style 4" value="0x0a"/>
+					<value id="style-5" name="Style 5" value="0x0b"/>
+					<value id="style-6" name="Style 6" value="0x0c"/>
+				</control>
+				<control id="ascr" type="list" name="ASCR" address="0xe4">
+					<value id="off" name="Off" value="0x00"/>
+					<value id="on" name="On" value="0x01"/>
+				</control>
+				<control id="fps-counter" type="list" name="FPS Counter" address="0xea">
 				<value id="off" name="Off" value="0x00"/>
 				<value id="on" name="On" value="0x01"/>
 				<value id="graph" name="Graph" value="0x02"/>
