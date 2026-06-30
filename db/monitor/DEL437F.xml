@@ -1,5 +1,5 @@
-<!-- https://github.com/ddccontrol/ddccontrol-db/issues/328 -->
 <?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/328 -->
 <monitor name="Dell Pro Plus P3225QE" init="standard">
 	<controls>
 		<control id="colorpreset" type="list" address="0x14">

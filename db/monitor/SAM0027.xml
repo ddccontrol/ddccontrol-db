@@ -5,7 +5,7 @@ cmds(01 02 03 E3 F3)vcp(01 10 12 14 16 18 1A 20 22 24 26 30 32 3A 40 42 44 6C
 6 18 1A 20 22 24cp(01 10 12 14 101 02 03 E3 F3)v
 -->
 <monitor name="Samsung SyncMaster 753V" init="standard">
-	<caps add="(vcp(01 10 12 14 16 18 1A 20 22 24 26 30 32 3A 40 42 44 6C 6E 70 AC AE B0)"/>
+	<caps add="(vcp(01 10 12 14 16 18 1A 20 22 24 26 30 32 3A 40 42 44 6C 6E 70 AC AE B0))"/>
 	<controls>
 		<control id="degauss" address="0x01"/>
 

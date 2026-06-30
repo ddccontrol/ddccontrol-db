@@ -73,8 +73,8 @@
 			<value id="hdmi1"   value="0x11"/>
 			<value id="hdmi2"  value="0x12"/>
 			<value id="usb-c"    value="0x13"/>
-			<value id="Auto Select"    value="0x14"/>
-			<value id="Reset Input Source"    value="0x15"/>
+			<!--<value id="Auto Select"    value="0x14"/> -->
+			<!--<value id="Reset Input Source"    value="0x15"/> -->
 		</control>
 
 		<control id="audiospeakervolume" address="0x62"/>
@@ -109,11 +109,11 @@
 			<value id="portuguese" value="0x0e"/>
 		</control>
 
-		<!-- Unknown -->
-		<control id="Unknown" type="list" address="0xe2">
-			<value id="A_00" value="0x00"/>
-			<value id="A_1d" value="0x1d"/>
-			<value id="A_02" value="0x02"/>
+			<!-- Unknown -->
+			<!--<control id="Unknown" type="list" address="0xe2">
+				<value id="A_00" value="0x00"/>
+				<value id="A_1d" value="0x1d"/>
+				<value id="A_02" value="0x02"/>
 			<value id="A_20" value="0x20"/>
 			<value id="A_21" value="0x21"/>
 			<value id="A_22" value="0x22"/>
@@ -123,9 +123,9 @@
 			<value id="A_12" value="0x12"/>
 			<value id="A_14" value="0x14"/>
 			<value id="A_23" value="0x23"/>
-			<value id="A_24" value="0x24"/>
-			<value id="A_27" value="0x27"/>
-		</control>
+				<value id="A_24" value="0x24"/>
+				<value id="A_27" value="0x27"/>
+			</control> -->
 
 		<control id="dpms" address="0xd6">
 			<value id="on" value="1"/>
@@ -147,7 +147,7 @@
 		</control>
 
 		<!-- Not Working -->
-		<control id="subinputsource" type="list" address="0xe8">
+		<control id="inputsource_sub1" type="list" address="0xe8">
 			<value id="vga" value="0x01"/>
 			<value id="dvi1" value="0x03"/>
 			<value id="dvi2" value="0x04"/>
@@ -156,26 +156,26 @@
 			<value id="hdmi1"   value="0x11"/>
 			<value id="hdmi2"  value="0x12"/>
 			<value id="usb-c"    value="0x13"/>
-			<value id="Auto Select"    value="0x14"/>
-			<value id="Reset Input Source"    value="0x15"/>
+			<!--<value id="Auto Select"    value="0x14"/> -->
+			<!--<value id="Reset Input Source"    value="0x15"/> -->
 		</control>
 
 		<control id="PbP" type="list"	address="0xe9">
 			<value id="Off"				value="0x00"/>
-			<value id="NoName_1"		value="0x01"/>
-			<value id="NoName_2"		value="0x02"/>
+			<!--<value id="NoName_1"		value="0x01"/> -->
+			<!--<value id="NoName_2"		value="0x02"/> -->
 			<value id="PiP small"		value="0x21"/>
 			<value id="PiP large"		value="0x22"/>
 			<value id="PbP"				value="0x24"/>
 		</control>
 
 		<!-- Not Working -->
-		<control id="PiPPosition" type="list" address="0xea">
+		<!--<control id="PiPPosition" type="list" address="0xea">
 			<value id="Top Left"   value="0xA1"/>
 			<value id="Top Right"  value="0xA2"/>
 			<value id="Bottom Left"    value="0xA3"/>
 			<value id="Bottom Right"    value="0xA4"/>
-		</control>
+		</control> -->
 	
 		<control id="febrightness" address="0xf1"/>  <!-- nothing happened + interface off -->  
 	</controls>

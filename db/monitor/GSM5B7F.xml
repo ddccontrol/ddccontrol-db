@@ -2,7 +2,7 @@
 <!-- https://www.lg.com/us/monitors/lg-27GL850-B-gaming-monitor -->
 <!-- Note: This model is referred to as both LG-27GL850 and LG-27GL850-B -->
 <monitor name="LG UltraGear 27GL850" init="standard">
-	<caps add="(prot(monitor)type(lcd)GL850cmds(01 02 03 0C E3 F3)vcp(02 04 05 08 0b 0c 10 12 14(05 07 08 0B DC) 16 18 1A 52 59 5a 5b 5c 5d 5e 60( 11 12 0F 10) 69(5000 5500 6000 6500 7000 7500 8000 8500 9000 9300 10000) 6C 6E 70 9b 9c 9d 9e 9f a0 AC AE B6 C0 C6 C8 C9 D6(01 04) DF 62 8D 87 F4 F5(00 01 02) F6(00 01 02) 4D 4E 4F 15(01 06 09 10 11 13 14 28 29 32  44 48) F7(00 01 02 03) F8(00 01) F9 EF EB FD(00 01) FE(00 01 02) FF)mccs_ver(2.1)mswhql(1))"/>
+	<caps add="(prot(monitor)type(lcd)GL850cmds(01 02 03 0C E3 F3)vcp(02 04 05 08 0b 0c 10 12 14(05 07 08 0B DC) 16 18 1A 52 59 5a 5b 5c 5d 5e 60( 11 12 0F 10) 69(5000 5500 6000 6500 7000 7500 8000 8500 9000 9300) 6C 6E 70 9b 9c 9d 9e 9f a0 AC AE B6 C0 C6 C8 C9 D6(01 04) DF 62 8D 87 F4 F5(00 01 02) F6(00 01 02) 4D 4E 4F 15(01 06 09 10 11 13 14 28 29 32  44 48) F7(00 01 02 03) F8(00 01) F9 EF EB FD(00 01) FE(00 01 02) FF)mccs_ver(2.1)mswhql(1))"/>
 
 	<!-- Unknown features: F4 4D 4E 4F EF FE -->
 

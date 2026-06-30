@@ -47,7 +47,7 @@
 			<value id="russian" value="0x09"/>
 			<value id="polish" value="0x1E"/>
 			<value id="czech" value="0x12"/>
-			<value id="croatian" value="0x11"/>
+			<value id="serbocroatian" value="0x11"/>
 			<value id="hungarian" value="0x1A"/>
 			<value id="romanian" value="0x1F"/>
 			<value id="portuguese" value="0x08"/>
