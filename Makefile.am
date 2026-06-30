@@ -1,6 +1,6 @@
 SUBDIRS= db po
 
-EXTRA_DIST = config.rpath intltool-extract.in intltool-merge.in intltool-update.in xml2h.pl po/POTFILES
+EXTRA_DIST = config.rpath intltool-extract.in intltool-merge.in intltool-update.in xml2h.pl po/POTFILES CHANGELOG.md
 
 # needed to conform GNU standards
 # TODO: more sophisticated solution is welcome
