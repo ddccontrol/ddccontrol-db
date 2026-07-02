@@ -1,3 +1,3 @@
 # Changelog
 
-This file is maintained by Release Please.
+Release notes are generated from merged pull requests on GitHub.

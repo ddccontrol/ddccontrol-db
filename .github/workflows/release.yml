@@ -1,0 +1,130 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_date:
+        description: Release version in YYYYMMDD format. Defaults to today's UTC date.
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Resolve release version
+        id: version
+        env:
+          GH_TOKEN: ${{ github.token }}
+          INPUT_RELEASE_DATE: ${{ inputs.release_date }}
+        run: |
+          set -euo pipefail
+          if [ "$GITHUB_REF_NAME" != "master" ]; then
+            echo "::error::Releases must be run from master"
+            exit 1
+          fi
+
+          release_date="${INPUT_RELEASE_DATE:-$(date -u +%Y%m%d)}"
+
+          if ! [[ "$release_date" =~ ^[0-9]{8}$ ]]; then
+            echo "::error::release_date must use YYYYMMDD format"
+            exit 1
+          fi
+
+          parsed_date="$(date -u -d "${release_date:0:4}-${release_date:4:2}-${release_date:6:2}" +%Y%m%d 2>/dev/null || true)"
+          if [ "$parsed_date" != "$release_date" ]; then
+            echo "::error::release_date is not a valid calendar date"
+            exit 1
+          fi
+
+          if git rev-parse -q --verify "refs/tags/$release_date" >/dev/null; then
+            echo "::error::Tag $release_date already exists"
+            exit 1
+          fi
+
+          if gh release view "$release_date" >/dev/null 2>&1; then
+            echo "::error::Release $release_date already exists"
+            exit 1
+          fi
+
+          echo "release_date=$release_date" >> "$GITHUB_OUTPUT"
+
+      - name: Update package version
+        env:
+          RELEASE_DATE: ${{ steps.version.outputs.release_date }}
+        run: |
+          set -euo pipefail
+          perl -0pi -e 's/AC_INIT\(\[DDC\/CI control tool database\], \[[0-9]{8}\]/AC_INIT([DDC\/CI control tool database], [$ENV{RELEASE_DATE}]/' configure.ac
+
+      - name: Commit release version
+        env:
+          RELEASE_DATE: ${{ steps.version.outputs.release_date }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if ! git diff --quiet -- configure.ac; then
+            git add configure.ac
+            git commit -m "chore: release $RELEASE_DATE"
+          fi
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            autoconf \
+            automake \
+            autopoint \
+            build-essential \
+            gettext \
+            intltool \
+            libtool \
+            perl
+
+      - name: Build source distributions
+        run: |
+          set -euo pipefail
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          ./autogen.sh
+          ./configure
+          make -j"$(nproc)"
+          make dist-gzip
+          make dist-bzip2
+          make dist-xz
+          mkdir -p "$RUNNER_TEMP/release-artifacts"
+          cp ddccontrol-db-*.tar.gz "$RUNNER_TEMP/release-artifacts/"
+          cp ddccontrol-db-*.tar.bz2 "$RUNNER_TEMP/release-artifacts/"
+          cp ddccontrol-db-*.tar.xz "$RUNNER_TEMP/release-artifacts/"
+
+      - name: Push release commit
+        run: |
+          set -euo pipefail
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_DATE: ${{ steps.version.outputs.release_date }}
+        run: |
+          set -euo pipefail
+          gh release create "$RELEASE_DATE" \
+            --title "$RELEASE_DATE" \
+            --target "$(git rev-parse HEAD)" \
+            --generate-notes \
+            "$RUNNER_TEMP"/release-artifacts/ddccontrol-db-*.tar.gz \
+            "$RUNNER_TEMP"/release-artifacts/ddccontrol-db-*.tar.bz2 \
+            "$RUNNER_TEMP"/release-artifacts/ddccontrol-db-*.tar.xz
