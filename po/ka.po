@@ -1,0 +1,3002 @@
+# Georgian translation for ddccontrol-db.
+# Copyright (C) 2026 ddccontrol-db's authors.
+# This file is distributed under the same license as the ddccontrol-db package.
+# Ekaterine Papava <papava.e@gtu.ge>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ddccontrol-db\n"
+"Report-Msgid-Bugs-To: ddccontrol-devel@lists.sourceforge.net\n"
+"POT-Creation-Date: 2018-01-31 15:13+0100\n"
+"PO-Revision-Date: 2026-07-02 11:48+0200\n"
+"Last-Translator: Ekaterine Papava <papava.e@gtu.ge>\n"
+"Language-Team: Georgian <(nothing)>\n"
+"Language: ka\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.9\n"
+
+#: ../db/options.xml.h:3
+#, c-format
+msgid "Preset Modes"
+msgstr "პრესტის რეჟიმები"
+
+#: ../db/options.xml.h:4 ../db/options.xml.h:5
+#, c-format
+msgid "Preset"
+msgstr "პრესეტი"
+
+#: ../db/options.xml.h:6 ../db/options.xml.h:26 ../db/options.xml.h:54
+#: ../db/options.xml.h:58 ../db/options.xml.h:101 ../db/options.xml.h:147
+#: ../db/options.xml.h:702
+#, c-format
+msgid "Standard"
+msgstr "სტანდარტული"
+
+#: ../db/options.xml.h:7 ../db/options.xml.h:261
+#, c-format
+msgid "Warm"
+msgstr "თბილი"
+
+#: ../db/options.xml.h:8 ../db/options.xml.h:263
+#, c-format
+msgid "Cool"
+msgstr "გრილი"
+
+#: ../db/options.xml.h:9 ../db/options.xml.h:50 ../db/options.xml.h:178
+#: ../db/options.xml.h:259 ../db/options.xml.h:355
+#, c-format
+msgid "Custom"
+msgstr "ხელით"
+
+#: ../db/options.xml.h:10
+#, c-format
+msgid "Profile"
+msgstr "პროფილი"
+
+#: ../db/options.xml.h:11 ../db/options.xml.h:29 ../db/options.xml.h:41
+#: ../db/options.xml.h:75 ../db/options.xml.h:83 ../db/options.xml.h:90
+#: ../db/options.xml.h:93 ../db/options.xml.h:141 ../db/options.xml.h:316
+#: ../db/options.xml.h:323 ../db/options.xml.h:326 ../db/options.xml.h:344
+#: ../db/options.xml.h:350 ../db/options.xml.h:444 ../db/options.xml.h:520
+#: ../db/options.xml.h:638 ../db/options.xml.h:641 ../db/options.xml.h:655
+#: ../db/options.xml.h:658 ../db/options.xml.h:662 ../db/options.xml.h:666
+#: ../db/options.xml.h:679 ../db/options.xml.h:686 ../db/options.xml.h:693
+#: ../db/options.xml.h:698 ../db/options.xml.h:708 ../db/options.xml.h:715
+#: ../db/options.xml.h:731 ../db/options.xml.h:739 ../db/options.xml.h:742
+#: ../db/options.xml.h:746
+#, c-format
+msgid "Off"
+msgstr "გამორთ"
+
+#: ../db/options.xml.h:12 ../db/options.xml.h:299
+#, c-format
+msgid "ComfortView"
+msgstr "კომფორტული ხედი"
+
+#: ../db/options.xml.h:13 ../db/options.xml.h:184
+#, c-format
+msgid "FPS"
+msgstr "კადრი/წმ"
+
+#: ../db/options.xml.h:14 ../db/options.xml.h:170 ../db/options.xml.h:185
+#, c-format
+msgid "RTS"
+msgstr "RTS"
+
+#: ../db/options.xml.h:15
+#, c-format
+msgid "RPG"
+msgstr "RPG"
+
+#: ../db/options.xml.h:16
+#, c-format
+msgid "RTS/RPG"
+msgstr "RTS/RPG"
+
+#: ../db/options.xml.h:17
+#, c-format
+msgid "Scenery"
+msgstr "სცენარები"
+
+#: ../db/options.xml.h:18 ../db/options.xml.h:106
+#, c-format
+msgid "Racing"
+msgstr "მანქანით"
+
+#: ../db/options.xml.h:19 ../db/options.xml.h:56 ../db/options.xml.h:191
+#, c-format
+msgid "Cinema"
+msgstr "კინო"
+
+#: ../db/options.xml.h:20 ../db/options.xml.h:100 ../db/options.xml.h:159
+#: ../db/options.xml.h:181 ../db/options.xml.h:273
+#, c-format
+msgid "sRGB"
+msgstr "sRGB"
+
+#: ../db/options.xml.h:21
+#, c-format
+msgid "MOBA"
+msgstr "MOBA"
+
+#: ../db/options.xml.h:22 ../db/options.xml.h:47
+#, c-format
+msgid "Sport"
+msgstr "სპორტი"
+
+#: ../db/options.xml.h:23
+#, c-format
+msgid "Game 2"
+msgstr "თამაში 2"
+
+#: ../db/options.xml.h:24
+#, c-format
+msgid "Game 3"
+msgstr "თამაში 3"
+
+#: ../db/options.xml.h:25
+#, c-format
+msgid "Game Mode"
+msgstr "თამაშის რეჟიმი"
+
+#: ../db/options.xml.h:27
+#, c-format
+msgid "Game 1"
+msgstr "თამაში 1"
+
+#: ../db/options.xml.h:28
+#, c-format
+msgid "Movie Mode"
+msgstr "ფილმის რეჟიმი"
+
+#: ../db/options.xml.h:30 ../db/options.xml.h:42 ../db/options.xml.h:74
+#: ../db/options.xml.h:91 ../db/options.xml.h:94 ../db/options.xml.h:142
+#: ../db/options.xml.h:519 ../db/options.xml.h:639 ../db/options.xml.h:642
+#: ../db/options.xml.h:652 ../db/options.xml.h:660 ../db/options.xml.h:667
+#: ../db/options.xml.h:680 ../db/options.xml.h:687 ../db/options.xml.h:694
+#: ../db/options.xml.h:716 ../db/options.xml.h:740 ../db/options.xml.h:743
+#: ../db/options.xml.h:747
+#, c-format
+msgid "On"
+msgstr "ჩართ"
+
+#: ../db/options.xml.h:31
+#, c-format
+msgid "Display Mode"
+msgstr "ჩვენების რეჟიმი"
+
+#: ../db/options.xml.h:32
+#, c-format
+msgid "Standard/Default"
+msgstr "სტანდარტული/ნაგულისხმევი"
+
+#: ../db/options.xml.h:33 ../db/options.xml.h:53 ../db/options.xml.h:60
+#: ../db/options.xml.h:81 ../db/options.xml.h:104 ../db/options.xml.h:119
+#: ../db/options.xml.h:125 ../db/options.xml.h:150 ../db/options.xml.h:294
+#, c-format
+msgid "Movie"
+msgstr "ფილმი"
+
+#: ../db/options.xml.h:34
+#, c-format
+msgid "Games"
+msgstr "თამაშები"
+
+#: ../db/options.xml.h:35
+#, c-format
+msgid "Color settings"
+msgstr "ფერის მორგება"
+
+#: ../db/options.xml.h:36
+#, c-format
+msgid "Brightness and Contrast"
+msgstr "სიკაშკაშე და კონტრასტი"
+
+#: ../db/options.xml.h:37 ../db/options.xml.h:120
+#, c-format
+msgid "Brightness"
+msgstr "სიკაშკაშე"
+
+#: ../db/options.xml.h:38
+#, c-format
+msgid "Contrast"
+msgstr "კონტრასტი"
+
+#: ../db/options.xml.h:39 ../db/options.xml.h:440
+#, c-format
+msgid "Sharpness"
+msgstr "სიმკვეთრე"
+
+#: ../db/options.xml.h:40 ../db/options.xml.h:51
+#, c-format
+msgid "Dynamic Contrast"
+msgstr "დინამიკური კონტრასტი"
+
+#: ../db/options.xml.h:43
+#, c-format
+msgid "Magic Bright Mode"
+msgstr "ჯადოსნური ნათელი რეჟიმი"
+
+#: ../db/options.xml.h:44 ../db/options.xml.h:59 ../db/options.xml.h:80
+#: ../db/options.xml.h:118 ../db/options.xml.h:126
+#, c-format
+msgid "Text"
+msgstr "ტექსტი"
+
+#: ../db/options.xml.h:45
+#, c-format
+msgid "Internet"
+msgstr "ინტერნეტი"
+
+#: ../db/options.xml.h:46
+#, c-format
+msgid "Game"
+msgstr "თამაში"
+
+#: ../db/options.xml.h:48 ../db/options.xml.h:107
+#, c-format
+msgid "Sports"
+msgstr "სპორტი"
+
+#: ../db/options.xml.h:49
+#, c-format
+msgid "Entertain"
+msgstr "გართობა"
+
+#: ../db/options.xml.h:52
+#, c-format
+msgid "Multimedia"
+msgstr "მულტიმედია"
+
+#: ../db/options.xml.h:55
+#, c-format
+msgid "Nature"
+msgstr "ბუნება"
+
+#: ../db/options.xml.h:57
+#, c-format
+msgid "DV Mode"
+msgstr "DV რეჟიმი"
+
+#: ../db/options.xml.h:61
+#, c-format
+msgid "Gaming"
+msgstr "თამაშები"
+
+#: ../db/options.xml.h:62 ../db/options.xml.h:77 ../db/options.xml.h:124
+#: ../db/options.xml.h:158 ../db/options.xml.h:186 ../db/options.xml.h:295
+#, c-format
+msgid "Photo"
+msgstr "ფოტო"
+
+#: ../db/options.xml.h:63
+#, c-format
+msgid "Super Bright Mode"
+msgstr "ზენათელი რეჟიმი"
+
+#: ../db/options.xml.h:64
+#, c-format
+msgid "One"
+msgstr "ერთი"
+
+#: ../db/options.xml.h:65
+#, c-format
+msgid "Two"
+msgstr "ორი"
+
+#: ../db/options.xml.h:66
+#, c-format
+msgid "Three"
+msgstr "სამი"
+
+#: ../db/options.xml.h:67
+#, c-format
+msgid "Auto Level (Needs a blank line to work)"
+msgstr "ავტომატური დონე (სამუშაოდ სჭირდება ცარიელი ხაზი)"
+
+#: ../db/options.xml.h:68
+#, c-format
+msgid "Backlight"
+msgstr "შენათება"
+
+#: ../db/options.xml.h:69
+#, c-format
+msgid "ECO Mode"
+msgstr "ეკო რეჟიმი"
+
+#: ../db/options.xml.h:70 ../db/options.xml.h:664 ../db/options.xml.h:699
+#, c-format
+msgid "High"
+msgstr "მაღალი"
+
+#: ../db/options.xml.h:71 ../db/options.xml.h:700
+#, c-format
+msgid "Middle"
+msgstr "შუა"
+
+#: ../db/options.xml.h:72 ../db/options.xml.h:663 ../db/options.xml.h:701
+#, c-format
+msgid "Low"
+msgstr "დაბალი"
+
+#: ../db/options.xml.h:73 ../db/options.xml.h:364
+#, c-format
+msgid "Auto"
+msgstr "ავტო"
+
+#: ../db/options.xml.h:76 ../db/options.xml.h:115
+#, c-format
+msgid "f-Engine"
+msgstr "f-ძრავა"
+
+#: ../db/options.xml.h:78 ../db/options.xml.h:116 ../db/options.xml.h:127
+#: ../db/options.xml.h:132 ../db/options.xml.h:258 ../db/options.xml.h:582
+#: ../db/options.xml.h:703
+#, c-format
+msgid "Normal"
+msgstr "ნორმალური"
+
+#: ../db/options.xml.h:79 ../db/options.xml.h:97 ../db/options.xml.h:117
+#: ../db/options.xml.h:165 ../db/options.xml.h:287
+#, c-format
+msgid "User"
+msgstr "მომხმარებელი"
+
+#: ../db/options.xml.h:82 ../db/options.xml.h:84
+#, c-format
+msgid "HDR"
+msgstr "HDR"
+
+#: ../db/options.xml.h:85
+#, c-format
+msgid "HDR Game"
+msgstr "HDR თამაში"
+
+#: ../db/options.xml.h:86
+#, c-format
+msgid "HDR Movie"
+msgstr "HDR ფილმი"
+
+#: ../db/options.xml.h:87
+#, c-format
+msgid "HDR Photo"
+msgstr "HDR ფოტო"
+
+#: ../db/options.xml.h:88
+#, c-format
+msgid "BenQ Bright Intelligence"
+msgstr "BenQ ნატელი ინტელექტი"
+
+#: ../db/options.xml.h:89
+#, c-format
+msgid "Bright Intelligence"
+msgstr "ნათელი ინტელექტი"
+
+#: ../db/options.xml.h:92
+#, c-format
+msgid "Light Meter"
+msgstr "სინათლის მზომი"
+
+#: ../db/options.xml.h:95
+#, c-format
+msgid "Modes"
+msgstr "რეჟიმები"
+
+#: ../db/options.xml.h:96
+#, c-format
+msgid "Mode"
+msgstr "რეჟიმი"
+
+#: ../db/options.xml.h:98
+#, c-format
+msgid "DarkRoom"
+msgstr "ბნელი ოთახი"
+
+#: ../db/options.xml.h:99
+#, c-format
+msgid "Reading"
+msgstr "კითხვა"
+
+#: ../db/options.xml.h:102 ../db/options.xml.h:161 ../db/options.xml.h:296
+#, c-format
+msgid "Eco"
+msgstr "ეკო"
+
+#: ../db/options.xml.h:103
+#, c-format
+msgid "Graphics"
+msgstr "გრაფიკა"
+
+#: ../db/options.xml.h:105
+#, c-format
+msgid "Action"
+msgstr "ქმედება"
+
+#: ../db/options.xml.h:108
+#, c-format
+msgid "Scenario"
+msgstr "სცენარი"
+
+#: ../db/options.xml.h:109
+#, c-format
+msgid "Panel Native"
+msgstr "პანელის საკტარი"
+
+#: ../db/options.xml.h:110
+#, c-format
+msgid "Image Creation"
+msgstr "გამოსახულების შექმნა"
+
+#: ../db/options.xml.h:111
+#, c-format
+msgid "Digital Cinema"
+msgstr "ციფრული კინო"
+
+#: ../db/options.xml.h:112
+#, c-format
+msgid "Video Creation"
+msgstr "ვიდეოს შექმნა"
+
+#: ../db/options.xml.h:113 ../db/options.xml.h:166
+#, c-format
+msgid "Low Blue Light"
+msgstr "დაბალი ლურჯი შუქი"
+
+#: ../db/options.xml.h:114
+#, c-format
+msgid "LG F-Engine"
+msgstr "LG F-ძრავა"
+
+#: ../db/options.xml.h:121
+#, c-format
+msgid "ACE"
+msgstr "ACE"
+
+#: ../db/options.xml.h:122
+#, c-format
+msgid "RCM"
+msgstr "RCM"
+
+#: ../db/options.xml.h:123
+#, c-format
+msgid "F-Engine Mode"
+msgstr "F-ძრავის რეჟიმი"
+
+#: ../db/options.xml.h:128
+#, c-format
+msgid "User defined"
+msgstr "მომხმარებლის მიერ განსაზღვრული"
+
+#: ../db/options.xml.h:129
+#, c-format
+msgid "F-Engine Brightness (User defined mode only)"
+msgstr "F-ძრავის სიკაშკაშე (მხოლოდ მომხმარებლის განსაზღვრული რეჟიმი)"
+
+#: ../db/options.xml.h:130
+#, c-format
+msgid "F-Engine ACE Clarity Mode (User defined mode only)"
+msgstr "F-ძრავის ACE სიმკვეთრის რეჟიმი (მხოლოდ მომხმარებლის განსაზღვრული რეჟიმი)"
+
+#: ../db/options.xml.h:131
+#, c-format
+msgid "Dark"
+msgstr "მუქი"
+
+#: ../db/options.xml.h:133
+#, c-format
+msgid "Light"
+msgstr "ღია"
+
+#: ../db/options.xml.h:134
+#, c-format
+msgid "F-Engine RCM Color Mode (User defined mode only)"
+msgstr "F-ძრავის RCM ფერის რეჟიმი (მხოლოდ მომხმარებლის განსაზღვრული რეჟიმი)"
+
+#: ../db/options.xml.h:135
+#, c-format
+msgid "Grey"
+msgstr "ნაცრისფერი"
+
+#: ../db/options.xml.h:136 ../db/options.xml.h:346
+#, c-format
+msgid "Green"
+msgstr "მწვანე"
+
+#: ../db/options.xml.h:137
+#, c-format
+msgid "Red"
+msgstr "წითელი"
+
+#: ../db/options.xml.h:138
+#, c-format
+msgid "Colorful"
+msgstr "ფერადი"
+
+#: ../db/options.xml.h:139
+#, c-format
+msgid "BenQ Strobe"
+msgstr "BenQ-ის სტრობი"
+
+#: ../db/options.xml.h:140
+#, c-format
+msgid "Force Strobe"
+msgstr "ნაძალადევი სტრობი"
+
+#: ../db/options.xml.h:143
+#, c-format
+msgid "Strobe Length"
+msgstr "სტრობის სიგრძე"
+
+#: ../db/options.xml.h:144
+#, c-format
+msgid "Strobe Phase"
+msgstr "სტრობის ფაზა"
+
+#: ../db/options.xml.h:145
+#, c-format
+msgid "BenQ Picture"
+msgstr "BenQ სურათი"
+
+#: ../db/options.xml.h:146 ../db/options.xml.h:175
+#, c-format
+msgid "Picture Mode"
+msgstr "სურათის რეჟიმი"
+
+#: ../db/options.xml.h:148
+#, c-format
+msgid "Mode 0x01"
+msgstr "რეჟიმი 0x01"
+
+#: ../db/options.xml.h:149
+#, c-format
+msgid "Mode 0x02"
+msgstr "რეჟიმი 0x02"
+
+#: ../db/options.xml.h:151
+#, c-format
+msgid "Mode 0x04"
+msgstr "რეჟიმი 0x04"
+
+#: ../db/options.xml.h:152
+#, c-format
+msgid "Mode 0x05"
+msgstr "რეჟიმი 0x05"
+
+#: ../db/options.xml.h:153
+#, c-format
+msgid "Mode 0x06"
+msgstr "რეჟიმი 0x06"
+
+#: ../db/options.xml.h:154
+#, c-format
+msgid "Mode 0x07"
+msgstr "რეჟიმი 0x07"
+
+#: ../db/options.xml.h:155
+#, c-format
+msgid "Mode 0x08"
+msgstr "რეჟიმი 0x08"
+
+#: ../db/options.xml.h:156
+#, c-format
+msgid "Mode 0x09"
+msgstr "რეჟიმი 0x09"
+
+#: ../db/options.xml.h:157
+#, c-format
+msgid "Mode 0x0A"
+msgstr "რეჟიმი 0x0A"
+
+#: ../db/options.xml.h:160
+#, c-format
+msgid "Mode 0x0D"
+msgstr "რეჟიმი 0x0"
+
+#: ../db/options.xml.h:162
+#, c-format
+msgid "M-book"
+msgstr "M-წიგნი"
+
+#: ../db/options.xml.h:163
+#, c-format
+msgid "CAD/CAM"
+msgstr "CAD/CAM"
+
+#: ../db/options.xml.h:164
+#, c-format
+msgid "Presentation"
+msgstr "პრეზენტაცია"
+
+#: ../db/options.xml.h:167
+#, c-format
+msgid "Animation"
+msgstr "ანიმაცია"
+
+#: ../db/options.xml.h:168
+#, c-format
+msgid "FPS1"
+msgstr "FPS1"
+
+#: ../db/options.xml.h:169
+#, c-format
+msgid "FPS2"
+msgstr "FPS2"
+
+#: ../db/options.xml.h:171 ../db/options.xml.h:189
+#, c-format
+msgid "Gamer 1"
+msgstr "მოთამაშე 1"
+
+#: ../db/options.xml.h:172 ../db/options.xml.h:190
+#, c-format
+msgid "Gamer 2"
+msgstr "მოთამაშე 2"
+
+#: ../db/options.xml.h:173
+#, c-format
+msgid "Gamer 3"
+msgstr "მოთამაშე 3"
+
+#: ../db/options.xml.h:174
+#, c-format
+msgid "LG Picture"
+msgstr "LG სურათი"
+
+#: ../db/options.xml.h:176
+#, c-format
+msgid "Reader"
+msgstr "მკითხველი"
+
+#: ../db/options.xml.h:177
+#, c-format
+msgid "Color Weakness"
+msgstr "ფერის სისუსტე"
+
+#: ../db/options.xml.h:179
+#, c-format
+msgid "RTS Game"
+msgstr "RTS თამაში"
+
+#: ../db/options.xml.h:180
+#, c-format
+msgid "Custom (Game)"
+msgstr "მორგებული (თამაში)"
+
+#: ../db/options.xml.h:182
+#, c-format
+msgid "FPS Game 1"
+msgstr "FPS თამაში 1"
+
+#: ../db/options.xml.h:183
+#, c-format
+msgid "FPS Game 2"
+msgstr "FPS თამაში 2"
+
+#: ../db/options.xml.h:187
+#, c-format
+msgid "Standard (HDR Only)"
+msgstr "სტანდარტული (მხოლოდ HDR)"
+
+#: ../db/options.xml.h:188
+#, c-format
+msgid "HDR Effect"
+msgstr "HDR ეფექტი"
+
+#: ../db/options.xml.h:192
+#, c-format
+msgid "Vivid"
+msgstr "კაშკაშა"
+
+#: ../db/options.xml.h:193 ../db/options.xml.h:276
+#, c-format
+msgid "DCI-P3"
+msgstr "DCI-P3"
+
+#: ../db/options.xml.h:194
+#, c-format
+msgid "EBU"
+msgstr "EBU"
+
+#: ../db/options.xml.h:195
+#, c-format
+msgid "REC709"
+msgstr "REC709"
+
+#: ../db/options.xml.h:196 ../db/options.xml.h:197 ../db/options.xml.h:219
+#, c-format
+msgid "Gamma"
+msgstr "გამა"
+
+#: ../db/options.xml.h:198
+#, c-format
+msgid "-0.5"
+msgstr "-0.5"
+
+#: ../db/options.xml.h:199
+#, c-format
+msgid "-0.3"
+msgstr "-0.3"
+
+#: ../db/options.xml.h:200
+#, c-format
+msgid "-0.2"
+msgstr "-0.2"
+
+#: ../db/options.xml.h:201
+#, c-format
+msgid "-0.1"
+msgstr "-0.1"
+
+#: ../db/options.xml.h:202 ../db/options.xml.h:254 ../db/options.xml.h:718
+#: ../db/options.xml.h:725 ../db/options.xml.h:749
+#, c-format
+msgid "0"
+msgstr "0"
+
+#: ../db/options.xml.h:203
+#, c-format
+msgid "+0.1"
+msgstr "+0.1"
+
+#: ../db/options.xml.h:204
+#, c-format
+msgid "+0.2"
+msgstr "+0.2"
+
+#: ../db/options.xml.h:205
+#, c-format
+msgid "+0.3"
+msgstr "+0.3"
+
+#: ../db/options.xml.h:206
+#, c-format
+msgid "+0.4"
+msgstr "+0.4"
+
+#: ../db/options.xml.h:207
+#, c-format
+msgid "+0.5"
+msgstr "+0.5"
+
+#: ../db/options.xml.h:208
+#, c-format
+msgid "+0.6"
+msgstr "+0.6"
+
+#: ../db/options.xml.h:209
+#, c-format
+msgid "+0.7"
+msgstr "+0.7"
+
+#: ../db/options.xml.h:210
+#, c-format
+msgid "+0.9"
+msgstr "+0.9"
+
+#: ../db/options.xml.h:211
+#, c-format
+msgid "1.8"
+msgstr "1.8"
+
+#: ../db/options.xml.h:212
+#, c-format
+msgid "2.0"
+msgstr "2.0"
+
+#: ../db/options.xml.h:213
+#, c-format
+msgid "2.2"
+msgstr "2.2"
+
+#: ../db/options.xml.h:214
+#, c-format
+msgid "2.4"
+msgstr "2.4"
+
+#: ../db/options.xml.h:215
+#, c-format
+msgid "2.6"
+msgstr "2.6"
+
+#: ../db/options.xml.h:216
+#, c-format
+msgid "Mode1"
+msgstr "Mode1"
+
+#: ../db/options.xml.h:217
+#, c-format
+msgid "Mode2"
+msgstr "Mode2"
+
+#: ../db/options.xml.h:218
+#, c-format
+msgid "Mode3"
+msgstr "რეჟიმი3"
+
+#: ../db/options.xml.h:220
+#, c-format
+msgid "Mode 1"
+msgstr "რეჟიმი 1"
+
+#: ../db/options.xml.h:221
+#, c-format
+msgid "Mode 2"
+msgstr "რეჟიმი 2"
+
+#: ../db/options.xml.h:222
+#, c-format
+msgid "Mode 3"
+msgstr "რეჟიმი 3"
+
+#: ../db/options.xml.h:223
+#, c-format
+msgid "Mode 4"
+msgstr "რეჟიმი 4"
+
+#: ../db/options.xml.h:224
+#, c-format
+msgid "Color maximum level"
+msgstr "ფერის მაქსიმალური დონე"
+
+#: ../db/options.xml.h:225
+#, c-format
+msgid "Red maximum level"
+msgstr "წითლის მაქსიმალური დონე"
+
+#: ../db/options.xml.h:226
+#, c-format
+msgid "Green maximum level"
+msgstr "მწვანის მაქსიმალური დონე"
+
+#: ../db/options.xml.h:227
+#, c-format
+msgid "Blue maximum level"
+msgstr "ლურჯის მაქსიმალური დონე"
+
+#: ../db/options.xml.h:228
+#, c-format
+msgid "Color minimum level"
+msgstr "ფერის მაქსიმალური დონე"
+
+#: ../db/options.xml.h:229
+#, c-format
+msgid "Red minimum level"
+msgstr "წითლის მინიმალური დონე"
+
+#: ../db/options.xml.h:230
+#, c-format
+msgid "Green minimum level"
+msgstr "მწვანის მინიმალური დონე"
+
+#: ../db/options.xml.h:231
+#, c-format
+msgid "Blue minimum level"
+msgstr "ლურჯის მინიმალური დონე"
+
+#: ../db/options.xml.h:232
+#, c-format
+msgid "6-axis Hue"
+msgstr "6-ღერძიანი ტონი"
+
+#: ../db/options.xml.h:233
+#, c-format
+msgid "Red Hue"
+msgstr "წითლის ტონი"
+
+#: ../db/options.xml.h:234
+#, c-format
+msgid "Green Hue"
+msgstr "მწვანის ტონი"
+
+#: ../db/options.xml.h:235
+#, c-format
+msgid "Blue Hue"
+msgstr "ლურჯის ტონი"
+
+#: ../db/options.xml.h:236
+#, c-format
+msgid "Yellow Hue"
+msgstr "ყვითლის ტონი"
+
+#: ../db/options.xml.h:237
+#, c-format
+msgid "Magenta Hue"
+msgstr "ფუქსიისფრის ტონი"
+
+#: ../db/options.xml.h:238
+#, c-format
+msgid "Cyan Hue"
+msgstr "მოლურჯო-მწვანის ტონი"
+
+#: ../db/options.xml.h:239
+#, c-format
+msgid "6-axis Saturate"
+msgstr "6-ღერძიანი გაჯერებულობა"
+
+#: ../db/options.xml.h:240
+#, c-format
+msgid "Red Saturate"
+msgstr "წითლის გაჯერებულობა"
+
+#: ../db/options.xml.h:241
+#, c-format
+msgid "Green Saturate"
+msgstr "მწვანის გაჯერებულობა"
+
+#: ../db/options.xml.h:242
+#, c-format
+msgid "Blue Saturate"
+msgstr "ლურჯის გაჯერებულობა"
+
+#: ../db/options.xml.h:243
+#, c-format
+msgid "Yellow Saturate"
+msgstr "ყვითლის გაჯერებულობა"
+
+#: ../db/options.xml.h:244
+#, c-format
+msgid "Magenta Saturate"
+msgstr "ფუქსიისფრის გაჯერებულობა"
+
+#: ../db/options.xml.h:245
+#, c-format
+msgid "Cyan Saturate"
+msgstr "მოლურჯო-მწვანის გაჯერებულობა"
+
+#: ../db/options.xml.h:246
+#, c-format
+msgid "Various color settings"
+msgstr "სხვადასხვა ფერის პარამეტრები"
+
+#: ../db/options.xml.h:247
+#, c-format
+msgid "Hue"
+msgstr "ტონი"
+
+#: ../db/options.xml.h:248
+#, c-format
+msgid "Saturation"
+msgstr "გაჯერებულობა"
+
+#: ../db/options.xml.h:249
+#, c-format
+msgid "Skin Tone"
+msgstr "კანის ტონი"
+
+#: ../db/options.xml.h:250
+#, c-format
+msgid "Reddish"
+msgstr "მოწითალო"
+
+#: ../db/options.xml.h:251
+#, c-format
+msgid "Natural"
+msgstr "ბუნებრივი"
+
+#: ../db/options.xml.h:252
+#, c-format
+msgid "Yellowish"
+msgstr "მოყვითალო"
+
+#: ../db/options.xml.h:253
+#, c-format
+msgid "Source Color Coding"
+msgstr "წყარო ფერის კოდირება"
+
+#: ../db/options.xml.h:255 ../db/options.xml.h:681
+#, c-format
+msgid "1"
+msgstr "1"
+
+#: ../db/options.xml.h:256
+#, c-format
+msgid "Color curve adjust"
+msgstr "ფერის მრუდის გასწორება"
+
+#: ../db/options.xml.h:257
+#, c-format
+msgid "Color Preset"
+msgstr "ფერის პრესეტი"
+
+#: ../db/options.xml.h:260 ../db/options.xml.h:544
+#, c-format
+msgid "Manual"
+msgstr "ხელით"
+
+#: ../db/options.xml.h:262
+#, c-format
+msgid "Neutral"
+msgstr "ნეიტრალური"
+
+#: ../db/options.xml.h:264
+#, c-format
+msgid "Warm1"
+msgstr "თბილი1"
+
+#: ../db/options.xml.h:265
+#, c-format
+msgid "Warm2"
+msgstr "თბილი2"
+
+#: ../db/options.xml.h:266
+#, c-format
+msgid "Cool1"
+msgstr "გრილი1"
+
+#: ../db/options.xml.h:267
+#, c-format
+msgid "Cool2"
+msgstr "გრილი2"
+
+#: ../db/options.xml.h:268
+#, c-format
+msgid "Cool3"
+msgstr "გრილი3"
+
+#: ../db/options.xml.h:269
+#, c-format
+msgid "Cool4"
+msgstr "გრილი4"
+
+#: ../db/options.xml.h:270
+#, c-format
+msgid "Cool5"
+msgstr "გრილი5"
+
+#: ../db/options.xml.h:271
+#, c-format
+msgid "Cool6"
+msgstr "გრილი6"
+
+#: ../db/options.xml.h:272
+#, c-format
+msgid "Cool7"
+msgstr "გრილი7"
+
+#: ../db/options.xml.h:274
+#, c-format
+msgid "Adobe RGB"
+msgstr "Adobe RGB"
+
+#: ../db/options.xml.h:275
+#, c-format
+msgid "BT.709"
+msgstr "BT.7009"
+
+#: ../db/options.xml.h:277
+#, c-format
+msgid "4000K"
+msgstr "4000K"
+
+#: ../db/options.xml.h:278
+#, c-format
+msgid "5000K"
+msgstr "5000K"
+
+#: ../db/options.xml.h:279
+#, c-format
+msgid "5700K"
+msgstr "5700K"
+
+#: ../db/options.xml.h:280
+#, c-format
+msgid "6500K"
+msgstr "6500K"
+
+#: ../db/options.xml.h:281
+#, c-format
+msgid "7500K"
+msgstr "7500K"
+
+#: ../db/options.xml.h:282
+#, c-format
+msgid "8200K"
+msgstr "8200K"
+
+#: ../db/options.xml.h:283
+#, c-format
+msgid "9300K"
+msgstr "9300K"
+
+#: ../db/options.xml.h:284
+#, c-format
+msgid "10000K"
+msgstr "10000K"
+
+#: ../db/options.xml.h:285
+#, c-format
+msgid "11500K"
+msgstr "11500K"
+
+#: ../db/options.xml.h:286
+#, c-format
+msgid "Native"
+msgstr "საკუთარი"
+
+#: ../db/options.xml.h:288
+#, c-format
+msgid "User 1"
+msgstr "მომხმარებელი 1"
+
+#: ../db/options.xml.h:289
+#, c-format
+msgid "User 2"
+msgstr "მომხმარებელი 2"
+
+#: ../db/options.xml.h:290
+#, c-format
+msgid "User 3"
+msgstr "მომხმარებელი 3"
+
+#: ../db/options.xml.h:291
+#, c-format
+msgid "User 4"
+msgstr "მომხმარებელი 4"
+
+#: ../db/options.xml.h:292
+#, c-format
+msgid "Easy"
+msgstr "ადვილი"
+
+#: ../db/options.xml.h:293
+#, c-format
+msgid "Expert"
+msgstr "ექსპერტი"
+
+#: ../db/options.xml.h:297
+#, c-format
+msgid "RTS1"
+msgstr "RTS1"
+
+#: ../db/options.xml.h:298
+#, c-format
+msgid "RTS2"
+msgstr "RTS2"
+
+#: ../db/options.xml.h:300
+#, c-format
+msgid "Blue Light"
+msgstr "ლურჯი შუქი"
+
+#: ../db/options.xml.h:301
+#, c-format
+msgid "Color Temperature Request"
+msgstr "ფერის ტემპერატურის მოთხოვნა"
+
+#: ../db/options.xml.h:302 ../db/options.xml.h:303
+#, c-format
+msgid "Color Temperature Manual"
+msgstr "ფერის ტემპერატურა ხელით"
+
+#: ../db/options.xml.h:304
+#, c-format
+msgid "5000"
+msgstr "5000"
+
+#: ../db/options.xml.h:305
+#, c-format
+msgid "5500"
+msgstr "5500"
+
+#: ../db/options.xml.h:306
+#, c-format
+msgid "6000"
+msgstr "6000"
+
+#: ../db/options.xml.h:307
+#, c-format
+msgid "6500"
+msgstr "6500"
+
+#: ../db/options.xml.h:308
+#, c-format
+msgid "7000"
+msgstr "7000"
+
+#: ../db/options.xml.h:309
+#, c-format
+msgid "7500"
+msgstr "7500"
+
+#: ../db/options.xml.h:310
+#, c-format
+msgid "8000"
+msgstr "8000"
+
+#: ../db/options.xml.h:311
+#, c-format
+msgid "8500"
+msgstr "8500"
+
+#: ../db/options.xml.h:312
+#, c-format
+msgid "9000"
+msgstr "9000"
+
+#: ../db/options.xml.h:313
+#, c-format
+msgid "9300"
+msgstr "9300"
+
+#: ../db/options.xml.h:314
+#, c-format
+msgid "10000"
+msgstr "10000"
+
+#: ../db/options.xml.h:315 ../db/options.xml.h:671
+#, c-format
+msgid "MagicColor"
+msgstr "ჯადოსნური ფერი"
+
+#: ../db/options.xml.h:317
+#, c-format
+msgid "Demo"
+msgstr "დემო"
+
+#: ../db/options.xml.h:318
+#, c-format
+msgid "Full"
+msgstr "სრული"
+
+#: ../db/options.xml.h:319
+#, c-format
+msgid "Intelligent"
+msgstr "ინტელექტუალური"
+
+#: ../db/options.xml.h:320
+#, c-format
+msgid "Color temperature"
+msgstr "ფერის ტემპერატურა"
+
+#: ../db/options.xml.h:321
+#, c-format
+msgid "Color Return"
+msgstr "ფერის დაბრუნება"
+
+#: ../db/options.xml.h:322
+#, c-format
+msgid "Color Uniformity"
+msgstr "ფერის ერთგვაროვნება"
+
+#: ../db/options.xml.h:324 ../db/options.xml.h:327
+#, c-format
+msgid "Calibrated"
+msgstr "კალიბრირებულია"
+
+#: ../db/options.xml.h:325
+#, c-format
+msgid "Uniformity Compensation"
+msgstr "ერთგვაროვნების კომპენსაცია"
+
+#: ../db/options.xml.h:328
+#, c-format
+msgid "Paper preset"
+msgstr "ქაღალდის პრესეტი"
+
+#: ../db/options.xml.h:329
+#, c-format
+msgid "Set Paper Preset"
+msgstr "ქაღალდის პრესეტის დაყენება"
+
+#: ../db/options.xml.h:330
+#, c-format
+msgid "Black Boost"
+msgstr "შავის გაძლიერება"
+
+#: ../db/options.xml.h:331
+#, c-format
+msgid "Super Sharpness"
+msgstr "ზესიმკვეთრე"
+
+#: ../db/options.xml.h:332
+#, c-format
+msgid "Blue Light Filter"
+msgstr "ლურჯი სინათლის ფილტრი"
+
+#: ../db/options.xml.h:333
+#, c-format
+msgid "Level 0"
+msgstr "დონე 0"
+
+#: ../db/options.xml.h:334 ../db/options.xml.h:340 ../db/options.xml.h:709
+#, c-format
+msgid "Level 1"
+msgstr "დონე 1"
+
+#: ../db/options.xml.h:335 ../db/options.xml.h:341 ../db/options.xml.h:710
+#, c-format
+msgid "Level 2"
+msgstr "დონე 2"
+
+#: ../db/options.xml.h:336 ../db/options.xml.h:342 ../db/options.xml.h:711
+#, c-format
+msgid "Level 3"
+msgstr "დონე 3"
+
+#: ../db/options.xml.h:337 ../db/options.xml.h:712
+#, c-format
+msgid "Level 4"
+msgstr "დონე  4"
+
+#: ../db/options.xml.h:338
+#, c-format
+msgid "Shadow Boost"
+msgstr "ჩრდილის გაძლიერება"
+
+#: ../db/options.xml.h:339
+#, c-format
+msgid "None"
+msgstr "არცერთი"
+
+#: ../db/options.xml.h:343
+#, c-format
+msgid "Color Effect"
+msgstr "ფერის ეფექტი"
+
+#: ../db/options.xml.h:345
+#, c-format
+msgid "Grayscale"
+msgstr "ნაცრისფერი"
+
+#: ../db/options.xml.h:347
+#, c-format
+msgid "Aqua"
+msgstr "წყლის ფერი"
+
+#: ../db/options.xml.h:348
+#, c-format
+msgid "Sepia"
+msgstr "სეპია"
+
+#: ../db/options.xml.h:349
+#, c-format
+msgid "Magic Angle Mode"
+msgstr "ჯადოსნური კუთხის რეჟიმი"
+
+#: ../db/options.xml.h:351
+#, c-format
+msgid "Lean Back Mode 1"
+msgstr ""
+
+#: ../db/options.xml.h:352
+#, c-format
+msgid "Lean Back Mode 2"
+msgstr ""
+
+#: ../db/options.xml.h:353
+#, c-format
+msgid "Standing Mode"
+msgstr "დგომის რეჟიმი"
+
+#: ../db/options.xml.h:354
+#, c-format
+msgid "Side Mode"
+msgstr "გვერდის რეჟიმი"
+
+#: ../db/options.xml.h:356
+#, c-format
+msgid "Position and size"
+msgstr "მდებარეობა და ზომა"
+
+#: ../db/options.xml.h:357
+#, c-format
+msgid "Position"
+msgstr "პოზიცია"
+
+#: ../db/options.xml.h:358
+#, c-format
+msgid "Horizontal Position"
+msgstr "ჰორიზონტალური მდებარეობა"
+
+#: ../db/options.xml.h:359
+#, c-format
+msgid "Vertical Position"
+msgstr "ვერტიკალური მდებარეობა"
+
+#: ../db/options.xml.h:360
+#, c-format
+msgid "Size"
+msgstr "ზომა"
+
+#: ../db/options.xml.h:361
+#, c-format
+msgid "Horizontal Size"
+msgstr "ჰორიზონტალური ზომა"
+
+#: ../db/options.xml.h:362
+#, c-format
+msgid "Vertical Size"
+msgstr "ვერტიკალური ზომა"
+
+#: ../db/options.xml.h:363
+#, c-format
+msgid "Screen Size"
+msgstr "ეკრანის ზომა"
+
+#: ../db/options.xml.h:365
+#, c-format
+msgid "Wide"
+msgstr "ფართო"
+
+#: ../db/options.xml.h:366
+#, c-format
+msgid "17&quot; 4:3"
+msgstr "17&quot; 4:3"
+
+#: ../db/options.xml.h:367
+#, c-format
+msgid "19&quot; 4:3"
+msgstr "19&quot; 4:3"
+
+#: ../db/options.xml.h:368
+#, c-format
+msgid "17&quot; Wide 16:10"
+msgstr "17&quot; ფართო 16:10"
+
+#: ../db/options.xml.h:369
+#, c-format
+msgid "21.5&quot; Wide 16:9"
+msgstr "21.5&quot; ფართო 16:9"
+
+#: ../db/options.xml.h:370
+#, c-format
+msgid "22&quot; Wide 16:10"
+msgstr "22&quot; ფართო 16:10"
+
+#: ../db/options.xml.h:371
+#, c-format
+msgid "23&quot; Wide 16:9"
+msgstr "23&quot; ფართო 16:9"
+
+#: ../db/options.xml.h:372
+#, c-format
+msgid "27&quot; Wide 16:9"
+msgstr "27&quot; ფართო 16:9"
+
+#: ../db/options.xml.h:373
+#, c-format
+msgid "29&quot; Wide 21:9"
+msgstr "29&quot; ფართო 21:9"
+
+#: ../db/options.xml.h:374
+#, c-format
+msgid "Display Scaling"
+msgstr "ეკრანის მასშტაბი"
+
+#: ../db/options.xml.h:375 ../db/options.xml.h:682
+#, c-format
+msgid "2"
+msgstr "2"
+
+#: ../db/options.xml.h:376
+#, c-format
+msgid "11"
+msgstr "11"
+
+#: ../db/options.xml.h:377
+#, c-format
+msgid "Automatic adjustments"
+msgstr "ავტომატური გასწორებები"
+
+#: ../db/options.xml.h:378
+#, c-format
+msgid "Auto Size Center"
+msgstr "ცენტრის ავტომატური ზომა"
+
+#: ../db/options.xml.h:379 ../db/options.xml.h:592 ../db/options.xml.h:596
+#, c-format
+msgid "Enable"
+msgstr "ჩართვა"
+
+#: ../db/options.xml.h:380 ../db/options.xml.h:591 ../db/options.xml.h:595
+#: ../db/options.xml.h:644
+#, c-format
+msgid "Disable"
+msgstr "გამორთვა"
+
+#: ../db/options.xml.h:381
+#, c-format
+msgid "Automatically adjust"
+msgstr "ავტოგასწორება"
+
+#: ../db/options.xml.h:382
+#, c-format
+msgid "H/V Position"
+msgstr "H/V პოზიცია"
+
+#: ../db/options.xml.h:383
+#, c-format
+msgid "Clock and clock phase"
+msgstr "საათი და საათის ფაზა"
+
+#: ../db/options.xml.h:384
+#, c-format
+msgid "H/V Position (fast mode)"
+msgstr "H/V პოზიცია (სწრაფი რეჟიმი)"
+
+#: ../db/options.xml.h:385
+#, c-format
+msgid "Auto Setup"
+msgstr "ავტოომორგება"
+
+#: ../db/options.xml.h:386
+#, c-format
+msgid "Disabled"
+msgstr "გამორთულია"
+
+#: ../db/options.xml.h:387
+#, c-format
+msgid "Perform once"
+msgstr "ერთხელ შესრულება"
+
+#: ../db/options.xml.h:388
+#, c-format
+msgid "Periodic auto adjustment"
+msgstr "პერიოდული ავტოსწორება"
+
+#: ../db/options.xml.h:389
+#, c-format
+msgid "Aspect Ratio"
+msgstr "თანაფარდობა"
+
+#: ../db/options.xml.h:390
+#, c-format
+msgid "Just Scan"
+msgstr "უბრალოდ სკანირება"
+
+#: ../db/options.xml.h:391
+#, c-format
+msgid "1:1"
+msgstr "1:1"
+
+#: ../db/options.xml.h:392
+#, c-format
+msgid "Full Wide"
+msgstr "სრული სიგანე"
+
+#: ../db/options.xml.h:393
+#, c-format
+msgid "Original"
+msgstr "ორიგინალი"
+
+#: ../db/options.xml.h:394
+#, c-format
+msgid "Geometry"
+msgstr "გეომეტრია"
+
+#: ../db/options.xml.h:395
+#, c-format
+msgid "Pincushion"
+msgstr "ქინძისთავი ბალიში"
+
+#: ../db/options.xml.h:396
+#, c-format
+msgid "Horizontal Pincushion"
+msgstr "ჰორიზონტალური ქინძისთავის ბალიში"
+
+#: ../db/options.xml.h:397
+#, c-format
+msgid "Horizontal Pincushion Balance"
+msgstr "ჰორიზონტალური ქინძისთავის ბალიშის ბალანსი"
+
+#: ../db/options.xml.h:398
+#, c-format
+msgid "Vertical Pincushion"
+msgstr "ვერტიკალური ქინძისთავის ბალიში"
+
+#: ../db/options.xml.h:399
+#, c-format
+msgid "Vertical Pincushion Balance"
+msgstr "ვერტიკალური ქინძისთავის ბალიშის ბალანსი"
+
+#: ../db/options.xml.h:400
+#, c-format
+msgid "Center Pincushion"
+msgstr "დაცენტრებული ქინძისთავის ბალიში"
+
+#: ../db/options.xml.h:401
+#, c-format
+msgid "Linearity"
+msgstr "წრფივობა"
+
+#: ../db/options.xml.h:402
+#, c-format
+msgid "Horizontal Linearity"
+msgstr "ჰორიზონტალური წრფივობა"
+
+#: ../db/options.xml.h:403
+#, c-format
+msgid "Horizontal Linearity Balance"
+msgstr "ჰორიზონტალური წრფივობის ბალანსი"
+
+#: ../db/options.xml.h:404
+#, c-format
+msgid "Vertical Linearity"
+msgstr "ვერტიკალური წრფივობა"
+
+#: ../db/options.xml.h:405
+#, c-format
+msgid "Vertical Linearity Balance"
+msgstr "ვერტიკალური წრფივობის ბალანსი"
+
+#: ../db/options.xml.h:406
+#, c-format
+msgid "Misconvergence"
+msgstr ""
+
+#: ../db/options.xml.h:407
+#, c-format
+msgid "Horizontal Misconvergence"
+msgstr ""
+
+#: ../db/options.xml.h:408
+#, c-format
+msgid "Vertical Misconvergence"
+msgstr ""
+
+#: ../db/options.xml.h:409
+#, c-format
+msgid "Vertical Top Misconvergence"
+msgstr ""
+
+#: ../db/options.xml.h:410
+#, c-format
+msgid "Vertical Bottom Misconvergence"
+msgstr ""
+
+#: ../db/options.xml.h:411
+#, c-format
+msgid "General distortion"
+msgstr "ზოგადი დამახინჯება"
+
+#: ../db/options.xml.h:412
+#, c-format
+msgid "Parallelogram Distortion (Key Balance)"
+msgstr ""
+
+#: ../db/options.xml.h:413
+#, c-format
+msgid "Trapezoidal Distortion (Key)"
+msgstr "ტრაპეციული დამახინჯება (ღილაკი)"
+
+#: ../db/options.xml.h:414
+#, c-format
+msgid "Corners distortion"
+msgstr "კუთხეების დამახინჯება"
+
+#: ../db/options.xml.h:415
+#, c-format
+msgid "Top Corner Distortion Control"
+msgstr "ზედა კუთხის დამახინჯების კონტროლი"
+
+#: ../db/options.xml.h:416
+#, c-format
+msgid "Top Corner Distortion Balance"
+msgstr "ზედა კუთხის დამახინჯების ბალანსი"
+
+#: ../db/options.xml.h:417
+#, c-format
+msgid "Bottom Corner Distortion Control"
+msgstr "ქვედა კუთხის დამახინჯების კონტროლი"
+
+#: ../db/options.xml.h:418
+#, c-format
+msgid "Bottom Corner Distortion Balance"
+msgstr "ქვედა კუთხის დამახინჯების ბალანსი"
+
+#: ../db/options.xml.h:419
+#, c-format
+msgid "Rotation"
+msgstr "შემობრუნება"
+
+#: ../db/options.xml.h:420
+#, c-format
+msgid "Rotation (Tilt)"
+msgstr "ტრიალი (დახრა)"
+
+#: ../db/options.xml.h:421
+#, c-format
+msgid "Screen Orientation"
+msgstr "ეკრანის ორიენტაცია"
+
+#: ../db/options.xml.h:422
+#, c-format
+msgid "Landscape (0 degrees)"
+msgstr "ლანდშაფტი (0 გრადუსი)"
+
+#: ../db/options.xml.h:423
+#, c-format
+msgid "Portrait (90 degrees)"
+msgstr "პორტრეტი (90 გრადუსი)"
+
+#: ../db/options.xml.h:424
+#, c-format
+msgid "Display cannot suply orientation"
+msgstr "ეკრანს ორიენტაციის მოწოდება არ შეუძლია"
+
+#: ../db/options.xml.h:425
+#, c-format
+msgid "Screen purity"
+msgstr "ეკრანის სისუფთავე"
+
+#: ../db/options.xml.h:426
+#, c-format
+msgid "Moire"
+msgstr "მუარი"
+
+#: ../db/options.xml.h:427
+#, c-format
+msgid "Horizontal Moire"
+msgstr "ჰორიზონტალური მუარი"
+
+#: ../db/options.xml.h:428
+#, c-format
+msgid "Vertical Moire"
+msgstr "ვერტიკალური მუარი"
+
+#: ../db/options.xml.h:429
+#, c-format
+msgid "Image setup"
+msgstr "გამოსახულების მორგება"
+
+#: ../db/options.xml.h:430
+#, c-format
+msgid "Focus"
+msgstr "ფოკუსი"
+
+#: ../db/options.xml.h:431
+#, c-format
+msgid "Image Lock Coarse (Clock)"
+msgstr ""
+
+#: ../db/options.xml.h:432
+#, c-format
+msgid "Image Lock Fine (Clock Phase)"
+msgstr ""
+
+#: ../db/options.xml.h:433
+#, c-format
+msgid "Corners purity"
+msgstr "კუთხეების სისუფთავე"
+
+#: ../db/options.xml.h:434
+#, c-format
+msgid "Top left screen purity"
+msgstr "ზედა მარცხენა ეკრანის სისუფთავე"
+
+#: ../db/options.xml.h:435
+#, c-format
+msgid "Top right screen purity"
+msgstr "ეკრანის ზედა მარჯვენა სისუფთავე"
+
+#: ../db/options.xml.h:436
+#, c-format
+msgid "Bottom left screen purity"
+msgstr "ქვედა მარცხენა ეკრანის სისუფთავე"
+
+#: ../db/options.xml.h:437
+#, c-format
+msgid "Bottom right screen purity"
+msgstr "ქვედა მარჯვენა ეკრანის სისუფთავე"
+
+#: ../db/options.xml.h:438
+#, c-format
+msgid "Various"
+msgstr "სხვადასხვა"
+
+#: ../db/options.xml.h:439
+#, c-format
+msgid "Landing Adjust (RGB alignment)"
+msgstr "RGB-ის სწორება"
+
+#: ../db/options.xml.h:441
+#, c-format
+msgid "Input settings"
+msgstr "შეტანის პარამეტრები"
+
+#: ../db/options.xml.h:442
+#, c-format
+msgid "PIP/PBP"
+msgstr "PIP/PBP"
+
+#: ../db/options.xml.h:443
+#, c-format
+msgid "PbP/PIP mode"
+msgstr "PbP/PIP-ის რეჟიმი"
+
+#: ../db/options.xml.h:445
+#, c-format
+msgid "PbP"
+msgstr "PbP"
+
+#: ../db/options.xml.h:446
+#, c-format
+msgid "PiP Large"
+msgstr "PiP დიდი"
+
+#: ../db/options.xml.h:447
+#, c-format
+msgid "PiP Small"
+msgstr "PiP პატარა"
+
+#: ../db/options.xml.h:448
+#, c-format
+msgid "KVM switch"
+msgstr "KVM გადამრთველი"
+
+#: ../db/options.xml.h:449
+#, c-format
+msgid "KVM1 to DP"
+msgstr "KVM1 DP-ზე"
+
+#: ../db/options.xml.h:450
+#, c-format
+msgid "KVM2 to DP"
+msgstr "KVM2 DP-ზე"
+
+#: ../db/options.xml.h:451
+#, c-format
+msgid "KVM1 to USB-C"
+msgstr "KVM1 USB-C-ზე"
+
+#: ../db/options.xml.h:452
+#, c-format
+msgid "HDMI:USB1 DP:USB1 USB-C:USB1"
+msgstr "HDMI:USB1 DP:USB1 USB-C:USB1"
+
+#: ../db/options.xml.h:453
+#, c-format
+msgid "HDMI:USB1 DP:USB1 USB-C:USB2"
+msgstr "HDMI:USB1 DP:USB1 USB-C:USB2"
+
+#: ../db/options.xml.h:454
+#, c-format
+msgid "HDMI:USB1 DP:USB1 USB-C:USB-C1"
+msgstr "HDMI:USB1 DP:USB1 USB-C:USB-C1"
+
+#: ../db/options.xml.h:455
+#, c-format
+msgid "HDMI:USB1 DP:USB1 USB-C:USB-C2"
+msgstr "HDMI:USB1 DP:USB1 USB-C:USB-C2"
+
+#: ../db/options.xml.h:456
+#, c-format
+msgid "HDMI:USB1 DP:USB2 USB-C:USB1"
+msgstr "HDMI:USB1 DP:USB2 USB-C:USB1"
+
+#: ../db/options.xml.h:457
+#, c-format
+msgid "HDMI:USB1 DP:USB2 USB-C:USB2"
+msgstr "HDMI:USB1 DP:USB2 USB-C:USB2"
+
+#: ../db/options.xml.h:458
+#, c-format
+msgid "HDMI:USB1 DP:USB2 USB-C:USB-C1"
+msgstr "HDMI:USB1 DP:USB2 USB-C:USB-C1"
+
+#: ../db/options.xml.h:459
+#, c-format
+msgid "HDMI:USB1 DP:USB2 USB-C:USB-C2"
+msgstr "HDMI:USB1 DP:USB2 USB-C:USB-C2"
+
+#: ../db/options.xml.h:460
+#, c-format
+msgid "HDMI:USB1 DP:USB-C1 USB-C:USB1"
+msgstr "HDMI:USB1 DP:USB-C1 USB-C:USB1"
+
+#: ../db/options.xml.h:461
+#, c-format
+msgid "HDMI:USB1 DP:USB-C1 USB-C:USB2"
+msgstr "HDMI:USB1 DP:USB-C1 USB-C:USB2"
+
+#: ../db/options.xml.h:462
+#, c-format
+msgid "HDMI:USB1 DP:USB-C1 USB-C:USB-C1"
+msgstr "HDMI:USB1 DP:USB-C1 USB-C:USB-C1"
+
+#: ../db/options.xml.h:463
+#, c-format
+msgid "HDMI:USB1 DP:USB-C1 USB-C:USB-C2"
+msgstr "HDMI:USB1 DP:USB-C1 USB-C:USB-C2"
+
+#: ../db/options.xml.h:464
+#, c-format
+msgid "HDMI:USB1 DP:USB-C2 USB-C:USB1"
+msgstr "HDMI:USB1 DP:USB-C2 USB-C:USB1"
+
+#: ../db/options.xml.h:465
+#, c-format
+msgid "HDMI:USB1 DP:USB-C2 USB-C:USB2"
+msgstr "HDMI:USB1 DP:USB-C2 USB-C:USB2"
+
+#: ../db/options.xml.h:466
+#, c-format
+msgid "HDMI:USB1 DP:USB-C2 USB-C:USB-C1"
+msgstr "HDMI:USB1 DP:USB-C2 USB-C:USB-C1"
+
+#: ../db/options.xml.h:467
+#, c-format
+msgid "HDMI:USB1 DP:USB-C2 USB-C:USB-C2"
+msgstr "HDMI:USB1 DP:USB-C2 USB-C:USB-C2"
+
+#: ../db/options.xml.h:468
+#, c-format
+msgid "HDMI:USB2 DP:USB1 USB-C:USB1"
+msgstr "HDMI:USB2 DP:USB1 USB-C:USB1"
+
+#: ../db/options.xml.h:469
+#, c-format
+msgid "HDMI:USB2 DP:USB1 USB-C:USB2"
+msgstr "HDMI:USB2 DP:USB1 USB-C:USB2"
+
+#: ../db/options.xml.h:470
+#, c-format
+msgid "HDMI:USB2 DP:USB1 USB-C:USB-C1"
+msgstr "HDMI:USB2 DP:USB1 USB-C:USB-C1"
+
+#: ../db/options.xml.h:471
+#, c-format
+msgid "HDMI:USB2 DP:USB1 USB-C:USB-C2"
+msgstr "HDMI:USB2 DP:USB1 USB-C:USB-C2"
+
+#: ../db/options.xml.h:472
+#, c-format
+msgid "HDMI:USB2 DP:USB2 USB-C:USB1"
+msgstr "HDMI:USB2 DP:USB2 USB-C:USB1"
+
+#: ../db/options.xml.h:473
+#, c-format
+msgid "HDMI:USB2 DP:USB2 USB-C:USB2"
+msgstr "HDMI:USB2 DP:USB2 USB-C:USB2"
+
+#: ../db/options.xml.h:474
+#, c-format
+msgid "HDMI:USB2 DP:USB2 USB-C:USB-C1"
+msgstr "HDMI:USB2 DP:USB2 USB-C:USB-C1"
+
+#: ../db/options.xml.h:475
+#, c-format
+msgid "HDMI:USB2 DP:USB2 USB-C:USB-C2"
+msgstr "HDMI:USB2 DP:USB2 USB-C:USB-C2"
+
+#: ../db/options.xml.h:476
+#, c-format
+msgid "HDMI:USB2 DP:USB-C1 USB-C:USB1"
+msgstr "HDMI:USB2 DP:USB-C1 USB-C:USB1"
+
+#: ../db/options.xml.h:477
+#, c-format
+msgid "HDMI:USB2 DP:USB-C1 USB-C:USB2"
+msgstr "HDMI:USB2 DP:USB-C1 USB-C:USB2"
+
+#: ../db/options.xml.h:478
+#, c-format
+msgid "HDMI:USB2 DP:USB-C1 USB-C:USB-C1"
+msgstr "HDMI:USB2 DP:USB-C1 USB-C:USB-C1"
+
+#: ../db/options.xml.h:479
+#, c-format
+msgid "HDMI:USB2 DP:USB-C1 USB-C:USB-C2"
+msgstr "HDMI:USB2 DP:USB-C1 USB-C:USB-C2"
+
+#: ../db/options.xml.h:480
+#, c-format
+msgid "HDMI:USB2 DP:USB-C2 USB-C:USB1"
+msgstr "HDMI:USB2 DP:USB-C2 USB-C:USB1"
+
+#: ../db/options.xml.h:481
+#, c-format
+msgid "HDMI:USB2 DP:USB-C2 USB-C:USB2"
+msgstr "HDMI:USB2 DP:USB-C2 USB-C:USB2"
+
+#: ../db/options.xml.h:482
+#, c-format
+msgid "HDMI:USB2 DP:USB-C2 USB-C:USB-C1"
+msgstr "HDMI:USB2 DP:USB-C2 USB-C:USB-C1"
+
+#: ../db/options.xml.h:483
+#, c-format
+msgid "HDMI:USB2 DP:USB-C2 USB-C:USB-C2"
+msgstr "HDMI:USB2 DP:USB-C2 USB-C:USB-C2"
+
+#: ../db/options.xml.h:484
+#, c-format
+msgid "HDMI:USB-C1 DP:USB1 USB-C:USB1"
+msgstr "HDMI:USB-C1 DP:USB1 USB-C:USB1"
+
+#: ../db/options.xml.h:485
+#, c-format
+msgid "HDMI:USB-C1 DP:USB1 USB-C:USB2"
+msgstr "HDMI:USB-C1 DP:USB1 USB-C:USB2"
+
+#: ../db/options.xml.h:486
+#, c-format
+msgid "HDMI:USB-C1 DP:USB1 USB-C:USB-C1"
+msgstr "HDMI:USB-C1 DP:USB1 USB-C:USB-C1"
+
+#: ../db/options.xml.h:487
+#, c-format
+msgid "HDMI:USB-C1 DP:USB1 USB-C:USB-C2"
+msgstr "HDMI:USB-C1 DP:USB1 USB-C:USB-C2"
+
+#: ../db/options.xml.h:488
+#, c-format
+msgid "HDMI:USB-C1 DP:USB2 USB-C:USB1"
+msgstr "HDMI:USB-C1 DP:USB2 USB-C:USB1"
+
+#: ../db/options.xml.h:489
+#, c-format
+msgid "HDMI:USB-C1 DP:USB2 USB-C:USB2"
+msgstr "HDMI:USB-C1 DP:USB2 USB-C:USB2"
+
+#: ../db/options.xml.h:490
+#, c-format
+msgid "HDMI:USB-C1 DP:USB2 USB-C:USB-C1"
+msgstr "HDMI:USB-C1 DP:USB2 USB-C:USB-C1"
+
+#: ../db/options.xml.h:491
+#, c-format
+msgid "HDMI:USB-C1 DP:USB2 USB-C:USB-C2"
+msgstr "HDMI:USB-C1 DP:USB2 USB-C:USB-C2"
+
+#: ../db/options.xml.h:492
+#, c-format
+msgid "HDMI:USB-C1 DP:USB-C1 USB-C:USB1"
+msgstr "HDMI:USB-C1 DP:USB-C1 USB-C:USB1"
+
+#: ../db/options.xml.h:493
+#, c-format
+msgid "HDMI:USB-C1 DP:USB-C1 USB-C:USB2"
+msgstr "HDMI:USB-C1 DP:USB-C1 USB-C:USB2"
+
+#: ../db/options.xml.h:494
+#, c-format
+msgid "HDMI:USB-C1 DP:USB-C1 USB-C:USB-C1"
+msgstr "HDMI:USB-C1 DP:USB-C1 USB-C:USB-C1"
+
+#: ../db/options.xml.h:495
+#, c-format
+msgid "HDMI:USB-C1 DP:USB-C1 USB-C:USB-C2"
+msgstr "HDMI:USB-C1 DP:USB-C1 USB-C:USB-C2"
+
+#: ../db/options.xml.h:496
+#, c-format
+msgid "HDMI:USB-C1 DP:USB-C2 USB-C:USB1"
+msgstr "HDMI:USB-C1 DP:USB-C2 USB-C:USB1"
+
+#: ../db/options.xml.h:497
+#, c-format
+msgid "HDMI:USB-C1 DP:USB-C2 USB-C:USB2"
+msgstr "HDMI:USB-C1 DP:USB-C2 USB-C:USB2"
+
+#: ../db/options.xml.h:498
+#, c-format
+msgid "HDMI:USB-C1 DP:USB-C2 USB-C:USB-C1"
+msgstr "HDMI:USB-C1 DP:USB-C2 USB-C:USB-C1"
+
+#: ../db/options.xml.h:499
+#, c-format
+msgid "HDMI:USB-C1 DP:USB-C2 USB-C:USB-C2"
+msgstr "HDMI:USB-C1 DP:USB-C2 USB-C:USB-C2"
+
+#: ../db/options.xml.h:500
+#, c-format
+msgid "HDMI:USB-C2 DP:USB1 USB-C:USB1"
+msgstr "HDMI:USB-C2 DP:USB1 USB-C:USB1"
+
+#: ../db/options.xml.h:501
+#, c-format
+msgid "HDMI:USB-C2 DP:USB1 USB-C:USB2"
+msgstr "HDMI:USB-C2 DP:USB1 USB-C:USB2"
+
+#: ../db/options.xml.h:502
+#, c-format
+msgid "HDMI:USB-C2 DP:USB1 USB-C:USB-C1"
+msgstr "HDMI:USB-C2 DP:USB1 USB-C:USB-C1"
+
+#: ../db/options.xml.h:503
+#, c-format
+msgid "HDMI:USB-C2 DP:USB1 USB-C:USB-C2"
+msgstr "HDMI:USB-C2 DP:USB1 USB-C:USB-C2"
+
+#: ../db/options.xml.h:504
+#, c-format
+msgid "HDMI:USB-C2 DP:USB2 USB-C:USB1"
+msgstr "HDMI:USB-C2 DP:USB2 USB-C:USB1"
+
+#: ../db/options.xml.h:505
+#, c-format
+msgid "HDMI:USB-C2 DP:USB2 USB-C:USB2"
+msgstr "HDMI:USB-C2 DP:USB2 USB-C:USB2"
+
+#: ../db/options.xml.h:506
+#, c-format
+msgid "HDMI:USB-C2 DP:USB2 USB-C:USB-C1"
+msgstr "HDMI:USB-C2 DP:USB2 USB-C:USB-C1"
+
+#: ../db/options.xml.h:507
+#, c-format
+msgid "HDMI:USB-C2 DP:USB2 USB-C:USB-C2"
+msgstr "HDMI:USB-C2 DP:USB2 USB-C:USB-C2"
+
+#: ../db/options.xml.h:508
+#, c-format
+msgid "HDMI:USB-C2 DP:USB-C1 USB-C:USB1"
+msgstr "HDMI:USB-C2 DP:USB-C1 USB-C:USB1"
+
+#: ../db/options.xml.h:509
+#, c-format
+msgid "HDMI:USB-C2 DP:USB-C1 USB-C:USB2"
+msgstr "HDMI:USB-C2 DP:USB-C1 USB-C:USB2"
+
+#: ../db/options.xml.h:510
+#, c-format
+msgid "HDMI:USB-C2 DP:USB-C1 USB-C:USB-C1"
+msgstr "HDMI:USB-C2 DP:USB-C1 USB-C:USB-C1"
+
+#: ../db/options.xml.h:511
+#, c-format
+msgid "HDMI:USB-C2 DP:USB-C1 USB-C:USB-C2"
+msgstr "HDMI:USB-C2 DP:USB-C1 USB-C:USB-C2"
+
+#: ../db/options.xml.h:512
+#, c-format
+msgid "HDMI:USB-C2 DP:USB-C2 USB-C:USB1"
+msgstr "HDMI:USB-C2 DP:USB-C2 USB-C:USB1"
+
+#: ../db/options.xml.h:513
+#, c-format
+msgid "HDMI:USB-C2 DP:USB-C2 USB-C:USB2"
+msgstr "HDMI:USB-C2 DP:USB-C2 USB-C:USB2"
+
+#: ../db/options.xml.h:514
+#, c-format
+msgid "HDMI:USB-C2 DP:USB-C2 USB-C:USB-C1"
+msgstr "HDMI:USB-C2 DP:USB-C2 USB-C:USB-C1"
+
+#: ../db/options.xml.h:515
+#, c-format
+msgid "HDMI:USB-C2 DP:USB-C2 USB-C:USB-C2"
+msgstr "HDMI:USB-C2 DP:USB-C2 USB-C:USB-C2"
+
+#: ../db/options.xml.h:516
+#, c-format
+msgid "Input sources"
+msgstr "შეტანის წყაროები"
+
+#: ../db/options.xml.h:517
+#, c-format
+msgid "Input level Select"
+msgstr "შეყვანის დონის არჩევა"
+
+#: ../db/options.xml.h:518
+#, c-format
+msgid "Display Resolution Notifier"
+msgstr "ეკრანის გარჩევადობის შეტყობინება"
+
+#: ../db/options.xml.h:521
+#, c-format
+msgid "Input Source Select (Main)"
+msgstr "შეყვანის წყაროს არჩევა (მთავარი)"
+
+#: ../db/options.xml.h:522 ../db/options.xml.h:546
+#, c-format
+msgid "Analog"
+msgstr "ანალოგური"
+
+#: ../db/options.xml.h:523 ../db/options.xml.h:547
+#, c-format
+msgid "Digital"
+msgstr "ციფრული"
+
+#: ../db/options.xml.h:524 ../db/options.xml.h:548
+#, c-format
+msgid "DisplayPort"
+msgstr "DisplayPort"
+
+#: ../db/options.xml.h:525 ../db/options.xml.h:549
+#, c-format
+msgid "DP-1"
+msgstr "DP-1"
+
+#: ../db/options.xml.h:526 ../db/options.xml.h:550
+#, c-format
+msgid "DP-2"
+msgstr "DP-2"
+
+#: ../db/options.xml.h:527 ../db/options.xml.h:551
+#, c-format
+msgid "DVI"
+msgstr "DVI"
+
+#: ../db/options.xml.h:528 ../db/options.xml.h:552
+#, c-format
+msgid "DVI-1"
+msgstr "DVI-1"
+
+#: ../db/options.xml.h:529 ../db/options.xml.h:553
+#, c-format
+msgid "DVI-2"
+msgstr "DVI-2"
+
+#: ../db/options.xml.h:530 ../db/options.xml.h:554
+#, c-format
+msgid "HDMI"
+msgstr "HDMI"
+
+#: ../db/options.xml.h:531 ../db/options.xml.h:555
+#, c-format
+msgid "HDMI-1"
+msgstr "HDMI-1"
+
+#: ../db/options.xml.h:532 ../db/options.xml.h:556
+#, c-format
+msgid "HDMI-2"
+msgstr "HDMI-2"
+
+#: ../db/options.xml.h:533
+#, c-format
+msgid "HDMI-3"
+msgstr "HDMI-3"
+
+#: ../db/options.xml.h:534 ../db/options.xml.h:557
+#, c-format
+msgid "HDMI (MHL)"
+msgstr "HDMI (MHL)"
+
+#: ../db/options.xml.h:535 ../db/options.xml.h:558
+#, c-format
+msgid "mDP"
+msgstr "mDP"
+
+#: ../db/options.xml.h:536 ../db/options.xml.h:559
+#, c-format
+msgid "VGA"
+msgstr "VGA"
+
+#: ../db/options.xml.h:537
+#, c-format
+msgid "VGA-1"
+msgstr "VGA-1"
+
+#: ../db/options.xml.h:538 ../db/options.xml.h:560
+#, c-format
+msgid "Component"
+msgstr "კომპონენტი"
+
+#: ../db/options.xml.h:539 ../db/options.xml.h:561
+#, c-format
+msgid "S-Video"
+msgstr "S-Video"
+
+#: ../db/options.xml.h:540 ../db/options.xml.h:562
+#, c-format
+msgid "Composite"
+msgstr "კომპოზიტი"
+
+#: ../db/options.xml.h:541 ../db/options.xml.h:563
+#, c-format
+msgid "USB-C"
+msgstr "USB-C"
+
+#: ../db/options.xml.h:542
+#, c-format
+msgid "Autoselect Input Source"
+msgstr "შეყვანის წყაროს ავტოარჩევა"
+
+#: ../db/options.xml.h:543
+#, c-format
+msgid "Automatic"
+msgstr "ავტომატური"
+
+#: ../db/options.xml.h:545
+#, c-format
+msgid "Input Source Select (Sub #1)"
+msgstr "შეყვანის წყაროს არჩევა (ქვე #1)"
+
+#: ../db/options.xml.h:564
+#, c-format
+msgid "Others"
+msgstr "სხვები"
+
+#: ../db/options.xml.h:565
+#, c-format
+msgid "Restore defaults"
+msgstr "ნაგულისხმები მნიშვნელობების აღდგენა"
+
+#: ../db/options.xml.h:566
+#, c-format
+msgid "Restore Factory Defaults"
+msgstr "ქარხნულ პარამეტრებზე დაბრუნება"
+
+#: ../db/options.xml.h:567
+#, c-format
+msgid "Restore Brightness and Contrast"
+msgstr "სიკაშკაშის და კონტრასტის აღდგენა"
+
+#: ../db/options.xml.h:568
+#, c-format
+msgid "Restore Factory Default Geometry"
+msgstr "ქარხნის ნაგულისხმევი გეომეტრიის აღდგენა"
+
+#: ../db/options.xml.h:569
+#, c-format
+msgid "Restore Factory Default Sharpness"
+msgstr "ქარხნული ნაგულისხმევი სიმკვეთრის აღდგენა"
+
+#: ../db/options.xml.h:570
+#, c-format
+msgid "Restore Factory Default Color"
+msgstr "ქარხნული ნაგულისხმევი ფერის აღდგენა"
+
+#: ../db/options.xml.h:571
+#, c-format
+msgid "Restore Factory Default Position"
+msgstr "ქარხნის ნაგულისხმევი პოზიციის აღდგენა"
+
+#: ../db/options.xml.h:572
+#, c-format
+msgid "Restore Factory Default Size"
+msgstr "ქარხნის ნაგულისხმევი ზომის აღდგენა"
+
+#: ../db/options.xml.h:573
+#, c-format
+msgid "Restore Factory Default Size and Position"
+msgstr "ქარხნის ნაგულისხმევი ზომისა და პოზიციის აღდგენა"
+
+#: ../db/options.xml.h:574
+#, c-format
+msgid "Settings"
+msgstr "მორგება"
+
+#: ../db/options.xml.h:575
+#, c-format
+msgid "Save Current Settings"
+msgstr "მიმდინარე პარამეტრების შენახვა"
+
+#: ../db/options.xml.h:576
+#, c-format
+msgid "Restore Factory Settings"
+msgstr "ქარხნული პარამეტრების აღდგენა"
+
+#: ../db/options.xml.h:577
+#, c-format
+msgid "Audio"
+msgstr "აუდიო"
+
+#: ../db/options.xml.h:578
+#, c-format
+msgid "Audio Speaker Volume Adjust"
+msgstr "დინამიკის ხმის რეგულირება"
+
+#: ../db/options.xml.h:579
+#, c-format
+msgid "Audio Microphone Volume Adjust"
+msgstr "მიკროფონის ხმის რეგულირება"
+
+#: ../db/options.xml.h:580 ../db/options.xml.h:581 ../db/options.xml.h:584
+#, c-format
+msgid "Mute"
+msgstr "დადუმება"
+
+#: ../db/options.xml.h:583
+#, c-format
+msgid "Audio Speaker Mute"
+msgstr "დინამიკის დადუმება"
+
+#: ../db/options.xml.h:585
+#, c-format
+msgid "Unmute"
+msgstr "დადუმების გამორთვა"
+
+#: ../db/options.xml.h:586 ../db/options.xml.h:587
+#, c-format
+msgid "Degauss"
+msgstr ""
+
+#: ../db/options.xml.h:588
+#, c-format
+msgid "Secondary Degauss"
+msgstr ""
+
+#: ../db/options.xml.h:589
+#, c-format
+msgid "OSD"
+msgstr "OSD"
+
+#: ../db/options.xml.h:590
+#, c-format
+msgid "On Screen Display"
+msgstr "ეკრანზე ჩვენება"
+
+#: ../db/options.xml.h:593
+#, c-format
+msgid "Enable only brightness/contrast settings"
+msgstr "მხოლოდ, სიკაშკაშის/კონტრასტის პარამეტრების ჩართვა"
+
+#: ../db/options.xml.h:594
+#, c-format
+msgid "On Screen Display (Samsung)"
+msgstr "ეკრანზე ჩვენება (Samsung)"
+
+#: ../db/options.xml.h:597
+#, c-format
+msgid "OSD Orientation"
+msgstr "OSD-ის ორიენტაცია"
+
+#: ../db/options.xml.h:598
+#, c-format
+msgid "Landscape"
+msgstr "ლანდშაფტი"
+
+#: ../db/options.xml.h:599
+#, c-format
+msgid "Landscape (180 degrees)"
+msgstr "ლანდშაფტი (180 გრადუსი)"
+
+#: ../db/options.xml.h:600
+#, c-format
+msgid "Portrait"
+msgstr "პორტრეტი"
+
+#: ../db/options.xml.h:601
+#, c-format
+msgid "Portrait (Left)"
+msgstr "პორტრეტი (მარცხნივ)"
+
+#: ../db/options.xml.h:602
+#, c-format
+msgid "Portrait (Right)"
+msgstr "პორტრეტი (მარჯვნივ)"
+
+#: ../db/options.xml.h:603
+#, c-format
+msgid "Language"
+msgstr "ენა"
+
+#: ../db/options.xml.h:604
+#, c-format
+msgid "English"
+msgstr "ინგლისური"
+
+#: ../db/options.xml.h:605
+#, c-format
+msgid "Français (French)"
+msgstr "Français (ფრანგული)"
+
+#: ../db/options.xml.h:606
+#, c-format
+msgid "Suomi (Finnish)"
+msgstr "Suomi (ფინური)"
+
+#: ../db/options.xml.h:607
+#, c-format
+msgid "Deutsch (German)"
+msgstr "Deutsch (გერმანული)"
+
+#: ../db/options.xml.h:608
+#, c-format
+msgid "Italiano (Italian)"
+msgstr "Italiano (იტალიური)"
+
+#: ../db/options.xml.h:609
+#, c-format
+msgid "한국어 (Korean)"
+msgstr "한국어 (კორეული)"
+
+#: ../db/options.xml.h:610
+#, c-format
+msgid "Castellano (Spanish)"
+msgstr "Castellano (ესპანური)"
+
+#: ../db/options.xml.h:611
+#, c-format
+msgid "Русский (Russian)"
+msgstr "Русский (რუსული)"
+
+#: ../db/options.xml.h:612
+#, c-format
+msgid "Svenska (Swedish)"
+msgstr "Svenska (შვედური)"
+
+#: ../db/options.xml.h:613
+#, c-format
+msgid "繁體中文 (Traditional Chinese)"
+msgstr "繁體中文 (ტრადიციული ჩინური)"
+
+#: ../db/options.xml.h:614
+#, c-format
+msgid "简体中文 (Simplified Chinese)"
+msgstr "简体中文 (გამარტივებული ჩინური)"
+
+#: ../db/options.xml.h:615
+#, c-format
+msgid "Nederlands (Dutch)"
+msgstr "Nederlands (ჰოლანდიური)"
+
+#: ../db/options.xml.h:616
+#, c-format
+msgid "日本語 (Japanese)"
+msgstr "日本語 (იაპონური)"
+
+#: ../db/options.xml.h:617
+#, c-format
+msgid "Polski (Polish)"
+msgstr "Polski (პოლონური)"
+
+#: ../db/options.xml.h:618
+#, c-format
+msgid "Ελληνικά (Greek)"
+msgstr "Ελληνικά (ბერძნული)"
+
+#: ../db/options.xml.h:619
+#, c-format
+msgid "Český (Czech)"
+msgstr "Český (ჩეხური)"
+
+#: ../db/options.xml.h:620
+#, c-format
+msgid "Magyar (Hungarian)"
+msgstr "Magyar (უნგრული)"
+
+#: ../db/options.xml.h:621
+#, c-format
+msgid "Română (Romanian)"
+msgstr "Română (რუმინული)"
+
+#: ../db/options.xml.h:622
+#, c-format
+msgid "Português (Portuguese)"
+msgstr "Português (პორტუგალიური)"
+
+#: ../db/options.xml.h:623
+#, c-format
+msgid "SiGC/BiH/CRO (Serbo-Croatian)"
+msgstr "SiGC/BiH/CRO (სერბო-ხორვატული)"
+
+#: ../db/options.xml.h:624
+#, c-format
+msgid "हिन्दी (India)"
+msgstr "हिन्दी (ინდური)"
+
+#: ../db/options.xml.h:625
+#, c-format
+msgid "Suomalainen (Finnish)"
+msgstr "Suomalainen (ფინური)"
+
+#: ../db/options.xml.h:626
+#, c-format
+msgid "Türk (Turkish)"
+msgstr "Türk (თურქული)"
+
+#: ../db/options.xml.h:627
+#, c-format
+msgid "Português do Brasil (Brazilian Portuguese)"
+msgstr "Português do Brasil (ბრაზილიური პორტუგალიური)"
+
+#: ../db/options.xml.h:628
+#, c-format
+msgid "Bahasa Melayu (Malay)"
+msgstr "Bahasa Melayu (მალაიური)"
+
+#: ../db/options.xml.h:629
+#, c-format
+msgid "ภาษาไทย (Thai)"
+msgstr "ภาษาไทย (ტაილანდური)"
+
+#: ../db/options.xml.h:630
+#, c-format
+msgid "العربية (Arabic)"
+msgstr "العربية (არაბული)"
+
+#: ../db/options.xml.h:631
+#, c-format
+msgid "українська (Ukrainian)"
+msgstr "українська (უკრაინული)"
+
+#: ../db/options.xml.h:632
+#, c-format
+msgid "فارسی (Persian)"
+msgstr "فارسی (სპარსული)"
+
+#: ../db/options.xml.h:633
+#, c-format
+msgid "Bahasa Indonesia (Indonesian)"
+msgstr "Bahasa Indonesia (ინდონეზიური)"
+
+#: ../db/options.xml.h:634
+#, c-format
+msgid "New Control Value"
+msgstr "ახალი საკონტროლო მნიშვნელობა"
+
+#: ../db/options.xml.h:635
+#, c-format
+msgid "No changes"
+msgstr "ცვლილებების გარეშე"
+
+#: ../db/options.xml.h:636
+#, c-format
+msgid "Some values changed"
+msgstr "ზოგიერთი მნიშვნელობა შეიცვალა"
+
+#: ../db/options.xml.h:637
+#, c-format
+msgid "OSD Lock"
+msgstr "OSD-ის ჩაკეტვა"
+
+#: ../db/options.xml.h:640
+#, c-format
+msgid "Key Lock"
+msgstr "ღილაკის ჩაკეტვა"
+
+#: ../db/options.xml.h:643
+#, c-format
+msgid "OSD Timer"
+msgstr "OSD ტაიმერი"
+
+#: ../db/options.xml.h:645
+#, c-format
+msgid "30 Minutes"
+msgstr "30 წუთი"
+
+#: ../db/options.xml.h:646
+#, c-format
+msgid "40 Minutes"
+msgstr "40 წუთი"
+
+#: ../db/options.xml.h:647
+#, c-format
+msgid "50 Minutes"
+msgstr "50 წუთი"
+
+#: ../db/options.xml.h:648
+#, c-format
+msgid "60 Minutes"
+msgstr "60 წუთი"
+
+#: ../db/options.xml.h:649
+#, c-format
+msgid "90 Minutes"
+msgstr "90 წუთი"
+
+#: ../db/options.xml.h:650 ../db/options.xml.h:657
+#, c-format
+msgid "Power control"
+msgstr "კვების კონტროლი"
+
+#: ../db/options.xml.h:651
+#, c-format
+msgid "DPMS Control"
+msgstr "DPMS-ის კონტროლი"
+
+#: ../db/options.xml.h:653 ../db/options.xml.h:659
+#, c-format
+msgid "Standby"
+msgstr "უქმე"
+
+#: ../db/options.xml.h:654
+#, c-format
+msgid "Suspend"
+msgstr "ძილი"
+
+#: ../db/options.xml.h:656
+#, c-format
+msgid "Power off"
+msgstr "გამორთვა"
+
+#: ../db/options.xml.h:661
+#, c-format
+msgid "Smart Energy Saving"
+msgstr "ჭკვიანი ენერგიის დაზოგვა"
+
+#: ../db/options.xml.h:665
+#, c-format
+msgid "Force energy saving"
+msgstr "ენერგიის დაზოგვა ნაძალადევად"
+
+#: ../db/options.xml.h:668
+#, c-format
+msgid "Buttons and leds"
+msgstr "ღილაკები და led-ები"
+
+#: ../db/options.xml.h:669
+#, c-format
+msgid "Custom key"
+msgstr "მორგებული ღილაკი"
+
+#: ../db/options.xml.h:670
+#, c-format
+msgid "MagicBright"
+msgstr "რეჟიმი MagicBright"
+
+#: ../db/options.xml.h:672
+#, c-format
+msgid "MagicAngle"
+msgstr "რეჟიმი MagicAngle"
+
+#: ../db/options.xml.h:673
+#, c-format
+msgid "MagicEco"
+msgstr "რეჟიმი MagicEco"
+
+#: ../db/options.xml.h:674
+#, c-format
+msgid "Automatic setup"
+msgstr "ავტომატური მორგება"
+
+#: ../db/options.xml.h:675
+#, c-format
+msgid "Input Source Select"
+msgstr "შეყვანის წყაროს არჩევა"
+
+#: ../db/options.xml.h:676
+#, c-format
+msgid "Color Tone"
+msgstr "ფერის ტონი"
+
+#: ../db/options.xml.h:677
+#, c-format
+msgid "Image Size"
+msgstr "გამოსახულების ზომა"
+
+#: ../db/options.xml.h:678
+#, c-format
+msgid "Power LED"
+msgstr "კვების LED"
+
+#: ../db/options.xml.h:683
+#, c-format
+msgid "3"
+msgstr "3"
+
+#: ../db/options.xml.h:684
+#, c-format
+msgid "4"
+msgstr "4"
+
+#: ../db/options.xml.h:685
+#, c-format
+msgid "Power Key Lock"
+msgstr "კვების ღილაკის ჩაკეტვა"
+
+#: ../db/options.xml.h:688
+#, c-format
+msgid "Button Access"
+msgstr "ღილაკზე წვდომა"
+
+#: ../db/options.xml.h:689
+#, c-format
+msgid "Locked"
+msgstr "დაბლოკილია"
+
+#: ../db/options.xml.h:690
+#, c-format
+msgid "Unlocked"
+msgstr "განბლოკილი"
+
+#: ../db/options.xml.h:691
+#, c-format
+msgid "Game Adjust"
+msgstr "თამაშის გასწორება"
+
+#: ../db/options.xml.h:692
+#, c-format
+msgid "FreeSync"
+msgstr "FreeSync"
+
+#: ../db/options.xml.h:695
+#, c-format
+msgid "Base"
+msgstr "საბაზისო"
+
+#: ../db/options.xml.h:696
+#, c-format
+msgid "Extended"
+msgstr "გაფართოებული"
+
+#: ../db/options.xml.h:697
+#, c-format
+msgid "Response Time"
+msgstr "პასუხის დრო"
+
+#: ../db/options.xml.h:704
+#, c-format
+msgid "Fast"
+msgstr "ჩქარი"
+
+#: ../db/options.xml.h:705
+#, c-format
+msgid "Faster"
+msgstr "უფრო სწრაფად"
+
+#: ../db/options.xml.h:706
+#, c-format
+msgid "Fastest"
+msgstr "უსწრაფესი"
+
+#: ../db/options.xml.h:707
+#, c-format
+msgid "Variable Overdrive"
+msgstr ""
+
+#: ../db/options.xml.h:713
+#, c-format
+msgid "Level 5"
+msgstr "დონე 5"
+
+#: ../db/options.xml.h:714
+#, c-format
+msgid "Smart View"
+msgstr "ჭკვიანი ხედი"
+
+#: ../db/options.xml.h:717
+#, c-format
+msgid "Trace Free"
+msgstr ""
+
+#: ../db/options.xml.h:719 ../db/options.xml.h:753
+#, c-format
+msgid "20"
+msgstr "20"
+
+#: ../db/options.xml.h:720 ../db/options.xml.h:757
+#, c-format
+msgid "40"
+msgstr "40"
+
+#: ../db/options.xml.h:721 ../db/options.xml.h:761
+#, c-format
+msgid "60"
+msgstr "60"
+
+#: ../db/options.xml.h:722 ../db/options.xml.h:765
+#, c-format
+msgid "80"
+msgstr "80"
+
+#: ../db/options.xml.h:723 ../db/options.xml.h:729 ../db/options.xml.h:769
+#, c-format
+msgid "100"
+msgstr "100"
+
+#: ../db/options.xml.h:724
+#, c-format
+msgid "VividPixel"
+msgstr "რეჟიმი VividPixel"
+
+#: ../db/options.xml.h:726 ../db/options.xml.h:754
+#, c-format
+msgid "25"
+msgstr "25"
+
+#: ../db/options.xml.h:727 ../db/options.xml.h:759
+#, c-format
+msgid "50"
+msgstr "50"
+
+#: ../db/options.xml.h:728 ../db/options.xml.h:764
+#, c-format
+msgid "75"
+msgstr "75"
+
+#: ../db/options.xml.h:730
+#, c-format
+msgid "Crosshair"
+msgstr "გადახაზული"
+
+#: ../db/options.xml.h:732
+#, c-format
+msgid "Style 1"
+msgstr "სტილი 1"
+
+#: ../db/options.xml.h:733
+#, c-format
+msgid "Style 2"
+msgstr "სტილი 2"
+
+#: ../db/options.xml.h:734
+#, c-format
+msgid "Style 3"
+msgstr "სტილი 3"
+
+#: ../db/options.xml.h:735
+#, c-format
+msgid "Style 4"
+msgstr "სტილი 4"
+
+#: ../db/options.xml.h:736
+#, c-format
+msgid "Style 5"
+msgstr "სტილი 5"
+
+#: ../db/options.xml.h:737
+#, c-format
+msgid "Style 6"
+msgstr "სტილი 6"
+
+#: ../db/options.xml.h:738
+#, c-format
+msgid "ASCR"
+msgstr "ASCR"
+
+#: ../db/options.xml.h:741
+#, c-format
+msgid "FPS Counter"
+msgstr "FPS-ის მთვლელი"
+
+#: ../db/options.xml.h:744
+#, c-format
+msgid "Graph"
+msgstr "გრაფიკი"
+
+#: ../db/options.xml.h:745
+#, c-format
+msgid "Alignment Frame"
+msgstr ""
+
+#: ../db/options.xml.h:748
+#, c-format
+msgid "Black Stabilization"
+msgstr "შავის სტაბილიზაცია"
+
+#: ../db/options.xml.h:750
+#, c-format
+msgid "5"
+msgstr "5"
+
+#: ../db/options.xml.h:751
+#, c-format
+msgid "10"
+msgstr "10"
+
+#: ../db/options.xml.h:752
+#, c-format
+msgid "15"
+msgstr "15"
+
+#: ../db/options.xml.h:755
+#, c-format
+msgid "30"
+msgstr "30"
+
+#: ../db/options.xml.h:756
+#, c-format
+msgid "35"
+msgstr "35"
+
+#: ../db/options.xml.h:758
+#, c-format
+msgid "45"
+msgstr "45"
+
+#: ../db/options.xml.h:760
+#, c-format
+msgid "55"
+msgstr "55"
+
+#: ../db/options.xml.h:762
+#, c-format
+msgid "65"
+msgstr "65"
+
+#: ../db/options.xml.h:763
+#, c-format
+msgid "70"
+msgstr "70"
+
+#: ../db/options.xml.h:766
+#, c-format
+msgid "85"
+msgstr "85"
+
+#: ../db/options.xml.h:767
+#, c-format
+msgid "90"
+msgstr "90"
+
+#: ../db/options.xml.h:768
+#, c-format
+msgid "95"
+msgstr "95"
