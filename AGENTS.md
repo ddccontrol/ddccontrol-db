@@ -32,3 +32,36 @@ Git workflow requirements:
   * and hardware verification is requested from the issue author before enabling additional controls.
 
 The goal is to create a safe initial profile suitable for distribution in packages without risking incorrect monitor-specific mappings.
+
+## Git and PR hygiene
+
+Do not include AI/vendor/tool branding in any Git metadata.
+
+Forbidden examples:
+- "[claude]"
+- "[codex]"
+- "claude/"
+- "codex/"
+- "generated-by-claude"
+- "generated-by-codex"
+- "co-authored-by: Claude"
+- "co-authored-by: Codex"
+
+This applies to:
+- branch names
+- commit messages
+- PR titles
+- PR descriptions
+- changelog entries
+
+Use normal human project conventions only.
+
+Branch names should describe the work, for example:
+- feature/add-minnye-support
+- fix/handle-empty-config
+- chore/update-ci-validation
+
+Commit messages should follow Conventional Commits where applicable:
+- feat: add minnye support
+- fix: handle empty config
+- test: cover invalid manifests
