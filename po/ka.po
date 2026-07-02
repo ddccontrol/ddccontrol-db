@@ -592,7 +592,7 @@ msgstr "რეჟიმი 0x0A"
 #: ../db/options.xml.h:160
 #, c-format
 msgid "Mode 0x0D"
-msgstr "რეჟიმი 0x0"
+msgstr "რეჟიმი 0x0D"
 
 #: ../db/options.xml.h:162
 #, c-format
@@ -858,7 +858,7 @@ msgstr "ლურჯის მაქსიმალური დონე"
 #: ../db/options.xml.h:228
 #, c-format
 msgid "Color minimum level"
-msgstr "ფერის მაქსიმალური დონე"
+msgstr "ფერის მინიმალური დონე"
 
 #: ../db/options.xml.h:229
 #, c-format
