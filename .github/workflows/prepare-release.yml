@@ -1,0 +1,168 @@
+name: Prepare Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_date:
+        description: Release version in YYYYMMDD format. Defaults to today's UTC date.
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: prepare-release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  prepare-release:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: master
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Resolve release version
+        id: version
+        env:
+          GH_TOKEN: ${{ github.token }}
+          INPUT_RELEASE_DATE: ${{ inputs.release_date }}
+        run: |
+          set -euo pipefail
+          if [ "$GITHUB_REF_NAME" != "master" ]; then
+            echo "::error::Prepare release must be run from master"
+            exit 1
+          fi
+
+          release_date="${INPUT_RELEASE_DATE:-$(date -u +%Y%m%d)}"
+
+          if ! [[ "$release_date" =~ ^[0-9]{8}$ ]]; then
+            echo "::error::release_date must use YYYYMMDD format"
+            exit 1
+          fi
+
+          parsed_date="$(date -u -d "${release_date:0:4}-${release_date:4:2}-${release_date:6:2}" +%Y%m%d 2>/dev/null || true)"
+          if [ "$parsed_date" != "$release_date" ]; then
+            echo "::error::release_date is not a valid calendar date"
+            exit 1
+          fi
+
+          if git rev-parse -q --verify "refs/tags/$release_date" >/dev/null; then
+            echo "::error::Tag $release_date already exists"
+            exit 1
+          fi
+
+          if gh release view "$release_date" >/dev/null 2>&1; then
+            echo "::error::Release $release_date already exists"
+            exit 1
+          fi
+
+          release_branch="release/$release_date"
+
+          if git ls-remote --exit-code --heads origin "$release_branch" >/dev/null 2>&1; then
+            echo "::error::Branch $release_branch already exists"
+            exit 1
+          fi
+
+          existing_pr_count="$(gh pr list --head "$release_branch" --state open --json number --jq 'length')"
+          if [ "$existing_pr_count" != "0" ]; then
+            echo "::error::An open release PR already exists for $release_branch"
+            exit 1
+          fi
+
+          latest_tag="$(git tag --merged HEAD --sort=-creatordate | grep -E '^[0-9]{8}$' | head -n 1 || true)"
+
+          {
+            echo "release_date=$release_date"
+            echo "release_branch=$release_branch"
+            echo "latest_tag=$latest_tag"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Update release files
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_DATE: ${{ steps.version.outputs.release_date }}
+          LATEST_TAG: ${{ steps.version.outputs.latest_tag }}
+        run: |
+          set -euo pipefail
+          perl -0pi -e 's/AC_INIT\(\[DDC\/CI control tool database\], \[[0-9]{8}\]/AC_INIT([DDC\/CI control tool database], [$ENV{RELEASE_DATE}]/' configure.ac
+
+          configured_date="$(perl -ne 'print "$1\n" if /AC_INIT\(\[DDC\/CI control tool database\], \[([0-9]{8})\]/' configure.ac)"
+          if [ "$configured_date" != "$RELEASE_DATE" ]; then
+            echo "::error::Failed to update configure.ac to $RELEASE_DATE"
+            exit 1
+          fi
+
+          notes_args=(
+            -f "tag_name=$RELEASE_DATE"
+            -f "target_commitish=$(git rev-parse HEAD)"
+          )
+          if [ -n "$LATEST_TAG" ]; then
+            notes_args+=(-f "previous_tag_name=$LATEST_TAG")
+          fi
+
+          release_notes="$(gh api "repos/$GITHUB_REPOSITORY/releases/generate-notes" "${notes_args[@]}" --jq '.body')"
+          changelog_tmp="$(mktemp)"
+          {
+            echo "# Changelog"
+            echo
+            echo "## $RELEASE_DATE"
+            echo
+            printf '%s\n' "$release_notes"
+            echo
+            if [ -f CHANGELOG.md ]; then
+              awk 'NR == 1 && $0 == "# Changelog" {next} {print}' CHANGELOG.md | sed '/./,$!d'
+            fi
+          } > "$changelog_tmp"
+          mv "$changelog_tmp" CHANGELOG.md
+
+      - name: Create release pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_DATE: ${{ steps.version.outputs.release_date }}
+          RELEASE_BRANCH: ${{ steps.version.outputs.release_branch }}
+          LATEST_TAG: ${{ steps.version.outputs.latest_tag }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git switch -c "$RELEASE_BRANCH"
+          git add configure.ac CHANGELOG.md
+
+          if git diff --cached --quiet; then
+            echo "::error::No release file changes were generated"
+            exit 1
+          fi
+
+          git commit -m "chore: release $RELEASE_DATE"
+          git push origin "$RELEASE_BRANCH"
+
+          pr_body="$RUNNER_TEMP/release-pr-body.md"
+          {
+            echo "## Summary"
+            echo
+            echo "- prepare ddccontrol-db release \`$RELEASE_DATE\`"
+            echo "- update \`configure.ac\` to the date-based package version"
+            echo "- add generated release notes to \`CHANGELOG.md\` for review"
+            echo
+            echo "## Release"
+            echo
+            if [ -n "$LATEST_TAG" ]; then
+              echo "Previous release: \`$LATEST_TAG\`"
+            else
+              echo "Previous release: none detected"
+            fi
+            echo
+            echo "Merge this PR to publish the \`$RELEASE_DATE\` release."
+          } > "$pr_body"
+
+          gh pr create \
+            --base master \
+            --head "$RELEASE_BRANCH" \
+            --title "chore: release $RELEASE_DATE" \
+            --body-file "$pr_body"
