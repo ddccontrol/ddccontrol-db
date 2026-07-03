@@ -1,27 +1,31 @@
-name: Release
+name: Publish Release
 
 on:
+  pull_request:
+    types: [closed]
+    branches: [master]
   workflow_dispatch:
     inputs:
       release_date:
-        description: Release version in YYYYMMDD format. Defaults to today's UTC date.
-        required: false
+        description: Release version in YYYYMMDD format.
+        required: true
         type: string
 
 permissions:
   contents: write
 
 concurrency:
-  group: release-${{ github.ref }}
+  group: publish-release-${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || inputs.release_date }}
   cancel-in-progress: false
 
 jobs:
-  release:
+  publish-release:
+    if: ${{ github.event_name == 'workflow_dispatch' || (github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'release/')) }}
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v6
         with:
-          ref: ${{ github.ref_name }}
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.merge_commit_sha || github.ref_name }}
           fetch-depth: 0
           fetch-tags: true
 
@@ -29,15 +33,20 @@ jobs:
         id: version
         env:
           GH_TOKEN: ${{ github.token }}
+          EVENT_NAME: ${{ github.event_name }}
+          PR_HEAD_REF: ${{ github.event.pull_request.head.ref }}
           INPUT_RELEASE_DATE: ${{ inputs.release_date }}
         run: |
           set -euo pipefail
-          if [ "$GITHUB_REF_NAME" != "master" ]; then
-            echo "::error::Releases must be run from master"
-            exit 1
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            release_date="${PR_HEAD_REF#release/}"
+          else
+            if [ "$GITHUB_REF_NAME" != "master" ]; then
+              echo "::error::Manual publishing must be run from master"
+              exit 1
+            fi
+            release_date="$INPUT_RELEASE_DATE"
           fi
-
-          release_date="${INPUT_RELEASE_DATE:-$(date -u +%Y%m%d)}"
 
           if ! [[ "$release_date" =~ ^[0-9]{8}$ ]]; then
             echo "::error::release_date must use YYYYMMDD format"
@@ -47,6 +56,12 @@ jobs:
           parsed_date="$(date -u -d "${release_date:0:4}-${release_date:4:2}-${release_date:6:2}" +%Y%m%d 2>/dev/null || true)"
           if [ "$parsed_date" != "$release_date" ]; then
             echo "::error::release_date is not a valid calendar date"
+            exit 1
+          fi
+
+          configured_date="$(perl -ne 'print "$1\n" if /AC_INIT\(\[DDC\/CI control tool database\], \[([0-9]{8})\]/' configure.ac)"
+          if [ "$configured_date" != "$release_date" ]; then
+            echo "::error::configure.ac version $configured_date does not match release $release_date"
             exit 1
           fi
 
@@ -61,26 +76,6 @@ jobs:
           fi
 
           echo "release_date=$release_date" >> "$GITHUB_OUTPUT"
-
-      - name: Update package version
-        env:
-          RELEASE_DATE: ${{ steps.version.outputs.release_date }}
-        run: |
-          set -euo pipefail
-          perl -0pi -e 's/AC_INIT\(\[DDC\/CI control tool database\], \[[0-9]{8}\]/AC_INIT([DDC\/CI control tool database], [$ENV{RELEASE_DATE}]/' configure.ac
-
-      - name: Commit release version
-        env:
-          RELEASE_DATE: ${{ steps.version.outputs.release_date }}
-        run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          if ! git diff --quiet -- configure.ac; then
-            git add configure.ac
-            git commit -m "chore: release $RELEASE_DATE"
-          fi
 
       - name: Install build dependencies
         run: |
@@ -110,10 +105,24 @@ jobs:
           cp ddccontrol-db-*.tar.bz2 "$RUNNER_TEMP/release-artifacts/"
           cp ddccontrol-db-*.tar.xz "$RUNNER_TEMP/release-artifacts/"
 
-      - name: Push release commit
+      - name: Extract reviewed release notes
+        env:
+          RELEASE_DATE: ${{ steps.version.outputs.release_date }}
         run: |
           set -euo pipefail
-          git push origin "HEAD:${GITHUB_REF_NAME}"
+          notes_file="$RUNNER_TEMP/release-notes.md"
+          awk -v release_date="$RELEASE_DATE" '
+            $0 == "## " release_date { found = 1; next }
+            found && /^## [0-9]{8}$/ { exit }
+            found { print }
+          ' CHANGELOG.md | sed '/./,$!d' > "$notes_file"
+
+          if [ ! -s "$notes_file" ]; then
+            echo "::error::No reviewed release notes found for $RELEASE_DATE in CHANGELOG.md"
+            exit 1
+          fi
+
+          echo "notes_file=$notes_file" >> "$GITHUB_ENV"
 
       - name: Create GitHub release
         env:
@@ -124,7 +133,7 @@ jobs:
           gh release create "$RELEASE_DATE" \
             --title "$RELEASE_DATE" \
             --target "$(git rev-parse HEAD)" \
-            --generate-notes \
+            --notes-file "$notes_file" \
             "$RUNNER_TEMP"/release-artifacts/ddccontrol-db-*.tar.gz \
             "$RUNNER_TEMP"/release-artifacts/ddccontrol-db-*.tar.bz2 \
             "$RUNNER_TEMP"/release-artifacts/ddccontrol-db-*.tar.xz
