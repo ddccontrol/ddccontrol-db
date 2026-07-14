@@ -9,6 +9,7 @@ AC_ARG_ENABLE([nls])
 AC_ARG_ENABLE([dependency-tracking])
 AC_ARG_ENABLE([silent-rules])
 AC_ARG_ENABLE([maintainer-mode])
+AC_ARG_WITH([sysroot])
 
 AC_CONFIG_COMMANDS_PRE([
   eval "set x $ac_configure_args"
