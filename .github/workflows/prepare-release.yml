@@ -61,7 +61,7 @@ jobs:
             exit 1
           fi
 
-          release_branch="release/$release_date"
+          release_branch="release-$release_date"
 
           if git ls-remote --exit-code --heads origin "$release_branch" >/dev/null 2>&1; then
             echo "::error::Branch $release_branch already exists"
