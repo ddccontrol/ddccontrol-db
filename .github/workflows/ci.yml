@@ -24,6 +24,7 @@ jobs:
       - name: Build and validate
         run: |
           set -euo pipefail
+          ./configure --prefix=/usr
           make -j"$(nproc)"
           make check
 
@@ -31,7 +32,7 @@ jobs:
         run: |
           set -euo pipefail
           stage="$(mktemp -d)"
-          make install PREFIX=/usr DESTDIR="$stage"
+          make install DESTDIR="$stage"
           test -f "$stage/usr/share/ddccontrol-db/options.xml"
           test -f "$stage/usr/share/ddccontrol-db/monitor/VESA.xml"
           test -f "$stage/usr/share/locale/fr/LC_MESSAGES/ddccontrol-db.mo"
@@ -44,7 +45,11 @@ jobs:
           tar -xf "ddccontrol-db-$(< VERSION).tar.xz" -C "$release_dir"
           source_dir="$release_dir/ddccontrol-db-$(< VERSION)"
           stage="$(mktemp -d)"
-          make -C "$source_dir" MSGFMT=false
-          make -C "$source_dir" MSGFMT=false install PREFIX=/usr DESTDIR="$stage"
+          (
+            cd "$source_dir"
+            ./configure --prefix=/usr
+            make MSGFMT=false
+            make MSGFMT=false install DESTDIR="$stage"
+          )
           test -f "$stage/usr/share/ddccontrol-db/options.xml"
           test -f "$stage/usr/share/locale/fr/LC_MESSAGES/ddccontrol-db.mo"

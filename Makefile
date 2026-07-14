@@ -7,6 +7,8 @@ LOCALEDIR ?= $(DATADIR)/locale
 DBDIR ?= $(DATADIR)/ddccontrol-db
 DESTDIR ?=
 
+-include config.mk
+
 INSTALL ?= install
 INSTALL_DATA ?= $(INSTALL) -m 644
 MKDIR_P ?= mkdir -p
@@ -100,18 +102,18 @@ distdir: all
 	@git ls-files --cached | \
 		while IFS= read -r file; do test ! -e "$$file" || printf '%s\n' "$$file"; done \
 		> build/dist-files
-	tar -cf - -T build/dist-files | tar -xf - -C "$(DIST_DIR)"
+	COPYFILE_DISABLE=1 tar -cf - -T build/dist-files | COPYFILE_DISABLE=1 tar -xf - -C "$(DIST_DIR)"
 	$(INSTALL_DATA) db/options.xml "$(DIST_DIR)/db/options.xml"
 	$(INSTALL_DATA) $(MO_FILES) "$(DIST_DIR)/po/"
 
 dist-gzip: distdir
-	tar -C "$(DIST_ROOT)" -czf "$(CURDIR)/$(DIST_NAME).tar.gz" "$(DIST_NAME)"
+	COPYFILE_DISABLE=1 tar -C "$(DIST_ROOT)" -czf "$(CURDIR)/$(DIST_NAME).tar.gz" "$(DIST_NAME)"
 
 dist-bzip2: distdir
-	tar -C "$(DIST_ROOT)" -cjf "$(CURDIR)/$(DIST_NAME).tar.bz2" "$(DIST_NAME)"
+	COPYFILE_DISABLE=1 tar -C "$(DIST_ROOT)" -cjf "$(CURDIR)/$(DIST_NAME).tar.bz2" "$(DIST_NAME)"
 
 dist-xz: distdir
-	tar -C "$(DIST_ROOT)" -cJf "$(CURDIR)/$(DIST_NAME).tar.xz" "$(DIST_NAME)"
+	COPYFILE_DISABLE=1 tar -C "$(DIST_ROOT)" -cJf "$(CURDIR)/$(DIST_NAME).tar.xz" "$(DIST_NAME)"
 
 dist: dist-gzip dist-bzip2 dist-xz
 
@@ -120,4 +122,5 @@ clean:
 	rm -rf build
 
 distclean: clean
+	rm -f config.mk
 	rm -f $(PACKAGE)-*.tar.gz $(PACKAGE)-*.tar.bz2 $(PACKAGE)-*.tar.xz

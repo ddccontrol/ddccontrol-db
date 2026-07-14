@@ -2,7 +2,8 @@ Installing ddccontrol-db
 ========================
 
 ddccontrol-db is a data-only package. It does not compile programs or
-libraries and does not use a configure script.
+libraries. Its small handwritten configure script only selects installation
+directories and checks commands needed by the subsequent make targets.
 
 Installing a release archive
 ----------------------------
@@ -11,8 +12,9 @@ Release archives contain a generated db/options.xml and compiled gettext
 catalogs. A standard Unix-like system only needs make and the usual install,
 mkdir, awk, sed, and shell utilities:
 
+    ./configure --prefix=/usr
     make
-    sudo make install PREFIX=/usr
+    sudo make install
 
 The default prefix is /usr/local.
 
@@ -22,8 +24,9 @@ Building from a Git checkout
 A Git checkout additionally needs GNU gettext because make compiles po/*.po
 to po/*.gmo with msgfmt:
 
+    ./configure --prefix=/usr
     make
-    sudo make install PREFIX=/usr
+    sudo make install
 
 Installation variables
 ----------------------
@@ -39,7 +42,8 @@ The Makefile supports these variables:
 
 For example, a distribution package can stage files without root privileges:
 
-    make install PREFIX=/usr DESTDIR="$pkgdir"
+    ./configure --prefix=/usr
+    make install DESTDIR="$pkgdir"
 
 To install only selected translations:
 
@@ -61,7 +65,9 @@ the PO files. This target requires gettext and Perl:
 
     make update-po
 
-Create gzip, bzip2, and xz release archives with compiled translations:
+Create gzip, bzip2, and xz release archives with compiled translations. This
+maintainer target additionally requires Git and tar with gzip, bzip2, and xz
+support:
 
     make dist
 

@@ -53,19 +53,20 @@ Latest repository can be cloned and built by:
 ```shell
 git clone https://github.com/ddccontrol/ddccontrol-db.git
 cd ddccontrol-db
+./configure --prefix=/usr
 make
 ```
 
 Finally, the build can be installed using:
 
 ```shell
-sudo make install PREFIX=/usr
+sudo make install
 ```
 
 Packagers can stage an installation with `DESTDIR`, for example:
 
 ```shell
-make install PREFIX=/usr DESTDIR="$pkgdir"
+make install DESTDIR="$pkgdir"
 ```
 
 See [`INSTALL`](INSTALL) for all supported installation variables and

@@ -88,6 +88,7 @@ jobs:
         run: |
           set -euo pipefail
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          ./configure
           make -j"$(nproc)"
           make check
           make dist

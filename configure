@@ -1,0 +1,91 @@
+#!/bin/sh
+
+set -eu
+
+package=ddccontrol-db
+version=$(sed -n '1p' VERSION)
+prefix=/usr/local
+datadir=
+localedir=
+dbdir=
+
+usage()
+{
+	cat <<EOF
+Usage: ./configure [OPTION]...
+
+Configure installation directories for $package.
+
+  --prefix=PATH       installation prefix (default: /usr/local)
+  --datadir=PATH      data root (default: PREFIX/share)
+  --localedir=PATH    locale root (default: DATADIR/locale)
+  --dbdir=PATH        monitor database directory (default: DATADIR/ddccontrol-db)
+  --help              display this help and exit
+  --version           display the package version and exit
+
+Values can still be overridden when invoking make.
+EOF
+}
+
+while [ "$#" -gt 0 ]; do
+	case $1 in
+		--prefix=*) prefix=${1#*=}; [ -n "$prefix" ] || break ;;
+		--prefix) [ "$#" -ge 2 ] || break; shift; prefix=$1 ;;
+		--datadir=*) datadir=${1#*=}; [ -n "$datadir" ] || break ;;
+		--datadir) [ "$#" -ge 2 ] || break; shift; datadir=$1 ;;
+		--localedir=*) localedir=${1#*=}; [ -n "$localedir" ] || break ;;
+		--localedir) [ "$#" -ge 2 ] || break; shift; localedir=$1 ;;
+		--dbdir=*) dbdir=${1#*=}; [ -n "$dbdir" ] || break ;;
+		--dbdir) [ "$#" -ge 2 ] || break; shift; dbdir=$1 ;;
+		--help|-h) usage; exit 0 ;;
+		--version|-V) printf '%s %s\n' "$package" "$version"; exit 0 ;;
+		*) printf 'configure: error: unknown option: %s\n' "$1" >&2; usage >&2; exit 2 ;;
+	esac
+	shift
+done
+
+if [ "$#" -gt 0 ]; then
+	printf 'configure: error: an option requires a non-empty value: %s\n' "$1" >&2
+	exit 2
+fi
+
+datadir=${datadir:-$prefix/share}
+localedir=${localedir:-$datadir/locale}
+dbdir=${dbdir:-$datadir/ddccontrol-db}
+
+for command in make sed install mkdir; do
+	if ! command -v "$command" >/dev/null 2>&1; then
+		printf 'configure: error: required command not found: %s\n' "$command" >&2
+		exit 1
+	fi
+done
+
+if [ ! -f db/options.xml ] && ! command -v awk >/dev/null 2>&1; then
+	printf 'configure: error: awk is required to generate db/options.xml\n' >&2
+	exit 1
+fi
+
+while IFS= read -r language; do
+	case $language in
+		''|'#'*) continue ;;
+	esac
+	if [ ! -f "po/$language.gmo" ] && ! command -v msgfmt >/dev/null 2>&1; then
+		printf 'configure: error: msgfmt is required to compile translations\n' >&2
+		exit 1
+	fi
+done < po/LINGUAS
+
+tmp=config.mk.tmp
+{
+	printf 'PREFIX := %s\n' "$prefix"
+	printf 'DATADIR := %s\n' "$datadir"
+	printf 'LOCALEDIR := %s\n' "$localedir"
+	printf 'DBDIR := %s\n' "$dbdir"
+} > "$tmp"
+mv "$tmp" config.mk
+
+printf '%s %s configured:\n' "$package" "$version"
+printf '  prefix:    %s\n' "$prefix"
+printf '  data:      %s\n' "$datadir"
+printf '  locales:   %s\n' "$localedir"
+printf '  database:  %s\n' "$dbdir"
