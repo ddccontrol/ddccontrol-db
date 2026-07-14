@@ -62,12 +62,12 @@ while [ "$#" -gt 0 ]; do
 		--runstatedir=*|--libdir=*|--includedir=*|--oldincludedir=*|\
 		--infodir=*|--mandir=*|--docdir=*|--htmldir=*|\
 		--dvidir=*|--pdfdir=*|--psdir=*|--program-prefix=*|--program-suffix=*|\
-		--program-transform-name=*|--cache-file=*) ;;
+		--program-transform-name=*|--cache-file=*|--with-sysroot=*) ;;
 		--build|--host|--target|--exec-prefix|--bindir|--sbindir|--libexecdir|\
 		--sysconfdir|--sharedstatedir|--localstatedir|--runstatedir|--libdir|\
 		--includedir|--oldincludedir|--infodir|--mandir|--docdir|\
 		--htmldir|--dvidir|--pdfdir|--psdir|--program-prefix|--program-suffix|\
-		--program-transform-name|--cache-file)
+		--program-transform-name|--cache-file|--with-sysroot)
 			[ "$#" -ge 2 ] || break
 			shift
 			;;

@@ -43,7 +43,8 @@ jobs:
             --localstatedir=/var \
             --sharedstatedir=/var/lib \
             --mandir=/usr/share/man \
-            --infodir=/usr/share/info
+            --infodir=/usr/share/info \
+            --with-sysroot=/
           make -j"$(nproc)"
           make check
 
@@ -131,6 +132,7 @@ jobs:
               --host="$(uname -m)-gentoo-linux-gnu" \
               --prefix=/usr \
               --datadir=/usr/share \
+              --with-sysroot=/ \
               --disable-nls
             make
             stage="$(mktemp -d)"
