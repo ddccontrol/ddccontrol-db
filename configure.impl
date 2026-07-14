@@ -1,0 +1,137 @@
+#!/bin/sh
+
+# Handwritten configure implementation. The configure.ac compatibility shim
+# forwards here if a downstream package still regenerates ./configure.
+
+set -eu
+
+package=ddccontrol-db
+version=$(sed -n '1p' VERSION)
+prefix=/usr/local
+datadir=
+datarootdir=
+localedir=
+dbdir=
+nls=yes
+option_checking=yes
+
+usage()
+{
+	cat <<EOF
+Usage: ./configure [OPTION]...
+
+Configure installation directories for $package.
+
+  --prefix=PATH       installation prefix (default: /usr/local)
+  --datadir=PATH      data root (default: PREFIX/share)
+  --datarootdir=PATH  base for read-only architecture-independent data
+  --localedir=PATH    locale root (default: DATADIR/locale)
+  --dbdir=PATH        monitor database directory (default: DATADIR/ddccontrol-db)
+  --enable-nls        build and install translations (default)
+  --disable-nls       omit translations
+  --help              display this help and exit
+  --version           display the package version and exit
+
+Values can still be overridden when invoking make.
+EOF
+}
+
+while [ "$#" -gt 0 ]; do
+	case $1 in
+		--prefix=*) prefix=${1#*=}; [ -n "$prefix" ] || break ;;
+		--prefix) [ "$#" -ge 2 ] || break; shift; prefix=$1 ;;
+		--datadir=*) datadir=${1#*=}; [ -n "$datadir" ] || break ;;
+		--datadir) [ "$#" -ge 2 ] || break; shift; datadir=$1 ;;
+		--datarootdir=*) datarootdir=${1#*=}; [ -n "$datarootdir" ] || break ;;
+		--datarootdir) [ "$#" -ge 2 ] || break; shift; datarootdir=$1 ;;
+		--localedir=*) localedir=${1#*=}; [ -n "$localedir" ] || break ;;
+		--localedir) [ "$#" -ge 2 ] || break; shift; localedir=$1 ;;
+		--dbdir=*) dbdir=${1#*=}; [ -n "$dbdir" ] || break ;;
+		--dbdir) [ "$#" -ge 2 ] || break; shift; dbdir=$1 ;;
+		--enable-nls) nls=yes ;;
+		--disable-nls) nls=no ;;
+		--disable-option-checking) option_checking=no ;;
+		--enable-option-checking) option_checking=yes ;;
+		--build=*|--host=*|--target=*|--exec-prefix=*|--bindir=*|--sbindir=*|\
+		--libexecdir=*|--sysconfdir=*|--sharedstatedir=*|--localstatedir=*|\
+		--runstatedir=*|--libdir=*|--includedir=*|--oldincludedir=*|\
+		--infodir=*|--mandir=*|--docdir=*|--htmldir=*|\
+		--dvidir=*|--pdfdir=*|--psdir=*|--program-prefix=*|--program-suffix=*|\
+		--program-transform-name=*|--cache-file=*) ;;
+		--build|--host|--target|--exec-prefix|--bindir|--sbindir|--libexecdir|\
+		--sysconfdir|--sharedstatedir|--localstatedir|--runstatedir|--libdir|\
+		--includedir|--oldincludedir|--infodir|--mandir|--docdir|\
+		--htmldir|--dvidir|--pdfdir|--psdir|--program-prefix|--program-suffix|\
+		--program-transform-name|--cache-file)
+			[ "$#" -ge 2 ] || break
+			shift
+			;;
+		--disable-dependency-tracking|--enable-dependency-tracking|\
+		--disable-silent-rules|--enable-silent-rules|\
+		--disable-maintainer-mode|--enable-maintainer-mode|--config-cache|\
+		--quiet|--silent|-q) ;;
+		--help|-h) usage; exit 0 ;;
+		--version|-V) printf '%s %s\n' "$package" "$version"; exit 0 ;;
+		[A-Za-z_]*=*) ;;
+		--enable-*|--disable-*|--with-*|--without-*)
+			if [ "$option_checking" = yes ]; then
+				printf 'configure: error: unknown option: %s\n' "$1" >&2
+				exit 2
+			fi
+			;;
+		*) printf 'configure: error: unknown option: %s\n' "$1" >&2; usage >&2; exit 2 ;;
+	esac
+	shift
+done
+
+if [ "$#" -gt 0 ]; then
+	printf 'configure: error: an option requires a non-empty value: %s\n' "$1" >&2
+	exit 2
+fi
+
+datadir=${datadir:-${datarootdir:-$prefix/share}}
+localedir=${localedir:-$datadir/locale}
+dbdir=${dbdir:-$datadir/ddccontrol-db}
+
+for command in make sed install mkdir; do
+	if ! command -v "$command" >/dev/null 2>&1; then
+		printf 'configure: error: required command not found: %s\n' "$command" >&2
+		exit 1
+	fi
+done
+
+if [ ! -f db/options.xml ] && ! command -v awk >/dev/null 2>&1; then
+	printf 'configure: error: awk is required to generate db/options.xml\n' >&2
+	exit 1
+fi
+
+if [ "$nls" = yes ]; then
+	while IFS= read -r language; do
+		case $language in
+			''|'#'*) continue ;;
+		esac
+		if [ ! -f "po/$language.gmo" ] && ! command -v msgfmt >/dev/null 2>&1; then
+			printf 'configure: error: msgfmt is required to compile translations\n' >&2
+			exit 1
+		fi
+	done < po/LINGUAS
+fi
+
+tmp=config.mk.tmp
+{
+	printf 'PREFIX := %s\n' "$prefix"
+	printf 'DATADIR := %s\n' "$datadir"
+	printf 'LOCALEDIR := %s\n' "$localedir"
+	printf 'DBDIR := %s\n' "$dbdir"
+	if [ "$nls" = no ]; then
+		printf 'LINGUAS :=\n'
+	fi
+} > "$tmp"
+mv "$tmp" config.mk
+
+printf '%s %s configured:\n' "$package" "$version"
+printf '  prefix:    %s\n' "$prefix"
+printf '  data:      %s\n' "$datadir"
+printf '  locales:   %s\n' "$localedir"
+printf '  database:  %s\n' "$dbdir"
+printf '  translations: %s\n' "$nls"

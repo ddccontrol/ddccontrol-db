@@ -42,9 +42,11 @@ but have no effect. To build without translation catalogs, use:
 
     ./configure --prefix=/usr --disable-nls
 
-Recipes that invoke autoreconf or eautoreconf directly must remove that step.
-There is intentionally no configure.ac to regenerate: configure and Makefile
-are maintained source files.
+Recipes that invoke autoreconf or eautoreconf directly are temporarily covered
+by a minimal configure.ac compatibility shim. The generated configure forwards
+all arguments to the handwritten configure implementation. Packagers should
+still remove the regeneration step: configure and Makefile are maintained
+source files, and Autoconf is not a normal build dependency.
 
 Installation variables
 ----------------------

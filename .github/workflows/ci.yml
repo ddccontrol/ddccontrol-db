@@ -83,3 +83,28 @@ jobs:
           make install DESTDIR="$stage"
           test -f "$stage/usr/share/ddccontrol-db/options.xml"
           test ! -d "$stage/usr/share/locale"
+
+      - name: Test temporary autoreconf compatibility
+        run: |
+          set -euo pipefail
+          sudo apt-get install -y --no-install-recommends \
+            autoconf \
+            automake
+          source_dir="$(mktemp -d)"
+          cp -a . "$source_dir/source"
+          (
+            cd "$source_dir/source"
+            make distclean
+            autoreconf --force --install --verbose
+            ./configure \
+              --build="$(uname -m)-gentoo-linux-gnu" \
+              --host="$(uname -m)-gentoo-linux-gnu" \
+              --prefix=/usr \
+              --datadir=/usr/share \
+              --disable-nls
+            make
+            stage="$(mktemp -d)"
+            make install DESTDIR="$stage"
+            test -f "$stage/usr/share/ddccontrol-db/options.xml"
+            test ! -d "$stage/usr/share/locale"
+          )
