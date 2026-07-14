@@ -1,7 +1,7 @@
-[![Build Status][travis-badge]][travis]
+[![CI][ci-badge]][ci]
 
-[travis-badge]: https://travis-ci.org/ddccontrol/ddccontrol-db.svg?branch=master
-[travis]: https://travis-ci.org/ddccontrol/ddccontrol-db
+[ci-badge]: https://github.com/ddccontrol/ddccontrol-db/actions/workflows/ci.yml/badge.svg
+[ci]: https://github.com/ddccontrol/ddccontrol-db/actions/workflows/ci.yml
 
 # DDC/CI control database
 
@@ -34,29 +34,42 @@ Instructions for other distributions will be prepared later.
 
 ### Installation from sources
 
-Install build depedencies (on Ubuntu):
+Release archives contain the generated database and compiled translations. On
+Ubuntu, only `make` is needed to install one:
 
 ```shell
-sudo apt install intltool libtool m4 automake autopoint
+sudo apt install make
 ```
 
-Instructions for dependecies installation will be prepared later.
+Building directly from a Git checkout also requires GNU gettext to compile the
+translations:
+
+```shell
+sudo apt install gettext make
+```
 
 Latest repository can be cloned and built by:
 
 ```shell
 git clone https://github.com/ddccontrol/ddccontrol-db.git
 cd ddccontrol-db
-./autogen.sh 
-./configure --prefix=/usr/
 make
 ```
 
 Finally, the build can be installed using:
 
 ```shell
-sudo make install
+sudo make install PREFIX=/usr
 ```
+
+Packagers can stage an installation with `DESTDIR`, for example:
+
+```shell
+make install PREFIX=/usr DESTDIR="$pkgdir"
+```
+
+See [`INSTALL`](INSTALL) for all supported installation variables and
+maintainer targets.
 
 ## Usage
 

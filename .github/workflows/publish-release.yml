@@ -59,9 +59,9 @@ jobs:
             exit 1
           fi
 
-          configured_date="$(perl -ne 'print "$1\n" if /AC_INIT\(\[DDC\/CI control tool database\], \[([0-9]{8})\]/' configure.ac)"
+          configured_date="$(sed -n '1p' VERSION)"
           if [ "$configured_date" != "$release_date" ]; then
-            echo "::error::configure.ac version $configured_date does not match release $release_date"
+            echo "::error::VERSION value $configured_date does not match release $release_date"
             exit 1
           fi
 
@@ -81,25 +81,16 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
-            autoconf \
-            automake \
-            autopoint \
-            build-essential \
             gettext \
-            intltool \
-            libtool \
-            perl
+            make
 
       - name: Build source distributions
         run: |
           set -euo pipefail
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
-          ./autogen.sh
-          ./configure
           make -j"$(nproc)"
-          make dist-gzip
-          make dist-bzip2
-          make dist-xz
+          make check
+          make dist
           mkdir -p "$RUNNER_TEMP/release-artifacts"
           cp ddccontrol-db-*.tar.gz "$RUNNER_TEMP/release-artifacts/"
           cp ddccontrol-db-*.tar.bz2 "$RUNNER_TEMP/release-artifacts/"

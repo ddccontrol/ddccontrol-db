@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-install:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            gettext \
+            make
+
+      - name: Build and validate
+        run: |
+          set -euo pipefail
+          make -j"$(nproc)"
+          make check
+
+      - name: Test staged installation
+        run: |
+          set -euo pipefail
+          stage="$(mktemp -d)"
+          make install PREFIX=/usr DESTDIR="$stage"
+          test -f "$stage/usr/share/ddccontrol-db/options.xml"
+          test -f "$stage/usr/share/ddccontrol-db/monitor/VESA.xml"
+          test -f "$stage/usr/share/locale/fr/LC_MESSAGES/ddccontrol-db.mo"
+
+      - name: Test release archives
+        run: |
+          set -euo pipefail
+          make dist
+          release_dir="$(mktemp -d)"
+          tar -xf "ddccontrol-db-$(< VERSION).tar.xz" -C "$release_dir"
+          source_dir="$release_dir/ddccontrol-db-$(< VERSION)"
+          stage="$(mktemp -d)"
+          make -C "$source_dir" MSGFMT=false
+          make -C "$source_dir" MSGFMT=false install PREFIX=/usr DESTDIR="$stage"
+          test -f "$stage/usr/share/ddccontrol-db/options.xml"
+          test -f "$stage/usr/share/locale/fr/LC_MESSAGES/ddccontrol-db.mo"

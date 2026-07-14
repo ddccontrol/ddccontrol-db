@@ -89,11 +89,11 @@ jobs:
           LATEST_TAG: ${{ steps.version.outputs.latest_tag }}
         run: |
           set -euo pipefail
-          perl -0pi -e 's/AC_INIT\(\[DDC\/CI control tool database\], \[[0-9]{8}\]/AC_INIT([DDC\/CI control tool database], [$ENV{RELEASE_DATE}]/' configure.ac
+          printf '%s\n' "$RELEASE_DATE" > VERSION
 
-          configured_date="$(perl -ne 'print "$1\n" if /AC_INIT\(\[DDC\/CI control tool database\], \[([0-9]{8})\]/' configure.ac)"
+          configured_date="$(sed -n '1p' VERSION)"
           if [ "$configured_date" != "$RELEASE_DATE" ]; then
-            echo "::error::Failed to update configure.ac to $RELEASE_DATE"
+            echo "::error::Failed to update VERSION to $RELEASE_DATE"
             exit 1
           fi
 
@@ -132,7 +132,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git switch -c "$RELEASE_BRANCH"
-          git add configure.ac CHANGELOG.md
+          git add VERSION CHANGELOG.md
 
           if git diff --cached --quiet; then
             echo "::error::No release file changes were generated"
@@ -147,7 +147,7 @@ jobs:
             echo "## Summary"
             echo
             echo "- prepare ddccontrol-db release \`$RELEASE_DATE\`"
-            echo "- update \`configure.ac\` to the date-based package version"
+            echo "- update \`VERSION\` to the date-based package version"
             echo "- add generated release notes to \`CHANGELOG.md\` for review"
             echo
             echo "## Release"
