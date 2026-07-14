@@ -20,7 +20,7 @@ concurrency:
 
 jobs:
   publish-release:
-    if: ${{ github.event_name == 'workflow_dispatch' || (github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'release/')) }}
+    if: ${{ github.event_name == 'workflow_dispatch' || (github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'release-')) }}
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v6
@@ -39,7 +39,7 @@ jobs:
         run: |
           set -euo pipefail
           if [ "$EVENT_NAME" = "pull_request" ]; then
-            release_date="${PR_HEAD_REF#release/}"
+            release_date="${PR_HEAD_REF#release-}"
           else
             if [ "$GITHUB_REF_NAME" != "master" ]; then
               echo "::error::Manual publishing must be run from master"
