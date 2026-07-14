@@ -9,6 +9,28 @@ DESTDIR ?=
 
 -include config.mk
 
+# Keep the traditional Automake variable spellings working for package recipes.
+ifneq ($(origin prefix),undefined)
+ifneq ($(origin PREFIX),command line)
+PREFIX := $(prefix)
+endif
+endif
+ifneq ($(origin datadir),undefined)
+ifneq ($(origin DATADIR),command line)
+DATADIR := $(datadir)
+endif
+endif
+ifneq ($(origin localedir),undefined)
+ifneq ($(origin LOCALEDIR),command line)
+LOCALEDIR := $(localedir)
+endif
+endif
+ifneq ($(origin dbdir),undefined)
+ifneq ($(origin DBDIR),command line)
+DBDIR := $(dbdir)
+endif
+endif
+
 INSTALL ?= install
 INSTALL_DATA ?= $(INSTALL) -m 644
 MKDIR_P ?= mkdir -p
@@ -20,8 +42,11 @@ DDCCONTROL ?= ddccontrol
 
 AVAILABLE_LANGUAGES := $(shell sed -e '/^[[:space:]]*\#/d' -e '/^[[:space:]]*$$/d' po/LINGUAS)
 LINGUAS ?= $(AVAILABLE_LANGUAGES)
-PO_FILES := $(addprefix po/,$(addsuffix .po,$(LINGUAS)))
+SELECTED_LANGUAGES := $(filter $(AVAILABLE_LANGUAGES),$(LINGUAS))
+PO_FILES := $(addprefix po/,$(addsuffix .po,$(SELECTED_LANGUAGES)))
 MO_FILES := $(PO_FILES:.po=.gmo)
+DIST_PO_FILES := $(addprefix po/,$(addsuffix .po,$(AVAILABLE_LANGUAGES)))
+DIST_MO_FILES := $(DIST_PO_FILES:.po=.gmo)
 
 DIST_NAME := $(PACKAGE)-$(VERSION)
 DIST_ROOT := build/dist
@@ -46,7 +71,7 @@ install: all
 	$(MKDIR_P) "$(DESTDIR)$(DBDIR)/monitor"
 	$(INSTALL_DATA) db/options.xml "$(DESTDIR)$(DBDIR)/options.xml"
 	$(INSTALL_DATA) db/monitor/*.xml "$(DESTDIR)$(DBDIR)/monitor/"
-	@set -e; for lang in $(LINGUAS); do \
+	@set -e; for lang in $(SELECTED_LANGUAGES); do \
 		dir="$(DESTDIR)$(LOCALEDIR)/$$lang/LC_MESSAGES"; \
 		$(MKDIR_P) "$$dir"; \
 		$(INSTALL_DATA) "po/$$lang.gmo" "$$dir/$(PACKAGE).mo"; \
@@ -57,7 +82,7 @@ uninstall:
 	@for file in db/monitor/*.xml; do \
 		rm -f "$(DESTDIR)$(DBDIR)/monitor/$${file##*/}"; \
 	done
-	@for lang in $(LINGUAS); do \
+	@for lang in $(SELECTED_LANGUAGES); do \
 		rm -f "$(DESTDIR)$(LOCALEDIR)/$$lang/LC_MESSAGES/$(PACKAGE).mo"; \
 	done
 	-rmdir "$(DESTDIR)$(DBDIR)/monitor" "$(DESTDIR)$(DBDIR)" 2>/dev/null
@@ -96,7 +121,7 @@ update-po: db/options.xml.h
 		$(MSGMERGE) --update --backup=none "$$po" po/$(PACKAGE).pot; \
 	done
 
-distdir: all
+distdir: all $(DIST_MO_FILES)
 	rm -rf "$(DIST_ROOT)"
 	$(MKDIR_P) "$(DIST_DIR)"
 	@git ls-files --cached | \
@@ -104,7 +129,7 @@ distdir: all
 		> build/dist-files
 	COPYFILE_DISABLE=1 tar --no-xattrs -cf - -T build/dist-files | COPYFILE_DISABLE=1 tar --no-xattrs -xf - -C "$(DIST_DIR)"
 	$(INSTALL_DATA) db/options.xml "$(DIST_DIR)/db/options.xml"
-	$(INSTALL_DATA) $(MO_FILES) "$(DIST_DIR)/po/"
+	$(INSTALL_DATA) $(DIST_MO_FILES) "$(DIST_DIR)/po/"
 
 dist-gzip: distdir
 	COPYFILE_DISABLE=1 tar --no-xattrs -C "$(DIST_ROOT)" -czf "$(CURDIR)/$(DIST_NAME).tar.gz" "$(DIST_NAME)"

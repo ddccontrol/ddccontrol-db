@@ -60,6 +60,10 @@ The Makefile supports these variables:
     DESTDIR     staging root used by package builders
     LINGUAS     space-separated translations to build and install
 
+The traditional lowercase `prefix`, `datadir`, `localedir`, and `dbdir`
+spellings are accepted as aliases for existing package recipes. Unknown names
+in `LINGUAS` are ignored, matching the previous gettext build behavior.
+
 For example, a distribution package can stage files without root privileges:
 
     ./configure --prefix=/usr

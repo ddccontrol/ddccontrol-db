@@ -56,9 +56,32 @@ jobs:
           test -f "$stage/usr/share/ddccontrol-db/monitor/VESA.xml"
           test -f "$stage/usr/share/locale/fr/LC_MESSAGES/ddccontrol-db.mo"
 
+      - name: Test make-time overrides and language filtering
+        run: |
+          set -euo pipefail
+          make distclean
+          ./configure --prefix=/opt/original
+          stage="$(mktemp -d)"
+          make install \
+            PREFIX=/usr \
+            LINGUAS="not_available fr" \
+            DESTDIR="$stage"
+          test -f "$stage/usr/share/ddccontrol-db/options.xml"
+          test -f "$stage/usr/share/locale/fr/LC_MESSAGES/ddccontrol-db.mo"
+          test ! -d "$stage/opt/original"
+
+          lowercase_stage="$(mktemp -d)"
+          make install \
+            prefix=/opt/lowercase \
+            LINGUAS=fr \
+            DESTDIR="$lowercase_stage"
+          test -f "$lowercase_stage/opt/lowercase/share/ddccontrol-db/options.xml"
+
       - name: Test release archives
         run: |
           set -euo pipefail
+          make distclean
+          ./configure --prefix=/usr
           make dist
           release_dir="$(mktemp -d)"
           tar -xf "ddccontrol-db-$(< VERSION).tar.xz" -C "$release_dir"
@@ -83,6 +106,13 @@ jobs:
           make install DESTDIR="$stage"
           test -f "$stage/usr/share/ddccontrol-db/options.xml"
           test ! -d "$stage/usr/share/locale"
+          make dist-gzip
+          test "$(tar -tzf "ddccontrol-db-$(< VERSION).tar.gz" | grep -c '/po/.*\.gmo$')" -eq 6
+
+          if ./configure --prefix ""; then
+            echo "configure accepted an empty prefix" >&2
+            exit 1
+          fi
 
       - name: Test temporary autoreconf compatibility
         run: |

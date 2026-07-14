@@ -12,6 +12,10 @@ datadir=
 datarootdir=
 localedir=
 dbdir=
+datadir_set=no
+datarootdir_set=no
+localedir_set=no
+dbdir_set=no
 nls=yes
 option_checking=yes
 
@@ -39,15 +43,15 @@ EOF
 while [ "$#" -gt 0 ]; do
 	case $1 in
 		--prefix=*) prefix=${1#*=}; [ -n "$prefix" ] || break ;;
-		--prefix) [ "$#" -ge 2 ] || break; shift; prefix=$1 ;;
-		--datadir=*) datadir=${1#*=}; [ -n "$datadir" ] || break ;;
-		--datadir) [ "$#" -ge 2 ] || break; shift; datadir=$1 ;;
-		--datarootdir=*) datarootdir=${1#*=}; [ -n "$datarootdir" ] || break ;;
-		--datarootdir) [ "$#" -ge 2 ] || break; shift; datarootdir=$1 ;;
-		--localedir=*) localedir=${1#*=}; [ -n "$localedir" ] || break ;;
-		--localedir) [ "$#" -ge 2 ] || break; shift; localedir=$1 ;;
-		--dbdir=*) dbdir=${1#*=}; [ -n "$dbdir" ] || break ;;
-		--dbdir) [ "$#" -ge 2 ] || break; shift; dbdir=$1 ;;
+		--prefix) [ "$#" -ge 2 ] || break; shift; prefix=$1; [ -n "$prefix" ] || break ;;
+		--datadir=*) datadir=${1#*=}; [ -n "$datadir" ] || break; datadir_set=yes ;;
+		--datadir) [ "$#" -ge 2 ] || break; shift; datadir=$1; [ -n "$datadir" ] || break; datadir_set=yes ;;
+		--datarootdir=*) datarootdir=${1#*=}; [ -n "$datarootdir" ] || break; datarootdir_set=yes ;;
+		--datarootdir) [ "$#" -ge 2 ] || break; shift; datarootdir=$1; [ -n "$datarootdir" ] || break; datarootdir_set=yes ;;
+		--localedir=*) localedir=${1#*=}; [ -n "$localedir" ] || break; localedir_set=yes ;;
+		--localedir) [ "$#" -ge 2 ] || break; shift; localedir=$1; [ -n "$localedir" ] || break; localedir_set=yes ;;
+		--dbdir=*) dbdir=${1#*=}; [ -n "$dbdir" ] || break; dbdir_set=yes ;;
+		--dbdir) [ "$#" -ge 2 ] || break; shift; dbdir=$1; [ -n "$dbdir" ] || break; dbdir_set=yes ;;
 		--enable-nls) nls=yes ;;
 		--disable-nls) nls=no ;;
 		--disable-option-checking) option_checking=no ;;
@@ -120,9 +124,21 @@ fi
 tmp=config.mk.tmp
 {
 	printf 'PREFIX := %s\n' "$prefix"
-	printf 'DATADIR := %s\n' "$datadir"
-	printf 'LOCALEDIR := %s\n' "$localedir"
-	printf 'DBDIR := %s\n' "$dbdir"
+	if [ "$datadir_set" = yes ] || [ "$datarootdir_set" = yes ]; then
+		printf 'DATADIR := %s\n' "$datadir"
+	else
+		printf 'DATADIR = $(PREFIX)/share\n'
+	fi
+	if [ "$localedir_set" = yes ]; then
+		printf 'LOCALEDIR := %s\n' "$localedir"
+	else
+		printf 'LOCALEDIR = $(DATADIR)/locale\n'
+	fi
+	if [ "$dbdir_set" = yes ]; then
+		printf 'DBDIR := %s\n' "$dbdir"
+	else
+		printf 'DBDIR = $(DATADIR)/ddccontrol-db\n'
+	fi
 	if [ "$nls" = no ]; then
 		printf 'LINGUAS :=\n'
 	fi
