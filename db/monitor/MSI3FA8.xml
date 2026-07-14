@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/355 -->
+<monitor name="MSI MPG 491CQP QD-OLED" init="standard">
+	<!--
+		Conservative profile based on issue-provided scan output.
+		Only explicitly named, non-destructive controls are exposed.
+	-->
+	<caps add="(type(lcd)vcp(02 10 12 16 18 1A 62 6C 6E 70 D6(04)))" remove="(vcp(00 04 05 06 08 0E 1C 1E 20 22 24 26 28 30 32 38 3A 3C 3E 40 42 44 46 48 4A 4C 54 56 58 60 AA B0 E1))"/>
+	<controls>
+		<!-- Known reset controls remain disabled because they can be destructive. -->
+		<!-- Control 0x04: +/0/1 C [Restore Factory Defaults] -->
+		<!-- Control 0x05: +/0/1 C [Restore Brightness and Contrast] -->
+		<!-- Control 0x08: +/0/1 C [Restore Factory Default Color] -->
+
+		<!-- Control 0x60: +/16/3 C [Input Source Select (Main)] -->
+		<!-- Capability-reported values 0x0f, 0x10, 0x11, and 0x12 are unverified candidates. -->
+		<!-- Monitor-specific input source mappings remain disabled pending hardware verification. -->
+
+		<!-- Unknown controls from the issue output (left commented for future investigation): -->
+		<!-- Control 0x0b: +/50/65535 C [???] -->
+		<!-- Control 0x0c: +/70/170 C [???] -->
+		<!-- Control 0x14: +/5/11 C [???] -->
+		<!-- Control 0x52: +/0/255   [???] -->
+		<!-- Control 0x8d: +/2/2 C [???] -->
+		<!-- Control 0xac: +/46728/65282 C [???] -->
+		<!-- Control 0xae: +/12010/65535 C [???] -->
+		<!-- Control 0xb2: +/1/8   [???] -->
+		<!-- Control 0xb6: +/3/4 C [???] -->
+		<!-- Control 0xc0: +/8406/65535 C [???] -->
+		<!-- Control 0xc6: +/111/65535 C [???] -->
+		<!-- Control 0xc8: +/18/65535 C [???] -->
+		<!-- Control 0xc9: +/0/65535 C [???] -->
+		<!-- Control 0xca: +/2/2 C [???] -->
+		<!-- Control 0xcc: +/2/255 C [???] -->
+		<!-- Control 0xdc: +/2/19 C [???] -->
+		<!-- Control 0xdf: +/513/65535 C [???] -->
+		<!-- Control 0xe6: +/0/1   [???] -->
+		<!-- Control 0xf1: +/0/0   [???] -->
+		<!-- Control 0xf4: +/0/0   [???] -->
+		<!-- Control 0xfe: +/0/0   [???] -->
+		<!-- Control 0xff: +/0/1 C [???] -->
+	</controls>
+
+	<!-- VESA controls not explicitly confirmed by the scan are removed above. -->
+	<include file="VESA"/>
+</monitor>
