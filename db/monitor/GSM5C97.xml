@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/291 -->
+<monitor name="LG 27GS85Q-B" init="standard">
+	<controls>
+		<!-- Controls (valid/current/max) [Description - Value name]: -->
+
+		<!-- Control 0x02: +/2/2 C [New Control Value - Some values changed] -->
+		<!-- Status control; no write mapping is exposed. -->
+		<!-- <control id="newcontrolvalue" address="0x02"/> -->
+		<!-- Control 0x04: +/0/255 C [Restore Factory Defaults] -->
+		<!-- Destructive control; intentionally not exposed. -->
+		<!-- <control id="defaults" address="0x04" delay="2000"/> -->
+		<!-- Control 0x05: +/0/1 C [Restore Brightness and Contrast] -->
+		<!-- Destructive control; intentionally not exposed. -->
+		<!-- <control id="defaultluma" address="0x05" delay="2000"/> -->
+		<!-- Control 0x06: +/0/255   [???] -->
+		<!-- Control 0x08: +/0/255 C [Restore Factory Default Color] -->
+		<!-- Destructive control; intentionally not exposed. -->
+		<!-- <control id="defaultcolor" address="0x08" delay="2000"/> -->
+		<!-- Control 0x0b: +/0/24028   [???] -->
+		<!-- Control 0x0c: +/35/100   [???] -->
+		<!-- Control 0x0e: +/50/100   [???] -->
+		<!-- Control 0x10: +/0/100 C [Brightness] -->
+		<control id="brightness" address="0x10"/>
+		<!-- Control 0x12: +/70/100 C [Contrast] -->
+		<control id="contrast" address="0x12"/>
+		<!-- Control 0x14: +/11/65535 C [???] -->
+		<!-- Control 0x15: +/45/255 C [???] -->
+		<!-- Control 0x16: +/50/100 C [Red maximum level] -->
+		<control id="red" address="0x16"/>
+		<!-- Control 0x18: +/50/100 C [Green maximum level] -->
+		<control id="green" address="0x18"/>
+		<!-- Control 0x1a: +/50/100 C [Blue maximum level] -->
+		<control id="blue" address="0x1a"/>
+		<!-- Control 0x1e: +/0/2   [???] -->
+		<!-- Control 0x20: +/0/100   [???] -->
+		<!-- Control 0x30: +/0/100   [???] -->
+		<!-- Control 0x3e: +/50/100   [???] -->
+		<!-- Control 0x45: +/0/65535   [???] -->
+		<!-- Control 0x4d: +/32770/65535 C [???] -->
+		<!-- Control 0x4e: +/16384/65535 C [???] -->
+		<!-- Control 0x4f: +/7042/65535 C [???] -->
+		<!-- Control 0x50: +/2/15   [???] -->
+		<!-- Control 0x52: +/0/255 C [???] -->
+		<!-- Control 0x55: +/0/1   [???] -->
+		<!-- Control 0x60: +/15/18 C [Input Source Select (Main)] -->
+		<!-- Unverified candidate mappings from similar LG monitor profiles; hardware verification required. -->
+		<!-- <control id="inputsource" type="list" address="0x60">
+			<value id="dp1" value="0x0f"/>
+			<value id="dp2" value="0x10"/>
+			<value id="hdmi1" value="0x11"/>
+			<value id="hdmi2" value="0x12"/>
+		</control> -->
+		<!-- Control 0x62: +/50/100 C [Audio Speaker Volume Adjust] -->
+		<control id="audiospeakervolume" address="0x62"/>
+		<!-- Control 0x69: +/6500/65535   [???] -->
+		<!-- Control 0x6a: +/527/65535   [???] -->
+		<!-- Control 0x6c: +/128/100   [???] -->
+		<!-- Control 0x6e: +/128/100   [???] -->
+		<!-- Control 0x70: +/128/100   [???] -->
+		<!-- Control 0x72: +/30720/65535   [???] -->
+		<!-- Control 0x7a: +/240/65535   [???] -->
+		<!-- Control 0x83: +/3328/64242   [???] -->
+		<!-- Control 0x85: +/0/255   [???] -->
+		<!-- Control 0x87: +/50/100   [???] -->
+		<!-- Control 0x8d: +/2/100 C [???] -->
+		<!-- Control 0xa1: +/97/65535   [???] -->
+		<!-- Control 0xac: +/53528/2 C [???] (anomalous current > max reported by monitor) -->
+		<!-- Control 0xae: +/18460/0 C [???] (anomalous current > max reported by monitor) -->
+		<!-- Control 0xaf: +/65280/255   [???] -->
+		<!-- Control 0xb6: +/3/5 C [???] -->
+		<!-- Control 0xc0: +/116/65535 C [???] -->
+		<!-- Control 0xc1: +/0/300   [???] -->
+		<!-- Control 0xc5: +/0/1   [???] -->
+		<!-- Control 0xc6: +/104/65535 C [???] -->
+		<!-- Control 0xc8: +/20/255 C [???] -->
+		<!-- Control 0xc9: +/771/65535 C [???] -->
+		<!-- Control 0xca: +/2/2   [???] -->
+		<!-- Control 0xcb: +/0/65535   [???] -->
+		<!-- Control 0xcc: +/0/16   [???] -->
+		<!-- Control 0xcf: +/1/65535   [???] -->
+		<!-- Control 0xd6: +/1/5 C [DPMS Control - On] -->
+		<!-- 0x01 is the reported current value; 0x05 is an unverified candidate for Off. -->
+		<!-- <control id="dpms" type="list" address="0xd6">
+			<value id="on" value="0x01"/>
+			<value id="off" value="0x05"/>
+		</control> -->
+		<!-- Control 0xd7: +/1/255   [???] -->
+		<!-- Control 0xd8: +/1/255   [???] -->
+		<!-- Control 0xdf: +/513/255 C [???] -->
+		<!-- Control 0xe2: +/1/65535   [???] -->
+		<!-- Control 0xe4: +/0/255   [???] -->
+		<!-- Control 0xe5: +/0/179   [???] -->
+		<!-- Control 0xe7: +/0/65535   [???] -->
+		<!-- Control 0xe8: +/0/255   [???] -->
+		<!-- Control 0xe9: +/4274/255   [???] -->
+		<!-- Control 0xea: +/0/255   [???] -->
+		<!-- Control 0xeb: +/0/1   [???] -->
+		<!-- Control 0xec: +/1/255   [???] -->
+		<!-- Control 0xef: +/49188/65535 C [???] -->
+		<!-- Control 0xf2: +/0/255   [???] -->
+		<!-- Control 0xf4: +/6/65535 C [???] -->
+		<!-- Control 0xf5: +/1/255 C [???] -->
+		<!-- Control 0xf6: +/0/255 C [???] -->
+		<!-- Control 0xf7: +/2/255 C [???] -->
+		<!-- Control 0xf8: +/2/255 C [???] -->
+		<!-- Control 0xf9: +/30/255 C [???] -->
+		<!-- Control 0xfa: +/255/255 C [???] -->
+		<!-- Control 0xfb: +/2/15   [???] -->
+		<!-- Control 0xfe: +/3/255 C [???] -->
+	</controls>
+
+	<include file="VESA"/>
+</monitor>
