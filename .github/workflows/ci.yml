@@ -24,7 +24,26 @@ jobs:
       - name: Build and validate
         run: |
           set -euo pipefail
-          ./configure --prefix=/usr
+          ./autogen.sh
+          ./configure \
+            --host="$(uname -m)-linux-gnu" \
+            --build="$(uname -m)-linux-gnu" \
+            --program-prefix= \
+            --disable-dependency-tracking \
+            --disable-silent-rules \
+            --prefix=/usr \
+            --exec-prefix=/usr \
+            --bindir=/usr/bin \
+            --sbindir=/usr/bin \
+            --sysconfdir=/etc \
+            --datadir=/usr/share \
+            --includedir=/usr/include \
+            --libdir=/usr/lib \
+            --libexecdir=/usr/libexec \
+            --localstatedir=/var \
+            --sharedstatedir=/var/lib \
+            --mandir=/usr/share/man \
+            --infodir=/usr/share/info
           make -j"$(nproc)"
           make check
 
@@ -53,3 +72,14 @@ jobs:
           )
           test -f "$stage/usr/share/ddccontrol-db/options.xml"
           test -f "$stage/usr/share/locale/fr/LC_MESSAGES/ddccontrol-db.mo"
+
+      - name: Test build without translations
+        run: |
+          set -euo pipefail
+          make distclean
+          ./configure --prefix=/usr --disable-nls
+          make
+          stage="$(mktemp -d)"
+          make install DESTDIR="$stage"
+          test -f "$stage/usr/share/ddccontrol-db/options.xml"
+          test ! -d "$stage/usr/share/locale"

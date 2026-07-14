@@ -28,6 +28,24 @@ to po/*.gmo with msgfmt:
     make
     sudo make install
 
+Compatibility with package build recipes
+----------------------------------------
+
+The retained autogen.sh is a compatibility stub. Existing recipes that run
+autogen.sh before configure can keep doing so; it prints a migration notice
+and succeeds without invoking Autoconf, Automake, Intltool, or Libtool.
+
+The configure script accepts the standard directory, build/host, program-name,
+dependency-tracking, and silent-rule options commonly supplied by Debian and
+RPM package helpers. Options irrelevant to this data-only package are accepted
+but have no effect. To build without translation catalogs, use:
+
+    ./configure --prefix=/usr --disable-nls
+
+Recipes that invoke autoreconf or eautoreconf directly must remove that step.
+There is intentionally no configure.ac to regenerate: configure and Makefile
+are maintained source files.
+
 Installation variables
 ----------------------
 
