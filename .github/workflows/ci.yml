@@ -1,0 +1,167 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-install:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            gettext \
+            make
+
+      - name: Build and validate
+        run: |
+          set -euo pipefail
+          ./autogen.sh
+          ./configure \
+            --host="$(uname -m)-linux-gnu" \
+            --build="$(uname -m)-linux-gnu" \
+            --program-prefix= \
+            --disable-dependency-tracking \
+            --disable-silent-rules \
+            --prefix=/usr \
+            --exec-prefix=/usr \
+            --bindir=/usr/bin \
+            --sbindir=/usr/bin \
+            --sysconfdir=/etc \
+            --datadir=/usr/share \
+            --includedir=/usr/include \
+            --libdir=/usr/lib \
+            --libexecdir=/usr/libexec \
+            --localstatedir=/var \
+            --sharedstatedir=/var/lib \
+            --mandir=/usr/share/man \
+            --infodir=/usr/share/info
+          make -j"$(nproc)"
+          make check
+
+      - name: Test staged installation
+        run: |
+          set -euo pipefail
+          stage="$(mktemp -d)"
+          make install DESTDIR="$stage"
+          test -f "$stage/usr/share/ddccontrol-db/options.xml"
+          test -f "$stage/usr/share/ddccontrol-db/monitor/VESA.xml"
+          test -f "$stage/usr/share/locale/fr/LC_MESSAGES/ddccontrol-db.mo"
+
+      - name: Test make-time overrides and language filtering
+        run: |
+          set -euo pipefail
+          make distclean
+          ./configure --prefix=/opt/original
+          stage="$(mktemp -d)"
+          make install \
+            PREFIX=/usr \
+            LINGUAS="not_available fr" \
+            DESTDIR="$stage"
+          test -f "$stage/usr/share/ddccontrol-db/options.xml"
+          test -f "$stage/usr/share/locale/fr/LC_MESSAGES/ddccontrol-db.mo"
+          test ! -d "$stage/opt/original"
+
+          lowercase_stage="$(mktemp -d)"
+          make install \
+            prefix=/opt/lowercase \
+            LINGUAS=fr \
+            DESTDIR="$lowercase_stage"
+          test -f "$lowercase_stage/opt/lowercase/share/ddccontrol-db/options.xml"
+
+      - name: Test release archives
+        run: |
+          set -euo pipefail
+          make distclean
+          ./configure --prefix=/usr
+          make dist
+          release_dir="$(mktemp -d)"
+          tar -xf "ddccontrol-db-$(< VERSION).tar.xz" -C "$release_dir"
+          source_dir="$release_dir/ddccontrol-db-$(< VERSION)"
+          stage="$(mktemp -d)"
+          (
+            cd "$source_dir"
+            ./configure --prefix=/usr
+            make MSGFMT=false
+            make MSGFMT=false install DESTDIR="$stage"
+          )
+          test -f "$stage/usr/share/ddccontrol-db/options.xml"
+          test -f "$stage/usr/share/locale/fr/LC_MESSAGES/ddccontrol-db.mo"
+
+      - name: Test build without translations
+        run: |
+          set -euo pipefail
+          make distclean
+          ./configure --prefix=/usr --disable-nls
+          make
+          stage="$(mktemp -d)"
+          make install DESTDIR="$stage"
+          test -f "$stage/usr/share/ddccontrol-db/options.xml"
+          test ! -d "$stage/usr/share/locale"
+          make dist-gzip
+          test "$(tar -tzf "ddccontrol-db-$(< VERSION).tar.gz" | grep -c '/po/.*\.gmo$')" -eq 6
+
+          if ./configure --prefix ""; then
+            echo "configure accepted an empty prefix" >&2
+            exit 1
+          fi
+
+      - name: Test temporary autoreconf compatibility
+        run: |
+          set -euo pipefail
+          sudo apt-get install -y --no-install-recommends \
+            autoconf \
+            automake
+          source_dir="$(mktemp -d)"
+          cp -a . "$source_dir/source"
+          (
+            cd "$source_dir/source"
+            make distclean
+            autoreconf --force --install --verbose
+            ./configure \
+              --build="$(uname -m)-gentoo-linux-gnu" \
+              --host="$(uname -m)-gentoo-linux-gnu" \
+              --prefix=/usr \
+              --datadir=/usr/share \
+              --disable-nls
+            make
+            stage="$(mktemp -d)"
+            make install DESTDIR="$stage"
+            test -f "$stage/usr/share/ddccontrol-db/options.xml"
+            test ! -d "$stage/usr/share/locale"
+          )
+
+      - name: Test portable make syntax with bmake
+        run: |
+          set -euo pipefail
+          sudo apt-get install -y --no-install-recommends bmake
+          source_dir="$(mktemp -d)"
+          cp -a . "$source_dir/source"
+          (
+            cd "$source_dir/source"
+            bmake distclean
+            MAKE=bmake ./configure --prefix=/opt/original
+            bmake
+            bmake check
+            stage="$(mktemp -d)"
+            bmake install \
+              prefix=/usr \
+              LINGUAS="not_available fr" \
+              DESTDIR="$stage"
+            test -f "$stage/usr/share/ddccontrol-db/options.xml"
+            test -f "$stage/usr/share/locale/fr/LC_MESSAGES/ddccontrol-db.mo"
+            test ! -d "$stage/opt/original"
+
+            bmake distclean
+            MAKE=bmake ./configure --prefix=/usr --disable-nls
+            bmake dist-gzip
+            test "$(tar -tzf "ddccontrol-db-$(< VERSION).tar.gz" | grep -c '/po/.*\.gmo$')" -eq 6
+          )
