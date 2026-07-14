@@ -48,6 +48,8 @@ translations:
 sudo apt install gettext make
 ```
 
+The handwritten Makefile is tested with both GNU Make and BSD `bmake`.
+
 Latest repository can be cloned and built by:
 
 ```shell

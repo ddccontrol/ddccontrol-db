@@ -4,6 +4,14 @@ Installing ddccontrol-db
 ddccontrol-db is a data-only package. It does not compile programs or
 libraries. Its small handwritten configure script only selects installation
 directories and checks commands needed by the subsequent make targets.
+The Makefile uses portable make syntax and is tested with both GNU Make and
+BSD make (`bmake`).
+
+On a system where BSD make is installed as `bmake`, use:
+
+    MAKE=bmake ./configure --prefix=/usr
+    bmake
+    bmake install
 
 Installing a release archive
 ----------------------------

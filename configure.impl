@@ -37,6 +37,7 @@ Configure installation directories for $package.
   --version           display the package version and exit
 
 Values can still be overridden when invoking make.
+Set MAKE to the make command that configure should verify, for example bmake.
 EOF
 }
 
@@ -97,7 +98,9 @@ datadir=${datadir:-${datarootdir:-$prefix/share}}
 localedir=${localedir:-$datadir/locale}
 dbdir=${dbdir:-$datadir/ddccontrol-db}
 
-for command in make sed install mkdir; do
+make_command=${MAKE:-make}
+
+for command in "$make_command" sed install mkdir; do
 	if ! command -v "$command" >/dev/null 2>&1; then
 		printf 'configure: error: required command not found: %s\n' "$command" >&2
 		exit 1
@@ -121,29 +124,27 @@ if [ "$nls" = yes ]; then
 	done < po/LINGUAS
 fi
 
-tmp=config.mk.tmp
+shell_quote()
 {
-	printf 'PREFIX := %s\n' "$prefix"
+	printf '%s' "$1" | sed "s/'/'\\\\''/g"
+}
+
+tmp=config.sh.tmp
+{
+	printf "CONFIG_PREFIX='%s'\n" "$(shell_quote "$prefix")"
+	printf "CONFIG_DATADIR='%s'\n" "$(shell_quote "$datadir")"
+	printf "CONFIG_LOCALEDIR='%s'\n" "$(shell_quote "$localedir")"
+	printf "CONFIG_DBDIR='%s'\n" "$(shell_quote "$dbdir")"
 	if [ "$datadir_set" = yes ] || [ "$datarootdir_set" = yes ]; then
-		printf 'DATADIR := %s\n' "$datadir"
+		printf 'CONFIG_DATADIR_EXPLICIT=yes\n'
 	else
-		printf 'DATADIR = $(PREFIX)/share\n'
+		printf 'CONFIG_DATADIR_EXPLICIT=no\n'
 	fi
-	if [ "$localedir_set" = yes ]; then
-		printf 'LOCALEDIR := %s\n' "$localedir"
-	else
-		printf 'LOCALEDIR = $(DATADIR)/locale\n'
-	fi
-	if [ "$dbdir_set" = yes ]; then
-		printf 'DBDIR := %s\n' "$dbdir"
-	else
-		printf 'DBDIR = $(DATADIR)/ddccontrol-db\n'
-	fi
-	if [ "$nls" = no ]; then
-		printf 'LINGUAS :=\n'
-	fi
+	printf 'CONFIG_LOCALEDIR_EXPLICIT=%s\n' "$localedir_set"
+	printf 'CONFIG_DBDIR_EXPLICIT=%s\n' "$dbdir_set"
+	printf 'CONFIG_NLS=%s\n' "$nls"
 } > "$tmp"
-mv "$tmp" config.mk
+mv "$tmp" config.sh
 
 printf '%s %s configured:\n' "$package" "$version"
 printf '  prefix:    %s\n' "$prefix"

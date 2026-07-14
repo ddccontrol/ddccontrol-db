@@ -1,6 +1,7 @@
 *~
 
 # build generated files
+/config.sh
 /config.mk
 /db/options.xml
 /db/options.xml.h

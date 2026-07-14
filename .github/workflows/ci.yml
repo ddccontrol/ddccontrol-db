@@ -138,3 +138,30 @@ jobs:
             test -f "$stage/usr/share/ddccontrol-db/options.xml"
             test ! -d "$stage/usr/share/locale"
           )
+
+      - name: Test portable make syntax with bmake
+        run: |
+          set -euo pipefail
+          sudo apt-get install -y --no-install-recommends bmake
+          source_dir="$(mktemp -d)"
+          cp -a . "$source_dir/source"
+          (
+            cd "$source_dir/source"
+            bmake distclean
+            MAKE=bmake ./configure --prefix=/opt/original
+            bmake
+            bmake check
+            stage="$(mktemp -d)"
+            bmake install \
+              prefix=/usr \
+              LINGUAS="not_available fr" \
+              DESTDIR="$stage"
+            test -f "$stage/usr/share/ddccontrol-db/options.xml"
+            test -f "$stage/usr/share/locale/fr/LC_MESSAGES/ddccontrol-db.mo"
+            test ! -d "$stage/opt/original"
+
+            bmake distclean
+            MAKE=bmake ./configure --prefix=/usr --disable-nls
+            bmake dist-gzip
+            test "$(tar -tzf "ddccontrol-db-$(< VERSION).tar.gz" | grep -c '/po/.*\.gmo$')" -eq 6
+          )

@@ -3,9 +3,12 @@ dnl autoreconf. Normal builds use the maintained configure script directly.
 AC_INIT([ddccontrol-db], m4_esyscmd_s([sed -n '1p' VERSION]))
 AC_CONFIG_SRCDIR([VERSION])
 
-dnl Declare the option so the generated configure accepts Gentoo's econf flag.
+dnl Declare options so the generated configure accepts common econf flags.
 dnl configure.impl performs the actual option handling and dependency checks.
 AC_ARG_ENABLE([nls])
+AC_ARG_ENABLE([dependency-tracking])
+AC_ARG_ENABLE([silent-rules])
+AC_ARG_ENABLE([maintainer-mode])
 
 AC_CONFIG_COMMANDS_PRE([
   eval "set x $ac_configure_args"
