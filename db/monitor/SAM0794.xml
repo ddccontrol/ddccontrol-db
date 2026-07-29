@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/47 -->
+<monitor name="Samsung SyncMaster SA300" init="standard">
+	<!--
+		Conservative profile based on issue-provided scan output.
+		Only explicitly named, non-destructive controls are exposed.
+	-->
+	<caps add="(type(lcd)vcp(0E 10 12 16 18 1A 1E 20 30 3E))" remove="(vcp(00 02 04 05 06 08 1C 22 24 26 28 32 38 3A 3C 40 42 44 46 48 4A 4C 54 56 58 60 62 6C 6E 70 AA B0 D6 E1))"/>
+	<controls>
+		<!-- Known controls enabled through the VESA include: -->
+		<!-- Control 0x0e: +/80/160 C [Image Lock Coarse (Clock)] -->
+		<!-- Control 0x10: +/255/100 C [Brightness] -->
+		<!-- Control 0x12: +/75/100 C [Contrast] -->
+		<!-- Control 0x16: +/50/100 C [Red maximum level] -->
+		<!-- Control 0x18: +/50/100 C [Green maximum level] -->
+		<!-- Control 0x1a: +/50/100 C [Blue maximum level] -->
+		<!-- Control 0x1e: +/0/2 C [Automatically adjust] -->
+		<!-- Control 0x20: +/69/100 C [Horizontal Position] -->
+		<!-- Control 0x30: +/17/40 C [Vertical Position] -->
+		<!-- Control 0x3e: +/2/31 C [Image Lock Fine (Clock Phase)] -->
+
+		<!--
+			Named controls kept disabled until their write behavior and values
+			are verified on hardware; this includes reset, input, and power controls.
+		-->
+		<!-- Control 0x04: +/0/1 C [Restore Factory Defaults] -->
+		<!-- Control 0x05: +/0/1 C [Restore Brightness and Contrast] -->
+		<!-- Control 0x06: +/0/1 C [Restore Factory Default Geometry] -->
+		<!-- Control 0x08: +/0/1 C [Restore Factory Default Color] -->
+		<!-- Control 0x60: +/1/3 C [Input Source Select - Analog] -->
+		<!-- Control 0xd6: +/1/4 C [DPMS Control - On] -->
+
+		<!-- Unknown controls from the issue output (left commented for future investigation): -->
+		<!-- Control 0x02: +/2/255   [???] -->
+		<!-- Control 0x14: +/2/11 C [???] -->
+		<!-- Control 0x54: +/0/2   [???] -->
+		<!-- Control 0x62: +/50/100   [???] -->
+		<!-- Control 0x6c: +/128/255   [???] -->
+		<!-- Control 0x6e: +/128/255   [???] -->
+		<!-- Control 0x70: +/128/255   [???] -->
+		<!-- Control 0x87: +/15/25 C [???] -->
+		<!-- Control 0xaa: +/1/1   [???] -->
+		<!-- Control 0xb6: +/3/9 C [???] -->
+		<!-- Control 0xc6: +/1/1 C [???] -->
+		<!-- Control 0xc8: +/5/16 C [???] -->
+		<!-- Control 0xc9: +/1/0 C [???] -->
+		<!-- Control 0xca: +/2/2   [???] -->
+		<!-- Control 0xcc: +/2/30   [???] -->
+		<!-- Control 0xdb: +/4/4 C [???] -->
+		<!-- Control 0xdc: +/255/5 C [???] -->
+		<!-- Control 0xdf: +/512/514 C [???] -->
+		<!-- Control 0xe0: +/3/517   [???] -->
+		<!-- Control 0xe1: +/1/1   [???] -->
+		<!-- Control 0xe2: +/0/1   [???] -->
+		<!-- Control 0xe4: +/0/2   [???] -->
+		<!-- Control 0xe5: +/0/1   [???] -->
+		<!-- Control 0xe8: +/10/7 C [???] -->
+		<!-- Control 0xe9: +/0/1 C [???] -->
+		<!-- Control 0xea: +/0/4   [???] -->
+		<!-- Control 0xeb: +/253/9   [???] -->
+		<!-- Control 0xec: +/0/7 C [???] -->
+		<!-- Control 0xed: +/149/255   [???] -->
+		<!-- Control 0xee: +/145/255   [???] -->
+		<!-- Control 0xef: +/149/255   [???] -->
+		<!-- Control 0xf0: +/0/3 C [???] -->
+		<!-- Control 0xf2: +/0/2 C [???] -->
+		<!-- Control 0xf3: +/1/2   [???] -->
+		<!-- Control 0xf5: +/0/2   [???] -->
+		<!-- Control 0xf6: +/1/2 C [???] -->
+		<!-- Control 0xf7: +/3/3 C [???] -->
+		<!-- Control 0xfe: +/2/2   [???] -->
+	</controls>
+	<!-- VESA controls not explicitly confirmed by the scan are removed above. -->
+	<include file="VESA"/>
+</monitor>

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/312 -->
+<monitor name="Dell S2417DG" init="standard">
+	<!--
+		Conservative profile based on issue-provided scan output.
+		Only explicitly named, non-destructive controls are exposed.
+	-->
+	<caps add="(type(lcd)vcp(10 12 16 18 1A))" remove="(vcp(00 02 04 05 06 08 0E 1C 1E 20 22 24 26 28 30 32 38 3A 3C 3E 40 42 44 46 48 4A 4C 54 56 58 60 62 6C 6E 70 AA B0 D6 E1))"/>
+	<controls>
+		<!-- Known controls enabled through the VESA include: -->
+		<!-- Control 0x10: +/26/100 C [Brightness] -->
+		<!-- Control 0x12: +/100/125 C [Contrast] -->
+		<!-- Control 0x16: +/97/100 C [Red maximum level] -->
+		<!-- Control 0x18: +/94/100 C [Green maximum level] -->
+		<!-- Control 0x1a: +/90/100 C [Blue maximum level] -->
+
+		<!--
+			Named controls kept disabled until their write behavior and values
+			are verified on hardware; this includes reset, input, and power controls.
+		-->
+		<!-- Control 0x02: +/1/0 C [Secondary Degauss - Secondary Degauss] -->
+		<!-- Control 0x04: +/0/0 C [Restore Factory Defaults] -->
+		<!-- Control 0x05: +/0/0 C [Restore Brightness and Contrast] -->
+		<!-- Control 0x08: +/0/0 C [Restore Factory Default Color] -->
+
+		<!-- Unknown controls from the issue output (left commented for future investigation): -->
+		<!-- Control 0x00: +/0/0   [???] -->
+		<!-- Control 0x03: +/0/0 C [???] -->
+		<!-- Control 0x14: +/11/0 C [???] -->
+		<!-- Control 0x2e: +/0/0 C [???] -->
+		<!-- Control 0x52: +/0/0 C [???] -->
+		<!-- Control 0x59: +/127/255 C [???] -->
+		<!-- Control 0x5a: +/127/255 C [???] -->
+		<!-- Control 0x5b: +/127/255 C [???] -->
+		<!-- Control 0x5c: +/127/255 C [???] -->
+		<!-- Control 0x5d: +/127/255 C [???] -->
+		<!-- Control 0x5e: +/127/255 C [???] -->
+		<!-- Control 0x72: +/30720/0 C [???] -->
+		<!-- Control 0x8a: +/100/200 C [???] -->
+		<!-- Control 0xac: +/23244/1 C [???] -->
+		<!-- Control 0xae: +/6000/0 C [???] -->
+		<!-- Control 0xb6: +/515/0 C [???] -->
+		<!-- Control 0xc0: +/1462/0 C [???] -->
+		<!-- Control 0xc8: +/1279/264 C [???] -->
+		<!-- Control 0xc9: +/1119/0 C [???] -->
+		<!-- Control 0xca: +/2/0 C [???] -->
+		<!-- Control 0xdf: +/514/0 C [???] -->
+		<!-- Control 0xe0: +/0/0   [???] -->
+		<!-- Control 0xe1: +/0/0   [???] -->
+		<!-- Control 0xf9: +/48/0   [???] -->
+		<!-- Control 0xfa: +/4132/0   [???] -->
+		<!-- Control 0xfb: +/257/3855   [???] -->
+		<!-- Control 0xfc: +/521/0   [???] -->
+		<!-- Control 0xfd: +/2/0   [???] -->
+		<!-- Control 0xfe: +/1324/0   [???] -->
+		<!-- Control 0xff: +/0/24704   [???] -->
+	</controls>
+	<!-- VESA controls not explicitly confirmed by the scan are removed above. -->
+	<include file="VESA"/>
+</monitor>

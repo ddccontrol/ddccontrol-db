@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/82 -->
+<monitor name="ViewSonic VX2265wm" init="standard">
+	<!--
+		Conservative profile based on issue-provided scan output.
+		Only explicitly named, non-destructive controls are exposed.
+	-->
+	<caps remove="(vcp(00 02 04 05 06 08 0E 10 12 16 18 1A 1C 1E 20 22 24 26 28 30 32 38 3A 3C 3E 40 42 44 46 48 4A 4C 54 56 58 60 62 6C 6E 70 AA B0 D6 E1))"/>
+	<controls>
+		<!-- No controls were explicitly named by the issue scan. -->
+		<!-- Unknown controls from the issue output (left commented for future investigation): -->
+		<!-- Control 0x02: +/70/2   [???] -->
+		<!-- Control 0x10: +/100/100   [???] -->
+		<!-- Control 0x62: +/24/100   [???] -->
+		<!-- Control 0x8d: +/2/2   [???] -->
+		<!-- Control 0xdf: +/512/65535   [???] -->
+	</controls>
+	<!-- VESA controls not explicitly confirmed by the scan are removed above. -->
+	<include file="VESA"/>
+</monitor>

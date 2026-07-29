@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/200 -->
+<monitor name="Philips 329M1RV" init="standard">
+	<!--
+		Conservative profile based on issue-provided scan output.
+		Only explicitly named, non-destructive controls are exposed.
+	-->
+	<caps add="(type(lcd)vcp(10 12 16 18 1A 62 6C 6E 70))" remove="(vcp(00 02 04 05 06 08 0E 1C 1E 20 22 24 26 28 30 32 38 3A 3C 3E 40 42 44 46 48 4A 4C 54 56 58 60 AA B0 D6 E1))"/>
+	<controls>
+		<!-- Known controls enabled through the VESA include: -->
+		<!-- Control 0x10: +/50/100 C [Brightness] -->
+		<!-- Control 0x12: +/50/100 C [Contrast] -->
+		<!-- Control 0x16: +/100/100 C [Red maximum level] -->
+		<!-- Control 0x18: +/100/100 C [Green maximum level] -->
+		<!-- Control 0x1a: +/100/100 C [Blue maximum level] -->
+		<!-- Control 0x62: +/80/100 C [Audio Speaker Volume Adjust] -->
+		<!-- Control 0x6c: +/50/100 C [Red minimum level] -->
+		<!-- Control 0x6e: +/50/100 C [Green minimum level] -->
+		<!-- Control 0x70: +/50/100 C [Blue minimum level] -->
+
+		<!--
+			Named controls kept disabled until their write behavior and values
+			are verified on hardware; this includes reset, input, and power controls.
+		-->
+		<!-- Control 0x02: +/2/2 C [New Control Value - Some values changed] -->
+		<!-- Control 0x14: +/5/11 C [Color Preset - 6500K] -->
+		<!-- Control 0x60: +/16/8206 C [Input Source Select (Main)] -->
+		<!-- Control 0xaa: +/1/5 C [OSD Orientation - Landscape] -->
+		<!-- Control 0xd6: +/1/4 C [DPMS Control - On] -->
+
+		<!-- Unknown controls from the issue output (left commented for future investigation): -->
+		<!-- Control 0x0b: +/100/100 C [???] -->
+		<!-- Control 0x0c: +/35/85 C [???] -->
+		<!-- Control 0x1e: +/0/1   [???] -->
+		<!-- Control 0x52: +/0/255 C [???] -->
+		<!-- Control 0x68: +/0/5   [???] -->
+		<!-- Control 0x72: +/120/251 C [???] -->
+		<!-- Control 0x86: +/8/8 C [???] -->
+		<!-- Control 0x8d: +/2/2 C [???] -->
+		<!-- Control 0x95: +/0/65535 C [???] -->
+		<!-- Control 0x96: +/0/65535 C [???] -->
+		<!-- Control 0x97: +/480/65535 C [???] -->
+		<!-- Control 0x98: +/270/65535 C [???] -->
+		<!-- Control 0xa4: +/0/65535   [???] -->
+		<!-- Control 0xa5: +/0/65535   [???] -->
+		<!-- Control 0xa8: +/0/3   [???] -->
+		<!-- Control 0xac: +/2228/2 C [???] -->
+		<!-- Control 0xae: +/5999/0 C [???] -->
+		<!-- Control 0xb4: +/1/2   [???] -->
+		<!-- Control 0xb6: +/3/8 C [???] -->
+		<!-- Control 0xc0: +/1/65535 C [???] -->
+		<!-- Control 0xc6: +/111/65535 C [???] -->
+		<!-- Control 0xc8: +/5/65302 C [???] -->
+		<!-- Control 0xc9: +/256/65535 C [???] -->
+		<!-- Control 0xca: +/2/2 C [???] -->
+		<!-- Control 0xcc: +/2/36 C [???] -->
+		<!-- Control 0xda: +/0/2   [???] -->
+		<!-- Control 0xdc: +/0/4 C [???] -->
+		<!-- Control 0xdf: +/768/255 C [???] -->
+		<!-- Control 0xe0: +/0/4 C [???] -->
+		<!-- Control 0xe6: +/0/1   [???] -->
+		<!-- Control 0xe7: +/50/100 C [???] -->
+		<!-- Control 0xe9: +/2/2 C [???] -->
+		<!-- Control 0xeb: +/0/3 C [???] -->
+		<!-- Control 0xec: +/0/1027 C [???] -->
+		<!-- Control 0xee: +/0/515 C [???] -->
+		<!-- Control 0xef: +/255/255 C [???] -->
+		<!-- Control 0xf0: +/0/1 C [???] -->
+		<!-- Control 0xf7: +/66/66 C [???] -->
+		<!-- Control 0xf9: +/0/4   [???] -->
+	</controls>
+	<!-- VESA controls not explicitly confirmed by the scan are removed above. -->
+	<include file="VESA"/>
+</monitor>
