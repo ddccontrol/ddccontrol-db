@@ -1,5 +1,19 @@
 # Changelog
 
+## 20260729
+
+## What's Changed
+* docs: preserve legacy changelog history by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/366
+* build: replace autotools with make by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/367
+* fix: accept Gentoo econf sysroot option by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/368
+* feat: add Dell U2725QE monitor profile by @dirkvdb in https://github.com/ddccontrol/ddccontrol-db/pull/370
+* feat: add LG 27G640A-B monitor profile by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/372
+
+## New Contributors
+* @dirkvdb made their first contribution in https://github.com/ddccontrol/ddccontrol-db/pull/370
+
+**Full Changelog**: https://github.com/ddccontrol/ddccontrol-db/compare/20260714...20260729
+
 ## 20260714
 
 ## What's Changed
