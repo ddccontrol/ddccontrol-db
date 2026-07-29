@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/84 -->
+<monitor name="Samsung PM49H" init="standard">
+	<!--
+		Conservative profile based on issue-provided scan output.
+		Only explicitly named, non-destructive controls are exposed.
+	-->
+	<caps add="(type(lcd)vcp(0E 10 12 16 18 1A 1E 20 30 3E 62 6C 6E 70))" remove="(vcp(00 02 04 05 06 08 1C 22 24 26 28 32 38 3A 3C 40 42 44 46 48 4A 4C 54 56 58 60 AA B0 D6 E1))"/>
+	<controls>
+		<!-- Known controls enabled through the VESA include: -->
+		<!-- Control 0x0e: +/96/100 C [Image Lock Coarse (Clock)] -->
+		<!-- Control 0x10: +/100/100 C [Brightness] -->
+		<!-- Control 0x12: +/50/100 C [Contrast] -->
+		<!-- Control 0x16: +/70/100 C [Red maximum level] -->
+		<!-- Control 0x18: +/70/100 C [Green maximum level] -->
+		<!-- Control 0x1a: +/70/100 C [Blue maximum level] -->
+		<!-- Control 0x1e: +/0/1 C [Automatically adjust] -->
+		<!-- Control 0x20: +/116/100 C [Horizontal Position] -->
+		<!-- Control 0x30: +/0/100 C [Vertical Position] -->
+		<!-- Control 0x3e: +/0/100 C [Image Lock Fine (Clock Phase)] -->
+		<!-- Control 0x62: +/30/100 C [Audio Speaker Volume Adjust] -->
+		<!-- Control 0x6c: +/50/100 C [Red minimum level] -->
+		<!-- Control 0x6e: +/50/100 C [Green minimum level] -->
+		<!-- Control 0x70: +/50/100 C [Blue minimum level] -->
+
+		<!--
+			Named controls kept disabled until their write behavior and values
+			are verified on hardware; this includes reset, input, and power controls.
+		-->
+		<!-- Control 0x02: +/255/255 C [Secondary Degauss] -->
+		<!-- Control 0x04: +/0/1 C [Restore Factory Defaults] -->
+		<!-- Control 0x05: +/0/1 C [Restore Brightness and Contrast] -->
+		<!-- Control 0x06: +/0/1 C [Restore Factory Default Geometry] -->
+		<!-- Control 0x08: +/0/1 C [Restore Factory Default Color] -->
+		<!-- Control 0x60: +/4/3 C [Input Source Select (Main)] -->
+		<!-- Control 0xca: +/2/2 C [On Screen Display - Enable] -->
+		<!-- Control 0xcc: +/2/255 C [Language select - English] -->
+		<!-- Control 0xd6: +/1/4 C [DPMS Control - On] -->
+		<!-- Control 0xdc: +/2/3 C [Magic Bright Mode - Internet] -->
+
+		<!-- Unknown controls from the issue output (left commented for future investigation): -->
+		<!-- Control 0x0b: +/50/65535 C [???] -->
+		<!-- Control 0x0c: +/70/170 C [???] -->
+		<!-- Control 0x14: +/5/11 C [???] -->
+		<!-- Control 0x1f: +/0/1   [???] -->
+		<!-- Control 0x52: +/0/255   [???] -->
+		<!-- Control 0x8d: +/2/2 C [???] -->
+		<!-- Control 0xac: +/0/65280 C [???] -->
+		<!-- Control 0xae: +/0/65535 C [???] -->
+		<!-- Control 0xb2: +/1/8   [???] -->
+		<!-- Control 0xb6: +/3/4 C [???] -->
+		<!-- Control 0xc0: +/106/65535 C [???] -->
+		<!-- Control 0xc6: +/111/65535 C [???] -->
+		<!-- Control 0xc8: +/18/65535 C [???] -->
+		<!-- Control 0xc9: +/545/65535 C [???] -->
+		<!-- Control 0xdf: +/513/65535 C [???] -->
+		<!-- Control 0xff: +/0/1 C [???] -->
+	</controls>
+	<!-- VESA controls not explicitly confirmed by the scan are removed above. -->
+	<include file="VESA"/>
+</monitor>

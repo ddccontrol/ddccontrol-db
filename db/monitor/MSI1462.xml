@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/185 -->
+<monitor name="MSI Optix MAG341CQ" init="standard">
+	<!--
+		Conservative profile based on issue-provided scan output.
+		Only explicitly named, non-destructive controls are exposed.
+	-->
+	<caps add="(type(lcd)vcp(16 18))" remove="(vcp(00 02 04 05 06 08 0E 10 12 1A 1C 1E 20 22 24 26 28 30 32 38 3A 3C 3E 40 42 44 46 48 4A 4C 54 56 58 60 62 6C 6E 70 AA B0 D6 E1))"/>
+	<controls>
+		<!-- Known controls enabled through the VESA include: -->
+		<!-- Control 0x16: +/52/100 C [Red maximum level] -->
+		<!-- Control 0x18: +/48/100 C [Green maximum level] -->
+
+		<!--
+			Named controls kept disabled until their write behavior and values
+			are verified on hardware; this includes reset, input, and power controls.
+		-->
+		<!-- Control 0x02: +/2/255 C [New Control Value - Some values changed] -->
+		<!-- Control 0x04: +/0/1 C [Restore Factory Defaults] -->
+		<!-- Control 0x05: +/0/1 C [Restore Brightness and Contrast] -->
+		<!-- Control 0x08: +/0/1 C [Restore Factory Default Color] -->
+
+		<!-- Unknown controls from the issue output (left commented for future investigation): -->
+		<!-- Control 0x14: +/5/11 C [???] -->
+		<!-- Control 0xac: +/17028/65282 C [???] -->
+		<!-- Control 0xae: +/10020/65535 C [???] -->
+		<!-- Control 0xb2: +/1/8   [???] -->
+	</controls>
+	<!-- VESA controls not explicitly confirmed by the scan are removed above. -->
+	<include file="VESA"/>
+</monitor>

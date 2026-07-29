@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/267 -->
+<monitor name="ViewSonic vx3418" init="standard">
+	<!--
+		Conservative profile based on issue-provided scan output.
+		Only explicitly named, non-destructive controls are exposed.
+	-->
+	<caps add="(type(lcd)vcp(10 12 16 18 1A 62))" remove="(vcp(00 02 04 05 06 08 0E 1C 1E 20 22 24 26 28 30 32 38 3A 3C 3E 40 42 44 46 48 4A 4C 54 56 58 60 6C 6E 70 AA B0 D6 E1))"/>
+	<controls>
+		<!-- Known controls enabled through the VESA include: -->
+		<!-- Control 0x10: +/75/100 C [Brightness] -->
+		<!-- Control 0x12: +/70/100 C [Contrast] -->
+		<!-- Control 0x16: +/100/100 C [Red maximum level] -->
+		<!-- Control 0x18: +/100/100 C [Green maximum level] -->
+		<!-- Control 0x1a: +/100/100 C [Blue maximum level] -->
+		<!-- Control 0x62: +/50/100 C [Audio Speaker Volume Adjust] -->
+
+		<!--
+			Named controls kept disabled until their write behavior and values
+			are verified on hardware; this includes reset, input, and power controls.
+		-->
+		<!-- Control 0x04: +/0/1 C [Restore Factory Defaults] -->
+		<!-- Control 0x60: +/15/19 C [Input Source Select (Main)] -->
+
+		<!-- Unknown controls from the issue output (left commented for future investigation): -->
+		<!-- Control 0x02: +/1/2   [???] -->
+		<!-- Control 0x05: +/0/1   [???] -->
+		<!-- Control 0x06: +/0/1   [???] -->
+		<!-- Control 0x08: +/0/1   [???] -->
+		<!-- Control 0x0b: +/100/0   [???] -->
+		<!-- Control 0x0c: +/35/63   [???] -->
+		<!-- Control 0x14: +/5/11 C [???] -->
+		<!-- Control 0x1e: +/0/1   [???] -->
+		<!-- Control 0x20: +/0/1   [???] -->
+		<!-- Control 0x30: +/0/1   [???] -->
+		<!-- Control 0x52: +/0/1   [???] -->
+		<!-- Control 0x6c: +/80/100   [???] -->
+		<!-- Control 0x6e: +/80/100   [???] -->
+		<!-- Control 0x70: +/80/100   [???] -->
+		<!-- Control 0x72: +/120/160   [???] -->
+		<!-- Control 0x86: +/8/8   [???] -->
+		<!-- Control 0x87: +/2/4   [???] -->
+		<!-- Control 0x8d: +/2/2 C [???] -->
+		<!-- Control 0xac: +/3/19492   [???] -->
+		<!-- Control 0xae: +/14410/65535   [???] -->
+		<!-- Control 0xb2: +/1/1   [???] -->
+		<!-- Control 0xb6: +/3/5   [???] -->
+		<!-- Control 0xc6: +/90/255   [???] -->
+		<!-- Control 0xc8: +/9/0   [???] -->
+		<!-- Control 0xc9: +/1/65535   [???] -->
+		<!-- Control 0xca: +/1/2   [???] -->
+		<!-- Control 0xcc: +/2/36 C [???] -->
+		<!-- Control 0xd6: +/1/5   [???] -->
+		<!-- Control 0xdc: +/1/31   [???] -->
+		<!-- Control 0xdf: +/514/65535   [???] -->
+		<!-- Control 0xe0: +/5/10   [???] -->
+		<!-- Control 0xe1: +/0/1   [???] -->
+		<!-- Control 0xe6: +/0/0   [???] -->
+		<!-- Control 0xeb: +/0/1   [???] -->
+		<!-- Control 0xf1: +/1/65535   [???] -->
+	</controls>
+	<!-- VESA controls not explicitly confirmed by the scan are removed above. -->
+	<include file="VESA"/>
+</monitor>

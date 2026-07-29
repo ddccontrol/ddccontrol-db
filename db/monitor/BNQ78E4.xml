@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/225 -->
+<monitor name="BenQ GW2470" init="standard">
+	<!--
+		Conservative profile based on issue-provided scan output.
+		Only explicitly named, non-destructive controls are exposed.
+	-->
+	<caps add="(type(lcd)vcp(10 12 16 18 1A 62))" remove="(vcp(00 02 04 05 06 08 0E 1C 1E 20 22 24 26 28 30 32 38 3A 3C 3E 40 42 44 46 48 4A 4C 54 56 58 60 6C 6E 70 AA B0 D6 E1))"/>
+	<controls>
+		<!-- Known controls enabled through the VESA include: -->
+		<!-- Control 0x10: +/100/100 C [Brightness] -->
+		<!-- Control 0x12: +/50/100 C [Contrast] -->
+		<!-- Control 0x16: +/100/100 C [Red maximum level] -->
+		<!-- Control 0x18: +/100/100 C [Green maximum level] -->
+		<!-- Control 0x1a: +/100/100 C [Blue maximum level] -->
+		<!-- Control 0x62: +/14/100 C [Audio Speaker Volume Adjust] -->
+
+		<!--
+			Named controls kept disabled until their write behavior and values
+			are verified on hardware; this includes reset, input, and power controls.
+		-->
+		<!-- Control 0x02: +/1/2 C [New Control Value - No changes] -->
+		<!-- Control 0x04: +/0/1 C [Restore Factory Defaults] -->
+		<!-- Control 0x05: +/0/1 C [Restore Brightness and Contrast] -->
+		<!-- Control 0x08: +/0/1 C [Restore Factory Default Color] -->
+		<!-- Control 0x60: +/18/18 C [Input Source Select (Main)] -->
+		<!-- Control 0xd6: +/1/5 C [DPMS Control - On] -->
+
+		<!-- Unknown controls from the issue output (left commented for future investigation): -->
+		<!-- Control 0x0b: +/50/3000 C [???] -->
+		<!-- Control 0x0c: +/70/65535 C [???] -->
+		<!-- Control 0x0e: +/0/255   [???] -->
+		<!-- Control 0x14: +/5/11 C [???] -->
+		<!-- Control 0x20: +/0/255   [???] -->
+		<!-- Control 0x30: +/0/255   [???] -->
+		<!-- Control 0x3e: +/0/255   [???] -->
+		<!-- Control 0x52: +/0/255 C [???] -->
+		<!-- Control 0x6c: +/128/128   [???] -->
+		<!-- Control 0x6e: +/128/128   [???] -->
+		<!-- Control 0x70: +/128/128   [???] -->
+		<!-- Control 0x72: +/120/255 C [???] -->
+		<!-- Control 0x86: +/2/5 C [???] -->
+		<!-- Control 0x87: +/6/10 C [???] -->
+		<!-- Control 0x8a: +/50/100 C [???] -->
+		<!-- Control 0x8d: +/2/2 C [???] -->
+		<!-- Control 0x90: +/50/100 C [???] -->
+		<!-- Control 0xac: +/1964/65281 C [???] -->
+		<!-- Control 0xae: +/6000/65535 C [???] -->
+		<!-- Control 0xb2: +/1/8 C [???] -->
+		<!-- Control 0xb5: +/1/1 C [???] -->
+		<!-- Control 0xb6: +/3/5 C [???] -->
+		<!-- Control 0xc0: +/9279/65535 C [???] -->
+		<!-- Control 0xc6: +/60/255 C [???] -->
+		<!-- Control 0xc8: +/5/136 C [???] -->
+		<!-- Control 0xc9: +/256/65535 C [???] -->
+		<!-- Control 0xca: +/2/2 C [???] -->
+		<!-- Control 0xcc: +/2/32 C [???] -->
+		<!-- Control 0xda: +/0/255 C [???] -->
+		<!-- Control 0xdc: +/275/1 C [???] -->
+		<!-- Control 0xdf: +/514/255 C [???] -->
+		<!-- Control 0xea: +/0/5 C [???] -->
+		<!-- Control 0xed: +/0/1   [???] -->
+		<!-- Control 0xee: +/0/1 C [???] -->
+		<!-- Control 0xef: +/1/1 C [???] -->
+		<!-- Control 0xf0: +/1/2 C [???] -->
+		<!-- Control 0xf4: +/0/1 C [???] -->
+		<!-- Control 0xf7: +/0/1 C [???] -->
+		<!-- Control 0xf8: +/0/1 C [???] -->
+	</controls>
+	<!-- VESA controls not explicitly confirmed by the scan are removed above. -->
+	<include file="VESA"/>
+</monitor>

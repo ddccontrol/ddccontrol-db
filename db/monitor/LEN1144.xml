@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/48 -->
+<monitor name="Lenovo ThinkVision LT2452P" init="standard">
+	<!--
+		Conservative profile based on issue-provided scan output.
+		Only explicitly named, non-destructive controls are exposed.
+	-->
+	<caps add="(type(lcd)vcp(0E 18 1A 20 3E 6C 6E))" remove="(vcp(00 02 04 05 06 08 10 12 16 1C 1E 22 24 26 28 30 32 38 3A 3C 40 42 44 46 48 4A 4C 54 56 58 60 62 70 AA B0 D6 E1))"/>
+	<controls>
+		<!-- Known controls enabled through the VESA include: -->
+		<!-- Control 0x0e: +/50/100 C [Image Lock Coarse (Clock)] -->
+		<!-- Control 0x18: +/100/100 C [Green maximum level] -->
+		<!-- Control 0x1a: +/100/100 C [Blue maximum level] -->
+		<!-- Control 0x20: +/50/100 C [Horizontal Position] -->
+		<!-- Control 0x3e: +/69/100 C [Image Lock Fine (Clock Phase)] -->
+		<!-- Control 0x6c: +/16/100 C [Red minimum level] -->
+		<!-- Control 0x6e: +/16/100 C [Green minimum level] -->
+
+		<!--
+			Named controls kept disabled until their write behavior and values
+			are verified on hardware; this includes reset, input, and power controls.
+		-->
+		<!-- Control 0x06: +/0/1 C [Restore Factory Default Geometry] -->
+		<!-- Control 0x60: +/1/3 C [Input Source Select - Analog] -->
+		<!-- Control 0xd6: +/1/5 C [DPMS Control - On] -->
+
+		<!-- Unknown controls from the issue output (left commented for future investigation): -->
+		<!-- Control 0x0b: +/100/100 C [???] -->
+		<!-- Control 0x0c: +/42/7169 C [???] -->
+		<!-- Control 0x52: +/0/255 C [???] -->
+		<!-- Control 0xac: +/9464/1 C [???] -->
+		<!-- Control 0xae: +/6000/0 C [???] -->
+		<!-- Control 0xb4: +/1/2   [???] -->
+		<!-- Control 0xb6: +/3/5 C [???] -->
+		<!-- Control 0xc0: +/20554/65535 C [???] -->
+		<!-- Control 0xc6: +/90/255 C [???] -->
+		<!-- Control 0xc8: +/5/0 C [???] -->
+		<!-- Control 0xc9: +/256/0 C [???] -->
+		<!-- Control 0xca: +/2/2 C [???] -->
+		<!-- Control 0xcc: +/3/10 C [???] -->
+		<!-- Control 0xe0: +/0/1   [???] -->
+		<!-- Control 0xe3: +/0/1   [???] -->
+		<!-- Control 0xf2: +/1/1   [???] -->
+		<!-- Control 0xf3: +/8981/65535   [???] -->
+		<!-- Control 0xfa: +/41108/65535   [???] -->
+		<!-- Control 0xfb: +/0/1   [???] -->
+		<!-- Control 0xfc: +/10/5   [???] -->
+		<!-- Control 0xff: +/41108/65535 C [???] -->
+	</controls>
+	<!-- VESA controls not explicitly confirmed by the scan are removed above. -->
+	<include file="VESA"/>
+</monitor>

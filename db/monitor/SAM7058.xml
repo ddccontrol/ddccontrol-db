@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/217 -->
+<monitor name="Samsung LC32G75TQSMXUE" init="standard">
+	<!--
+		Conservative profile based on issue-provided scan output.
+		Only explicitly named, non-destructive controls are exposed.
+	-->
+	<caps add="(type(lcd)vcp(10 12 16 18 1A))" remove="(vcp(00 02 04 05 06 08 0E 1C 1E 20 22 24 26 28 30 32 38 3A 3C 3E 40 42 44 46 48 4A 4C 54 56 58 60 62 6C 6E 70 AA B0 D6 E1))"/>
+	<controls>
+		<!-- Known controls enabled through the VESA include: -->
+		<!-- Control 0x10: +/100/100 C [Brightness] -->
+		<!-- Control 0x12: +/75/100 C [Contrast] -->
+		<!-- Control 0x16: +/50/100 C [Red maximum level] -->
+		<!-- Control 0x18: +/50/100 C [Green maximum level] -->
+		<!-- Control 0x1a: +/50/100 C [Blue maximum level] -->
+
+		<!--
+			Named controls kept disabled until their write behavior and values
+			are verified on hardware; this includes reset, input, and power controls.
+		-->
+		<!-- Control 0x02: +/1/2 C [New Control Value - No changes] -->
+		<!-- Control 0x08: +/0/0 C [Restore Factory Default Color] -->
+		<!-- Control 0x60: +/10/14 C [Input Source Select (Main)] -->
+		<!-- Control 0xaa: +/1/3 C [OSD Orientation - Landscape] -->
+		<!-- Control 0xd6: +/0/255 C [DPMS Control] -->
+		<!-- Control 0xdc: +/24/3 C [Magic Bright Mode] -->
+		<!-- Control 0xe1: +/2/5 C [Power control] -->
+
+		<!-- Unknown controls from the issue output (left commented for future investigation): -->
+		<!-- Control 0x14: +/2/5 C [???] -->
+		<!-- Control 0x20: +/0/255   [???] -->
+		<!-- Control 0x30: +/0/255   [???] -->
+		<!-- Control 0x87: +/15/100   [???] -->
+		<!-- Control 0xb0: +/0/255   [???] -->
+		<!-- Control 0xb6: +/3/9 C [???] -->
+		<!-- Control 0xc6: +/1/1 C [???] -->
+		<!-- Control 0xc8: +/5/16 C [???] -->
+		<!-- Control 0xc9: +/1/1 C [???] -->
+		<!-- Control 0xca: +/2/2   [???] -->
+		<!-- Control 0xcc: +/2/30   [???] -->
+		<!-- Control 0xdb: +/0/255   [???] -->
+		<!-- Control 0xdf: +/512/514 C [???] -->
+		<!-- Control 0xe0: +/2/5   [???] -->
+		<!-- Control 0xe2: +/2/5   [???] -->
+		<!-- Control 0xe5: +/0/1   [???] -->
+		<!-- Control 0xe6: +/0/1   [???] -->
+		<!-- Control 0xe9: +/0/255   [???] -->
+		<!-- Control 0xf3: +/0/2   [???] -->
+		<!-- Control 0xf5: +/0/255   [???] -->
+		<!-- Control 0xf7: +/2/3   [???] -->
+		<!-- Control 0xfe: +/2/2   [???] -->
+	</controls>
+	<!-- VESA controls not explicitly confirmed by the scan are removed above. -->
+	<include file="VESA"/>
+</monitor>
