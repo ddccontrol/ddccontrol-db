@@ -21,6 +21,8 @@
 				<value id="cinema" name="Cinema"/>
 				<value id="srgb" name="sRGB"/>
 				<value id="moba" name="MOBA"/>
+				<!-- ASUS MG28U -->
+				<value id="user" name="User"/>
 				<!-- Dell S2721DGFA -->
 				<value id="sport" name="Sport"/>
 				<value id="game2" name="Game 2"/>
@@ -459,6 +461,10 @@
 				<control id="displayscaling" type="list" name="Display Scaling" address="0x86">
 					<value id="2" name="2" value="0x02"/>
 					<value id="11" name="11" value="0x0b"/>
+					<value id="full" name="Full" value="0x02"/>
+					<!-- <value id="4:3" name="4:3" value="0x??"/>
+					<value id="1:1" name="1:1" value="0x??"/> -->
+					<value id="overscan" name="Overscan" value="0x0c"/>
 				</control>
 			</subgroup>
 		<subgroup name="Automatic adjustments">
@@ -917,6 +923,10 @@
 					<value id="style-6" name="Style 6" value="0x0c"/>
 				</control>
 				<control id="ascr" type="list" name="ASCR" address="0xe4">
+					<value id="off" name="Off" value="0x00"/>
+					<value id="on" name="On" value="0x01"/>
+				</control>
+				<control id="gamevisualdemo" type="list" name="GameVisual Demo" address="0xe5">
 					<value id="off" name="Off" value="0x00"/>
 					<value id="on" name="On" value="0x01"/>
 				</control>

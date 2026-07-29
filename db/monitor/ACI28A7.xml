@@ -1,69 +1,170 @@
 <?xml version="1.0"?>
 <!-- https://github.com/ddccontrol/ddccontrol-db/issues/213 -->
 <monitor name="ASUS MG28U" init="standard">
-	<!--
-		Conservative profile based on issue-provided scan output.
-		Only explicitly named, non-destructive controls are exposed.
-	-->
-	<caps add="(type(lcd)vcp(10 12 16 18 1A 62))" remove="(vcp(00 02 04 05 06 08 0E 1C 1E 20 22 24 26 28 30 32 38 3A 3C 3E 40 42 44 46 48 4A 4C 54 56 58 60 6C 6E 70 AA B0 D6 E1))"/>
+	<!-- Explicit remove list suppresses reset commands (0x04/0x05/0x08) and unsupported VESA controls -->
+	<caps add="(type(lcd)vcp(02 10 12 14(05 06 08 0B) 16 18 1A 52 60(0F 11 12 13) 62 6C 6E 70 86(02 04 0A 0C) 87 8A 8D(01 02) AC AE B5 B6 C6 C8 C9 CC D6(01 04 05) DC(03 0B 0D 0E 11 12 13) DF E0(01 02 03) E1(00 01) E2 E3 E4(00 01) E5(00 01) E6(00 01 02 03 04) E7(00 01) E9(00 01) EA(00 01) EB(00 01)))" remove="(vcp(00 04 05 06 08 0E 1C 1E 20 22 24 26 28 30 32 38 3A 3C 3E 40 42 44 46 48 4A 4C 54 56 58 AA B0))"/>
+
 	<controls>
-		<!-- Known controls enabled through the VESA include: -->
-		<!-- Control 0x10: +/31/100 C [Brightness] -->
-		<!-- Control 0x12: +/80/100 C [Contrast] -->
-		<!-- Control 0x16: +/100/100 C [Red maximum level] -->
-		<!-- Control 0x18: +/100/100 C [Green maximum level] -->
-		<!-- Control 0x1a: +/100/100 C [Blue maximum level] -->
-		<!-- Control 0x62: +/77/100 C [Audio Speaker Volume Adjust] -->
+		<!-- Brightness/Contrast managed by VESA include -->
 
-		<!--
-			Named controls kept disabled until their write behavior and values
-			are verified on hardware; this includes reset, input, and power controls.
-		-->
-		<!-- Control 0x02: +/1/2 C [New Control Value - No changes] -->
-		<!-- Control 0x04: +/0/1 C [Restore Factory Defaults] -->
-		<!-- Control 0x05: +/0/1 C [Restore Brightness and Contrast] -->
-		<!-- Control 0x08: +/0/1 C [Restore Factory Default Color] -->
-		<!-- Control 0x60: +/15/20 C [Input Source Select (Main)] -->
-		<!-- Control 0xd6: +/1/4 C [DPMS Control - On] -->
-		<!-- Control 0xe1: +/0/2 C [Power control - Off] -->
+		<control id="colorpreset" address="0x14">
+			<value id="warm" value="0x05"/>
+			<value id="normal" value="0x06"/>
+			<value id="cool" value="0x08"/>
+			<value id="custom" value="0x0B"/>
+		</control>
 
-		<!-- Unknown controls from the issue output (left commented for future investigation): -->
-		<!-- Control 0x0b: +/2100/65535   [???] -->
-		<!-- Control 0x0c: +/11/11   [???] -->
-		<!-- Control 0x14: +/11/11 C [???] -->
-		<!-- Control 0x52: +/0/255 C [???] -->
-		<!-- Control 0x6c: +/50/100   [???] -->
-		<!-- Control 0x6e: +/50/100   [???] -->
-		<!-- Control 0x70: +/50/100   [???] -->
-		<!-- Control 0x86: +/2/12 C [???] -->
-		<!-- Control 0x87: +/50/100 C [???] -->
-		<!-- Control 0x8a: +/50/100 C [???] -->
-		<!-- Control 0x8d: +/2/2 C [???] -->
-		<!-- Control 0xa8: +/1/3   [???] -->
-		<!-- Control 0xac: +/64/1 C [???] -->
-		<!-- Control 0xae: +/2990/65535 C [???] -->
-		<!-- Control 0xb0: +/1/2   [???] -->
-		<!-- Control 0xb5: +/0/1 C [???] -->
-		<!-- Control 0xb6: +/3/5 C [???] -->
-		<!-- Control 0xc6: +/131/255 C [???] -->
-		<!-- Control 0xc8: +/5/65302 C [???] -->
-		<!-- Control 0xc9: +/0/0   [???] -->
-		<!-- Control 0xcc: +/2/49 C [???] -->
-		<!-- Control 0xdc: +/14/36 C [???] -->
-		<!-- Control 0xdf: +/514/65535 C [???] -->
-		<!-- Control 0xe0: +/2/3 C [???] -->
-		<!-- Control 0xe2: +/60/100 C [???] -->
-		<!-- Control 0xe3: +/25/100 C [???] -->
-		<!-- Control 0xe4: +/0/1 C [???] -->
-		<!-- Control 0xe5: +/0/1   [???] -->
-		<!-- Control 0xe6: +/0/5 C [???] -->
-		<!-- Control 0xe7: +/0/255 C [???] -->
-		<!-- Control 0xe8: +/0/1 C [???] -->
-		<!-- Control 0xe9: +/0/1 C [???] -->
-		<!-- Control 0xea: +/1/1 C [???] -->
-		<!-- Control 0xeb: +/0/1 C [???] -->
-		<!-- Control 0xfe: +/65535/16897   [???] -->
+		<control id="displayscaling" address="0x86">
+			<value id="full" value="0x02"/>
+			<!-- <value id="4:3" value="0x04"/>
+			<value id="1:1" value="0x0A"/> -->
+			<value id="overscan" value="0x0C"/>
+		</control>
+
+		<control id="sharpness" address="0x87"/>
+		<control id="saturation" address="0x8A"/>
+
+		<control id="audiospeakermute" address="0x8D">
+			<value id="mute" value="0x01"/>
+			<value id="unmute" value="0x02"/>
+		</control>
+
+		<control id="inputsource" address="0x60">
+			<value id="dp" value="0x0F"/>
+			<value id="hdmi1" value="0x11"/>
+			<value id="hdmi2" value="0x12"/>
+			<value id="hdmi3" value="0x13"/>
+		</control>
+
+		<control id="audiospeakervolume" address="0x62"/>
+
+		<control id="dpms" address="0xD6">
+			<value id="on" value="0x01"/>
+			<value id="standby" value="0x04"/>
+			<value id="off" value="0x05"/>
+		</control>
+
+		<control id="language" address="0xCC">
+			<value id="chinese_tw" value="0x01"/>
+			<value id="english" value="0x02"/>
+			<value id="french" value="0x03"/>
+			<value id="german" value="0x04"/>
+			<value id="italian" value="0x05"/>
+			<value id="japanese" value="0x06"/>
+			<value id="korean" value="0x07"/>
+			<value id="portuguese" value="0x08"/>
+			<value id="russian" value="0x09"/>
+			<value id="spanish" value="0x0A"/>
+			<value id="turkish" value="0x0C"/>
+			<value id="chinese" value="0x0D"/>
+			<value id="serbocroatian" value="0x11"/>
+			<value id="czech" value="0x12"/>
+			<value id="dutch" value="0x14"/>
+			<value id="hungarian" value="0x1A"/>
+			<value id="polish" value="0x1E"/>
+			<value id="romanian" value="0x1F"/>
+			<value id="thai" value="0x23"/>
+		</control>
+
+		<!-- GameVisual presets — hardware-verified by cycling OSD -->
+		<control id="preset_profile" address="0xDC">
+			<value id="cinema" value="0x03"/>
+			<value id="scenery" value="0x0B"/>
+			<value id="srgb" value="0x0D"/>
+			<value id="user" value="0x0E"/>
+			<value id="racing" value="0x11"/>
+			<value id="rts_rpg" value="0x12"/>
+			<value id="fps" value="0x13"/>
+		</control>
+
+		<control id="skintone" address="0xE0">
+			<value id="reddish" value="0x01"/>
+			<value id="natural" value="0x02"/>
+			<value id="yellowish" value="0x03"/>
+		</control>
+
+		<control id="smartview" address="0xE1">
+			<value id="off" value="0x00"/>
+			<value id="on" value="0x01"/>
+		</control>
+
+		<!-- Trace Free (Overdrive) — verified at multiple values -->
+		<control id="tracefree" address="0xE2">
+			<value id="0" value="0x00"/>
+			<value id="20" value="0x14"/>
+			<value id="40" value="0x28"/>
+			<value id="60" value="0x3C"/>
+			<value id="80" value="0x50"/>
+			<value id="100" value="0x64"/>
+		</control>
+
+		<control id="vividpixel" address="0xE3">
+			<value id="0" value="0x00"/>
+			<value id="25" value="0x19"/>
+			<value id="50" value="0x32"/>
+			<value id="75" value="0x4B"/>
+			<value id="100" value="0x64"/>
+		</control>
+
+		<!-- ASCR (Dynamic Contrast) — verified toggle -->
+		<control id="ascr" address="0xE4">
+			<value id="off" value="0x00"/>
+			<value id="on" value="0x01"/>
+		</control>
+
+		<!-- ECO Mode — verified toggle -->
+		<control id="ecomode" address="0xE7">
+			<value id="off" value="0x00"/>
+			<value id="on" value="0x01"/>
+		</control>
+
+		<!-- Key Lock — confirmed in OSD -->
+		<control id="keylock" address="0xE9">
+			<value id="off" value="0x00"/>
+			<value id="on" value="0x01"/>
+		</control>
+
+		<!-- Power Key Lock — verified toggle -->
+		<control id="powerkeylock" address="0xEB">
+			<value id="off" value="0x00"/>
+			<value id="on" value="0x01"/>
+		</control>
+
+		<control id="gamevisualdemo" address="0xE5">
+			<value id="off" value="0x00"/>
+			<value id="on" value="0x01"/>
+		</control>
+
+		<control id="bluelightfilter" address="0xE6">
+			<value id="level-0" value="0x00"/>
+			<value id="level-1" value="0x01"/>
+			<value id="level-2" value="0x02"/>
+			<value id="level-3" value="0x03"/>
+			<value id="level-4" value="0x04"/>
+		</control>
+
+		<control id="powerled" address="0xEA">
+			<value id="off" value="0x00"/>
+			<value id="on" value="0x01"/>
+		</control>
+
+		<!-- Read-only informational controls -->
+		<!-- 0x0B: Color Temperature Increment -->
+		<!-- 0x0C: Color Temperature Request -->
+		<!-- 0x52: Active Control -->
+		<!-- 0xAC: Horizontal Frequency -->
+		<!-- 0xAE: Vertical Frequency -->
+		<!-- 0xB5: Source Color Coding -->
+		<!-- 0xB6: Display Technology Type (3=LCD) -->
+		<!-- 0xC6: Application Enable Key -->
+		<!-- 0xC8: Display Controller ID -->
+		<!-- 0xC9: Display Firmware Level -->
+		<!-- 0xDF: VCP Version (514 = MCCS v2.2) -->
+		<!-- Unidentified -->
+		<!-- 0xA8: +/1/3 — read-only -->
+		<!-- 0xB0: +/1/2 — Settings Store(1)/Restore(2), writing 2 resets the monitor -->
+		<!-- 0xE8: +/0/1 — unidentified toggle -->
+		<!-- 0xFE: +/65535/16897 -->
 	</controls>
-	<!-- VESA controls not explicitly confirmed by the scan are removed above. -->
 	<include file="VESA"/>
 </monitor>
