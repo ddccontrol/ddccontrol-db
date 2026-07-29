@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/371 -->
+<monitor name="LG 27G640A-B" init="standard">
+	<!--
+		Conservative profile based on issue-provided scan output.
+		Only explicitly identified, non-destructive controls are enabled.
+	-->
+	<caps add="(type(lcd)vcp(02 10 12 16 18 1A 62 D6))" remove="(vcp(00 04 05 06 08 0E 1C 1E 20 22 24 26 28 30 32 38 3A 3C 3E 40 42 44 46 48 4A 4C 54 56 58 60 6C 6E 70 AA B0 E1))"/>
+	<controls>
+		<!-- Known controls enabled through the VESA include: -->
+		<!-- Control 0x02: +/1/2 C [New Control Value - No changes] -->
+		<!-- Control 0x10: +/100/100 C [Brightness] -->
+		<!-- Control 0x12: +/70/100 C [Contrast] -->
+		<!-- Control 0x16: +/50/100 C [Red maximum level] -->
+		<!-- Control 0x18: +/50/100 C [Green maximum level] -->
+		<!-- Control 0x1a: +/50/100 C [Blue maximum level] -->
+		<!-- Control 0x62: +/0/100 C [Audio Speaker Volume Adjust] -->
+		<!-- Control 0xd6: +/1/4 C [DPMS Control - On] -->
+
+		<!-- Control 0x60: +/17/19 C [Input Source Select (Main)] -->
+		<!--
+			Input source values were not explicitly mapped to ports in the issue.
+			The following values are unverified candidates from similar LG profiles
+			and must remain disabled until they are confirmed on this hardware:
+
+			<control id="inputsource" type="list" address="0x60">
+				<value id="dp1" value="0x0F"/>
+				<value id="dp2" value="0x10"/>
+				<value id="hdmi1" value="0x11"/>
+				<value id="hdmi2" value="0x12"/>
+			</control>
+		-->
+
+		<!-- Unknown controls from the issue output (left commented for future investigation): -->
+		<!-- Control 0x0c: +/70/255 C [???] -->
+		<!-- Control 0x14: +/65502/65502 C [???] -->
+		<!-- Control 0x15: +/31/31   [???] -->
+		<!-- Control 0x45: +/0/0   [???] -->
+		<!-- Control 0x4d: +/0/0   [???] -->
+		<!-- Control 0x4e: +/0/0   [???] -->
+		<!-- Control 0x4f: +/7040/7040   [???] -->
+		<!-- Control 0x52: +/0/255 C [???] -->
+		<!-- Control 0x55: +/0/1   [???] -->
+		<!-- Control 0x69: +/7100/10000   [???] -->
+		<!-- Control 0x6a: +/527/527   [???] -->
+		<!-- Control 0x72: +/30720/40960   [???] -->
+		<!-- Control 0x7a: +/240/240   [???] -->
+		<!-- Control 0x8d: +/2/2 C [???] -->
+		<!-- Control 0xac: +/52128/2 C [???] -->
+		<!-- Control 0xae: +/12010/0 C [???] -->
+		<!-- Control 0xaf: +/50/50   [???] -->
+		<!-- Control 0xb2: +/1/8 C [???] -->
+		<!-- Control 0xb6: +/3/9 C [???] -->
+		<!-- Control 0xc6: +/111/255 C [???] -->
+		<!-- Control 0xc8: +/18/255 C [???] -->
+		<!-- Control 0xc9: +/17684/65535 C [???] -->
+		<!-- Control 0xcc: +/2/38 C [???] -->
+		<!-- Control 0xdf: +/514/65535 C [???] -->
+	</controls>
+	<!-- VESA controls not explicitly identified by the issue are removed above. -->
+	<include file="VESA"/>
+</monitor>
