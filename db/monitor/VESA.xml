@@ -133,9 +133,9 @@
 			<value id="standby" value="0x02"/>
 			<value id="suspend" value="0x03"/>
 			<value id="off" value="0x04"/>
-			<!-- MCCS value 0x05 is a write-only command that turns off the
-			     display. Keep it unavailable in the generic fallback. -->
-			<!-- <value id="poweroff" value="0x05"/> -->
+			<!-- MCCS value 0x05 is a write-only command, so reading the
+			     control will not report this value as the current state. -->
+			<value id="poweroff" value="0x05"/>
 		</control>
 		
 		<control id="power" type="list" address="0xe1">
