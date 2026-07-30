@@ -16,19 +16,7 @@
 		<!-- Control 0x10: +/40/100 C [Brightness] -->
 		<!-- Control 0x12: +/50/100 C [Contrast] -->
 		<!-- Control 0x14: +/5/11 C [Color Preset - 6500K] -->
-		<control id="colorpreset" address="0x14">
-			<!-- Existing mappings from PHLlcd are preserved pending hardware verification. -->
-			<value id="srgb"   value="0x1"/>
-			<value id="native" value="0x2"/>
-			<value id="5000k"  value="0x4"/>
-			<!-- 6500K is the only value explicitly identified by the issue. -->
-			<value id="6500k"  value="0x5"/>
-			<value id="7500k"  value="0x6"/>
-			<value id="8200k"  value="0x7"/>
-			<value id="9300k"  value="0x8"/>
-			<value id="11500k" value="0xA"/>
-			<value id="user1"  value="0xB"/>
-		</control>
+		<!-- Existing color-preset mappings remain inherited from PHLlcd. -->
 		<!-- Control 0x16: +/100/100 C [Red maximum level] -->
 		<!-- Control 0x18: +/100/100 C [Green maximum level] -->
 		<!-- Control 0x1a: +/100/100 C [Blue maximum level] -->
@@ -91,6 +79,6 @@
 		<!-- Control 0xff: +/0/1   [???] -->
 	</controls>
 
-	<!-- PHLlcd's color-preset mappings are preserved above. -->
-	<include file="VESA"/>
+	<!-- include shared config for Philips family; PHLlcd includes VESA -->
+	<include file="PHLlcd" />
 </monitor>
