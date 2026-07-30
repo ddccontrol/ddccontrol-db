@@ -1,6 +1,47 @@
 <?xml version="1.0"?>
+<!--
+https://github.com/ddccontrol/ddccontrol-db/issues/152
+
+The explicitly named controls from this scan are provided by DELA0B8 and its
+VESA include. The scan confirms HDMI 1 (0x11); other input values in the shared
+U2415 profile remain unverified candidate mappings for this connection.
+-->
 <monitor name="Dell U2415 (HDMI 1)" init="standard">
 	<controls>
+		<!-- Unknown controls reported by the scan; disabled pending hardware verification.
+		Control 0x06: +/0/1   [???]
+		Control 0x0b: +/100/0   [???]
+		Control 0x0e: +/100/0   [???]
+		Control 0x14: +/5/12 C [???]
+		Control 0x1e: +/0/1   [???]
+		Control 0x1f: +/0/1   [???]
+		Control 0x20: +/0/1   [???]
+		Control 0x30: +/0/1   [???]
+		Control 0x3e: +/0/1   [???]
+		Control 0x52: +/242/255 C [???]
+		Control 0x6c: +/17/18   [???]
+		Control 0x6e: +/17/18   [???]
+		Control 0x70: +/17/18   [???]
+		Control 0xac: +/8564/1 C [???]
+		Control 0xae: +/6000/65535 C [???]
+		Control 0xb2: +/1/1 C [???]
+		Control 0xb6: +/3/5 C [???]
+		Control 0xc0: +/2676/65535   [???]
+		Control 0xc6: +/17868/65535 C [???]
+		Control 0xc8: +/4361/17 C [???]
+		Control 0xc9: +/16897/65535 C [???]
+		Control 0xca: +/1/2   [???]
+		Control 0xcc: +/2/11   [???]
+		Control 0xdc: +/0/5 C [???]
+		Control 0xdf: +/513/65535 C [???]
+		Control 0xe0: +/0/1 C [???]
+		Control 0xe2: +/0/25 C [???]
+		Control 0xf0: +/0/255 C [???]
+		Control 0xf1: +/3/255 C [???]
+		Control 0xf2: +/0/255 C [???]
+		Control 0xfc: +/1/1   [???]
+		Control 0xfd: +/98/255 C [???]
+		-->
 	</controls>
 	<include file="DELA0B8"/>
 </monitor>
