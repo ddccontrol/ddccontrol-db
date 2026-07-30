@@ -1,7 +1,9 @@
 <?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/261 -->
 <monitor name="Samsung Odyssey Neo G9 LS57CG952NNXZA" init="standard">
 	<caps add="(vcp(2F DB(0 1 2 3 4 5 6 7 8 9)))" />
 	<include file="SAM7119" />
+	<include file="VESA"/>
 	<controls>
 		<control id="screensize" address="0xdb">
 			<value id="auto" value="0" />
