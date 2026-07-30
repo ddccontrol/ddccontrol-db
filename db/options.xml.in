@@ -767,46 +767,46 @@
 				<value id="portraitright" name="Portrait (Right)"/>
 			</control>
 			<control id="language" type="list" name="Language" address="0x68">
-				<value id="english"       name="English"/>
-				<value id="french"        name="Français (French)"/>
-				<value id="finnish"       name="Suomi (Finnish)"/>
-				<value id="german"        name="Deutsch (German)"/>
-				<value id="italian"       name="Italiano (Italian)"/>
-				<value id="korean"        name="한국어 (Korean)"/>
-				<value id="spanish"       name="Castellano (Spanish)"/>
-				<value id="russian"       name="Русский (Russian)"/>
-				<value id="swedish"       name="Svenska (Swedish)"/>
-				<value id="chinese_tw"    name="繁體中文 (Traditional Chinese)"/>
-				<value id="chinese"       name="简体中文 (Simplified Chinese)"/>
-				<value id="dutch"         name="Nederlands (Dutch)"/>
-				<value id="japanese"      name="日本語 (Japanese)"/>
-				<value id="polish"        name="Polski (Polish)"/>
-				<value id="greek"         name="Ελληνικά (Greek)"/>
-				<value id="czech"         name="Český (Czech)"/>
-				<value id="hungarian"     name="Magyar (Hungarian)"/>
-				<value id="romanian"      name="Română (Romanian)"/>
-				<value id="portuguese"    name="Português (Portuguese)"/>
-				<value id="serbocroatian" name="SiGC/BiH/CRO (Serbo-Croatian)"/>
-				<value id="hindi"         name="हिन्दी (India)"/>
-				<value id="turkish"       name="Türk (Turkish)"/>
-				<value id="brazilian"     name="Português do Brasil (Brazilian Portuguese)"/>
-				<value id="malay"         name="Bahasa Melayu (Malay)"/>
-				<value id="thai"          name="ภาษาไทย (Thai)"/>
 				<value id="arabic"        name="العربية (Arabic)"/>
-				<value id="ukrainian"     name="українська (Ukrainian)"/>
-				<value id="persian"       name="فارسی (Persian)"/>
-				<value id="indonesian"    name="Bahasa Indonesia (Indonesian)"/>
+				<value id="brazilian"     name="Português do Brasil (Brazilian Portuguese)"/>
 				<value id="bulgarian"     name="Български (Bulgarian)"/>
+				<value id="chinese"       name="简体中文 (Simplified Chinese)"/>
+				<value id="chinese_tw"    name="繁體中文 (Traditional Chinese)"/>
 				<value id="croatian"      name="Hrvatski (Croatian)"/>
+				<value id="czech"         name="Český (Czech)"/>
 				<value id="danish"        name="Dansk (Danish)"/>
+				<value id="dutch"         name="Nederlands (Dutch)"/>
+				<value id="english"       name="English"/>
 				<value id="estonian"      name="Eesti (Estonian)"/>
+				<value id="finnish"       name="Suomi (Finnish)"/>
+				<value id="french"        name="Français (French)"/>
+				<value id="german"        name="Deutsch (German)"/>
+				<value id="greek"         name="Ελληνικά (Greek)"/>
 				<value id="hebrew"        name="עברית (Hebrew)"/>
+				<value id="hindi"         name="हिन्दी (India)"/>
+				<value id="hungarian"     name="Magyar (Hungarian)"/>
+				<value id="indonesian"    name="Bahasa Indonesia (Indonesian)"/>
+				<value id="italian"       name="Italiano (Italian)"/>
+				<value id="japanese"      name="日本語 (Japanese)"/>
+				<value id="korean"        name="한국어 (Korean)"/>
 				<value id="latvian"       name="Latviešu (Latvian)"/>
 				<value id="lithuanian"    name="Lietuvių (Lithuanian)"/>
+				<value id="malay"         name="Bahasa Melayu (Malay)"/>
 				<value id="norwegian"     name="Norsk (Norwegian)"/>
+				<value id="persian"       name="فارسی (Persian)"/>
+				<value id="polish"        name="Polski (Polish)"/>
+				<value id="portuguese"    name="Português (Portuguese)"/>
+				<value id="romanian"      name="Română (Romanian)"/>
+				<value id="russian"       name="Русский (Russian)"/>
 				<value id="serbian"       name="Српски (Serbian)"/>
+				<value id="serbocroatian" name="SiGC/BiH/CRO (Serbo-Croatian)"/>
 				<value id="slovak"        name="Slovenčina (Slovak)"/>
 				<value id="slovenian"     name="Slovenščina (Slovenian)"/>
+				<value id="spanish"       name="Castellano (Spanish)"/>
+				<value id="swedish"       name="Svenska (Swedish)"/>
+				<value id="thai"          name="ภาษาไทย (Thai)"/>
+				<value id="turkish"       name="Türk (Turkish)"/>
+				<value id="ukrainian"     name="українська (Ukrainian)"/>
 				<value id="vietnamese"    name="Tiếng Việt (Vietnamese)"/>
 			</control>
 			<!-- If "changed", read 0x52 register value to get address of the control changed using OSD menu -->
