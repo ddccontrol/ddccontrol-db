@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <!--
 https://github.com/ddccontrol/ddccontrol-db/issues/180
+https://github.com/ddccontrol/ddccontrol-db/issues/247
 
 AOC reuses PNP ID AOC2402 for the 24G2 and 24B2XDAM. The monitor-specific
 mappings below were verified on the 24G2 and are unverified candidate
@@ -70,6 +71,24 @@ mappings for the 24B2XDAM.
 			<value id="game2" name="Gamer 2" value="15"/>
 			<value id="game3" name="Gamer 3" value="16"/>
 		</control>
+
+		<!-- Unknown controls reported by the scan; disabled pending hardware verification.
+		Control 0x0b: +/100/0 C [???]
+		Control 0x0c: +/35/63 C [???]
+		Control 0x1f: +/1/1   [???]
+		Control 0x52: +/0/100 C [???]
+		Control 0x86: +/2/5   [???]
+		Control 0x87: +/50/100 C [???]
+		Control 0xac: +/260/1 C [???]
+		Control 0xae: +/6010/65535 C [???]
+		Control 0xb2: +/1/1 C [???]
+		Control 0xb6: +/3/5 C [???]
+		Control 0xc6: +/64/255 C [???]
+		Control 0xc8: +/9/0 C [???]
+		Control 0xc9: +/1/65535   [???]
+		Control 0xdf: +/514/65535 C [???]
+		Control 0xf8: +/514/65535   [???]
+		-->
 
 	</controls>
 	<include file="AOClcd"/>
