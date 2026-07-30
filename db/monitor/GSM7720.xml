@@ -1,4 +1,82 @@
 <?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/147 -->
 <monitor name="LG 34WK95U-W Display Port" init="standard">
+	<!--
+		Scan documentation is intentionally conservative.
+		No new monitor-specific enum mappings or reset controls are added.
+	-->
+	<controls>
+		<!-- Controls with explicit names in the issue scan: -->
+		<!-- Control 0x02: +/2/2 C [Secondary Degauss] -->
+		<!-- Control 0x04: +/0/255 C [Restore Factory Defaults] -->
+		<!-- Control 0x05: +/0/1 C [Restore Brightness and Contrast] -->
+		<!-- Control 0x08: +/0/255 C [Restore Factory Default Color] -->
+		<!-- Control 0x10: +/15/100 C [Brightness] -->
+		<!-- Control 0x12: +/70/100 C [Contrast] -->
+		<!-- Control 0x16: +/50/100 C [Red maximum level] -->
+		<!-- Control 0x18: +/50/100 C [Green maximum level] -->
+		<!-- Control 0x1a: +/50/100 C [Blue maximum level] -->
+		<!-- Control 0x60: +/15/18 C [Input Source Select] -->
+		<!-- Control 0x62: +/30/100 C [Audio Speaker Volume Adjust] -->
+		<!-- Control 0xd6: +/1/5 C [DPMS Control - On] -->
+
+		<!-- Input-source and DPMS enum values were not explicitly confirmed in the issue. -->
+
+		<!-- Unknown controls from the issue output (left commented for future investigation): -->
+		<!-- Some scan entries have inconsistent current/max values; kept verbatim and unverified. -->
+		<!-- Control 0x06: +/0/255   [???] -->
+		<!-- Control 0x0b: +/0/24028   [???] -->
+		<!-- Control 0x0c: +/35/100   [???] -->
+		<!-- Control 0x0e: +/50/100   [???] -->
+		<!-- Control 0x14: +/11/11 C [???] -->
+		<!-- Control 0x15: +/25/255 C [???] -->
+		<!-- Control 0x1e: +/0/2   [???] -->
+		<!-- Control 0x20: +/0/100   [???] -->
+		<!-- Control 0x30: +/0/100   [???] -->
+		<!-- Control 0x3e: +/50/100   [???] -->
+		<!-- Control 0x4d: +/32803/65535 C [???] -->
+		<!-- Control 0x4e: +/17356/65535 C [???] -->
+		<!-- Control 0x4f: +/514/65535 C [???] -->
+		<!-- Control 0x50: +/2/15   [???] -->
+		<!-- Control 0x52: +/0/255 C [???] -->
+		<!-- Control 0x55: +/1/1   [???] -->
+		<!-- Control 0x6c: +/128/100   [???] -->
+		<!-- Control 0x6e: +/128/100   [???] -->
+		<!-- Control 0x70: +/128/100   [???] -->
+		<!-- Control 0x87: +/50/100   [???] -->
+		<!-- Control 0x8d: +/2/100 C [???] -->
+		<!-- Control 0xac: +/2228/2 C [???] -->
+		<!-- Control 0xae: +/13330/0 C [???] -->
+		<!-- Control 0xb6: +/3/5 C [???] -->
+		<!-- Control 0xc0: +/3112/65535 C [???] -->
+		<!-- Control 0xc1: +/15/300   [???] -->
+		<!-- Control 0xc6: +/104/65535 C [???] -->
+		<!-- Control 0xc8: +/6/255 C [???] -->
+		<!-- Control 0xc9: +/770/65535 C [???] -->
+		<!-- Control 0xca: +/2/2   [???] -->
+		<!-- Control 0xcc: +/0/16   [???] -->
+		<!-- Control 0xcf: +/512/65535   [???] -->
+		<!-- Control 0xd7: +/1/255   [???] -->
+		<!-- Control 0xdf: +/513/255 C [???] -->
+		<!-- Control 0xe4: +/0/255 C [???] -->
+		<!-- Control 0xe5: +/0/179 C [???] -->
+		<!-- Control 0xe6: +/0/65535 C [???] -->
+		<!-- Control 0xe7: +/0/65535 C [???] -->
+		<!-- Control 0xe8: +/0/255 C [???] -->
+		<!-- Control 0xe9: +/178/255 C [???] -->
+		<!-- Control 0xea: +/0/255 C [???] -->
+		<!-- Control 0xeb: +/0/1 C [???] -->
+		<!-- Control 0xef: +/17152/65535 C [???] -->
+		<!-- Control 0xf4: +/31/65535 C [???] -->
+		<!-- Control 0xf5: +/2/255 C [???] -->
+		<!-- Control 0xf6: +/0/255 C [???] -->
+		<!-- Control 0xf7: +/2/255 C [???] -->
+		<!-- Control 0xf8: +/255/255 C [???] -->
+		<!-- Control 0xf9: +/255/255 C [???] -->
+		<!-- Control 0xfa: +/255/255 C [???] -->
+		<!-- Control 0xfb: +/2/15   [???] -->
+		<!-- Control 0xfe: +/3/255 C [???] -->
+	</controls>
 	<include file="GSM770X"/>
+	<include file="VESA"/>
 </monitor>
