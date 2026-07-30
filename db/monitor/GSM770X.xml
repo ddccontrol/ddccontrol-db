@@ -120,4 +120,5 @@
 			<value id="mode4" value="0x10"/>
 		</control>
 	</controls>
+	<include file="VESA"/>
 </monitor>

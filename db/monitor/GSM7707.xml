@@ -1,4 +1,13 @@
 <?xml version="1.0"?>
-<monitor name="LG GSM770 Display Port" init="standard">
+<!--
+Reports:
+https://github.com/ddccontrol/ddccontrol-db/issues/93
+https://github.com/ddccontrol/ddccontrol-db/issues/315
+
+LG reuses PNP ID GSM7707 across models. The shared GSM770X mappings were
+verified on other LG GSM770 variants and are unverified candidates for the
+32UD99 and 27UN880-B.
+-->
+<monitor name="LG 32UD99 / 27UN880-B / GSM770 DisplayPort variants" init="standard">
 	<include file="GSM770X"/>
 </monitor>

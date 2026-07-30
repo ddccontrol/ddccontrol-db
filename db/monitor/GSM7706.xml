@@ -1,4 +1,11 @@
 <?xml version="1.0"?>
-<monitor name="LG GSM770 HDMI" init="standard">
+<!--
+https://github.com/ddccontrol/ddccontrol-db/issues/81
+
+LG reuses PNP ID GSM7706 across models. The shared GSM770X mappings were
+verified on other LG GSM770 variants and are unverified candidates for the
+27UK850-W.
+-->
+<monitor name="LG 27UK850-W / GSM770 HDMI variants" init="standard">
 	<include file="GSM770X"/>
 </monitor>

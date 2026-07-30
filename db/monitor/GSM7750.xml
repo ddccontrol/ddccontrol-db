@@ -1,6 +1,14 @@
 <?xml version="1.0"?>
-<!-- This model number is for the DisplayPort-port of the "LG 32BN67UP-B". For HDMI-Ports the type is "GSM774F". -->
-<monitor name="LG 32BN67UP-B (DP)" init="standard">
+<!--
+https://github.com/ddccontrol/ddccontrol-db/issues/320
+
+LG reuses PNP ID GSM7750 for the DisplayPort input of the 32BN67UP-B and
+32UN880-B. The issue author explicitly verified brightness, contrast, RGB
+gain, and speaker volume on the 32UN880-B. Other monitor-specific mappings
+below were verified on the 32BN67UP-B and are unverified candidates for the
+32UN880-B. For HDMI ports, the 32BN67UP-B identifies as GSM774F.
+-->
+<monitor name="LG 32BN67UP-B / 32UN880-B (DP)" init="standard">
 	<!-- ioctl(): Inappropriate ioctl for device - Capabilities read fail. -->
 	<!-- Therefore this custom capabilities string was added -->
 	<caps add="(prot(monitor)type(lcd)model(GSM7750)vcp(04 05 08 10 12 15 16 18 1A 62 6C 6E 70 87 8D CC EB F5 F6 F7 F8 F9 FE))"/>
@@ -157,6 +165,7 @@
 		</control>
 
 	</controls>
+	<include file="VESA"/>
 </monitor>
 
 <!-- 
