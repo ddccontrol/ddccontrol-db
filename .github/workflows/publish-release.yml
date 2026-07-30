@@ -22,6 +22,8 @@ jobs:
   publish-release:
     if: ${{ github.event_name == 'workflow_dispatch' || (github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'release-')) }}
     runs-on: ubuntu-24.04
+    outputs:
+      release_date: ${{ steps.version.outputs.release_date }}
     steps:
       - uses: actions/checkout@v6
         with:
@@ -129,3 +131,25 @@ jobs:
             "$RUNNER_TEMP"/release-artifacts/ddccontrol-db-*.tar.gz \
             "$RUNNER_TEMP"/release-artifacts/ddccontrol-db-*.tar.bz2 \
             "$RUNNER_TEMP"/release-artifacts/ddccontrol-db-*.tar.xz
+
+  notify-website:
+    needs: publish-release
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    env:
+      WEBSITE_DISPATCH_TOKEN: ${{ secrets.WEBSITE_DISPATCH_TOKEN }}
+    steps:
+      - name: Trigger website rebuild
+        if: ${{ env.WEBSITE_DISPATCH_TOKEN != '' }}
+        env:
+          GH_TOKEN: ${{ env.WEBSITE_DISPATCH_TOKEN }}
+          RELEASE_DATE: ${{ needs.publish-release.outputs.release_date }}
+        run: |
+          gh api --method POST repos/ddccontrol/ddccontrol.github.io/dispatches \
+            --field event_type=ddccontrol-db-release \
+            --field "client_payload[tag]=$RELEASE_DATE"
+
+      - name: Report missing website token
+        if: ${{ env.WEBSITE_DISPATCH_TOKEN == '' }}
+        run: echo "WEBSITE_DISPATCH_TOKEN is not configured; the scheduled website build will pick up this release."
