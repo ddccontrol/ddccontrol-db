@@ -1,5 +1,40 @@
 # Changelog
 
+## 20260730
+
+## What's Changed
+* feat: add pending monitor profiles by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/374
+* feat: add Philips 246E9Q profile by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/376
+* feat: catalog monitors sharing PNP IDs by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/379
+* feat: add Iiyama GB3466WQSU support by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/380
+* feat: add conservative GSM5C34 monitor profile by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/381
+* feat: add ASUS PA248QV support by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/382
+* feat: document unknown SAM0E16 controls by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/385
+* feat: document Dell U3219Q probe controls by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/383
+* fix: document AOC2402 scan controls by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/387
+* docs: document LG 27GL850 scan controls by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/388
+* fix: keep SAM7476 update additive-only by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/386
+* docs: record AOC 24G2U scan by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/391
+* docs: record Dell U2415 scan by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/390
+* docs: record Dell U2515H scan by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/389
+* fix: document AOC2269 scan controls by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/392
+* docs: document Dell U4919DW scan by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/393
+* feat: expand VESA fallback mappings by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/394
+* feat: add hardware-verified ASUS MG28U (ACI28A7) profile by @elmarco in https://github.com/ddccontrol/ddccontrol-db/pull/377
+* chore: sort language options alphabetically by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/395
+* feat: add Lenovo P44w-10 monitor profile by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/397
+* docs: record LG 34WK95U-W scan by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/396
+* ci: rebuild website after database releases by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/398
+* fix: document Dell U2414H scan controls by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/401
+* docs: record HP LP2065 scan by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/403
+* feat: add ASUS ROG Swift PG278Q profile by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/400
+* feat: add Philips BDM3270QP (PHL08E7) support by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/402
+
+## New Contributors
+* @elmarco made their first contribution in https://github.com/ddccontrol/ddccontrol-db/pull/377
+
+**Full Changelog**: https://github.com/ddccontrol/ddccontrol-db/compare/20260729...20260730
+
 ## 20260729
 
 ## What's Changed
