@@ -1,6 +1,60 @@
 <?xml version="1.0"?>
+<!-- DELA10D scan source: https://github.com/ddccontrol/ddccontrol-db/issues/108 -->
 <monitor name="DELL U4919DW" init="standard" >
 	<caps add="(prot(monitor)type(lcd)model(U4919DW)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 10 12 14(04 05 06 08 09 0B 0C) 16 18 1A 52 60(11 12 1B 0F) AC AE B2 B6 C6 C8 C9 CC(02 03 04 06 09 0A 0D 0E) D6(01 04 05) DC(00 03 05) DF E0 E1 E2(00 02 04 0C 0D 0F 10 11 13 14 1D) E4 E5 E7(00 01 02) E8 E9(00 24) F0(00 0C) F1 F2 FD)mccs_ver(2.1)mswhql(1))"/>
+
+	<!--
+		The DELA10D scan reported the controls below as unknown ("???").
+		They are recorded with current/max values for future hardware
+		investigation. Existing active mappings are retained unchanged; this
+		comment does not verify their semantics.
+
+		0x06 current=0     max=255
+		0x0b current=0     max=24028
+		0x0c current=1     max=255
+		0x0e current=50    max=100
+		0x14 current=5     max=12
+		0x1e current=0     max=2
+		0x20 current=0     max=100
+		0x30 current=0     max=100
+		0x3e current=50    max=100
+		0x52 current=20    max=255
+		0x62 current=50    max=100
+		0x6c current=50    max=255
+		0x6e current=50    max=255
+		0x70 current=50    max=255
+		0xa8 current=0     max=3
+		0xac current=23364 max=1
+		0xae current=6003  max=0
+		0xb2 current=1     max=8
+		0xb4 current=1     max=2
+		0xb6 current=3     max=5
+		0xc0 current=1388  max=65535
+		0xc6 current=17868 max=65535
+		0xc8 current=22021 max=0
+		0xc9 current=16641 max=65535
+		0xca current=2     max=2
+		0xcc current=2     max=14
+		0xdc current=0     max=255
+		0xdf current=513   max=255
+		0xe0 current=0     max=1
+		0xe2 current=0     max=255
+		0xe3 current=0     max=1
+		0xe4 current=0     max=1
+		0xe5 current=0     max=255
+		0xe7 current=65321 max=65450
+		0xe8 current=27    max=65535
+		0xe9 current=0     max=255
+		0xf0 current=0     max=255
+		0xf1 current=267   max=267
+		0xf2 current=0     max=65280
+		0xfa current=0     max=65535
+		0xfd current=98    max=65535
+		0xfe current=142   max=65535
+
+		The scan named 0x02 "Secondary Degauss", but the issue author did not
+		verify its operation. The existing VESA mapping remains unchanged.
+	-->
 
 	<controls>
 		<control id="PbP" type="list" address="0xe9">
@@ -48,6 +102,7 @@
 		</control>
 
 		<control id="power" type="list" address="0xe1">
+			<!-- The issue reports that power-off leaves the internal USB hub powered. -->
 			<value id="off" value="1"/>
 			<value id="on"  value="0"/>
 		</control>
