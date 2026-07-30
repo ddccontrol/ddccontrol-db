@@ -1,21 +1,84 @@
 <?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/29 -->
 <monitor name="Philips BDM3270QP">
+	<!--
+		Scan documentation is intentionally conservative.
+		No existing controls or mappings are disabled by this update.
+	-->
 	<!-- original caps -->
 	<caps add="(prot(monitor)type(lcd)model(MODEL BDM3270QP)cmds(01 02 03 07 0C 4E F3 E3)vcp(02 04 05 08 0B 0C 10 12 14(01 04 05 06 07 08 0A 0B) 16 18 1A 52 54(00 01) 60(00 01 03 11 0F 21 23 2F 31) 62 6C 6E 70 72(05 78 FB 50 64 78 8C A0) 86(01 02 08) AA(01 02) AC AE B6 C0 C6 C8 C9 CA(01 02) CC(01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 12 14 16 17 1A 1E 24) D6(01 04 05) DC(00 01 02 03 05 08 1F) DF E0(00 01 03) E9(00 02) EB(00 01 02 03) 8D(01 02) DA(00 02) F0(00 01) A4 A5 EC(00 01 02 03) F6(01) F7(42) FA(00 01 02) FB FC FD FE(00 01 02 04) )mswhql(1)mccs_ver(2.2)asset_eep(32)mpu_ver(01)SmartManage(1.0))" />
-
-	<!-- TODO: unsure about controls: 02, AA -->
-
 	<controls>
-		<!-- TODO: 60(00 01 03 11 0F 21 23 2F 31) -->
+		<!-- Controls with explicit names in the issue scan: -->
+		<!-- Existing VESA controls remain enabled to preserve prior profile behavior. -->
+		<!-- Control 0x04: +/0/1 C [Restore Factory Defaults] -->
+		<!-- Control 0x05: +/0/1 C [Restore Brightness and Contrast] -->
+		<!-- Control 0x08: +/0/1 C [Restore Factory Default Color] -->
+		<!-- Control 0x10: +/40/100 C [Brightness] -->
+		<!-- Control 0x12: +/50/100 C [Contrast] -->
+		<!-- Control 0x14: +/5/11 C [Color Preset - 6500K] -->
+		<!-- Existing color-preset mappings remain inherited from PHLlcd. -->
+		<!-- Control 0x16: +/100/100 C [Red maximum level] -->
+		<!-- Control 0x18: +/100/100 C [Green maximum level] -->
+		<!-- Control 0x1a: +/100/100 C [Blue maximum level] -->
+		<!-- Control 0x54: +/1/1 C [Color temperature] -->
+		<!-- Control 0x60: +/8975/49 C [Input Source Select] -->
+		<!-- Existing unverified mappings preserved from this profile: -->
 		<control id="inputsource" type="list" address="0x60">
 			<value id="vga"  value="0x01"/>
 			<value id="dvi"  value="0x03"/>
-			<value id="dp"	 value="0x0f"/>
+			<value id="dp"   value="0x0f"/>
 			<value id="hdmi" value="0x11"/>
 		</control>
+		<!-- Additional reported input values have no issue-confirmed semantics:
+		     0x00, 0x21, 0x23, 0x2f, and 0x31. -->
+		<!-- Control 0x62: +/80/100 C [Audio Speaker Volume Adjust] -->
+		<!-- Control 0x6c: +/50/100 C [Red minimum level] -->
+		<!-- Control 0x6e: +/50/100 C [Green minimum level] -->
+		<!-- Control 0x70: +/50/100 C [Blue minimum level] -->
+		<!-- Control 0xaa: +/1/4 C [OSD Orientation - Landscape] -->
+		<!-- Control 0xd6: +/1/5 C [DPMS Control - On] -->
+
+		<!-- Unknown controls from the issue output (left commented for future investigation): -->
+		<!-- Controls 0x02 and 0xcc retain their pre-existing VESA definitions. -->
+		<!-- Control 0x02: +/2/255 C [???] -->
+		<!-- Control 0x0b: +/50/65535 C [???] -->
+		<!-- Control 0x0c: +/70/170 C [???] -->
+		<!-- Control 0x52: +/16/255 C [???] -->
+		<!-- Control 0x72: +/120/255 C [???] -->
+		<!-- Control 0x86: +/8/8 C [???] -->
+		<!-- Control 0x8d: +/1/2 C [???] -->
+		<!-- Control 0xa4: +/0/65535 C [???] -->
+		<!-- Control 0xa5: +/0/512 C [???] -->
+		<!-- Control 0xac: +/23264/65281 C [???] -->
+		<!-- Control 0xae: +/6000/65535 C [???] -->
+		<!-- Control 0xb2: +/1/8   [???] -->
+		<!-- Control 0xb6: +/3/4 C [???] -->
+		<!-- Control 0xc0: +/166/65535 C [???] -->
+		<!-- Control 0xc6: +/111/65535 C [???] -->
+		<!-- Control 0xc8: +/18/65535 C [???] -->
+		<!-- Control 0xc9: +/256/65535 C [???] -->
+		<!-- Control 0xca: +/2/2 C [???] -->
+		<!-- Control 0xcc: +/2/255 C [???] -->
+		<!-- Control 0xda: +/0/2 C [???] -->
+		<!-- Control 0xdc: +/1/8 C [???] -->
+		<!-- Control 0xdf: +/514/65535 C [???] -->
+		<!-- Control 0xe0: +/3/3 C [???] -->
+		<!-- Control 0xe9: +/0/2 C [???] -->
+		<!-- Control 0xeb: +/0/255 C [???] -->
+		<!-- Control 0xec: +/0/4 C [???] -->
+		<!-- Control 0xf0: +/0/255 C [???] -->
+		<!-- Control 0xf1: +/0/255   [???] -->
+		<!-- Control 0xf3: +/48076/170   [???] -->
+		<!-- Control 0xf6: +/0/1 C [???] -->
+		<!-- Control 0xf7: +/66/66 C [???] -->
+		<!-- Control 0xfa: +/0/65535 C [???] -->
+		<!-- Control 0xfb: +/5/255 C [???] -->
+		<!-- Control 0xfc: +/5/255 C [???] -->
+		<!-- Control 0xfd: +/5/255 C [???] -->
+		<!-- Control 0xfe: +/0/65535 C [???] -->
+		<!-- Control 0xff: +/0/1   [???] -->
 	</controls>
 
-	<!-- include shared config for Philips family -->
+	<!-- include shared config for Philips family; PHLlcd includes VESA -->
 	<include file="PHLlcd" />
 </monitor>
-
