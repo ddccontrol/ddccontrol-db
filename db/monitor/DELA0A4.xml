@@ -1,5 +1,13 @@
 <?xml version="1.0"?>
-<!-- No DDC over DP and mDP. No control from HDMI1 when HDMI2 is displayed and vice versa.
+<!--
+Reports:
+https://github.com/ddccontrol/ddccontrol-db/issues/10
+https://github.com/ddccontrol/ddccontrol-db/issues/59
+
+The scans in issue #10 have identical capabilities and controls. Their
+different current values reflect monitor settings, not separate profiles.
+
+No DDC over DP and mDP. No control from HDMI1 when HDMI2 is displayed and vice versa.
 Identifies as DELA0B2 on HDMI-2 input.
 -->
 <monitor name="Dell U2414H (HDMI 1)" init="standard">

@@ -1,5 +1,12 @@
 <?xml version="1.0"?>
-<monitor name="AOC 24G2" init="standard">
+<!--
+https://github.com/ddccontrol/ddccontrol-db/issues/180
+
+AOC reuses PNP ID AOC2402 for the 24G2 and 24B2XDAM. The monitor-specific
+mappings below were verified on the 24G2 and are unverified candidate
+mappings for the 24B2XDAM.
+-->
+<monitor name="AOC 24G2 / 24B2XDAM" init="standard">
 	<caps add="(prot(monitor)type(LCD)model(24G2U)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 0C 10 12 14(01 05 06 08 0B) 16 18 1A 52 60(01 0F 11 12 ) 86(01 02 05 0B 0C 0D 0E 0F 10 11)  AC AE B2 B6 C6 C8 CA CC(01 02 03 04 05 06 07 09 0A 0B 0D 0E 12 14 16 1E) D6(01 04 05) DC(00 0B 0C 0D 0E 0F 10) DF ED FF)mswhql(1)asset_eep(40)mccs_ver(2.2))" />
 	<controls>
 		<control id="brightness" address="0x10"/>

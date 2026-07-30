@@ -1,9 +1,16 @@
 <?xml version="1.0"?>
-<monitor name="LG 25UM58" init="standard">
+<!--
+https://github.com/ddccontrol/ddccontrol-db/issues/45
+
+LG reuses PNP ID GSM59F1 for the 25UM58 and 25UM65. The pre-existing
+monitor-specific mappings below were added for the 25UM58 and are unverified
+candidate mappings for the 25UM65.
+-->
+<monitor name="LG 25UM58 / 25UM65" init="standard">
 <caps add="(vcp(02030405080B0C101214(01 05 06 07 08 0B)1516181A4D4E4F5260(01 03 04)626C6E70878DACAEB6C0C6C8C9D6(01 04)DFE0E1E3(00 01 02 03 04 10 11 12 13 14)ECEFFD(00 01)FE(00 01 02)F4F5F6F7F8F9FF)mswhql(1)mccs_ver(2.1))"/>
 
 	<controls>
-    <!-- GET from GSM5B09 (LG 27UD68p) -->)
+    <!-- Copied from GSM5B09 (LG 27UD68P); unverified candidate mappings. -->
     <control id="inputsource" type="list" address="0x60">
 		<value id="hdmi1" name="hd" value="0x11"/>
 		<value id="hdmi2" value="0x12"/>
@@ -45,5 +52,4 @@
     <!--<include file="VESA"/>-->
     <include file="GSMlcd"/>
 </monitor>
-
 
