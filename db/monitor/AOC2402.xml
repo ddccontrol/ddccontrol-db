@@ -2,12 +2,13 @@
 <!--
 https://github.com/ddccontrol/ddccontrol-db/issues/180
 https://github.com/ddccontrol/ddccontrol-db/issues/247
+https://github.com/ddccontrol/ddccontrol-db/issues/303
 
-AOC reuses PNP ID AOC2402 for the 24G2 and 24B2XDAM. The monitor-specific
-mappings below were verified on the 24G2 and are unverified candidate
-mappings for the 24B2XDAM.
+AOC reuses PNP ID AOC2402 for the 24G2, 24G2U, and 24B2XDAM. The
+monitor-specific mappings below were verified on the 24G2 and are unverified
+candidate mappings for the 24G2U and 24B2XDAM.
 -->
-<monitor name="AOC 24G2 / 24B2XDAM" init="standard">
+<monitor name="AOC 24G2 / 24G2U / 24B2XDAM" init="standard">
 	<caps add="(prot(monitor)type(LCD)model(24G2U)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 0C 10 12 14(01 05 06 08 0B) 16 18 1A 52 60(01 0F 11 12 ) 86(01 02 05 0B 0C 0D 0E 0F 10 11)  AC AE B2 B6 C6 C8 CA CC(01 02 03 04 05 06 07 09 0A 0B 0D 0E 12 14 16 1E) D6(01 04 05) DC(00 0B 0C 0D 0E 0F 10) DF ED FF)mswhql(1)asset_eep(40)mccs_ver(2.2))" />
 	<controls>
 		<control id="brightness" address="0x10"/>
@@ -72,7 +73,7 @@ mappings for the 24B2XDAM.
 			<value id="game3" name="Gamer 3" value="16"/>
 		</control>
 
-		<!-- Unknown controls reported by the scan; disabled pending hardware verification.
+		<!-- Unknown controls reported by issue #247; disabled pending hardware verification.
 		Control 0x0b: +/100/0 C [???]
 		Control 0x0c: +/35/63 C [???]
 		Control 0x1f: +/1/1   [???]
@@ -88,6 +89,38 @@ mappings for the 24B2XDAM.
 		Control 0xc9: +/1/65535   [???]
 		Control 0xdf: +/514/65535 C [???]
 		Control 0xf8: +/514/65535   [???]
+		-->
+
+		<!-- Unknown controls reported by issue #303; disabled pending hardware verification.
+		Control 0x06: +/0/1   [???]
+		Control 0x0b: +/100/0   [???]
+		Control 0x0c: +/35/63 C [???]
+		Control 0x0e: +/0/100   [???]
+		Control 0x14: +/1/11 C [???]
+		Control 0x1e: +/0/1   [???]
+		Control 0x1f: +/1/1   [???]
+		Control 0x20: +/0/100   [???]
+		Control 0x30: +/0/100   [???]
+		Control 0x3e: +/0/100   [???]
+		Control 0x52: +/0/100 C [???]
+		Control 0x62: +/80/100   [???]
+		Control 0x6c: +/80/100   [???]
+		Control 0x6e: +/80/100   [???]
+		Control 0x70: +/80/100   [???]
+		Control 0x86: +/2/17 C [???]
+		Control 0x87: +/50/100   [???]
+		Control 0xac: +/2180/2 C [???]
+		Control 0xae: +/14420/65535 C [???]
+		Control 0xb2: +/1/1 C [???]
+		Control 0xb6: +/3/5 C [???]
+		Control 0xc6: +/64/255 C [???]
+		Control 0xc8: +/9/0 C [???]
+		Control 0xc9: +/1/65535   [???]
+		Control 0xdc: +/0/16 C [???]
+		Control 0xdf: +/514/65535 C [???]
+		Control 0xe6: +/0/0   [???]
+		Control 0xed: +/0/1 C [???]
+		Control 0xf8: +/0/1   [???]
 		-->
 
 	</controls>
