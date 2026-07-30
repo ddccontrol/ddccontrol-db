@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
+<!-- Scan source: https://github.com/ddccontrol/ddccontrol-db/issues/108 -->
 <monitor name="Dell U4919DW (DisplayPort)" init="standard">
 	<include file="U4919DW"/>
 </monitor>
