@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <!--- "Standard" controls -->
+<!-- Expanded standard mappings: https://github.com/ddccontrol/ddccontrol-db/issues/174 -->
 <monitor name="VESA standard monitor" init="standard">
 	<controls>
 		<control id="degauss" address="0x00"/>
@@ -51,8 +52,26 @@
 		<control id="vmoire" address="0x58"/>
 		
 		<control id="inputsource" type="list" address="0x60">
-			<value id="analog"  value="1"/>
-			<value id="digital" value="3"/>
+			<!-- MCCS 2.2 standard input source values. Monitor-specific profiles
+			     should override this list when the display uses vendor mappings. -->
+			<value id="vga1" value="0x01"/>
+			<value id="vga2" value="0x02"/>
+			<value id="dvi1" value="0x03"/>
+			<value id="dvi2" value="0x04"/>
+			<value id="composite1" value="0x05"/>
+			<value id="composite2" value="0x06"/>
+			<value id="s-video1" value="0x07"/>
+			<value id="s-video2" value="0x08"/>
+			<value id="tuner1" value="0x09"/>
+			<value id="tuner2" value="0x0a"/>
+			<value id="tuner3" value="0x0b"/>
+			<value id="component1" value="0x0c"/>
+			<value id="component2" value="0x0d"/>
+			<value id="component3" value="0x0e"/>
+			<value id="dp1" value="0x0f"/>
+			<value id="dp2" value="0x10"/>
+			<value id="hdmi1" value="0x11"/>
+			<value id="hdmi2" value="0x12"/>
 		</control>
 		<control id="audiospeakervolume" address="0x62"/>
 		
@@ -64,12 +83,59 @@
 			<value id="landscape" value="1"/>
 			<value id="portrait" value="2"/>
 		</control>
+
+		<control id="language" type="list" address="0xcc">
+			<!-- MCCS 2.2 standard OSD language values. Reserved value 0x00 is
+			     intentionally omitted. -->
+			<value id="chinese_tw" value="0x01"/>
+			<value id="english" value="0x02"/>
+			<value id="french" value="0x03"/>
+			<value id="german" value="0x04"/>
+			<value id="italian" value="0x05"/>
+			<value id="japanese" value="0x06"/>
+			<value id="korean" value="0x07"/>
+			<value id="portuguese" value="0x08"/>
+			<value id="russian" value="0x09"/>
+			<value id="spanish" value="0x0a"/>
+			<value id="swedish" value="0x0b"/>
+			<value id="turkish" value="0x0c"/>
+			<value id="chinese" value="0x0d"/>
+			<value id="brazilian" value="0x0e"/>
+			<value id="arabic" value="0x0f"/>
+			<value id="bulgarian" value="0x10"/>
+			<value id="croatian" value="0x11"/>
+			<value id="czech" value="0x12"/>
+			<value id="danish" value="0x13"/>
+			<value id="dutch" value="0x14"/>
+			<value id="estonian" value="0x15"/>
+			<value id="finnish" value="0x16"/>
+			<value id="greek" value="0x17"/>
+			<value id="hebrew" value="0x18"/>
+			<value id="hindi" value="0x19"/>
+			<value id="hungarian" value="0x1a"/>
+			<value id="latvian" value="0x1b"/>
+			<value id="lithuanian" value="0x1c"/>
+			<value id="norwegian" value="0x1d"/>
+			<value id="polish" value="0x1e"/>
+			<value id="romanian" value="0x1f"/>
+			<value id="serbian" value="0x20"/>
+			<value id="slovak" value="0x21"/>
+			<value id="slovenian" value="0x22"/>
+			<value id="thai" value="0x23"/>
+			<value id="ukrainian" value="0x24"/>
+			<value id="vietnamese" value="0x25"/>
+		</control>
 		
 		<control id="settings" address="0xb0" delay="1000"/>
 		
-		<control id="dpms" address="0xd6">
-			<value id="on" value="1"/>
-			<value id="standby" value="4"/>
+		<control id="dpms" type="list" address="0xd6">
+			<value id="on" value="0x01"/>
+			<value id="standby" value="0x02"/>
+			<value id="suspend" value="0x03"/>
+			<value id="off" value="0x04"/>
+			<!-- MCCS value 0x05 is a write-only command, so reading the
+			     control will not report this value as the current state. -->
+			<value id="poweroff" value="0x05"/>
 		</control>
 		
 		<control id="power" type="list" address="0xe1">
