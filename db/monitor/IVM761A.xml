@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/168 -->
+<monitor name="Iiyama GB3466WQSU (DP)" init="standard">
+	<!-- The IVM761A PNP ID is assumed for DisplayPort and has not been verified by the issue author. -->
+	<!-- This conservative initial profile is based on the XML proposed in issue #168. -->
+	<caps add="(prot(monitor)type(LCD)model(MStar)cmds(01 02 03 07 0C F3)vcp(02 04 05 06 08 10 12 14(05 06 08 0B) 16 18 1A 52 60(11 12 0F 10) 62 AC AE B2 B6 C6 C8 C9 CC(02 03 04 05 06 09 0A 12 14 1E) D6(01 04 05) DF FD)mccs_ver(2.2)asset_eep(32)mpu(01)mswhql(1))" remove="(vcp(04 05 06 08))"/>
+	<controls>
+		<!-- Reset controls from the proposed profile remain disabled to avoid destructive operations. -->
+		<!-- <control id="defaults" address="0x04" delay="2000"/> -->
+		<!-- <control id="defaultluma" address="0x05" delay="2000"/> -->
+		<!-- <control id="defaultcolor" address="0x08" delay="2000"/> -->
+
+		<!-- Input source values were explicitly provided in the issue's proposed profile. -->
+		<control id="inputsource" type="list" address="0x60">
+			<value id="hdmi1" value="0x11"/>
+			<value id="hdmi2" value="0x12"/>
+			<value id="dp1" value="0x0f"/>
+			<value id="dp2" value="0x10"/>
+		</control>
+
+		<control id="language" type="list" address="0xcc">
+			<value id="english" value="0x02"/>
+			<value id="french" value="0x03"/>
+			<value id="german" value="0x04"/>
+			<value id="dutch" value="0x14"/>
+			<value id="polish" value="0x1e"/>
+			<value id="czech" value="0x12"/>
+			<value id="italian" value="0x05"/>
+			<value id="russian" value="0x09"/>
+			<value id="japanese" value="0x06"/>
+		</control>
+
+		<!-- The proposed 0xca OSD mapping is not present in its capability string. -->
+		<!-- Keep it as an unverified candidate mapping for future hardware verification. -->
+		<!--
+		<control id="osd" type="list" address="0xca">
+			<value id="disable" value="0x01"/>
+			<value id="enable" value="0x02"/>
+		</control>
+		-->
+
+		<!-- Unknown controls present in the proposed capability string: -->
+		<!-- Control 0x06: [???] -->
+		<!-- Control 0x14: values 0x05, 0x06, 0x08, 0x0b [???] -->
+		<!-- Control 0x52: [???] -->
+		<!-- Control 0xac: [???] -->
+		<!-- Control 0xae: [???] -->
+		<!-- Control 0xb2: [???] -->
+		<!-- Control 0xb6: [???] -->
+		<!-- Control 0xc6: [???] -->
+		<!-- Control 0xc8: [???] -->
+		<!-- Control 0xc9: [???] -->
+		<!-- Control 0xdf: [???] -->
+		<!-- Control 0xfd: [???] -->
+	</controls>
+	<!-- VESA supplies the known standard controls proposed in the issue. -->
+	<include file="VESA"/>
+</monitor>
