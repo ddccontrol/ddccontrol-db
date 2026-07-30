@@ -1,6 +1,52 @@
 <?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/61 -->
 <monitor name="HP LP2065">
+	<!--
+		The capabilities and VESA include predate the issue-based documentation
+		and are preserved to avoid removing existing functionality.
+		No semantics are inferred for controls reported as unknown by the scan.
+	-->
 	<!--- CAPS: prot(monitor)type(lcd)cmds(010203070CE3F3)vcp(02 04 05 08 0B 0C 10 12 14(01 05 08 0B) 16 18 1A 1E 52 60(01 02 03 04) 6C 6E 70 86(01 02 07) AC AE B2 B6 C0 C6 C8 C9 CA D6(01 05) DF FA(00 01 02) FB FC FD FE(00 01 02) )mswhql(1)model(LP2065N)mccs_ver(2.0) -->
 	<caps add="(vcp(02 04 05 08 0B 0C 10 12 14(01 05 08 0B) 16 18 1A 1E 52 60(01 02 03 04) 6C 6E 70 86(01 02 07) AC AE B2 B6 C0 C6 C8 C9 CA D6(01 05) DF FA(00 01 02) FB FC FD FE(00 01 02)))"/>
+	<controls>
+		<!-- Unknown controls from the issue output (left commented for future investigation): -->
+		<!-- Control 0x02: +/255/0 [???] -->
+		<!-- Control 0x04: +/0/65535 [???] -->
+		<!-- Control 0x05: +/0/65535 [???] -->
+		<!-- Control 0x06: +/0/65535 [???] -->
+		<!-- Control 0x08: +/0/65535 [???] -->
+		<!-- Control 0x0e: +/108/216 [???] -->
+		<!-- Control 0x10: +/100/100 [???] -->
+		<!-- Control 0x12: +/87/100 [???] -->
+		<!-- Control 0x14: +/1/11 [???] -->
+		<!-- Control 0x16: +/100/100 [???] -->
+		<!-- Control 0x18: +/100/100 [???] -->
+		<!-- Control 0x1a: +/100/100 [???] -->
+		<!-- Control 0x1e: +/0/65535 [???] -->
+		<!-- Control 0x1f: +/0/65535 [???] -->
+		<!-- Control 0x20: +/245/490 [???] -->
+		<!-- Control 0x30: +/46/92 [???] -->
+		<!-- Control 0x3e: +/32/63 [???] -->
+		<!-- Control 0x52: +/0/0 [???] -->
+		<!-- Control 0x60: +/3/63 [???] -->
+		<!-- Control 0x6c: +/100/100 [???] -->
+		<!-- Control 0x6e: +/100/100 [???] -->
+		<!-- Control 0x70: +/100/100 [???] -->
+		<!-- Control 0x86: +/2/7 [???] -->
+		<!-- Control 0xac: +/7490/65535 [???] -->
+		<!-- Control 0xae: +/5990/65535 [???] -->
+		<!-- Control 0xb2: +/1/8 [???] -->
+		<!-- Control 0xb6: +/3/9 [???] -->
+		<!-- Control 0xc0: +/38583/65535 [???] -->
+		<!-- Control 0xc6: +/90/65535 [???] -->
+		<!-- Control 0xc8: +/5/65535 [???] -->
+		<!-- Control 0xc9: +/276/65535 [???] -->
+		<!-- Control 0xca: +/2/2 [???] -->
+		<!-- Control 0xd6: +/1/5 [???] -->
+		<!-- Control 0xdf: +/512/512 [???] -->
+		<!-- Control 0xfa: +/0/2 [???] -->
+		<!-- Control 0xfb: +/0/255 [???] -->
+		<!-- Control 0xfe: +/0/2 [???] -->
+	</controls>
 	<include file="VESA"/>
 </monitor>
