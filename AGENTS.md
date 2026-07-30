@@ -33,6 +33,14 @@ Git workflow requirements:
 
 The goal is to create a safe initial profile suitable for distribution in packages without risking incorrect monitor-specific mappings.
 
+## Preservation of existing functionality
+
+The conservative-profile rules apply primarily to new controls and new semantic mappings. They must not be used as justification for removing, disabling, or commenting out functionality that is already present in an existing monitor profile.
+
+Existing functionality may have been hardware-tested even when that verification is not documented in the repository. Therefore, do not assume that an existing mapping is untested or incorrect merely because supporting evidence cannot be found.
+
+Preserve existing active controls and mappings unless there is concrete evidence that they are incorrect, unsafe, or causing a regression. If an existing mapping is uncertain, document the uncertainty and request hardware verification without removing the functionality.
+
 ## Git and PR hygiene
 
 Do not include AI/vendor/tool branding in any Git metadata.
