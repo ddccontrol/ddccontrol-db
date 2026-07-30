@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/399 -->
+<monitor name="Asus ROG Swift PG278Q" init="standard">
+	<!--
+		Conservative profile based on issue-provided hardware results.
+		Only brightness is enabled because its read and write behavior was verified.
+	-->
+	<caps add="(type(lcd)vcp(10))" remove="(vcp(00 02 04 05 06 08 0E 12 16 18 1A 1C 1E 20 22 24 26 28 30 32 38 3A 3C 3E 40 42 44 46 48 4A 4C 54 56 58 60 62 6C 6E 70 AA B0 D6 E1))"/>
+	<controls>
+		<!-- Known control enabled through the VESA include: -->
+		<!-- Control 0x10: current 50, maximum 100 [Brightness] (read/write verified) -->
+
+		<!--
+			Known controls kept disabled until their write behavior is verified
+			on hardware.
+		-->
+		<!-- Control 0x12: current 100, maximum 150 [Contrast] (read verified) -->
+		<!-- Control 0x16: current 100, maximum 100 [Video gain: Red] (read verified) -->
+		<!-- Control 0x18: current 100, maximum 100 [Video gain: Green] (read verified) -->
+		<!-- Control 0x1a: current 100, maximum 100 [Video gain: Blue] (read verified) -->
+		<!-- Control 0x2e: mh=0x00, ml=0x00, sh=0x00, sl=0x00 [Gray scale expansion] -->
+		<!-- Control 0x52: value 0x00 [Active control] -->
+		<!-- Control 0x72: value 0x7800 [Gamma 2.20] -->
+
+		<!--
+			Unverified candidate mapping from values advertised in issue #399.
+			The values are documented but remain disabled pending hardware testing:
+		-->
+		<!--
+		<control id="colorpreset" address="0x14">
+			<value id="4000k" value="0x03"/>
+			<value id="6500k" value="0x05"/>
+			<value id="10000k" value="0x09"/>
+			<value id="user1" value="0x0B"/>
+		</control>
+		-->
+
+		<!-- Destructive reset controls advertised but not tested: -->
+		<!-- Control 0x04: [Factory reset control] -->
+		<!-- Control 0x05: [Factory reset control] -->
+		<!-- Control 0x08: [Factory reset control] -->
+
+		<!--
+			Control 0x60 is intentionally absent: it did not respond, and the
+			monitor has only one DisplayPort input.
+		-->
+
+		<!-- Unknown controls advertised by the capabilities string: -->
+		<!-- Control 0x02: [???] -->
+		<!-- Control 0x03: advertised value 0x01 [???] -->
+		<!-- Control 0xb6: [???] -->
+		<!-- Control 0xc0: [???] -->
+		<!-- Control 0xc8: [???] -->
+		<!-- Control 0xc9: [???] -->
+		<!-- Control 0xca: [???] -->
+		<!-- Control 0xdf: [???] -->
+	</controls>
+	<!-- VESA controls not explicitly confirmed safe above are removed. -->
+	<include file="VESA"/>
+</monitor>
