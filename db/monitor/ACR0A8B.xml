@@ -10,6 +10,8 @@
 		does NOT fix quirk 1.
 	-->
 	<caps add="(prot(monitor)type(lcd)model(XV275K P3)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 0B 0C 10 12 14(05 06 08 0B) 16 18 1A 52 54(00 01) 59 5A 5B 5C 5D 5E 60( 11 12 0F 10) 62 9B 9C 9D 9E 9F A0 AC AE B6 C0 C6 C8 C9 CC(01 02 03 04 05 06 08 09 0A 0C 0D 0E 14 16 1E)D6(01 04 05) DF E3 E5 E7(00 01 02) E8(00 01 02) E0(00 04 05 06) E1(00 01 02) )mswhql(1)asset_eep(32)mccs_ver(2.1))"/>
+	<!-- VCP 0x02 and 0x54 are advertised but intentionally omitted until verified. -->
+	<caps remove="(vcp(02 54))"/>
 
 	<controls>
 		<control id="defaults" address="0x04" delay="2000"/>
