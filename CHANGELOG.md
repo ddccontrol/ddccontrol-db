@@ -1,5 +1,15 @@
 # Changelog
 
+## 20260805
+
+## What's Changed
+* feat: add Acer Nitro XV275K P3 and Acer Predator XB273U by @zuyan9 in https://github.com/ddccontrol/ddccontrol-db/pull/407
+
+## New Contributors
+* @zuyan9 made their first contribution in https://github.com/ddccontrol/ddccontrol-db/pull/407
+
+**Full Changelog**: https://github.com/ddccontrol/ddccontrol-db/compare/20260731...20260805
+
 ## 20260731
 
 ## What's Changed
