@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<monitor name="Acer Nitro XV275K P3" init="standard">
+	<!--
+		Quirk 1 - stale reads: the first read after a write returns the previous
+		value. It is a one-transaction lag in firmware, not a timing problem. The
+		write itself applies. Read twice to get the settled value.
+
+		Quirk 2 - dropped writes: a write issued immediately after another
+		transaction can be lost entirely. delay="300" below guards against that. It
+		does NOT fix quirk 1.
+	-->
+	<caps add="(prot(monitor)type(lcd)model(XV275K P3)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 0B 0C 10 12 14(05 06 08 0B) 16 18 1A 52 54(00 01) 59 5A 5B 5C 5D 5E 60( 11 12 0F 10) 62 9B 9C 9D 9E 9F A0 AC AE B6 C0 C6 C8 C9 CC(01 02 03 04 05 06 08 09 0A 0C 0D 0E 14 16 1E)D6(01 04 05) DF E3 E5 E7(00 01 02) E8(00 01 02) E0(00 04 05 06) E1(00 01 02) )mswhql(1)asset_eep(32)mccs_ver(2.1))"/>
+	<!-- VCP 0x02 and 0x54 are advertised but intentionally omitted until verified. -->
+	<caps remove="(vcp(02 54))"/>
+
+	<controls>
+		<control id="defaults" address="0x04" delay="2000"/>
+		<control id="defaultluma" address="0x05" delay="2000"/>
+		<control id="defaultcolor" address="0x08" delay="2000"/>
+
+		<control id="brightness" address="0x10" delay="300"/>
+		<control id="contrast" address="0x12" delay="300"/>
+
+		<control id="red" type="value" name="Red maximum level" address="0x16" delay="300"/>
+		<control id="green" type="value" name="Green maximum level" address="0x18" delay="300"/>
+		<control id="blue" type="value" name="Blue maximum level" address="0x1A" delay="300"/>
+
+		<control id="redsaturate" address="0x59" delay="300"/>
+		<control id="yellowsaturate" address="0x5a" delay="300"/>
+		<control id="greensaturate" address="0x5b" delay="300"/>
+		<control id="cyansaturate" address="0x5c" delay="300"/>
+		<control id="bluesaturate" address="0x5d" delay="300"/>
+		<control id="magentasaturate" address="0x5e" delay="300"/>
+
+		<control id="redhue" address="0x9b" delay="300"/>
+		<control id="yellowhue" address="0x9c" delay="300"/>
+		<control id="greenhue" address="0x9d" delay="300"/>
+		<control id="cyanhue" address="0x9e" delay="300"/>
+		<control id="bluehue" address="0x9f" delay="300"/>
+		<control id="magentahue" address="0xa0" delay="300"/>
+
+		<!-- caps: 14(05 06 08 0B) - bare values, the monitor declares no names. -->
+		<control id="colorpreset" address="0x14" delay="300">
+			<value id="6500k" value="5"/>
+			<value id="7500k" value="6"/>
+			<value id="9300k" value="8"/>
+			<value id="user1" value="11"/>
+		</control>
+
+		<control id="blackboost" type="value" name="Black Boost" address="0xe5" delay="300"/>
+
+		<control id="audiospeakervolume" address="0x62" delay="300"/>
+
+		<control id="inputsource" address="0x60" delay="300">
+			<value id="dp1" value="15"/>
+			<value id="dp2" value="16"/>
+			<value id="hdmi1" value="17"/>
+			<value id="hdmi2" value="18"/>
+		</control>
+
+		<!-- caps: CC(01 02 03 04 05 06 08 09 0A 0C 0D 0E 14 16 1E) -->
+		<control id="language" type="list" address="0xcc" delay="300">
+			<value id="chinese_tw" value="1"/>
+			<value id="english" value="2"/>
+			<value id="french" value="3"/>
+			<value id="german" value="4"/>
+			<value id="italian" value="5"/>
+			<value id="japanese" value="6"/>
+			<value id="portuguese" value="8"/>
+			<value id="russian" value="9"/>
+			<value id="spanish" value="10"/>
+			<value id="turkish" value="12"/>
+			<value id="chinese" value="13"/>
+			<value id="brazilian" value="14"/>
+			<value id="dutch" value="20"/>
+			<value id="finnish" value="22"/>
+			<value id="polish" value="30"/>
+		</control>
+
+		<control id="dpms" type="list" address="0xd6" delay="300">
+			<value id="on" value="1"/>
+		</control>
+
+		<control id="power" type="list" address="0xe1" delay="300">
+			<value id="on" value="1"/>
+		</control>
+
+	</controls>
+
+	<include file="VESA"/>
+</monitor>

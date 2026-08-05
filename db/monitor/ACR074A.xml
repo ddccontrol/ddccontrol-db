@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<monitor name="Acer Predator XB273U" init="standard">
+
+	<caps add="(prot(monitor)type(LCD)model(XB273U)cmds(01 02 03 07 0C E3 F3)vcp(02 04 05 08 0B 0C 10 12 14(05 06 08 0B) 16 18 1A 52 59 5A 5B 5C 5D 5E 60(0F 11 12) 62 6C 6E 70 72(50 78 8C) 8D 9B 9C 9D 9E 9F A0 AC AE B2 B6 C6 C8 C9 CC(01 02 03 04 05 06 08 09 0A 0C 0D 0E 14 16 1E) D6(01 04 05) DF E0(00 03 04 05 06) E1(00 01 02 03) E2(00 01 02 03 05 06 07 0B 10 11 12) E3 E4 E5 E7(00 01 02) E8(00 01 02 03 04))mswhql(1)asset_eep(40)mccs_ver(2.2))"/>
+
+	<controls>
+		<control id="defaults" address="0x04" delay="2000"/>
+		<control id="defaultluma" address="0x05" delay="2000"/>
+		<control id="defaultcolor" address="0x08" delay="2000"/>
+
+		<control id="brightness" address="0x10"/>
+		<control id="contrast" address="0x12"/>
+
+		<control id="red" type="value" name="Red maximum level" address="0x16"/>
+		<control id="green" type="value" name="Green maximum level" address="0x18"/>
+		<control id="blue" type="value" name="Blue maximum level" address="0x1A"/>
+		<control id="redblack" type="value" name="Red minimum level" address="0x6C"/>
+		<control id="greenblack" type="value" name="Green minimum level" address="0x6E"/>
+		<control id="blueblack" type="value" name="Blue minimum level" address="0x70"/>
+
+		<control id="redsaturate" address="0x59"/>
+		<control id="yellowsaturate" address="0x5a"/>
+		<control id="greensaturate" address="0x5b"/>
+		<control id="cyansaturate" address="0x5c"/>
+		<control id="bluesaturate" address="0x5d"/>
+		<control id="magentasaturate" address="0x5e"/>
+
+		<control id="redhue" address="0x9b"/>
+		<control id="yellowhue" address="0x9c"/>
+		<control id="greenhue" address="0x9d"/>
+		<control id="cyanhue" address="0x9e"/>
+		<control id="bluehue" address="0x9f"/>
+		<control id="magentahue" address="0xa0"/>
+
+		<!-- caps: 14(05 06 08 0B) is bare values; the monitor declares no names. -->
+		<control id="colorpreset" address="0x14">
+			<value id="6500k" value="5"/>
+			<value id="7500k" value="6"/>
+			<value id="9300k" value="8"/>
+			<value id="user1" value="11"/>
+		</control>
+
+		<control id="gamma" name="Gamma" address="0x72">
+			<value id="1.8" name="1.8" value="80"/>
+			<value id="2.2" name="2.2" value="120"/>
+			<value id="2.4" name="2.4" value="140"/>
+		</control>
+
+		<control id="mode" type="list" name="Mode" address="0xe2">
+			<value id="user" name="User" value="0"/>
+			<value id="standard" name="Standard" value="1"/>
+			<value id="eco" name="Eco" value="2"/>
+			<value id="graphics" name="Graphics" value="3"/>
+			<value id="action" name="Action" value="5"/>
+			<value id="racing" name="Racing" value="6"/>
+			<value id="sports" name="Sports" value="7"/>
+		</control>
+
+		<control id="blackboost" type="value" name="Black Boost" address="0xe5"/>
+
+		<control id="audiospeakervolume" address="0x62"/>
+		<!-- caps: 8D (Audio mute / screen blank) -->
+		<control id="audiospeakermute" address="0x8d">
+			<value id="mute" value="1"/>
+			<value id="unmute" value="2"/>
+		</control>
+
+		<!-- caps: 60(0F 11 12) -->
+		<control id="inputsource" address="0x60">
+			<value id="dp1" value="15"/>
+			<value id="hdmi1" value="17"/>
+			<value id="hdmi2" value="18"/>
+		</control>
+
+		<!-- caps: CC(01 02 03 04 05 06 08 09 0A 0C 0D 0E 14 16 1E) -->
+		<control id="language" type="list" address="0xcc">
+			<value id="chinese_tw" value="1"/>
+			<value id="english" value="2"/>
+			<value id="french" value="3"/>
+			<value id="german" value="4"/>
+			<value id="italian" value="5"/>
+			<value id="japanese" value="6"/>
+			<value id="portuguese" value="8"/>
+			<value id="russian" value="9"/>
+			<value id="spanish" value="10"/>
+			<value id="turkish" value="12"/>
+			<value id="chinese" value="13"/>
+			<value id="brazilian" value="14"/>
+			<value id="dutch" value="20"/>
+			<value id="finnish" value="22"/>
+			<value id="polish" value="30"/>
+		</control>
+
+		<control id="dpms" type="list" address="0xd6">
+			<value id="on" value="1"/>
+			<value id="standby" value="4"/>
+			<value id="off" value="5"/>
+		</control>
+	</controls>
+
+	<include file="VESA"/>
+</monitor>
