@@ -1,5 +1,14 @@
 # Changelog
 
+## 20260813
+
+## What's Changed
+* feat: add LG 27GP850P support by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/410
+* feat: add Philips PHLC30E monitor profile by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/412
+
+
+**Full Changelog**: https://github.com/ddccontrol/ddccontrol-db/compare/20260805...20260813
+
 ## 20260805
 
 ## What's Changed
