@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/409 -->
+<monitor name="LG UltraGear 27GP850P" init="standard">
+	<!--
+		Conservative profile based on issue-provided scan output.
+		Only explicitly named, non-destructive controls are exposed.
+
+		Reported capabilities:
+		prot(monitor)type(lcd)model(WK95U)cmds(01 02 03 0C E3 F3)vcp(02 04 05 08 10 12 14(05 08 0B) 16 18 1A 52 60(11 12 0F 10) AC AE B2 B6 C0 C6 C8 C9 D6(01 04) DF 62 8D F4 F5(01 02 03 04) F6(00 01 02) 4D 4E 4F 15(01 06 11 13 14 15 18 19 20 22 23 24 28 29 32 48) F7(00 01 02 03) F8(00 01) F9 EF FA(00 01) FD(00 01) FE(00 01 02) FF)mccs_ver(2.1)mswhql(1)
+	-->
+	<caps add="(type(lcd)vcp(10 12 16 18 1A 62))" remove="(vcp(00 02 04 05 06 08 0E 1C 1E 20 22 24 26 28 30 32 38 3A 3C 3E 40 42 44 46 48 4A 4C 54 56 58 60 6C 6E 70 AA B0 D6 E1))"/>
+	<controls>
+		<!-- Known controls enabled through the VESA include: -->
+		<!-- Control 0x10: +/65/100 C [Brightness] -->
+		<!-- Control 0x12: +/70/100 C [Contrast] -->
+		<!-- Control 0x16: +/50/100 C [Red maximum level] -->
+		<!-- Control 0x18: +/50/100 C [Green maximum level] -->
+		<!-- Control 0x1a: +/50/100 C [Blue maximum level] -->
+		<!-- Control 0x62: +/100/100 C [Audio Speaker Volume Adjust] -->
+
+		<!--
+			Named controls kept disabled until their write behavior and values
+			are verified on hardware; this includes reset, input, and power controls.
+		-->
+		<!-- Control 0x02: +/2/2 C [New Control Value - Some values changed] -->
+		<!-- Control 0x04: +/0/255 C [Restore Factory Defaults] -->
+		<!-- Control 0x05: +/0/1 C [Restore Brightness and Contrast] -->
+		<!-- Control 0x08: +/0/255 C [Restore Factory Default Color] -->
+		<!-- Control 0x60: +/15/18 C [Input Source Select (Main) - DP-1] -->
+		<!--
+			The scan confirms only DP-1 value 0x0f. The remaining values below
+			are unverified candidate mappings from the monitor capability string;
+			hardware verification is required before enabling input switching.
+
+			<control id="inputsource" type="list" address="0x60">
+				<value id="dp1" value="0x0f"/>
+				<value id="dp2" value="0x10"/>
+				<value id="hdmi1" value="0x11"/>
+				<value id="hdmi2" value="0x12"/>
+			</control>
+		-->
+		<!-- Control 0xd6: +/1/5 C [DPMS Control - On] -->
+
+		<!-- Unknown controls from the issue output (left commented for future investigation): -->
+		<!-- Control 0x06: +/0/255   [???] -->
+		<!-- Control 0x0b: +/0/24028   [???] -->
+		<!-- Control 0x0c: +/35/100   [???] -->
+		<!-- Control 0x0e: +/50/100   [???] -->
+		<!-- Control 0x14: +/11/65535 C [???] -->
+		<!-- Control 0x15: +/45/255 C [???] -->
+		<!-- Control 0x1e: +/0/2   [???] -->
+		<!-- Control 0x20: +/0/100   [???] -->
+		<!-- Control 0x30: +/0/100   [???] -->
+		<!-- Control 0x3e: +/50/100   [???] -->
+		<!-- Control 0x4d: +/32770/65535 C [???] -->
+		<!-- Control 0x4e: +/0/65535 C [???] -->
+		<!-- Control 0x4f: +/7042/65535 C [???] -->
+		<!-- Control 0x50: +/2/15   [???] -->
+		<!-- Control 0x52: +/0/255 C [???] -->
+		<!-- Control 0x55: +/0/1   [???] -->
+		<!-- Control 0x69: +/6500/65535   [???] -->
+		<!-- Control 0x6a: +/527/65535   [???] -->
+		<!-- Control 0x6c: +/128/100   [???] -->
+		<!-- Control 0x6e: +/128/100   [???] -->
+		<!-- Control 0x70: +/128/100   [???] -->
+		<!-- Control 0x72: +/30720/65535   [???] -->
+		<!-- Control 0x7a: +/240/65535   [???] -->
+		<!-- Control 0x87: +/50/100   [???] -->
+		<!-- Control 0x8d: +/2/100 C [???] -->
+		<!-- Control 0xac: +/58692/3 C [???] -->
+		<!-- Control 0xae: +/25530/0 C [???] -->
+		<!-- Control 0xaf: +/65280/255   [???] -->
+		<!-- Control 0xb6: +/3/5 C [???] -->
+		<!-- Control 0xc0: +/1550/65535 C [???] -->
+		<!-- Control 0xc1: +/65/300   [???] -->
+		<!-- Control 0xc6: +/104/65535 C [???] -->
+		<!-- Control 0xc8: +/5/255 C [???] -->
+		<!-- Control 0xc9: +/802/65535 C [???] -->
+		<!-- Control 0xca: +/2/2   [???] -->
+		<!-- Control 0xcc: +/0/16   [???] -->
+		<!-- Control 0xcf: +/1/65535   [???] -->
+		<!-- Control 0xd7: +/1/255   [???] -->
+		<!-- Control 0xd8: +/1/255   [???] -->
+		<!-- Control 0xdf: +/513/255 C [???] -->
+	</controls>
+	<!-- VESA controls not explicitly confirmed by the scan are removed above. -->
+	<include file="VESA"/>
+</monitor>
