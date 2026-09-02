@@ -1,5 +1,18 @@
 # Changelog
 
+## 20260902
+
+## What's Changed
+* feat: add support for Sony INZONE M9 (SNY075A) by @EriksRemess in https://github.com/ddccontrol/ddccontrol-db/pull/417
+* feat: add SPT08C4 monitor support by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/419
+* feat: add Acer MGB270U P2BIIPX support by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/420
+* feat: add Samsung Odyssey G3 (SAM76E1) support by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/421
+
+## New Contributors
+* @EriksRemess made their first contribution in https://github.com/ddccontrol/ddccontrol-db/pull/417
+
+**Full Changelog**: https://github.com/ddccontrol/ddccontrol-db/compare/20260813...20260902
+
 ## 20260813
 
 ## What's Changed
