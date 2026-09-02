@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/416 -->
+<!--
+  Sony INZONE M9 / SDM-U27M90.
+
+  The capability data was recovered from the monitor firmware because live
+  capability queries fail. The exposed color preset, input source, and DPMS
+  mappings have been tested by a user. Brightness 0x10 was hardware-tested by
+  changing 90 -> 80 -> 90, with successful readback after each write.
+
+  Factory-reset controls 0x04, 0x05, and 0x08 are disabled to avoid exposing
+  destructive operations.
+
+  Sony appears to use bit 0x80 of SH as a grayed-out flag on image controls.
+  ddccontrol combines SH:SL, which explains values such as 0x804B / 32843.
+-->
+<monitor name="Sony INZONE M9 (SDM-U27M90)" init="standard">
+	<caps add="(prot(monitor)type(lcd)cmds(01 02 03 07 0C E3 F3)vcp(02 10 12 14(05 08 0B 0C) 16 18 1A 52 60(11 12 0F 10) AC AE B2 B6 C6 C8 C9 D6(01 04 05) DC(00 02 03 05) DF FD)mccs_ver(2.1)mswhql(1))" remove="(vcp(04 05 08))"/>
+	<controls>
+		<control id="colorpreset" type="list" address="0x14" refresh="all">
+			<value id="6500k" value="0x05"/>
+			<value id="9300k" value="0x08"/>
+			<value id="user1" value="0x0B"/>
+			<value id="user2" value="0x0C"/>
+		</control>
+
+		<control id="inputsource" type="list" address="0x60" refresh="all">
+			<value id="dp1" value="0x0F"/>
+			<value id="dp2" value="0x10"/>
+			<value id="hdmi1" value="0x11"/>
+			<value id="hdmi2" value="0x12"/>
+		</control>
+
+		<control id="dpms" type="list" address="0xD6">
+			<value id="on" value="0x01"/>
+			<value id="off" value="0x04"/>
+			<value id="poweroff" value="0x05"/>
+		</control>
+
+		<!-- Destructive controls intentionally kept disabled: -->
+		<!-- Control 0x04: +/201/255 C [Restore Factory Defaults] -->
+		<!-- Control 0x05: +/201/255 C [Restore Brightness and Contrast] -->
+		<!-- Control 0x08: +/201/255 C [Restore Factory Default Color] -->
+
+		<!-- Named but unused control, preserved for future investigation: -->
+		<!-- Control 0xdc: +/1/255 C [ECO Mode]; values: 0x00, 0x02, 0x03, 0x05 -->
+
+		<!-- Unknown firmware-advertised controls, preserved for investigation: -->
+		<!-- Control 0x52: +/0/255 C [???] -->
+		<!-- Control 0xac: +/0/255 C [???] -->
+		<!-- Control 0xae: +/0/255 C [???] -->
+		<!-- Control 0xb2: +/0/255 C [???] -->
+		<!-- Control 0xb6: +/0/255 C [???] -->
+		<!-- Control 0xc6: +/0/255 C [???] -->
+		<!-- Control 0xc8: +/0/255 C [???] -->
+		<!-- Control 0xc9: +/12298/65535 C [???] -->
+		<!-- Control 0xdf: +/1/255 C [???] -->
+		<!-- Control 0xfd: +/3/255 C [???] -->
+
+		<!--
+			The issue probe also returned valid-looking ??? responses for every
+			other address. The monitor is known to respond this way for unsupported
+			VCP codes, so they are retained only as these compact address ranges:
+			0x00-0x01, 0x03, 0x06-0x07, 0x09-0x0f, 0x11, 0x13, 0x15,
+			0x17, 0x19, 0x1b-0x5f, 0x61-0xd5, 0xd7-0xdb, 0xdd-0xff.
+		-->
+	</controls>
+	<include file="VESA"/>
+</monitor>
