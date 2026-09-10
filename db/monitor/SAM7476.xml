@@ -39,9 +39,9 @@
 
 		      Measured on one unit: G95NC, firmware 1009.2, Mstar scaler, over
 		      DisplayPort 2.1. -->
-		<control id="samsung_lighting"/>
-		<control id="samsung_lighting_effect"/>
-		<control id="samsung_lighting_color"/>
+		<control id="samsung_lighting"        address="0xf8"/>
+		<control id="samsung_lighting_effect" address="0xf9"/>
+		<control id="samsung_lighting_color"  address="0xfa"/>
 	</controls>
 </monitor>
 <!--
