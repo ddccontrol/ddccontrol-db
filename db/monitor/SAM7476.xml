@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!-- https://github.com/ddccontrol/ddccontrol-db/issues/261 -->
 <monitor name="Samsung Odyssey Neo G9 LS57CG952NNXZA" init="standard">
-	<caps add="(vcp(2F DB(0 1 2 3 4 5 6 7 8 9)))" />
+	<caps add="(vcp(2F DB(0 1 2 3 4 5 6 7 8 9) F8 F9 FA))" />
 	<include file="SAM7119" />
 	<include file="VESA"/>
 	<controls>
@@ -17,6 +17,43 @@
 			<value id="27_wide_16_9" value="8" />
 			<value id="29_wide_21_9" value="9" />
 		</control>
+
+		<!--- Rear Core Lighting. Manufacturer specific and NOT advertised in the
+		      capabilities string, which is why these three are missing from the
+		      probe dump below.
+
+		      0xF8  lighting source  0x00 off, 0x01 manual, 0x03 CoreSync
+		      0xF9  effect mode      0 Aurora, 1 Aurora Rotation, 2 Comet,
+		                             3 Static, 4 Rainbow, 5 Breathing
+		      0xFA  colour           OSD palette is 13 columns by 4 rows,
+		                             value is row*13 + column (0..51)
+
+		      0xF9 and 0xFA read back 0xfd, above their own declared max, as a
+		      "not applicable" sentinel: lights off, an effect with no colour
+		      option, or CoreSync active.
+
+		      CoreSync (0xF8 = 0x03) is only selectable from the OSD, and only
+		      while the effect is Static. It cannot be entered or left over DDC,
+		      and while active all three codes are locked read-only. It is
+		      therefore readable but deliberately not offered as a settable value.
+
+		      Measured on one unit: G95NC, firmware 1009.2, Mstar scaler, over
+		      DisplayPort 2.1. -->
+		<control id="samsung_lighting" address="0xf8">
+			<value id="off"    value="0x00"/>
+			<value id="manual" value="0x01"/>
+		</control>
+		<control id="samsung_lighting_effect" address="0xf9">
+			<value id="aurora"         value="0x00"/>
+			<value id="aurorarotation" value="0x01"/>
+			<value id="comet"          value="0x02"/>
+			<value id="static"         value="0x03"/>
+			<value id="rainbow"        value="0x04"/>
+			<value id="breathing"      value="0x05"/>
+		</control>
+		<!--- 0xFA is a plain value control (a 0..51 palette index), so it has no
+		      enumerated list. -->
+		<control id="samsung_lighting_color" address="0xfa"/>
 	</controls>
 </monitor>
 <!--

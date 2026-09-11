@@ -1,0 +1,42 @@
+# Profiles whose list controls had no <value> entries before
+# scripts/check-list-values.pl existed. They are skipped so the check can be
+# enabled without a flag day.
+#
+# Each line is "<profile> <control id>". Removing a line is the goal: the
+# correct values are model specific, so they need to come from someone with
+# the hardware rather than being copied out of options.xml.in. Copying the
+# full enumeration would, for example, advertise all 31 input sources on a
+# monitor that has two.
+#
+# Format: one "<profile> <control>" pair per line, # starts a comment.
+
+ACR0692 newcontrolvalue
+ACR06CF newcontrolvalue
+AUS32AD alignmentframe
+AUS32AD fps-counter
+AUS32AD timer
+AUS32AD variableod
+DEL413A newcontrolvalue
+DEL415A newcontrolvalue
+DEL41D9 newcontrolvalue
+DEL41DA newcontrolvalue
+DEL50AB autosize
+DELA114 dpms
+DELA114 inputsource
+DELA114 osdorientation
+DELA114 power
+DELA133 dpms
+DELA133 inputsource
+DELA133 osdorientation
+DELA133 power
+GSM5807 newcontrolvalue
+HWP2943 dpms
+HWP2943 inputsource
+HWP2943 osdorientation
+HWP2943 power
+MEL44B0 superbright
+MEL4511 superbright
+MEL4513 superbright
+MEL4632 superbright
+MEL463D superbright
+MELcrt superbright

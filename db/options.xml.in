@@ -993,6 +993,32 @@
 				<value id="100"   name="100"   value="20"/>
 			</control>
 		</subgroup>
+		<subgroup name="Lighting">
+			<!--- Samsung Odyssey Neo G9 57" (G95NC, SAM747B) rear Core Lighting.
+			      Manufacturer specific, not advertised in the capabilities string.
+			      0xF8 value 0x03 (CoreSync, screen-content sync) is deliberately not
+			      offered here: the monitor refuses DDC writes to it in both directions,
+			      so listing it would create a control that silently fails. It stays
+			      readable, and while it is active 0xF8/0xF9/0xFA are all locked
+			      read-only until CoreSync is turned off from the OSD. -->
+			<control id="samsung_lighting" type="list" name="Core Lighting (Samsung)" address="0xf8" refresh="all">
+				<value id="off" name="Off" value="0x00"/>
+				<value id="manual" name="Manual" value="0x01"/>
+			</control>
+			<control id="samsung_lighting_effect" type="list" name="Lighting Effect (Samsung)" address="0xf9" refresh="all">
+				<value id="aurora" name="Aurora" value="0x00"/>
+				<value id="aurorarotation" name="Aurora Rotation" value="0x01"/>
+				<value id="comet" name="Comet" value="0x02"/>
+				<value id="static" name="Static" value="0x03"/>
+				<value id="rainbow" name="Rainbow" value="0x04"/>
+				<value id="breathing" name="Breathing" value="0x05"/>
+			</control>
+			<!--- 0xFA is a 52 entry palette index: the OSD grid is 13 columns by
+			      4 rows and the value is row*13 + column. Exposed as a plain value
+			      rather than a 52 item list. Only meaningful for Comet, Static and
+			      Breathing; the other effects read back 0xfd (not applicable). -->
+			<control id="samsung_lighting_color" type="value" name="Lighting Colour (Samsung)" address="0xfa"/>
+		</subgroup>
 	</group>
 
 </options>
