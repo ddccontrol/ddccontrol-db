@@ -39,9 +39,21 @@
 
 		      Measured on one unit: G95NC, firmware 1009.2, Mstar scaler, over
 		      DisplayPort 2.1. -->
-		<control id="samsung_lighting"        address="0xf8"/>
-		<control id="samsung_lighting_effect" address="0xf9"/>
-		<control id="samsung_lighting_color"  address="0xfa"/>
+		<control id="samsung_lighting" address="0xf8">
+			<value id="off"    value="0x00"/>
+			<value id="manual" value="0x01"/>
+		</control>
+		<control id="samsung_lighting_effect" address="0xf9">
+			<value id="aurora"         value="0x00"/>
+			<value id="aurorarotation" value="0x01"/>
+			<value id="comet"          value="0x02"/>
+			<value id="static"         value="0x03"/>
+			<value id="rainbow"        value="0x04"/>
+			<value id="breathing"      value="0x05"/>
+		</control>
+		<!--- 0xFA is a plain value control (a 0..51 palette index), so it has no
+		      enumerated list. -->
+		<control id="samsung_lighting_color" address="0xfa"/>
 	</controls>
 </monitor>
 <!--
