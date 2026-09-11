@@ -14,6 +14,7 @@ This document is intended as a hands-on introduction on how to add a monitor to 
 1. [Add controls](#add-controls)
     1. [Query monitor capabilities](#query-monitor-capabilities)
     1. [Add a control](#add-a-control)
+    1. [Validate the profile without hardware](#validate-the-profile-without-hardware)
     1. [Try out the change](#try-out-the-change)
 1. [Debugging](#debugging)
     1. [Troubleshooting checklist](#troubleshooting-checklist)
@@ -226,8 +227,34 @@ The change below will remove the standard VESA definitions and add a single [MCC
  </monitor>
 ```
 
-You should generally try to reuse code from `db/options.xml.in` (accomplished by `id="brightness"` in the example above).
-You can add controls and/or values in `db/options.xml.in` if necessary.
+Reuse control definitions from `db/options.xml.in` by matching their `id`, as `id="brightness"` does above.
+That file supplies the control's name, type, grouping and refresh behavior.
+Every `<control>` declared in a monitor XML file must also specify its VCP `address`, even if the matching definition in `db/options.xml.in` has an `address` attribute.
+The address is not inherited: omitting it causes `Can't find address property` and prevents the profile, including other profiles that include it, from loading.
+
+For list controls, declare each supported choice in the monitor XML with a `<value>` element containing both its `id` and numeric `value`.
+The value's `id` selects its name from `db/options.xml.in`; numeric `value` attributes in that file are not inherited either.
+A list control without these monitor-specific entries can pass the integrity check but has no selectable choices in the GUI.
+Only use numeric mappings confirmed for the monitor; matching names in another profile do not establish that the values are the same.
+You can add control definitions and value names to `db/options.xml.in` if necessary.
+
+### Validate the profile without hardware
+
+From the repository root, generate `db/options.xml` and check the profile with `ddccontrol`:
+
+```console
+make db/options.xml
+ddccontrol -b db -v -v -i ACR06B1
+```
+
+Replace `ACR06B1` with your profile's filename without `.xml`.
+The `-b db` option selects the local database, and `-i` checks that the profile can be loaded without accessing a monitor.
+This requires neither `sudo` nor installation of the modified database.
+Repeat the check for any profiles that include a changed shared profile, or run `make check-db` to check all profiles except those marked `NOCHECKDB`.
+
+XML well-formedness alone does not check control IDs, addresses or includes.
+The integrity check catches errors in those definitions, but does not check that lists contain choices or that the controls work on hardware.
+Inspect the list entries and continue with the hardware checks below.
 
 ### Try out the change
 
