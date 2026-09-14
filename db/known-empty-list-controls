@@ -9,6 +9,7 @@
 # monitor that has two.
 #
 # Format: one "<profile> <control>" pair per line, # starts a comment.
+# Unused entries fail the check; remove them when a control is fixed or removed.
 
 ACR0692 newcontrolvalue
 ACR06CF newcontrolvalue

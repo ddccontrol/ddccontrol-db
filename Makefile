@@ -57,10 +57,15 @@ uninstall:
 	done; \
 	rmdir "$$destdir_value$$dbdir_value/monitor" "$$destdir_value$$dbdir_value" 2>/dev/null || :
 
-check: all check-version check-list-values
+check: all check-version check-list-values test-list-values
+
+.PHONY: check-list-values test-list-values
 
 check-list-values:
 	$(PERL) scripts/check-list-values.pl db
+
+test-list-values:
+	$(PERL) scripts/test-check-list-values.pl
 
 check-version: db/options.xml
 	@set -e; \

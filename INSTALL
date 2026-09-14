@@ -84,9 +84,15 @@ To install only selected translations:
 Validation and maintenance
 --------------------------
 
-Run the basic version and translation checks with:
+Run the version, translation and list-control checks, including the checker
+regression tests, with:
 
     make check
+
+These checks require Perl and XML::Parser (the libxml-parser-perl package on
+Debian and Ubuntu). They do not require monitor hardware. The list-control
+check rejects unused entries in db/known-empty-list-controls, so remove an
+exception when its control is fixed or removed.
 
 Validate every monitor profile with an installed ddccontrol command:
 

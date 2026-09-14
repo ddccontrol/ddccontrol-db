@@ -50,6 +50,9 @@ sudo apt install gettext make
 
 The handwritten Makefile is tested with both GNU Make and BSD `bmake`.
 
+Running `make check` also requires Perl and `XML::Parser`. On Ubuntu, install
+these with `sudo apt install perl libxml-parser-perl`.
+
 Latest repository can be cloned and built by:
 
 ```shell
