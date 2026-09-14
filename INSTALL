@@ -93,6 +93,9 @@ These checks require Perl and XML::Parser (the libxml-parser-perl package on
 Debian and Ubuntu). They do not require monitor hardware. The list-control
 check rejects unused entries in db/known-empty-list-controls, so remove an
 exception when its control is fixed or removed.
+The check follows explicit caps add/remove changes through includes, starting
+with all VCP addresses available as ddccontrol -i does. Controls disabled before
+their definitions are reached do not require list values or exceptions.
 
 Validate every monitor profile with an installed ddccontrol command:
 

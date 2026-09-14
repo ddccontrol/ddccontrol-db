@@ -79,18 +79,101 @@ sub address_of {
     return $address;
 }
 
+# Capabilities are nested parenthesized sections, not XML. Keep value lists
+# attached to their VCP code so removing a value cannot disable another code.
+sub caps_list {
+    my ($tokens, $position, $nested, $name) = @_;
+    my @items;
+    while ($$position < @$tokens) {
+        my $token = $tokens->[$$position++];
+        if ($token eq '(') {
+            push @items, caps_list($tokens, $position, 1, $name);
+        } elsif ($token eq ')') {
+            die "unbalanced caps in $name\n" unless $nested;
+            return \@items;
+        } else {
+            push @items, $token;
+        }
+    }
+    die "unbalanced caps in $name\n" if $nested;
+    return \@items;
+}
+
+sub apply_vcp {
+    my ($items, $caps, $add, $name) = @_;
+    for (my $i = 0; $i < @$items; $i++) {
+        my $code = $items->[$i];
+        die "invalid VCP code in $name\n" if ref $code;
+        # Some profiles advertise adjacent two-digit codes without spaces.
+        if ($code =~ /\A[0-9a-fA-F]{3,}\z/) {
+            splice @$items, $i, 1, ($code =~ /.{1,2}/g);
+            $code = $items->[$i];
+        }
+        my $values = ref($items->[$i + 1]) ? $items->[++$i] : undef;
+        if (lc($code) eq 'vcp' && $values) {
+            apply_vcp($values, $caps, $add, $name);
+            next;
+        }
+        die "invalid VCP code '$code' in $name\n"
+            unless $code =~ /\A[0-9a-fA-F]{2}\z/;
+        my %values;
+        for my $value (@{$values || []}) {
+            next if ref $value;
+            die "invalid VCP value '$value' in $name\n"
+                unless $value =~ /\A[0-9a-fA-F]{1,4}\z/;
+            $values{hex($value)} = 1;
+        }
+        $code = hex($code);
+        if ($add) {
+            $caps->{$code} = keys(%values) ? \%values : undef;
+        } elsif (exists $caps->{$code}) {
+            if (keys(%values) && defined $caps->{$code}) {
+                delete @{$caps->{$code}}{keys %values};
+                delete $caps->{$code} unless keys %{$caps->{$code}};
+            } else {
+                delete $caps->{$code};
+            }
+        }
+    }
+}
+
+sub caps_sections {
+    my ($items, $caps, $add, $name) = @_;
+    for (my $i = 0; $i < @$items; $i++) {
+        my $item = $items->[$i];
+        if (ref $item) {
+            caps_sections($item, $caps, $add, $name);
+        } elsif (ref($items->[$i + 1])) {
+            my $section = $items->[++$i];
+            apply_vcp($section, $caps, $add, $name) if $item eq 'vcp';
+        }
+    }
+}
+
 sub controls_of {
-    my ($name, $defined, $active) = @_;
+    my ($name, $defined, $active, $caps) = @_;
     die "invalid include name '$name'\n" unless $name =~ /\A[A-Za-z0-9_-]+\z/;
     die "include cycle involving $name\n" if $active->{$name};
     local $active->{$name} = 1;
     my @found;
     my $root = document("$db/monitor/$name.xml");
     for my $node (@{$root->{children}}) {
-        if ($node->{tag} eq 'include') {
+        if ($node->{tag} eq 'caps') {
+            # Match ddccontrol: removal precedes addition within one element,
+            # and changes made by an include remain in effect in its caller.
+            for my $operation ('remove', 'add') {
+                my $text = $node->{attributes}{$operation};
+                next unless defined $text;
+                my @tokens = $text =~ /([()]|[^()\s]+)/g;
+                my $position = 0;
+                caps_sections(caps_list(\@tokens, \$position, 0, $name),
+                    $caps, $operation eq 'add', $name);
+            }
+        }
+        elsif ($node->{tag} eq 'include') {
             my $file = $node->{attributes}{file};
             die "missing include file in $name\n" unless defined $file;
-            push @found, controls_of($file, $defined, $active);
+            push @found, controls_of($file, $defined, $active, $caps);
         }
         elsif ($node->{tag} eq 'controls') {
             my %controls;
@@ -104,6 +187,7 @@ sub controls_of {
                 my $id = $option->{attributes}{id};
                 my $control = $controls{$id} or next;
                 my $address = address_of($control, $name);
+                next unless exists $caps->{$address};
                 # The first definition of an address wins, even if the IDs or
                 # types differ. Later included definitions are not active.
                 next if $defined->{$address}++;
@@ -131,7 +215,10 @@ closedir($dir);
 my ($failed, $skipped) = (0, 0);
 my %used;
 for my $profile (@profiles) {
-    for my $control (controls_of($profile, {}, {})) {
+    # As in ddccontrol -i, start with every address available, then apply the
+    # profile's explicit capability changes. No hardware caps are needed.
+    my %caps = map { $_ => undef } 0 .. 255;
+    for my $control (controls_of($profile, {}, {}, \%caps)) {
         my ($id, $has_value, $origin) = @$control;
         next if $has_value;
         my $key = "$profile $id";
