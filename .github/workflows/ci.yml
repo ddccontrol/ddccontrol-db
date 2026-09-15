@@ -27,7 +27,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
-            autoconf automake build-essential cargo gettext intltool \
+            autoconf automake autopoint build-essential cargo gettext intltool \
             libglib2.0-dev libtool libxml2-dev pkg-config rustc
 
       - name: Build validator
