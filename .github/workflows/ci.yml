@@ -47,7 +47,7 @@ jobs:
             --infodir=/usr/share/info \
             --with-sysroot=/
           make -j"$(nproc)"
-          make check PERL=false
+          make check
           make check-controls
 
       - name: Test staged installation
@@ -154,7 +154,7 @@ jobs:
             bmake distclean
             MAKE=bmake ./configure --prefix=/opt/original
             bmake
-            bmake check PERL=false
+            bmake check
             bmake check-controls
             stage="$(mktemp -d)"
             bmake install \

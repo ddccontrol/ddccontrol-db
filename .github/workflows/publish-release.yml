@@ -93,7 +93,7 @@ jobs:
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           ./configure
           make -j"$(nproc)"
-          make check PERL=false
+          make check
           make check-controls
           make dist
           mkdir -p "$RUNNER_TEMP/release-artifacts"
