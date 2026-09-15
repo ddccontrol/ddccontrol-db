@@ -1,5 +1,20 @@
 # Changelog
 
+## 20260915
+
+## What's Changed
+* docs: clarify monitor control definitions and validation by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/424
+* feat(SAM7476): add Samsung G95NC rear Core Lighting controls (0xF8/0xF9/0xFA) by @genedeng-ca in https://github.com/ddccontrol/ddccontrol-db/pull/423
+* chore: check that list controls carry selectable values by @genedeng-ca in https://github.com/ddccontrol/ddccontrol-db/pull/425
+* fix: resolve AUS28B1 value names and validate profiles in CI by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/428
+* ci: validate monitor profiles with ddccontrol 3.3.0 by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/429
+* feat: add iiyama G-Master G2530HSU support by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/430
+
+## New Contributors
+* @genedeng-ca made their first contribution in https://github.com/ddccontrol/ddccontrol-db/pull/423
+
+**Full Changelog**: https://github.com/ddccontrol/ddccontrol-db/compare/20260902...20260915
+
 ## 20260902
 
 ## What's Changed
