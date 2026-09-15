@@ -50,7 +50,20 @@
 			<control id="brightness" type="value" name="Brightness" address="0x10"/>
 			<control id="contrast" type="value" name="Contrast" address="0x12"/>
 			<!--- vendor specific controls -->
-			<control id="sharpness" type="value" name="Sharpness"/>
+			<control id="sharpness" type="value" name="Sharpness">
+				<!-- Value names used by AUS28B1; numeric mappings remain in the monitor profile. -->
+				<value id="0" name="0"/>
+				<value id="10" name="10"/>
+				<value id="20" name="20"/>
+				<value id="30" name="30"/>
+				<value id="40" name="40"/>
+				<value id="50" name="50"/>
+				<value id="60" name="60"/>
+				<value id="70" name="70"/>
+				<value id="80" name="80"/>
+				<value id="90" name="90"/>
+				<value id="100" name="100"/>
+			</control>
 			<control id="dynamiccontrast" type="list" name="Dynamic Contrast">
 				<value id="off" name="Off"/>
 				<value id="on" name="On"/>
