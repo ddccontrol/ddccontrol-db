@@ -84,13 +84,18 @@ To install only selected translations:
 Validation and maintenance
 --------------------------
 
-Run the version, translation and list-control checks, including the checker
-regression tests, with:
+Run the version and translation checks with:
 
     make check
 
-These checks require Perl and XML::Parser (the libxml-parser-perl package on
-Debian and Ubuntu). They do not require monitor hardware. The list-control
+This target does not require Perl. Run the optional list-control checks and
+the checker regression tests separately with:
+
+    make check-controls
+
+This target requires Perl and XML::Parser (the libxml-parser-perl package on
+Debian and Ubuntu) and runs explicitly in GitHub CI and release validation.
+It does not require monitor hardware. The list-control
 check rejects unused entries in db/known-empty-list-controls, so remove an
 exception when its control is fixed or removed.
 The check follows explicit caps add/remove changes through includes, starting
