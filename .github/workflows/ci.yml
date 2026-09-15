@@ -9,6 +9,40 @@ permissions:
   contents: read
 
 jobs:
+  check-db:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v6
+
+      # Older ddccontrol versions can accept unresolved value IDs (issue #427).
+      - name: Check out ddccontrol 3.3.0
+        uses: actions/checkout@v6
+        with:
+          repository: ddccontrol/ddccontrol
+          ref: 2b6c3d64388e05aced148d60d493b1e29563b756 # 3.3.0
+          path: .ci/ddccontrol
+          persist-credentials: false
+
+      - name: Install validator build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            autoconf automake autopoint build-essential cargo gettext intltool \
+            libglib2.0-dev libtool libxml2-dev pkg-config rustc
+
+      - name: Build validator
+        working-directory: .ci/ddccontrol
+        run: |
+          set -euo pipefail
+          ./autogen.sh
+          ./configure --disable-gnome --disable-nls
+          make -j"$(nproc)"
+
+      - name: Validate all monitor profiles
+        run: |
+          set -euo pipefail
+          make check-db DDCCONTROL="$GITHUB_WORKSPACE/.ci/ddccontrol/src/ddccontrol/ddccontrol"
+
   build-and-install:
     runs-on: ubuntu-24.04
     steps:

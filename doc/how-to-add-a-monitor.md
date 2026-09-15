@@ -252,6 +252,10 @@ The `-b db` option selects the local database, and `-i` checks that the profile 
 This requires neither `sudo` nor installation of the modified database.
 Repeat the check for any profiles that include a changed shared profile, or run `make check-db` to check all profiles except those marked `NOCHECKDB`.
 
+CI runs `make check-db` with ddccontrol 3.3.0 on every pull request.
+Use that version or newer for local validation: older versions such as 1.0.3 can accept unresolved value IDs.
+To select a particular executable, run `make check-db DDCCONTROL=/path/to/ddccontrol`.
+
 XML well-formedness alone does not check control IDs, addresses or includes.
 The integrity check catches errors in those definitions, but does not check that lists contain choices or that the controls work on hardware.
 Inspect the list entries and continue with the hardware checks below.
