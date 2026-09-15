@@ -50,6 +50,11 @@ sudo apt install gettext make
 
 The handwritten Makefile is tested with both GNU Make and BSD `bmake`.
 
+The optional `make check-controls` target runs the list-control checks and their
+regression tests. It requires Perl and `XML::Parser`; on Ubuntu, install these
+with `sudo apt install perl libxml-parser-perl`. GitHub CI runs this target
+explicitly. The standard `make check` target does not require Perl.
+
 Latest repository can be cloned and built by:
 
 ```shell

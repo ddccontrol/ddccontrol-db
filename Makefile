@@ -59,6 +59,16 @@ uninstall:
 
 check: all check-version
 
+check-controls: check-list-values test-list-values
+
+.PHONY: check-controls check-list-values test-list-values
+
+check-list-values:
+	$(PERL) scripts/check-list-values.pl db
+
+test-list-values:
+	$(PERL) scripts/test-check-list-values.pl
+
 check-version: db/options.xml
 	@set -e; \
 	version=`sed -n '1p' VERSION`; \
