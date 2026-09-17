@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/433 -->
+<monitor name="Dell G2722HS" init="standard">
+	<!-- The PC report has the same model and capabilities as DEL427D (laptop).
+	     Share its conservative controls, VESA include, and scan documentation. -->
+	<include file="DEL427D"/>
+</monitor>
