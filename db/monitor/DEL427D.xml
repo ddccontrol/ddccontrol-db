@@ -1,12 +1,14 @@
 <?xml version="1.0"?>
 <!-- https://github.com/ddccontrol/ddccontrol-db/issues/433 -->
-<monitor name="Dell G2722HS" init="standard">
+<monitor name="Dell G2722HS (HDMI)" init="standard">
 	<!--
 		Conservative initial profile for DEL427D and DEL427F, reported for the
-		same monitor with identical capabilities. Only explicitly named sliders
-		are enabled; additional controls require hardware verification.
+		same monitor with identical capabilities. Named sliders and the input
+		and language choices confirmed by the issue author are enabled.
+		Additional controls require hardware verification.
+		Connection types: https://github.com/ddccontrol/ddccontrol-db/pull/435#issuecomment-5717962286
 	-->
-	<caps add="(type(lcd)vcp(10 12 16 18 1A 62))" remove="(vcp(00 02 04 05 06 08 0E 1C 1E 20 22 24 26 28 30 32 38 3A 3C 3E 40 42 44 46 48 4A 4C 54 56 58 60 6C 6E 70 AA B0 CC D6 E1))"/>
+	<caps add="(type(lcd)vcp(10 12 16 18 1A 60(0F 11 12) 62 CC(02 0A 03 04 08 09 0D 06)))" remove="(vcp(00 02 04 05 06 08 0E 1C 1E 20 22 24 26 28 30 32 38 3A 3C 3E 40 42 44 46 48 4A 4C 54 56 58 6C 6E 70 AA B0 D6 E1))"/>
 	<controls>
 		<!-- Known controls enabled through the VESA include (identical in both reports): -->
 		<!-- Control 0x10: +/75/100 C [Brightness] -->
@@ -28,23 +30,37 @@
 		<!-- DEL427F (PC): -->
 		<!-- Control 0x60: +/3855/4626 C [Input Source Select (Main)] -->
 		<!--
-			Unverified candidate mappings borrowed from Dell S2721DGFA (DEL41D9).
-			The capabilities advertise 0F 11 12, but the issue does not confirm
-			their meanings or write values. Keep input switching disabled until
-			the issue author verifies it on hardware.
-
-			<control id="inputsource" type="list" address="0x60">
-				<value id="dp" value="0x0f"/>
-				<value id="hdmi1" value="0x11"/>
-				<value id="hdmi2" value="0x12"/>
-			</control>
+			The issue author reports input switching works and confirms these
+			three inputs. Restrict the standard mappings to the advertised values.
+			https://github.com/ddccontrol/ddccontrol-db/pull/435#issuecomment-5718009790
 		-->
+		<control id="inputsource" type="list" address="0x60">
+			<value id="dp" value="0x0f"/>
+			<value id="hdmi1" value="0x11"/>
+			<value id="hdmi2" value="0x12"/>
+		</control>
 
 		<!-- Control 0xcc: +/3/13 C [Language - Français (French)] -->
-		<!-- Only French=0x03 is named; advertised values: 02 0A 03 04 08 09 0D 06. -->
+		<!--
+			Language choices confirmed by the issue author match the advertised
+			standard values. The author reports that Dell mislabels Portuguese
+			as Brazilian Portuguese in the OSD; retain Portuguese for 0x08.
+			https://github.com/ddccontrol/ddccontrol-db/pull/435#issuecomment-5718089201
+		-->
+		<control id="language" type="list" address="0xcc">
+			<value id="english" value="0x02"/>
+			<value id="spanish" value="0x0a"/>
+			<value id="french" value="0x03"/>
+			<value id="german" value="0x04"/>
+			<value id="portuguese" value="0x08"/>
+			<value id="russian" value="0x09"/>
+			<value id="chinese" value="0x0d"/>
+			<value id="japanese" value="0x06"/>
+		</control>
+
 		<!-- Control 0xd6: +/1/5 C [DPMS Control - On] -->
 		<!-- Only On=0x01 is named; advertised values: 01 04 05. -->
-		<!-- Language and power choices remain disabled until hardware-verified. -->
+		<!-- Power choices remain disabled until hardware-verified. -->
 
 		<!--
 			Unknown controls remain comments for future investigation.
