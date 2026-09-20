@@ -1,16 +1,17 @@
 <?xml version="1.0"?>
 <!-- https://github.com/ddccontrol/ddccontrol-db/issues/433 -->
-<monitor name="Dell G2722HS (HDMI)" init="standard">
+<monitor name="Dell G2722HS (HDMI 1)" init="standard">
 	<!--
-		Conservative initial profile for DEL427D and DEL427F, reported for the
-		same monitor with identical capabilities. Named sliders and the input
-		and language choices confirmed by the issue author are enabled.
+		Conservative initial profile for DEL427D, DEL427E, and DEL427F, reported
+		for the same monitor with identical capabilities. Named sliders and the
+		input and language choices confirmed by the issue author are enabled.
 		Additional controls require hardware verification.
 		Connection types: https://github.com/ddccontrol/ddccontrol-db/pull/435#issuecomment-5717962286
+		HDMI 2 report: https://github.com/ddccontrol/ddccontrol-db/pull/435#issuecomment-5746417456
 	-->
 	<caps add="(type(lcd)vcp(10 12 16 18 1A 60(0F 11 12) 62 CC(02 0A 03 04 08 09 0D 06)))" remove="(vcp(00 02 04 05 06 08 0E 1C 1E 20 22 24 26 28 30 32 38 3A 3C 3E 40 42 44 46 48 4A 4C 54 56 58 6C 6E 70 AA B0 D6 E1))"/>
 	<controls>
-		<!-- Known controls enabled through the VESA include (identical in both reports): -->
+		<!-- Known controls enabled through the VESA include (identical in all three reports): -->
 		<!-- Control 0x10: +/75/100 C [Brightness] -->
 		<!-- Control 0x12: +/75/100 C [Contrast] -->
 		<!-- Control 0x16: +/100/100 C [Red maximum level] -->
@@ -27,6 +28,8 @@
 
 		<!-- DEL427D (laptop): -->
 		<!-- Control 0x60: +/4369/4626 C [Input Source Select (Main)] -->
+		<!-- DEL427E (HDMI 2): -->
+		<!-- Control 0x60: +/4623/4626 C [Input Source Select (Main)] -->
 		<!-- DEL427F (PC): -->
 		<!-- Control 0x60: +/3855/4626 C [Input Source Select (Main)] -->
 		<!--
@@ -64,8 +67,9 @@
 
 		<!--
 			Unknown controls remain comments for future investigation.
-			Readbacks below are from DEL427D (laptop); differing DEL427F (PC)
-			readbacks follow the block. All other unknown readbacks are identical.
+			Readbacks below are from DEL427D (HDMI 1); differing DEL427E (HDMI 2)
+			and DEL427F (DisplayPort) readbacks follow the block. All other unknown
+			readbacks are identical.
 			Even successful reads, including repeated +/0/65535 responses, do not
 			establish a control meaning or justify enabling it.
 		-->
@@ -281,16 +285,22 @@
 		<!-- Control 0xde: +/0/0   [???] -->
 		<!-- Control 0xdf: +/513/65535 C [???] -->
 
-		<!-- Differing unknown readbacks from DEL427F (PC): -->
-		<!-- Control 0x14: +/5/12 C [???] -->
+		<!-- Differing unknown readbacks shared by DEL427E and DEL427F: -->
 		<!-- Control 0xac: +/55928/2 C [???] -->
 		<!-- Control 0xae: +/16500/65535 C [???] -->
 
+		<!-- Additional differing unknown readbacks from DEL427E (HDMI 2): -->
+		<!-- Control 0x52: +/226/255 C [???] -->
+		<!-- Control 0xc0: +/13641/65535   [???] -->
+
+		<!-- Additional differing unknown readback from DEL427F (DisplayPort): -->
+		<!-- Control 0x14: +/5/12 C [???] -->
+
 		<!--
-			Vendor controls advertised by both reports, with no readbacks:
+			Vendor controls advertised by all three reports, with no readbacks:
 			E0 E1 E2(00 20 21 22 2F 04 1E 1F 0E 12 14)
 			F0(0D 0E 0F 10 11 13) F1 F2 FD.
-			Both outputs say engineering/vendor controls are hidden.
+			All outputs say engineering/vendor controls are hidden.
 			No semantic mappings are assigned to these controls.
 		-->
 	</controls>
