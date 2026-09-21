@@ -26,11 +26,11 @@
 		<!-- Control 0x08: +/0/1 C [Restore Factory Default Color] -->
 		<!-- Reset controls remain disabled in this initial profile. -->
 
-		<!-- DEL427D (laptop): -->
+		<!-- DEL427D (HDMI 1): -->
 		<!-- Control 0x60: +/4369/4626 C [Input Source Select (Main)] -->
 		<!-- DEL427E (HDMI 2): -->
 		<!-- Control 0x60: +/4623/4626 C [Input Source Select (Main)] -->
-		<!-- DEL427F (PC): -->
+		<!-- DEL427F (DisplayPort): -->
 		<!-- Control 0x60: +/3855/4626 C [Input Source Select (Main)] -->
 		<!--
 			The issue author reports input switching works and confirms these
