@@ -41,12 +41,17 @@ Ubuntu, only `make` is needed to install one:
 sudo apt install make
 ```
 
-Building directly from a Git checkout also requires GNU gettext to compile the
-translations:
+Building directly from a Git checkout also requires Python 3 to generate the CBOR database and GNU gettext to
+compile the translations:
 
 ```shell
-sudo apt install gettext make
+sudo apt install gettext make python3
 ```
+
+XML remains the maintained source and is installed alongside a single uncompressed
+`ddccontrol-db.cbor` and a snapshot manifest. Older programs continue to use XML.
+The CBOR v1 contract is a review candidate; this change does not publish a
+release or claim complete MCCS coverage. See [CBOR distribution](doc/cbor-distribution.md).
 
 The handwritten Makefile is tested with both GNU Make and BSD `bmake`.
 

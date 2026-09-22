@@ -54,7 +54,8 @@ jobs:
           sudo apt-get install -y --no-install-recommends \
             gettext \
             libxml-parser-perl \
-            make
+            make \
+            python3
 
       - name: Build and validate
         run: |
@@ -83,12 +84,15 @@ jobs:
           make -j"$(nproc)"
           make check
           make check-controls
+          make check-cbor
 
       - name: Test staged installation
         run: |
           set -euo pipefail
           stage="$(mktemp -d)"
           make install DESTDIR="$stage"
+          test -f "$stage/usr/share/ddccontrol-db/ddccontrol-db.cbor"
+          test -f "$stage/usr/share/ddccontrol-db/ddccontrol-db.snapshot"
           test -f "$stage/usr/share/ddccontrol-db/options.xml"
           test -f "$stage/usr/share/ddccontrol-db/monitor/VESA.xml"
           test -f "$stage/usr/share/locale/fr/LC_MESSAGES/ddccontrol-db.mo"
@@ -127,8 +131,15 @@ jobs:
           (
             cd "$source_dir"
             ./configure --prefix=/usr
-            make MSGFMT=false
-            make MSGFMT=false install DESTDIR="$stage"
+            make MSGFMT=false PYTHON=false
+            make MSGFMT=false PYTHON=false install DESTDIR="$stage"
+            rm db/monitor/VESA.xml
+            if make PYTHON=false; then
+              echo "deleted source did not invalidate generated CBOR" >&2
+              exit 1
+            fi
+            test ! -f db/ddccontrol-db.cbor
+            test ! -f db/ddccontrol-db.snapshot
           )
           test -f "$stage/usr/share/ddccontrol-db/options.xml"
           test -f "$stage/usr/share/locale/fr/LC_MESSAGES/ddccontrol-db.mo"
@@ -204,12 +215,3 @@ jobs:
             bmake dist-gzip
             test "$(tar -tzf "ddccontrol-db-$(< VERSION).tar.gz" | grep -c '/po/.*\.gmo$')" -eq 6
           )
-
-  cbor-producer:
-    runs-on: ubuntu-24.04
-    steps:
-      - uses: actions/checkout@v6
-      - name: Test the reference CBOR producer
-        run: |
-          make db/options.xml
-          python3 -m unittest discover -s tests/cbor -v
