@@ -1,5 +1,15 @@
 # Changelog
 
+## 20260922
+
+## What's Changed
+* feat: add LG UltraGear 34GL750-B support by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/434
+* feat: add Dell G2722HS support by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/435
+* feat: add Gigabyte G27Q support by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/437
+
+
+**Full Changelog**: https://github.com/ddccontrol/ddccontrol-db/compare/20260915...20260922
+
 ## 20260915
 
 ## What's Changed
