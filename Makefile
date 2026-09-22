@@ -8,8 +8,9 @@ XGETTEXT = xgettext
 MSGMERGE = msgmerge
 PERL = perl
 DDCCONTROL = ddccontrol
+PYTHON = python3
 
-all: db/options.xml
+all: db/options.xml cbor
 	@set -e; \
 	. ./build-aux/make-config.sh; \
 	load_build_config; \
@@ -18,6 +19,14 @@ all: db/options.xml
 		targets="$$targets po/$$language.gmo"; \
 	done; \
 	if test -n "$$targets"; then $(MAKE) $$targets; fi
+
+cbor: db/options.xml
+	PYTHON="$(PYTHON)" ./build-aux/build-cbor.sh
+
+.PHONY: cbor check-cbor
+
+check-cbor: cbor
+	$(PYTHON) -m unittest discover -s tests/cbor -v
 
 .SUFFIXES: .po .gmo
 
@@ -37,6 +46,7 @@ install: all
 	load_build_config; \
 	$(MKDIR_P) "$$destdir_value$$dbdir_value/monitor"; \
 	$(INSTALL_DATA) db/options.xml "$$destdir_value$$dbdir_value/options.xml"; \
+	$(INSTALL_DATA) db/ddccontrol-db.cbor db/ddccontrol-db.snapshot "$$destdir_value$$dbdir_value/"; \
 	$(INSTALL_DATA) db/monitor/*.xml "$$destdir_value$$dbdir_value/monitor/"; \
 	for language in `selected_languages`; do \
 		directory="$$destdir_value$$localedir_value/$$language/LC_MESSAGES"; \
@@ -48,7 +58,9 @@ uninstall:
 	@set -e; \
 	. ./build-aux/make-config.sh; \
 	load_build_config; \
-	rm -f "$$destdir_value$$dbdir_value/options.xml"; \
+	rm -f "$$destdir_value$$dbdir_value/options.xml" \
+		"$$destdir_value$$dbdir_value/ddccontrol-db.cbor" \
+		"$$destdir_value$$dbdir_value/ddccontrol-db.snapshot"; \
 	for file in db/monitor/*.xml; do \
 		rm -f "$$destdir_value$$dbdir_value/monitor/$${file##*/}"; \
 	done; \
@@ -132,6 +144,7 @@ distdir: all
 	COPYFILE_DISABLE=1 tar --no-xattrs -cf - -T build/dist-files | \
 		COPYFILE_DISABLE=1 tar --no-xattrs -xf - -C "$$dist_directory"; \
 	$(INSTALL_DATA) db/options.xml "$$dist_directory/db/options.xml"; \
+	$(INSTALL_DATA) db/ddccontrol-db.cbor db/ddccontrol-db.snapshot db/ddccontrol-db.sources "$$dist_directory/db/"; \
 	for language in `available_languages`; do \
 		$(INSTALL_DATA) "po/$$language.gmo" "$$dist_directory/po/"; \
 	done
@@ -157,7 +170,7 @@ dist-xz: distdir
 dist: dist-gzip dist-bzip2 dist-xz
 
 clean:
-	rm -f db/options.xml db/options.xml.h po/*.gmo po/$(PACKAGE).pot
+	rm -f db/options.xml db/options.xml.h db/ddccontrol-db.cbor db/ddccontrol-db.snapshot db/ddccontrol-db.sources po/*.gmo po/$(PACKAGE).pot
 	rm -rf build
 
 distclean: clean

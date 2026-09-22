@@ -119,3 +119,23 @@ support:
 
 Remove generated files with `make clean`, or generated files and release
 archives with `make distclean`.
+
+CBOR dual distribution
+----------------------
+
+XML remains the maintained source. `make` generates one uncompressed
+`db/ddccontrol-db.cbor` and `db/ddccontrol-db.snapshot` from the exact same XML
+snapshot. Both are installed beside options.xml and monitor/*.xml; translation
+catalogues remain unchanged. No end date for XML distribution is defined.
+
+Git builds require Python 3 (standard library only). Release archives include
+CBOR, the source manifest and compiled translations, so installation does not
+require Python or gettext. `make check-cbor` requires Python and validates the
+whole database, frozen fixtures, malicious inputs and reproducibility.
+
+A generation failure removes stale CBOR and snapshot outputs and fails the
+build. The standalone generator also atomically replaces each successful
+output. Packaging tools should stage an entire installation before replacing
+an installed database. A reader must pin its chosen source for its load session.
+
+See doc/cbor-distribution.md for converter, validator and readable dump commands.

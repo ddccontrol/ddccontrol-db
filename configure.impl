@@ -112,6 +112,11 @@ if [ ! -f db/options.xml ] && ! command -v awk >/dev/null 2>&1; then
 	exit 1
 fi
 
+if [ ! -f db/ddccontrol-db.cbor ] && ! command -v "${PYTHON:-python3}" >/dev/null 2>&1; then
+	printf 'configure: error: Python 3 is required to generate the CBOR database from a Git checkout\n' >&2
+	exit 1
+fi
+
 if [ "$nls" = yes ]; then
 	while IFS= read -r language; do
 		case $language in
