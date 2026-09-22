@@ -204,3 +204,12 @@ jobs:
             bmake dist-gzip
             test "$(tar -tzf "ddccontrol-db-$(< VERSION).tar.gz" | grep -c '/po/.*\.gmo$')" -eq 6
           )
+
+  cbor-producer:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v6
+      - name: Test the reference CBOR producer
+        run: |
+          make db/options.xml
+          python3 -m unittest discover -s tests/cbor -v

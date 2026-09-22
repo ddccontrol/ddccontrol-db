@@ -14,3 +14,9 @@
 
 #idea
 /.idea
+
+# Generated candidate-v1 CBOR and source manifest
+/db/ddccontrol-db.cbor
+/db/ddccontrol-db.snapshot
+/db/ddccontrol-db.sources
+__pycache__/
