@@ -1,0 +1,46 @@
+name: Build the pinned CBOR generator
+description: Build ddccontrol-dbgen from the immutable source and toolchain pins.
+outputs:
+  toolchain:
+    description: Rust toolchain used to build the generator.
+    value: ${{ steps.generator.outputs.toolchain }}
+runs:
+  using: composite
+  steps:
+    - name: Read the immutable source and toolchain pins
+      id: generator
+      shell: bash
+      run: ./scripts/dbgen-source-pin.sh >> "$GITHUB_OUTPUT"
+
+    - name: Check out the pinned Rust generator
+      uses: actions/checkout@v6
+      with:
+        repository: ddccontrol/ddccontrol
+        ref: ${{ steps.generator.outputs.revision }}
+        path: .ci/ddccontrol-dbgen
+        persist-credentials: false
+
+    - name: Cache Rust dependencies and build output
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.cargo/registry
+          ~/.cargo/git
+          .ci/ddccontrol-dbgen/target
+        key: dbgen-${{ runner.os }}-${{ runner.arch }}-${{ steps.generator.outputs.toolchain }}-${{ steps.generator.outputs.revision }}-${{ hashFiles('.ci/ddccontrol-dbgen/Cargo.lock') }}
+        restore-keys: |
+          dbgen-${{ runner.os }}-${{ runner.arch }}-${{ steps.generator.outputs.toolchain }}-
+
+    - name: Build from locked Rust dependencies
+      shell: bash
+      working-directory: .ci/ddccontrol-dbgen
+      env:
+        GENERATOR_REVISION: ${{ steps.generator.outputs.revision }}
+        RUST_TOOLCHAIN: ${{ steps.generator.outputs.toolchain }}
+        CARGO_TARGET_DIR: ${{ github.workspace }}/.ci/ddccontrol-dbgen/target
+      run: |
+        set -euo pipefail
+        test "$(git rev-parse HEAD)" = "$GENERATOR_REVISION"
+        rustup toolchain install "$RUST_TOOLCHAIN" --profile minimal
+        cargo +"$RUST_TOOLCHAIN" build --locked --release -p ddccontrol-dbgen
+        echo "$CARGO_TARGET_DIR/release" >> "$GITHUB_PATH"

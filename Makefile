@@ -8,9 +8,8 @@ XGETTEXT = xgettext
 MSGMERGE = msgmerge
 PERL = perl
 DDCCONTROL = ddccontrol
-DDCDBGEN = ddccontrol-dbgen
 
-all: db/options.xml
+all: db/options.xml cbor
 	@set -e; \
 	. ./build-aux/make-config.sh; \
 	load_build_config; \
@@ -19,6 +18,18 @@ all: db/options.xml
 		targets="$$targets po/$$language.gmo"; \
 	done; \
 	if test -n "$$targets"; then $(MAKE) $$targets; fi
+
+cbor: db/options.xml
+	./build-aux/build-cbor.sh
+
+.PHONY: cbor check-cbor
+
+check-cbor: cbor
+	@set -e; \
+	. ./build-aux/make-config.sh; \
+	load_dbgen_config; \
+	DDCDBGEN="$$ddcdbgen_value" ./tests/cbor/test-producer.sh; \
+	DDCDBGEN="$$ddcdbgen_value" MAKE="$(MAKE)" ./tests/cbor/test-build.sh
 
 .SUFFIXES: .po .gmo
 
@@ -38,6 +49,7 @@ install: all
 	load_build_config; \
 	$(MKDIR_P) "$$destdir_value$$dbdir_value/monitor"; \
 	$(INSTALL_DATA) db/options.xml "$$destdir_value$$dbdir_value/options.xml"; \
+	$(INSTALL_DATA) db/ddccontrol-db.cbor db/ddccontrol-db.snapshot "$$destdir_value$$dbdir_value/"; \
 	$(INSTALL_DATA) db/monitor/*.xml "$$destdir_value$$dbdir_value/monitor/"; \
 	for language in `selected_languages`; do \
 		directory="$$destdir_value$$localedir_value/$$language/LC_MESSAGES"; \
@@ -49,7 +61,9 @@ uninstall:
 	@set -e; \
 	. ./build-aux/make-config.sh; \
 	load_build_config; \
-	rm -f "$$destdir_value$$dbdir_value/options.xml"; \
+	rm -f "$$destdir_value$$dbdir_value/options.xml" \
+		"$$destdir_value$$dbdir_value/ddccontrol-db.cbor" \
+		"$$destdir_value$$dbdir_value/ddccontrol-db.snapshot"; \
 	for file in db/monitor/*.xml; do \
 		rm -f "$$destdir_value$$dbdir_value/monitor/$${file##*/}"; \
 	done; \
@@ -62,11 +76,7 @@ check: all check-version
 
 check-controls: check-list-values test-list-values
 
-.PHONY: check-controls check-list-values test-list-values check-cbor
-
-# Explicit developer check; normal XML builds do not require the generator.
-check-cbor: db/options.xml
-	DDCDBGEN="$(DDCDBGEN)" ./tests/cbor/test-producer.sh
+.PHONY: check-controls check-list-values test-list-values check-db
 
 check-list-values:
 	$(PERL) scripts/check-list-values.pl db
@@ -92,11 +102,17 @@ check-db: db/options.xml
 		echo "$(DDCCONTROL) is required for make check-db" >&2; \
 		exit 1; \
 	}; \
-	for file in db/monitor/*.xml; do \
+	check_directory=$$(mktemp -d "$${TMPDIR:-/tmp}/ddccontrol-db-check.XXXXXXXX"); \
+	trap 'rm -rf "$$check_directory"' EXIT; \
+	trap 'exit 1' HUP INT TERM; \
+	mkdir "$$check_directory/monitor"; \
+	cp db/options.xml "$$check_directory/"; \
+	cp db/monitor/*.xml "$$check_directory/monitor/"; \
+	for file in "$$check_directory"/monitor/*.xml; do \
 		if ! grep -q NOCHECKDB "$$file"; then \
 			name=$${file##*/}; \
 			name=$${name%.xml}; \
-			$(DDCCONTROL) -b db -v -v -i "$$name"; \
+			$(DDCCONTROL) -b "$$check_directory" -v -v -i "$$name"; \
 		fi; \
 	done
 
@@ -137,6 +153,7 @@ distdir: all
 	COPYFILE_DISABLE=1 tar --no-xattrs -cf - -T build/dist-files | \
 		COPYFILE_DISABLE=1 tar --no-xattrs -xf - -C "$$dist_directory"; \
 	$(INSTALL_DATA) db/options.xml "$$dist_directory/db/options.xml"; \
+	$(INSTALL_DATA) db/ddccontrol-db.cbor db/ddccontrol-db.snapshot db/ddccontrol-db.sources "$$dist_directory/db/"; \
 	for language in `available_languages`; do \
 		$(INSTALL_DATA) "po/$$language.gmo" "$$dist_directory/po/"; \
 	done
@@ -162,7 +179,7 @@ dist-xz: distdir
 dist: dist-gzip dist-bzip2 dist-xz
 
 clean:
-	rm -f db/options.xml db/options.xml.h po/*.gmo po/$(PACKAGE).pot
+	rm -f db/options.xml db/options.xml.h db/ddccontrol-db.cbor db/ddccontrol-db.snapshot db/ddccontrol-db.sources po/*.gmo po/$(PACKAGE).pot
 	rm -rf build
 
 distclean: clean
