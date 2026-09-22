@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/433 -->
+<monitor name="Dell G2722HS (HDMI 2)" init="standard">
+	<!-- The HDMI 2 report advertises the same model and capabilities as the
+	     HDMI 1 and DisplayPort variants. Its differing unknown readbacks are
+	     retained as comments in the shared DEL427D profile:
+	     https://github.com/ddccontrol/ddccontrol-db/pull/435#issuecomment-5746417456
+	     Share its conservative controls, VESA include, and scan documentation. -->
+	<include file="DEL427D"/>
+	<include file="VESA"/>
+</monitor>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/433 -->
+<monitor name="Dell G2722HS (DisplayPort)" init="standard">
+	<!-- DEL427F from DisplayPort has the same model and capabilities as
+	     DEL427D from HDMI 1, as confirmed by the issue author:
+	     https://github.com/ddccontrol/ddccontrol-db/pull/435#issuecomment-5717962286
+	     Share its conservative controls, VESA include, and scan documentation. -->
+	<include file="DEL427D"/>
+</monitor>
