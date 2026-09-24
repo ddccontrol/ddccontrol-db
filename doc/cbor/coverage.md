@@ -136,5 +136,6 @@ Maintained XML sources total 1,099,739 bytes; generated manifest inputs total
 1,099,802 bytes. Every final profile was converted and checked by the producer.
 The 313,219-byte CBOR has source snapshot
 `dbb9f1542128e579f61dc8147c03c2f72eb5220d0c31e7961c001516942656b9`.
-See [producer validation](producer-validation.md) for exact executed checks;
-this source update does not change the shared format contract.
+See the [producer validation record in companion PR #441](https://github.com/ddccontrol/ddccontrol-db/blob/ec1932509e0d97973f5d6f9c7b86f19203153cfa/doc/cbor/producer-validation.md)
+for exact executed checks; this source update does not change the shared format
+contract.
