@@ -11,10 +11,13 @@ def _text(value):
         raise Invalid("descriptor text has wrong type")
 
 
-def _uri(value):
-    _text(value)
-    if not re.match(r"[a-zA-Z][a-zA-Z0-9+.-]*:", value):
-        raise Invalid("descriptor identity must be an absolute URI")
+def identity(value):
+    """Match the reader's identity grammar for envelopes and named contracts."""
+    if (not isinstance(value, str)
+            or not re.match(r"[a-zA-Z][a-zA-Z0-9+.-]*:", value)
+            or any(char.isspace() or ord(char) < 0x20 or 0x7f <= ord(char) <= 0x9f
+                   for char in value)):
+        raise Invalid("identity must be an absolute URI without whitespace or control characters")
 
 
 def _bytes(value):
@@ -81,26 +84,26 @@ def _bitfield(value):
 
 
 def _version(value):
-    _map(value, {0: _uri, 1: _text}, required=(0, 1))
+    _map(value, {0: identity, 1: _text}, required=(0, 1))
 
 
 def _condition(value):
-    _map(value, {0: _uri, 1: lambda _: None}, required=(0, 1))
+    _map(value, {0: identity, 1: lambda _: None}, required=(0, 1))
 
 
 def _opaque(value):
-    _map(value, {0: _uri, 1: _uri, 2: _bytes}, required=(0, 1, 2))
+    _map(value, {0: identity, 1: identity, 2: _bytes}, required=(0, 1, 2))
 
 
 def _operation(value):
-    _map(value, {0: _uint, 1: _vcp, 2: lambda _: None, 3: _uri,
+    _map(value, {0: _uint, 1: _vcp, 2: lambda _: None, 3: identity,
                  4: _array(_condition)}, required=(0,), extensible=True)
 
 
 def validate(value, extensions):
     """Check payload types; necessity and hardware support are caller concerns."""
     _map(value, {0: _range(1, 6), 1: _range(0, 3), 2: _array(_operation),
-                 3: _uri, 4: _vcp, 5: _uri, 6: _quantity, 7: _quantity,
+                 3: identity, 4: _vcp, 5: identity, 6: _quantity, 7: _quantity,
                  8: _quantity, 9: _quantity, 10: _array(_choice),
                  11: _array(_bitfield), 12: _array(_version), 13: _text,
                  14: _array(_vcp), 15: _array(_condition), 16: _array(_opaque),

@@ -71,9 +71,17 @@ def integer(raw, attribute):
     pattern = {8: r"[0-7]+", 10: r"[0-9]+", 16: r"[0-9A-Fa-f]+"}[radix]
     if not re.fullmatch(pattern, digits):
         raise Invalid("invalid integer for " + attribute + ": " + repr(raw))
-    value = sign * int(digits, radix)
     lo, hi = {"address": (0, 255), "value": (0, 65535),
               "delay": (-2147483648, 2147483647), "dbversion": (3, 3)}[attribute]
+    # Accumulate within the field's bound instead of constructing an unbounded
+    # Python integer. Long leading-zero literals stay portable across Python's
+    # configurable decimal-string limits; overflow gets the normal diagnostic.
+    value = 0
+    for digit in digits.lstrip("0"):
+        value = value * radix + int(digit, radix)
+        if value > max(abs(lo), abs(hi)):
+            raise Invalid(attribute + " outside normative range")
+    value *= sign
     if not lo <= value <= hi:
         raise Invalid(attribute + " outside normative range")
     return value
@@ -231,8 +239,7 @@ def extensions(value):
         _uint_map(ext, "extension")
         if not {0, 1, 2} <= ext.keys():
             raise Invalid("extension fields 0/1/2 required")
-        if not isinstance(ext[0], str) or not re.match(r"[a-zA-Z][a-zA-Z0-9+.-]*:", ext[0]):
-            raise Invalid("extension identity must be an absolute URI")
+        descriptors.identity(ext[0])
         if type(ext[1]) is not bool:
             raise Invalid("extension necessity must be boolean")
         if ext[0] in identities:
@@ -370,6 +377,13 @@ def fallback_manifest(database):
     semantics cannot be discarded simply by deleting the CBOR file. This is
     deliberately conservative for nested future extension envelopes too.
     """
+    known_kinds = set(KINDS.values()) | {255}
+
+    def unknown_kind(node):
+        # New node kinds are necessary syntax even without an envelope. Check
+        # actual node trees only: node-shaped opaque payloads remain inert.
+        return node[0] not in known_kinds or any(unknown_kind(child) for child in node[2])
+
     def necessary(value):
         if isinstance(value, dict):
             if (isinstance(value.get(0), str) and value.get(1) is True
@@ -378,4 +392,7 @@ def fallback_manifest(database):
             return any(necessary(item) for item in value.values())
         return isinstance(value, list) and any(necessary(item) for item in value)
 
-    return False if necessary(database) else database[8]
+    if (unknown_kind(database[5]) or any(unknown_kind(node) for node in database[6].values())
+            or necessary(database)):
+        return False
+    return database[8]

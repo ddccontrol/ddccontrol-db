@@ -1,4 +1,46 @@
-# Producer validation, 2026-09-22
+# Producer validation
+
+## Producer PR verification, 2026-09-24
+
+The producer PR was rebased onto `401025e` after the format-contract PR merged.
+This step adds the standalone tools and their CI job; CBOR build/install targets
+belong to the subsequent packaging PR. Run its tests from the repository root:
+
+```sh
+make db/options.xml
+python3 -m unittest discover -s tests/cbor -v
+```
+
+On Linux x86_64 with Python 3.14.4:
+
+* All 27 producer tests pass, including regression cases for unknown node kinds
+  prohibiting XML fallback, invalid identity text, and long numeric literals.
+  Leading-zero values remain valid; overflow reports the source file and field.
+* `./configure --prefix=/usr` and `make -j2 check check-controls` pass, including
+  all 51 list-checker regression subtests.
+* All 470 profiles convert to the same 313,219 bytes, file SHA-256 and source
+  snapshot recorded below. No frozen XML, CBOR or JSON fixture was changed.
+* Independent `cddl-cat` 0.7.1 validation accepts the complete generated database
+  and the base, newer-database and future-description fixtures.
+* The Rust reader's `whole_database_xml_cbor_semantics_match_when_configured`
+  test passes with this converter: 470 profiles × 3 CAPS inputs × strict/tolerant
+  modes, comparing complete trees, CAPS and failure status between XML and CBOR.
+  It was run with gettext enabled in ddccontrol `24f2868`, using absolute
+  `DDCCONTROL_DB_TEST_DATADIR` and `DDCCONTROL_DB_CONVERTER` paths.
+* A C probe linked to the unchanged first-reader library rejects a profile with
+  an unknown node kind. After removing CBOR, it also rejects initialization from
+  the producer's guarded XML sidecar. Invalid extension identity text is now
+  rejected by both producer and reader.
+
+These checks perform no monitor operations. Architecture execution and memory
+measurements were not rerun for this producer review.
+
+## Combined implementation record, 2026-09-22
+
+The following historical checks ran before the changes were split into PRs.
+They include the build/install integration supplied separately by the packaging
+PR; `make check-cbor` and dual-format archives are not part of this producer-only
+step.
 
 Source baseline: `ddccontrol-db` commit `c4f616e`, `VERSION=20260922`.
 Host: Linux x86_64, Python 3.14.4. This is an unpublished candidate review;
@@ -50,5 +92,4 @@ The shared CDDL was independently parsed and used to validate the initial
 complete CBOR file and frozen examples with `cddl-cat` 0.7.1 in the companion repository.
 The `function-description` entry also validates the standalone frozen descriptor
 payload. Remaining source-standard and legacy-encoding gaps are explicit in
-[coverage](coverage.md), [sources](sources.md), and
-[the producer boundary](../cbor-distribution.md#source-encoding-boundary).
+[coverage](coverage.md#inventory-and-evidence) and [sources](sources.md).

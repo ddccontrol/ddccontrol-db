@@ -185,6 +185,15 @@ class ModelTests(unittest.TestCase):
             with self.subTest(raw=raw, attr=attr), self.assertRaises(Invalid):
                 integer(raw, attr)
 
+    def test_long_numeric_literals(self):
+        self.assertEqual(integer("0" * 5000, "delay"), 0)
+        self.assertEqual(integer("0" * 5000 + "1", "delay"), 1)
+        profile = self.source / "monitor/VESA.xml"
+        profile.write_text('<monitor name="Generic"><controls><control id="brightness" address="'
+                           + "1" * 5000 + '"/></controls></monitor>')
+        with self.assertRaisesRegex(Invalid, "monitor/VESA.xml: address outside normative range"):
+            convert(self.source)
+
     def test_newer_database_keeps_original_profiles_and_new_numeric_semantics(self):
         base = load((FIXTURES / "base-v1.cbor").read_bytes())
         newer = load((FIXTURES / "newer-v1.cbor").read_bytes())
@@ -230,6 +239,24 @@ class ModelTests(unittest.TestCase):
         with self.assertRaises(Invalid):
             validate(db)
 
+    def test_extension_identity_grammar(self):
+        db = convert(self.source)
+        description = "https://ddccontrol.sourceforge.net/cbor/ext/function-description/1"
+        for identity in ("urn:example:bad identity", "urn:example:\n", "urn:example:\0",
+                         "urn:example:\x7f", "urn:example:\x80", "urn:example:\u00a0",
+                         "urn:example:\u2003", "relative", "1scheme:value", "", None, 1):
+            for extension in ({0: identity, 1: False, 2: None},
+                              {0: description, 1: False, 2: {3: identity}},
+                              {0: description, 1: False, 2: {18: [{0: identity, 1: False, 2: None}]}}):
+                db[7] = [extension]
+                with self.subTest(identity=identity, extension=extension), self.assertRaises(Invalid):
+                    load(encode(db))
+        for identity in ("urn:example:feature:1", "https://example.org/feature%20name/1",
+                         "SCHEME+name.test-1:payload"):
+            db[7] = [{0: identity, 1: False, 2: None},
+                     {0: description, 1: False, 2: {3: identity}}]
+            self.assertEqual(load(encode(db)), db)
+
     def test_numeric_ranges(self):
         profile = self.source / "monitor/VESA.xml"
         for attr, value in (("address", "256"), ("address", "-1"), ("delay", "2147483648")):
@@ -265,6 +292,35 @@ class ModelTests(unittest.TestCase):
                         "--snapshot", str(snapshot)], check=True)
         self.assertEqual(snapshot.read_bytes(), b"\xf4")
         self.assertEqual(output.read_bytes(), (FIXTURES / "descriptions-v1.cbor").read_bytes())
+
+    def test_unknown_node_kinds_guard_missing_cbor_fallback(self):
+        base = load((FIXTURES / "base-v1.cbor").read_bytes())
+        for kind in (9, 254, 256, 2**64 - 1):
+            for scope in ("options", "profile", "control"):
+                db = copy.deepcopy(base)
+                target = {"options": db[5], "profile": db[6]["TST0001"],
+                          "control": db[6]["VESA"][2][0][2][0]}[scope]
+                target[2].append({0: kind, 1: {}, 2: []})
+                with self.subTest(kind=kind, scope=scope):
+                    self.assertEqual(load(encode(db)), db)
+                    self.assertIs(fallback_manifest(db), False)
+        source = Path(self.temp.name) / "unknown-node.cbor"
+        output = Path(self.temp.name) / "rewritten.cbor"
+        snapshot = Path(self.temp.name) / "rewritten.snapshot"
+        source.write_bytes(encode(db))
+        subprocess.run([sys.executable, str(REPO / "scripts/cbor-db.py"), "rewrite",
+                        str(source), str(output), "--snapshot", str(snapshot)], check=True)
+        self.assertEqual(output.read_bytes(), source.read_bytes())
+        self.assertEqual(snapshot.read_bytes(), b"\xf4")
+
+    def test_inert_nodes_and_payloads_keep_xml_fallback(self):
+        db = load((FIXTURES / "base-v1.cbor").read_bytes())
+        db[6]["TST0001"][2].append({0: 255, 1: {}, 2: [],
+            3: [{0: METADATA, 1: False, 2: {0: {}, 1: "inert-source"}}]})
+        db[7] = [{0: "urn:example:description", 1: False, 2: {0: 9, 1: {}, 2: []}}]
+        db[100] = {0: 256, 1: {}, 2: []}
+        self.assertEqual(load(encode(db)), db)
+        self.assertEqual(fallback_manifest(db), db[8])
 
     def test_snapshot_integrity(self):
         db = convert(self.source)
