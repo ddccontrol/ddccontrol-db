@@ -56,6 +56,14 @@ Executed locally against producer commit
   first-reader, independent CDDL, production gettext, static release archive
   and actual s390x execution checks also pass; details are recorded there.
 
+The follow-up at `ae8d02b0d3fdffe9f5ebf246fa0e515264773c08` fixes rewrite
+input-error handling. Its new regression verifies that missing or malformed
+input preserves existing CBOR and snapshot destinations, including a permanent
+XML fallback prohibition. All 30 producer/shared-format tests pass on current
+Rust and Rust 1.77, and `make check-cbor` passes again with the static x86_64
+musl executable rebuilt using Rust 1.85.0. The broader checks above were run
+against the preceding commit.
+
 ## Historical source baseline
 
 The previous producer validation at `ddccontrol-db` source baseline `c4f616e`
