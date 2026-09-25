@@ -204,3 +204,63 @@ jobs:
             bmake dist-gzip
             test "$(tar -tzf "ddccontrol-db-$(< VERSION).tar.gz" | grep -c '/po/.*\.gmo$')" -eq 6
           )
+
+  cbor-producer:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Read the immutable generator source and toolchain pins
+        id: generator
+        run: ./scripts/dbgen-source-pin.sh >> "$GITHUB_OUTPUT"
+
+      - name: Check out the pinned Rust generator
+        uses: actions/checkout@v6
+        with:
+          repository: ddccontrol/ddccontrol
+          ref: ${{ steps.generator.outputs.revision }}
+          path: .ci/ddccontrol-dbgen
+          persist-credentials: false
+
+      - name: Cache Rust dependencies and build output
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            .ci/ddccontrol-dbgen/target
+          key: dbgen-${{ runner.os }}-${{ runner.arch }}-${{ steps.generator.outputs.toolchain }}-${{ steps.generator.outputs.revision }}-${{ hashFiles('.ci/ddccontrol-dbgen/Cargo.lock') }}
+          restore-keys: |
+            dbgen-${{ runner.os }}-${{ runner.arch }}-${{ steps.generator.outputs.toolchain }}-
+
+      - name: Build the generator from its locked Rust dependencies
+        env:
+          GENERATOR_REVISION: ${{ steps.generator.outputs.revision }}
+          RUST_TOOLCHAIN: ${{ steps.generator.outputs.toolchain }}
+          DDCCONTROL_DB_TEST_DATADIR: ${{ github.workspace }}/db
+          CARGO_TARGET_DIR: ${{ github.workspace }}/.ci/ddccontrol-dbgen/target
+        working-directory: .ci/ddccontrol-dbgen
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$GENERATOR_REVISION"
+          rustup toolchain install "$RUST_TOOLCHAIN" --profile minimal
+          cargo +"$RUST_TOOLCHAIN" build --locked --release -p ddccontrol-dbgen
+          make -C "$GITHUB_WORKSPACE" db/options.xml
+          cargo +"$RUST_TOOLCHAIN" test --locked -p ddccontrol-dbgen -p ddccontrol-db-format
+
+      - name: Verify frozen fixtures and the complete XML database
+        run: |
+          set -euo pipefail
+          make check-cbor DDCDBGEN="$GITHUB_WORKSPACE/.ci/ddccontrol-dbgen/target/release/ddccontrol-dbgen"
+
+      - name: Compare XML and CBOR runtime behavior for every profile
+        working-directory: .ci/ddccontrol-dbgen
+        env:
+          RUST_TOOLCHAIN: ${{ steps.generator.outputs.toolchain }}
+          DDCCONTROL_DB_TEST_DATADIR: ${{ github.workspace }}/db
+          DDCCONTROL_DB_CONVERTER: ${{ github.workspace }}/.ci/ddccontrol-dbgen/target/release/ddccontrol-dbgen
+          CARGO_TARGET_DIR: ${{ github.workspace }}/.ci/ddccontrol-dbgen/target
+        run: |
+          set -euo pipefail
+          cargo +"$RUST_TOOLCHAIN" test --locked -p ddccontrol-db --features gettext \
+            whole_database_xml_cbor_semantics_match_when_configured -- --nocapture

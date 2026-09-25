@@ -16,9 +16,10 @@ attributes stored as inert metadata, and a commented control that remains
 inactive. Snapshot ID:
 `1a5d22754252788a42720b9661dd7e7a1ee3e000e654e634014c4b66e53489f0`.
 
-RFC 8949 integer/string/container vectors are also fixed inline in
-`test_cbor.py`. The independent Rust reader in the companion ddccontrol change
-consumes the same binary; this is stronger than a producer self-roundtrip.
+RFC 8949 integer/string/container vectors are also fixed in the Rust format
+tests in ddccontrol. The frozen original Rust reader consumes these same
+binaries with an unchanged decoder; independent CDDL validation adds a separate
+check beyond the shared producer/reader implementation.
 
 * `descriptions-v1.cbor` and `.json`: frozen future descriptor example built on
   the unchanged base fixture. Root optional field 100 carries examples of all

@@ -8,6 +8,7 @@ XGETTEXT = xgettext
 MSGMERGE = msgmerge
 PERL = perl
 DDCCONTROL = ddccontrol
+DDCDBGEN = ddccontrol-dbgen
 
 all: db/options.xml
 	@set -e; \
@@ -61,7 +62,11 @@ check: all check-version
 
 check-controls: check-list-values test-list-values
 
-.PHONY: check-controls check-list-values test-list-values
+.PHONY: check-controls check-list-values test-list-values check-cbor
+
+# Explicit developer check; normal XML builds do not require the generator.
+check-cbor: db/options.xml
+	DDCDBGEN="$(DDCDBGEN)" ./tests/cbor/test-producer.sh
 
 check-list-values:
 	$(PERL) scripts/check-list-values.pl db
