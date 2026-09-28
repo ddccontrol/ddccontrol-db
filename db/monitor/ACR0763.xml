@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/444 -->
+<monitor name="Acer EI342CKR" init="standard">
+	<!--
+		Conservative profile based on issue-provided scan output.
+		Only explicitly named, non-destructive controls are exposed.
+	-->
+	<caps add="(type(lcd)vcp(10 12 16 18 1A 62))" remove="(vcp(00 02 04 05 06 08 0E 1C 1E 20 22 24 26 28 30 32 38 3A 3C 3E 40 42 44 46 48 4A 4C 54 56 58 60 6C 6E 70 AA B0 CC D6 E1))"/>
+	<controls>
+		<!-- Known controls enabled through the VESA include: -->
+		<!-- Control 0x10: +/51/100 C [Brightness] -->
+		<!-- Control 0x12: +/50/100 C [Contrast] -->
+		<!-- Control 0x16: +/50/100 C [Red maximum level] -->
+		<!-- Control 0x18: +/50/100 C [Green maximum level] -->
+		<!-- Control 0x1a: +/50/100 C [Blue maximum level] -->
+		<!-- Control 0x62: +/70/100 C [Audio Speaker Volume Adjust] -->
+
+		<!--
+			Named controls kept disabled pending hardware verification.
+			Reset controls can discard user settings; 0x54 failed to read.
+			The generic power label at 0xe1 does not verify its write behavior.
+		-->
+		<!-- Control 0x02: +/2/2 C [New Control Value - Some values changed] -->
+		<!-- Control 0x04: +/0/1 C [Restore Factory Defaults] -->
+		<!-- Control 0x05: +/0/1 C [Restore Brightness and Contrast] -->
+		<!-- Control 0x08: +/0/1 C [Restore Factory Default Color] -->
+		<!-- Control 0x54: -/0/65535 C [Color Temperature Request] -->
+		<!-- Control 0x60: +/15/1 C [Input Source Select (Main) - DP-1] -->
+		<!-- Control 0xcc: +/2/36 C [Language - English] -->
+		<!-- Control 0xd6: +/1/4 C [DPMS Control - On] -->
+		<!-- Control 0xe1: +/0/255 C [Power control - Off] -->
+
+		<!--
+			Candidate mappings based only on named current values in the scan.
+			These remain commented out until verified on hardware; no other
+			input, language, or power values are inferred from capabilities.
+			<control id="inputsource" type="list" address="0x60">
+				<value id="dp1" value="15"/>
+			</control>
+			<control id="language" type="list" address="0xcc">
+				<value id="english" value="2"/>
+			</control>
+			<control id="dpms" type="list" address="0xd6">
+				<value id="on" value="1"/>
+			</control>
+		-->
+
+		<!-- Unknown controls that responded or were advertised; no semantic mappings inferred: -->
+		<!-- Control 0x06: +/0/1   [???] -->
+		<!-- Control 0x0b: +/100/100 C [???] -->
+		<!-- Control 0x0c: +/35/85 C [???] -->
+		<!-- Control 0x14: +/5/11 C [???] -->
+		<!-- Control 0x1e: +/0/1   [???] -->
+		<!-- Control 0x20: +/0/100   [???] -->
+		<!-- Control 0x30: +/0/100   [???] -->
+		<!-- Control 0x52: +/0/255 C [???] -->
+		<!-- Control 0x59: +/50/100 C [???] -->
+		<!-- Control 0x5a: +/50/100 C [???] -->
+		<!-- Control 0x5b: +/50/100 C [???] -->
+		<!-- Control 0x5c: +/50/100 C [???] -->
+		<!-- Control 0x5d: +/50/100 C [???] -->
+		<!-- Control 0x5e: +/50/100 C [???] -->
+		<!-- Control 0x68: +/0/5   [???] -->
+		<!-- Control 0x6c: +/50/100   [???] -->
+		<!-- Control 0x6e: +/50/100   [???] -->
+		<!-- Control 0x70: +/50/100   [???] -->
+		<!-- Control 0x86: +/8/8   [???] -->
+		<!-- Control 0x8d: +/2/2   [???] -->
+		<!-- Control 0x9b: +/50/100 C [???] -->
+		<!-- Control 0x9c: +/50/100 C [???] -->
+		<!-- Control 0x9d: +/50/100 C [???] -->
+		<!-- Control 0x9e: +/50/100 C [???] -->
+		<!-- Control 0x9f: +/50/100 C [???] -->
+		<!-- Control 0xa0: +/50/100 C [???] -->
+		<!-- Control 0xa8: +/0/3   [???] -->
+		<!-- Control 0xaa: +/1/5   [???] -->
+		<!-- Control 0xac: +/48028/2 C [???] -->
+		<!-- Control 0xae: +/12093/0 C [???] -->
+		<!-- Control 0xb4: +/1/2   [???] -->
+		<!-- Control 0xb6: +/3/8 C [???] -->
+		<!-- Control 0xc0: +/24231/65535 C [???] -->
+		<!-- Control 0xc6: +/120/65535 C [???] -->
+		<!-- Control 0xc8: +/5/65302 C [???] -->
+		<!-- Control 0xc9: +/0/65535 C [???] -->
+		<!-- Control 0xca: +/2/2   [???] -->
+		<!-- Control 0xda: +/0/2   [???] -->
+		<!-- Control 0xdf: +/513/255 C [???] -->
+		<!-- Control 0xe0: -/0/65535 C [???] -->
+		<!-- Control 0xe2: +/0/27   [???] -->
+		<!-- Control 0xe3: +/452/27 C [???] -->
+		<!-- Control 0xe4: +/257/27   [???] -->
+		<!-- Control 0xe5: +/5/10 C [???] -->
+		<!-- Control 0xe7: -/0/65535 C [???] -->
+		<!-- Control 0xe8: +/0/255 C [???] -->
+		<!-- Control 0xe9: +/0/2   [???] -->
+		<!-- Control 0xed: +/1/1 C [???] -->
+		<!-- Control 0xf0: +/0/1   [???] -->
+		<!-- Control 0xf2: +/4/4   [???] -->
+	</controls>
+	<!-- Restrict inherited VESA controls to the six named adjustments above. -->
+	<include file="VESA"/>
+</monitor>
