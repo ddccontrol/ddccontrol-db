@@ -1,5 +1,15 @@
 # Changelog
 
+## 20260928
+
+## What's Changed
+* docs(db): define the CBOR contract and reference fixtures by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/440
+* build(db): validate CBOR with the pinned Rust producer by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/441
+* build(db): distribute CBOR alongside XML and translations by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/439
+
+
+**Full Changelog**: https://github.com/ddccontrol/ddccontrol-db/compare/20260922...20260928
+
 ## 20260922
 
 ## What's Changed
