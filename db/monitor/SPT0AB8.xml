@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/442 -->
+<!-- Conservative initial profile; additional controls require hardware verification. -->
+<monitor name="Sceptre C275B-1858RN" init="standard">
+	<caps add="(type(lcd)vcp(10 12 16 18 1A))" remove="(vcp(00 02 04 05 06 08 0B 0C 0E 13 14 1C 1E 20 22 24 25 26 27 28 29 30 31 32 33 38 3A 3C 3E 40 42 44 46 48 4A 4C 52 54 55 56 58 60 62 68 69 6C 6E 70 8D A8 AA AC AE B0 B2 B4 B6 C0 C6 C8 C9 CA CC D6 DC DF E1))"/>
+	<controls>
+		<!-- Control 0x10: +/0/100 C [Brightness] -->
+		<control id="brightness" address="0x10"/>
+		<!-- Control 0x12: +/50/100 C [Contrast] -->
+		<control id="contrast" address="0x12"/>
+		<!-- Control 0x16: +/44/100 C [Red maximum level] -->
+		<control id="red" address="0x16"/>
+		<!-- Control 0x18: +/45/100 C [Green maximum level] -->
+		<control id="green" address="0x18"/>
+		<!-- Control 0x1a: +/51/100 C [Blue maximum level] -->
+		<control id="blue" address="0x1A"/>
+
+		<!-- Named controls kept disabled pending hardware verification: -->
+		<!-- Control 0x02: +/1/2 C [New Control Value - No changes] -->
+		<!-- Control 0x04: +/0/255 C [Restore Factory Defaults] -->
+		<!-- Control 0x05: +/0/1 C [Restore Brightness and Contrast] -->
+		<!-- Control 0x08: +/0/255 C [Restore Factory Default Color] -->
+		<!-- Control 0x60: +/5/14 C [Input Source Select (Main) - Composite video 1] -->
+		<!-- Control 0xd6: +/1/255 C [DPMS Control - On] -->
+
+		<!--
+			Input source 0x60 advertises 0x11, 0x12 and 0x0f, but reads 0x05.
+			The generic Composite video 1 label does not confirm a physical input.
+			Power control 0xd6 advertises 0x01 and 0x05; only On was observed.
+			Candidate control mappings remain commented out until the issue author
+			verifies their values and write behavior on hardware:
+			<control id="inputsource" type="list" address="0x60"/>
+			<control id="dpms" type="list" address="0xd6">
+				<value id="on" value="1"/>
+			</control>
+			No input enum mappings or unobserved power states are assumed.
+			Factory reset controls are intentionally disabled in this initial profile.
+		-->
+
+		<!-- Unknown controls preserved for future investigation: -->
+		<!-- Control 0x06: +/0/255   [???] -->
+		<!-- Control 0x0b: +/0/24028   [???] -->
+		<!-- Control 0x0c: +/2/255   [???] -->
+		<!-- Control 0x13: +/25619/100   [???] -->
+		<!-- Control 0x14: +/8/12 C [???] -->
+		<!-- Control 0x1e: +/0/2   [???] -->
+		<!-- Control 0x22: +/7/65535   [???] -->
+		<!-- Control 0x24: +/4/65535   [???] -->
+		<!-- Control 0x25: +/4/65535   [???] -->
+		<!-- Control 0x26: +/4/65535   [???] -->
+		<!-- Control 0x27: +/4/65535   [???] -->
+		<!-- Control 0x29: +/0/65535   [???] -->
+		<!-- Control 0x31: +/16/65535   [???] -->
+		<!-- Control 0x33: +/1/65535   [???] -->
+		<!-- Control 0x52: +/0/255 C [???] -->
+		<!-- Control 0x55: +/0/65535   [???] -->
+		<!-- Control 0x62: +/100/65535   [???] -->
+		<!-- Control 0x68: +/0/5   [???] -->
+		<!-- Control 0x69: +/16/65535   [???] -->
+		<!-- Control 0x6c: +/45/255   [???] -->
+		<!-- Control 0x6e: +/45/255   [???] -->
+		<!-- Control 0x70: +/45/255   [???] -->
+		<!-- Control 0x8d: +/1/65535   [???] -->
+		<!-- Control 0xa8: +/0/3   [???] -->
+		<!-- Control 0xaa: +/1/255   [???] -->
+		<!-- Control 0xac: +/1864/1 C [???] -->
+		<!-- Control 0xae: +/5991/0 C [???] -->
+		<!-- Control 0xb2: +/1/8 C [???] -->
+		<!-- Control 0xb4: +/1/2   [???] -->
+		<!-- Control 0xb6: +/3/5 C [???] -->
+		<!-- Control 0xc0: +/31513/65535   [???] -->
+		<!-- Control 0xc6: +/17868/65535 C [???] -->
+		<!-- Control 0xc8: +/22021/0 C [???] -->
+		<!-- Control 0xc9: +/0/65535 C [???] -->
+		<!-- Control 0xca: +/2/2   [???] -->
+		<!-- Control 0xdc: +/3/255 C [???] -->
+		<!-- Control 0xdf: +/513/255 C [???] -->
+		<!-- Capability 0xfd was advertised but not probed; no mapping is assumed. -->
+	</controls>
+	<!-- Remove unverified VESA controls above so the include exposes only known levels. -->
+	<include file="VESA"/>
+</monitor>
