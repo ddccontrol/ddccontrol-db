@@ -107,6 +107,29 @@ expect_failure "$make_command" cbor DDCDBGEN="$work/missing"
 assert_no_artifacts
 "$make_command" cbor
 
+# Distribution sources come from Git, so an untracked local profile must
+# stay out of both the packaged XML and its generated CBOR artifacts.
+git init -q .
+git add Makefile configure configure.impl VERSION build-aux .ci po db/options.xml.in db/monitor
+cp -p db/monitor/VESA.xml db/monitor/TST0002.xml
+./configure --prefix=/usr --disable-nls "DDCDBGEN=../configured generator's executable"
+"$make_command" dist-gzip MSGFMT=false
+version=$(sed -n '1p' VERSION)
+mkdir "$work/release"
+tar -xzf "ddccontrol-db-$version.tar.gz" -C "$work/release"
+distributed="$work/release/ddccontrol-db-$version"
+test ! -e "$distributed/db/monitor/TST0002.xml"
+cmp "$repo/tests/cbor/fixtures/base-v1.cbor" "$distributed/db/ddccontrol-db.cbor"
+cmp "$repo/tests/cbor/fixtures/base-v1.snapshot" "$distributed/db/ddccontrol-db.snapshot"
+(
+    cd "$distributed"
+    ./configure --prefix=/usr --disable-nls "DDCDBGEN=$work/missing"
+    "$make_command" install MSGFMT=false "DESTDIR=$work/release-stage"
+)
+cmp "$distributed/db/ddccontrol-db.cbor" "$work/release-stage/usr/share/ddccontrol-db/ddccontrol-db.cbor"
+test ! -e "$work/release-stage/usr/share/ddccontrol-db/monitor/TST0002.xml"
+rm db/monitor/TST0002.xml
+
 # Model a reader that prefers cached CBOR, then examines XML if CBOR is absent.
 # check-db must still reject the edited XML without deleting the build outputs.
 cat > "$work/validator" <<'EOF'

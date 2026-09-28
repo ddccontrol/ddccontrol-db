@@ -44,6 +44,9 @@ mtime-preserving edits, additions and deletions all require regeneration.
 Installation needs a SHA-256 utility (`sha256sum`, `sha256` or `shasum`). An
 unmodified archive requires no generator, Cargo, Python or gettext.
 
+Archive targets generate CBOR and its manifests from the staged distribution
+XML. Untracked local profiles are excluded from both formats in the archive.
+
 A failed build removes stale CBOR, snapshot and source-manifest outputs and
 stops packaging, including when the generator cannot start. A source change
 during generation also fails the build. The generator atomically replaces each

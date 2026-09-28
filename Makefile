@@ -136,6 +136,12 @@ distdir: all
 	@set -e; \
 	. ./build-aux/make-config.sh; \
 	load_build_config; \
+	load_dbgen_config; \
+	ddcdbgen_path=`command -v "$$ddcdbgen_value"`; \
+	case "$$ddcdbgen_path" in \
+		/*) ;; \
+		*) ddcdbgen_path="$$PWD/$$ddcdbgen_path" ;; \
+	esac; \
 	targets=; \
 	for language in `available_languages`; do \
 		targets="$$targets po/$$language.gmo"; \
@@ -153,7 +159,8 @@ distdir: all
 	COPYFILE_DISABLE=1 tar --no-xattrs -cf - -T build/dist-files | \
 		COPYFILE_DISABLE=1 tar --no-xattrs -xf - -C "$$dist_directory"; \
 	$(INSTALL_DATA) db/options.xml "$$dist_directory/db/options.xml"; \
-	$(INSTALL_DATA) db/ddccontrol-db.cbor db/ddccontrol-db.snapshot db/ddccontrol-db.sources "$$dist_directory/db/"; \
+	(cd "$$dist_directory" && DDCDBGEN="$$ddcdbgen_path" ./build-aux/build-cbor.sh); \
+	rmdir "$$dist_directory/build"; \
 	for language in `available_languages`; do \
 		$(INSTALL_DATA) "po/$$language.gmo" "$$dist_directory/po/"; \
 	done

@@ -49,10 +49,10 @@ make check-cbor DDCDBGEN=/absolute/path/to/ddccontrol-dbgen
 Configure saves its generator selection; environment and make command-line
 `DDCDBGEN` values can override it later.
 
-`make check-cbor` requires a POSIX shell and ordinary Unix utilities in addition
-to the executable. It checks every maintained profile, including historical
-`NOCHECKDB` profiles. Full Rust unit, malformed-input and semantic differential
-tests run in the companion source checkout in CI.
+`make check-cbor` requires Git, a POSIX shell and ordinary Unix utilities in
+addition to the executable. It checks every maintained profile, including
+historical `NOCHECKDB` profiles. Full Rust unit, malformed-input and semantic
+differential tests run in the companion source checkout in CI.
 
 ## CI uses a pinned source build
 
