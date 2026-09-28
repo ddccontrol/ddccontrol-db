@@ -121,6 +121,11 @@ See `ddccontrol -h` for more information.
 
 See [`doc/how-to-add-a-monitor.md`](doc/how-to-add-a-monitor.md) for a hands-on introduction on how to add a monitor.
 
+The optional CBOR producer and validation workflow uses `ddccontrol-dbgen` from
+the ddccontrol repository. See [building and using the producer](doc/cbor/producer.md)
+for pinned CI builds, local generation and offline packaging. Normal XML builds
+do not require Rust or this executable.
+
 ## License
 
 The project is licensed under `GNU General Public License v2.0` license. See [COPYING](COPYING) for details.
