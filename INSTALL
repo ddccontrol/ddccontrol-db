@@ -16,9 +16,10 @@ On a system where BSD make is installed as `bmake`, use:
 Installing a release archive
 ----------------------------
 
-Release archives contain a generated db/options.xml and compiled gettext
-catalogs. A standard Unix-like system only needs make and the usual install,
-mkdir, awk, sed, and shell utilities:
+Release archives contain generated XML, CBOR, snapshot and source manifests,
+and compiled gettext catalogs. Installation needs make, a SHA-256 utility
+(sha256sum, sha256 or shasum), and the usual install, mkdir, awk, sed and shell
+utilities:
 
     ./configure --prefix=/usr
     make
@@ -29,12 +30,19 @@ The default prefix is /usr/local.
 Building from a Git checkout
 ----------------------------
 
-A Git checkout additionally needs GNU gettext because make compiles po/*.po
-to po/*.gmo with msgfmt:
+A Git checkout additionally needs GNU gettext to compile po/*.po to po/*.gmo,
+and ddccontrol-dbgen to generate CBOR. See doc/cbor/producer.md for obtaining
+the pinned Rust generator or providing an existing executable:
 
     ./configure --prefix=/usr
     make
     sudo make install
+
+Select an executable outside PATH with either
+`DDCDBGEN=/absolute/path/to/ddccontrol-dbgen ./configure` or
+`./configure DDCDBGEN=/absolute/path/to/ddccontrol-dbgen`. This selection is
+saved for subsequent make invocations. An environment or make command-line
+DDCDBGEN value overrides the saved selection.
 
 Compatibility with package build recipes
 ----------------------------------------
@@ -106,6 +114,9 @@ Validate every monitor profile with an installed ddccontrol command:
 
     make check-db
 
+This target validates a temporary XML-only copy, so existing generated CBOR
+cannot hide edits to the maintained XML. It does not require the generator.
+
 Translation maintainers can regenerate the gettext template and merge it into
 the PO files. This target requires gettext and Perl:
 
@@ -119,3 +130,26 @@ support:
 
 Remove generated files with `make clean`, or generated files and release
 archives with `make distclean`.
+
+CBOR dual distribution
+----------------------
+
+XML remains the maintained source. `make` generates one uncompressed
+`db/ddccontrol-db.cbor` and `db/ddccontrol-db.snapshot` from the exact same XML
+snapshot. Both are installed beside options.xml and monitor/*.xml; translation
+catalogues remain unchanged. No end date for XML distribution is defined.
+
+Git builds require ddccontrol-dbgen. Release archives include CBOR, a SHA-256
+source manifest and compiled translations, so installation does not require
+the generator, Rust, Python or gettext. The source manifest also records the
+generator source pin. Edits, additions and deletions invalidate reuse even when
+timestamps are preserved; regeneration requires the selected generator.
+`make check-cbor` uses it to validate the whole database, frozen fixtures,
+reproducibility and the build/install regression cases.
+
+A generation failure removes stale CBOR and snapshot outputs and fails the
+build. The standalone generator also atomically replaces each successful
+output. Packaging tools should stage an entire installation before replacing
+an installed database. A reader must pin its chosen source for its load session.
+
+See doc/cbor-distribution.md for converter, validator and readable dump commands.

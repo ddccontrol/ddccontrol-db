@@ -6,11 +6,11 @@ the reader. This repository maintains XML and translation sources, immutable
 compatibility fixtures and integration checks. It does not maintain a second
 implementation of those rules.
 
-This producer step does not change the default `make`, installation or release
-archive contents. Permanent dual-format build/install integration is tracked
-separately in [PR #439](https://github.com/ddccontrol/ddccontrol-db/pull/439), which
-must use this generator interface when rebased. XML remains maintained and
-installed with no retirement date.
+The default `make` generates CBOR and its fallback sidecar alongside XML.
+Release archives include the generated outputs and a content manifest, so an
+unmodified archive installs without the generator. See [dual distribution](../cbor-distribution.md)
+for the build and installation rules. XML remains maintained and installed with
+no retirement date.
 
 ## Local generation and validation
 
@@ -39,15 +39,20 @@ reuse of stale data beside a newer XML source snapshot.
 For an executable outside `PATH`:
 
 ```sh
+DDCDBGEN=/absolute/path/to/ddccontrol-dbgen ./configure
+make
 make check-cbor DDCDBGEN=/absolute/path/to/ddccontrol-dbgen
 /absolute/path/to/ddccontrol-dbgen convert db build/cbor/ddccontrol-db.cbor \
     --snapshot build/cbor/ddccontrol-db.snapshot
 ```
 
-`make check-cbor` requires a POSIX shell and ordinary Unix utilities in addition
-to the executable. It checks every maintained profile, including historical
-`NOCHECKDB` profiles. Full Rust unit, malformed-input and semantic differential
-tests run in the companion source checkout in CI.
+Configure saves its generator selection; environment and make command-line
+`DDCDBGEN` values can override it later.
+
+`make check-cbor` requires Git, a POSIX shell and ordinary Unix utilities in
+addition to the executable. It checks every maintained profile, including
+historical `NOCHECKDB` profiles. Full Rust unit, malformed-input and semantic
+differential tests run in the companion source checkout in CI.
 
 ## CI uses a pinned source build
 
@@ -92,9 +97,8 @@ available Rust dependencies. Debian's packaged Rust crates and dependency
 policy still apply; an upstream `Cargo.lock` alone does not make those crates
 available offline.
 
-The subsequent packaging integration must place generated CBOR, its matching
-sidecar, XML and translations from one snapshot in distribution archives.
-Installing such an archive must not require Cargo or the generator. Regenerating
-changed XML must require an available generator and fail on errors instead of
-retaining older CBOR. This producer-only change deliberately leaves those
-archive and installation rules to the separate packaging PR.
+Distribution archives contain generated CBOR, its matching sidecar, XML and
+translations from one snapshot. Installing an unmodified archive requires no
+Cargo or generator. A SHA-256 source manifest detects changes even when mtimes
+are preserved. Changed XML requires an available generator; a failed build
+removes stale generated outputs and stops installation.

@@ -18,6 +18,7 @@ localedir_set=no
 dbdir_set=no
 nls=yes
 option_checking=yes
+ddcdbgen=${DDCDBGEN:-ddccontrol-dbgen}
 
 usage()
 {
@@ -38,6 +39,7 @@ Configure installation directories for $package.
 
 Values can still be overridden when invoking make.
 Set MAKE to the make command that configure should verify, for example bmake.
+Set DDCDBGEN to the CBOR generator executable; make also accepts an override.
 EOF
 }
 
@@ -77,6 +79,7 @@ while [ "$#" -gt 0 ]; do
 		--quiet|--silent|-q) ;;
 		--help|-h) usage; exit 0 ;;
 		--version|-V) printf '%s %s\n' "$package" "$version"; exit 0 ;;
+		DDCDBGEN=*) ddcdbgen=${1#*=}; [ -n "$ddcdbgen" ] || break ;;
 		[A-Za-z_]*=*) ;;
 		--enable-*|--disable-*|--with-*|--without-*)
 			if [ "$option_checking" = yes ]; then
@@ -112,6 +115,13 @@ if [ ! -f db/options.xml ] && ! command -v awk >/dev/null 2>&1; then
 	exit 1
 fi
 
+if { [ -e .git ] || [ ! -f db/ddccontrol-db.cbor ] ||
+     [ ! -f db/ddccontrol-db.snapshot ] || [ ! -f db/ddccontrol-db.sources ]; } &&
+   ! command -v "$ddcdbgen" >/dev/null 2>&1; then
+	printf 'configure: error: CBOR generator not found: %s (set DDCDBGEN)\n' "$ddcdbgen" >&2
+	exit 1
+fi
+
 if [ "$nls" = yes ]; then
 	while IFS= read -r language; do
 		case $language in
@@ -135,6 +145,7 @@ tmp=config.sh.tmp
 	printf "CONFIG_DATADIR='%s'\n" "$(shell_quote "$datadir")"
 	printf "CONFIG_LOCALEDIR='%s'\n" "$(shell_quote "$localedir")"
 	printf "CONFIG_DBDIR='%s'\n" "$(shell_quote "$dbdir")"
+	printf "CONFIG_DDCDBGEN='%s'\n" "$(shell_quote "$ddcdbgen")"
 	if [ "$datadir_set" = yes ] || [ "$datarootdir_set" = yes ]; then
 		printf 'CONFIG_DATADIR_EXPLICIT=yes\n'
 	else

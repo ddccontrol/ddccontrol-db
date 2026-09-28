@@ -1,5 +1,13 @@
 #!/bin/sh
 
+load_dbgen_config()
+{
+	if test -f ./config.sh; then
+		. ./config.sh
+	fi
+	ddcdbgen_value=${DDCDBGEN:-${CONFIG_DDCDBGEN:-ddccontrol-dbgen}}
+}
+
 available_languages()
 {
 	sed -e '/^[[:space:]]*#/d' -e '/^[[:space:]]*$/d' po/LINGUAS

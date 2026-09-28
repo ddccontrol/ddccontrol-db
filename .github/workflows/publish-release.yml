@@ -87,6 +87,9 @@ jobs:
             libxml-parser-perl \
             make
 
+      - name: Build the pinned CBOR generator
+        uses: ./.github/actions/build-dbgen
+
       - name: Build source distributions
         run: |
           set -euo pipefail
@@ -95,6 +98,7 @@ jobs:
           make -j"$(nproc)"
           make check
           make check-controls
+          make check-cbor
           make dist
           mkdir -p "$RUNNER_TEMP/release-artifacts"
           cp ddccontrol-db-*.tar.gz "$RUNNER_TEMP/release-artifacts/"

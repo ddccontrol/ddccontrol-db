@@ -42,11 +42,22 @@ sudo apt install make
 ```
 
 Building directly from a Git checkout also requires GNU gettext to compile the
-translations:
+translations and `ddccontrol-dbgen` to generate CBOR:
 
 ```shell
 sudo apt install gettext make
 ```
+
+Obtain the generator using the [producer instructions](doc/cbor/producer.md).
+Set `DDCDBGEN=/absolute/path/to/ddccontrol-dbgen` when running `./configure` if
+the executable is outside `PATH`; the selected path is saved for `make`.
+Builds and archive installations use a SHA-256 utility (`sha256sum`, `sha256`
+or `shasum`) to detect changed sources, including edits that preserve timestamps.
+
+XML remains the maintained source and is installed alongside a single uncompressed
+`ddccontrol-db.cbor` and a snapshot manifest. Older programs continue to use XML.
+The CBOR v1 contract is a review candidate; this change does not publish a
+release or claim complete MCCS coverage. See [CBOR distribution](doc/cbor-distribution.md).
 
 The handwritten Makefile is tested with both GNU Make and BSD `bmake`.
 
@@ -121,10 +132,10 @@ See `ddccontrol -h` for more information.
 
 See [`doc/how-to-add-a-monitor.md`](doc/how-to-add-a-monitor.md) for a hands-on introduction on how to add a monitor.
 
-The optional CBOR producer and validation workflow uses `ddccontrol-dbgen` from
+The CBOR producer and validation workflow uses `ddccontrol-dbgen` from
 the ddccontrol repository. See [building and using the producer](doc/cbor/producer.md)
-for pinned CI builds, local generation and offline packaging. Normal XML builds
-do not require Rust or this executable.
+for pinned CI builds, local generation and offline packaging. Unmodified release
+archives install without Rust or this executable.
 
 ## License
 
