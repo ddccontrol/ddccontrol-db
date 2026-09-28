@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/445 -->
+<monitor name="Lenovo ThinkVision P40w-20" init="standard">
+	<!--
+		Conservative initial profile: only explicitly named brightness, contrast
+		and RGB level controls are enabled. Remove other VESA controls so the
+		include cannot expose unknown controls or unverified enum values.
+	-->
+	<caps add="(type(lcd)vcp(10 12 16 18 1A))" remove="(vcp(00 02 04 05 06 08 0E 1C 1E 20 22 24 26 28 30 32 38 3A 3C 3E 40 42 44 46 48 4A 4C 54 56 58 60 62 6C 6E 70 AA B0 CC D6 E1))"/>
+	<controls>
+		<!-- Known controls enabled through the VESA include: -->
+		<!-- Control 0x10: +/90/100 C [Brightness] -->
+		<!-- Control 0x12: +/75/100 C [Contrast] -->
+		<!-- Control 0x16: +/100/100 C [Red maximum level] -->
+		<!-- Control 0x18: +/100/100 C [Green maximum level] -->
+		<!-- Control 0x1a: +/100/100 C [Blue maximum level] -->
+
+		<!-- Named status/reset controls kept disabled pending hardware verification: -->
+		<!-- Control 0x02: +/2/2 C [New Control Value - Some values changed] -->
+		<!-- Control 0x04: +/0/1 C [Restore Factory Defaults] -->
+		<!-- Control 0x05: +/0/1 C [Restore Brightness and Contrast] -->
+		<!-- Control 0x08: +/0/1 C [Restore Factory Default Color] -->
+
+		<!--
+			Candidate controls, not enabled: the scan names only the current values.
+			No other input, language or power value mappings have been verified.
+			Ask the issue author to test these controls before enabling them.
+		-->
+		<!-- Control 0x60: +/15/49 C [Input Source Select (Main) - DP-1]
+		<control id="inputsource" type="list" address="0x60">
+			<value id="dp1" value="0x0f"/>
+		</control> -->
+		<!-- Control 0xcc: +/2/13 C [Language - English]
+		<control id="language" type="list" address="0xcc">
+			<value id="english" value="0x02"/>
+		</control> -->
+		<!-- Control 0xd6: +/1/5 C [DPMS Control - On]
+		<control id="dpms" type="list" address="0xd6">
+			<value id="on" value="0x01"/>
+		</control> -->
+
+		<!-- Unknown controls that responded or appear in the capability list.
+		     Preserve raw observations without assigning semantic mappings. -->
+		<!-- Control 0x06: +/0/1   [???] -->
+		<!-- Control 0x0b: +/100/0   [???] -->
+		<!-- Control 0x0c: +/35/63   [???] -->
+		<!-- Control 0x14: +/5/15 C [???] -->
+		<!-- Control 0x1e: +/0/1   [???] -->
+		<!-- Control 0x20: +/0/1   [???] -->
+		<!-- Control 0x30: +/0/1   [???] -->
+		<!-- Control 0x50: +/1/65535   [???] -->
+		<!-- Control 0x52: +/16/255 C [???] -->
+		<!-- Control 0x62: +/50/100   [???] -->
+		<!-- Control 0x6c: +/80/100   [???] -->
+		<!-- Control 0x6e: +/80/100   [???] -->
+		<!-- Control 0x70: +/80/100   [???] -->
+		<!-- Control 0x86: +/2/5 C [???] -->
+		<!-- Control 0x87: +/2/10   [???] -->
+		<!-- Control 0x95: +/0/3200 C [???] -->
+		<!-- Control 0x96: +/0/1080 C [???] -->
+		<!-- Control 0x97: +/0/5120 C [???] -->
+		<!-- Control 0x98: +/0/2160 C [???] -->
+		<!-- Control 0xa4: +/0/65535 C [???] -->
+		<!-- Control 0xa5: +/0/512 C [???] -->
+		<!-- Control 0xac: +/37028/2 C [???] -->
+		<!-- Control 0xae: +/7510/65535 C [???] -->
+		<!-- Control 0xb2: +/1/1 C [???] -->
+		<!-- Control 0xb6: +/3/5 C [???] -->
+		<!-- Control 0xc6: +/67/0 C [???] -->
+		<!-- Control 0xc8: +/9/0 C [???] -->
+		<!-- Control 0xc9: +/1024/65535 C [???] -->
+		<!-- Control 0xca: +/2/2 C [???] -->
+		<!-- Control 0xdc: +/0/8 C [???] -->
+		<!-- Control 0xdf: +/514/65535 C [???] -->
+		<!-- Control 0xe0: +/1/2 C [???] -->
+		<!-- Control 0xea: +/0/1 C [???] -->
+		<!-- Control 0xeb: -/0/1 C [???] -->
+		<!-- Control 0xec: +/1/65535 C [???] -->
+		<!-- Control 0xf0: +/3/1   [???] -->
+		<!-- Control 0xf1: +/1/18   [???] -->
+		<!-- Control 0xf2: +/0/1 C [???] -->
+		<!-- Control 0xf3: +/25600/25700   [???] -->
+		<!-- Control 0xf4: +/0/513 C [???] -->
+		<!-- Control 0xf5: +/0/1026 C [???] -->
+		<!-- Control 0xf6: -/0/1026 C [???] -->
+		<!-- Control 0xf7: +/0/1026 C [???] -->
+		<!-- Control 0xf8: -/0/1026 C [???] -->
+		<!-- Control 0xfa: +/0/1026 C [???] -->
+		<!-- Control 0xfd: -/0/1026 C [???] -->
+
+		<!-- Other unknown addresses probed with invalid (-) responses:
+		     Their current/max fields are not evidence of supported controls.
+		     0x00 0x01 0x03 0x07 0x09 0x0a 0x0d 0x0e 0x0f 0x11 0x13 0x15
+		     0x17 0x19 0x1b 0x1c 0x1d 0x1f 0x21 0x22 0x23 0x24 0x25 0x26
+		     0x27 0x28 0x29 0x2a 0x2b 0x2c 0x2d 0x2e 0x2f 0x31 0x32 0x33
+		     0x34 0x35 0x36 0x37 0x38 0x39 0x3a 0x3b 0x3c 0x3d 0x3e 0x3f
+		     0x40 0x41 0x42 0x43 0x44 0x45 0x46 0x47 0x48 0x49 0x4a 0x4b
+		     0x4c 0x4d 0x4e 0x4f 0x51 0x53 0x54 0x55 0x56 0x57 0x58 0x59
+		     0x5a 0x5b 0x5c 0x5d 0x5e 0x5f 0x61 0x63 0x64 0x65 0x66 0x67
+		     0x68 0x69 0x6a 0x6b 0x6d 0x6f 0x71 0x72 0x73 0x74 0x75 0x76
+		     0x77 0x78 0x79 0x7a 0x7b 0x7c 0x7d 0x7f 0x80 0x81 0x82 0x83
+		     0x84 0x85 0x88 0x89 0x8a 0x8b 0x8c 0x8d 0x8e 0x8f 0x90 0x91
+		     0x92 0x93 0x94 0x99 0x9a 0x9b 0x9c 0x9d 0x9e 0x9f 0xa0 0xa1
+		     0xa2 0xa3 0xa6 0xa7 0xa8 0xa9 0xaa 0xab 0xad 0xaf 0xb0 0xb1
+		     0xb3 0xb4 0xb5 0xb7 0xb8 0xb9 0xba 0xbb 0xbc 0xbd 0xbe 0xbf
+		     0xc0 0xc1 0xc2 0xc3 0xc4 0xc5 0xc7 0xcb 0xcd 0xce 0xcf 0xd0
+		     0xd1 0xd2 0xd3 0xd4 0xd5 0xd7 0xd8 0xd9 0xda 0xdb 0xdd 0xde
+		     0xe1 0xe2 0xe3 0xe4 0xe5 0xe6 0xe7 0xe8 0xe9 0xed 0xee 0xef
+		     0xf9 0xfb 0xfc 0xfe 0xff
+		-->
+	</controls>
+	<include file="VESA"/>
+</monitor>
