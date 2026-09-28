@@ -1,5 +1,20 @@
 # Changelog
 
+## 20260928
+
+## What's Changed
+* docs(db): define the CBOR contract and reference fixtures by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/440
+* build(db): validate CBOR with the pinned Rust producer by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/441
+* build(db): distribute CBOR alongside XML and translations by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/439
+* feat: add conservative Sceptre C275B-1858RN support by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/447
+* feat: add Lenovo ThinkVision P40w-20 support by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/450
+* feat: add conservative AOC Q27G42XE monitor profile by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/449
+* feat: add Acer EI342CKR monitor support by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/448
+* build(db): use ddccontrol 3.4.0 dbgen by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/453
+
+
+**Full Changelog**: https://github.com/ddccontrol/ddccontrol-db/compare/20260922...20260928
+
 ## 20260922
 
 ## What's Changed
