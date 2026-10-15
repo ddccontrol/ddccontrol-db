@@ -1,5 +1,18 @@
 # Changelog
 
+## 20261015
+
+## What's Changed
+* test(cbor): allow build checks to run without git by @barak in https://github.com/ddccontrol/ddccontrol-db/pull/457
+* test(ci): cover CBOR checks without Git by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/458
+* feat: add ViewSonic ELITE XG270 support by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/459
+* feat: add conservative Acer ProDesigner BM270 support by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/460
+
+## New Contributors
+* @barak made their first contribution in https://github.com/ddccontrol/ddccontrol-db/pull/457
+
+**Full Changelog**: https://github.com/ddccontrol/ddccontrol-db/compare/20260928...20261015
+
 ## 20260928
 
 ## What's Changed
