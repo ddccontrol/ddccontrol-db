@@ -89,6 +89,34 @@ jobs:
           make check-controls
           make check-cbor
 
+      - name: Test CBOR checks without Git
+        run: |
+          set -euo pipefail
+          work="$(mktemp -d)"
+          trap 'rm -rf "$work"' EXIT
+          mkdir "$work/bin"
+
+          # Regression coverage for #457: detect missing Git without forcing a skip.
+          for executable in /usr/bin/* /bin/*; do
+            name=${executable##*/}
+            if [ "$name" != git ] && [ -f "$executable" ] && [ -x "$executable" ]; then
+              ln -sf "$executable" "$work/bin/$name"
+            fi
+          done
+          ln -s "$(command -v ddccontrol-dbgen)" "$work/bin/ddccontrol-dbgen"
+          (
+            export PATH="$work/bin"
+            unset DDCCONTROL_DB_SKIP_GIT_TESTS MAKEFLAGS MFLAGS MAKEOVERRIDES
+            if command -v git >/dev/null 2>&1; then
+              echo "Git must be unavailable for this regression test" >&2
+              exit 1
+            fi
+            make check-cbor
+          ) 2>&1 | tee "$work/check-cbor.log"
+          grep -Fx 'Skipping release archive checks: Git is unavailable or disabled.' "$work/check-cbor.log"
+          grep -Fx 'CBOR producer integration checks passed.' "$work/check-cbor.log"
+          grep -Fx 'CBOR build and installation regression checks passed.' "$work/check-cbor.log"
+
       - name: Test staged installation
         run: |
           set -euo pipefail
