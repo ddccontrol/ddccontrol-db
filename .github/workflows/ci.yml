@@ -54,6 +54,8 @@ jobs:
         id: generator
         run: |
           set -euo pipefail
+          # Checkout's temporary Git config does not persist across container steps.
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
           ./scripts/dbgen-source-pin.sh >> "$GITHUB_OUTPUT"
           cmp .ci/ddccontrol-dbgen.rev /opt/ci/ddccontrol-dbgen.rev
           cmp .ci/ddccontrol-dbgen.toolchain /opt/ci/ddccontrol-dbgen.toolchain
@@ -200,6 +202,7 @@ jobs:
           cp -a . "$source_dir/source"
           (
             cd "$source_dir/source"
+            git config --global --add safe.directory "$PWD"
             make distclean
             autoreconf --force --install --verbose
             ./configure \
@@ -223,6 +226,7 @@ jobs:
           cp -a . "$source_dir/source"
           (
             cd "$source_dir/source"
+            git config --global --add safe.directory "$PWD"
             bmake distclean
             MAKE=bmake ./configure --prefix=/opt/original
             bmake
