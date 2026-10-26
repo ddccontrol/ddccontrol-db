@@ -1,0 +1,254 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/465 -->
+<monitor name="HCL HCMELWBT11" init="standard">
+	<!--
+		Conservative profile based on the issue-provided analog-input scan.
+		Only explicitly named continuous controls with consistent ranges are enabled.
+		The reported model(AOC) does not establish compatibility with an AOC profile.
+	-->
+	<caps add="(type(lcd)vcp(0E 10 12 16 18 1A 20 30 3E))" remove="(vcp(00 02 04 05 06 08 14 1C 1E 22 24 26 28 32 38 3A 3C 40 42 44 46 48 4A 4C 54 56 58 60 62 6C 6E 70 AA B0 B6 CC D6 DF E1))"/>
+	<controls>
+		<!-- Known controls enabled through the VESA include: -->
+		<!-- Control 0x0e: +/65/100 C [Image Lock Coarse (Clock)] -->
+		<!-- Control 0x10: +/90/100 C [Brightness] -->
+		<!-- Control 0x12: +/50/100 C [Contrast] -->
+		<!-- Control 0x16: +/44/100 C [Red maximum level] -->
+		<!-- Control 0x18: +/42/100 C [Green maximum level] -->
+		<!-- Control 0x1a: +/50/100 C [Blue maximum level] -->
+		<!-- Control 0x20: +/50/100 C [Horizontal Position] -->
+		<!-- Control 0x30: +/50/100 C [Vertical Position] -->
+		<!-- Control 0x3e: +/28/100 C [Image Lock Fine (Clock Phase)] -->
+
+		<!--
+			Named controls kept disabled pending hardware verification.
+			Reset and automatic-adjust commands have not been write-tested.
+			RGB minimum levels exceed their reported maximum of 64; do not
+			guess corrected ranges or expose these controls until verified.
+		-->
+		<!-- Control 0x02: +/1/2 C [New Control Value - No changes] -->
+		<!-- Control 0x04: +/0/1 C [Restore Factory Defaults] -->
+		<!-- Control 0x05: +/0/1 C [Restore Brightness and Contrast] -->
+		<!-- Control 0x06: +/0/1 C [Restore Factory Default Geometry] -->
+		<!-- Control 0x08: +/0/1 C [Restore Factory Default Color] -->
+		<!-- Control 0x1e: +/0/1 C [Automatically adjust] -->
+		<!-- Control 0x6c: +/74/64 C [Red minimum level] -->
+		<!-- Control 0x6e: +/68/64 C [Green minimum level] -->
+		<!-- Control 0x70: +/72/64 C [Blue minimum level] -->
+		<!--
+			Disabled candidate mappings for the named continuous controls:
+			<control id="redblack" address="0x6c"/>
+			<control id="greenblack" address="0x6e"/>
+			<control id="blueblack" address="0x70"/>
+		-->
+
+		<!-- Unknown controls from the issue output, preserved for investigation: -->
+		<!-- Control 0x00: +/0/255   [???] -->
+		<!-- Control 0x01: +/0/255   [???] -->
+		<!-- Control 0x03: +/0/255   [???] -->
+		<!-- Control 0x07: +/0/255   [???] -->
+		<!-- Control 0x09: +/0/255   [???] -->
+		<!-- Control 0x0a: +/0/255   [???] -->
+		<!-- Control 0x0b: +/0/255   [???] -->
+		<!-- Control 0x0c: +/0/255   [???] -->
+		<!-- Control 0x0d: +/0/255   [???] -->
+		<!-- Control 0x0f: +/0/255   [???] -->
+		<!-- Control 0x11: +/0/255   [???] -->
+		<!-- Control 0x13: +/0/255   [???] -->
+		<!-- Control 0x14: +/6/11 C [???] -->
+		<!-- Control 0x15: +/0/255   [???] -->
+		<!-- Control 0x17: +/0/255   [???] -->
+		<!-- Control 0x19: +/0/255   [???] -->
+		<!-- Control 0x1b: +/0/255   [???] -->
+		<!-- Control 0x1c: +/0/255   [???] -->
+		<!-- Control 0x1d: +/0/255   [???] -->
+		<!-- Control 0x1f: +/0/255   [???] -->
+		<!-- Control 0x21: +/0/255   [???] -->
+		<!-- Control 0x22: +/0/1920   [???] -->
+		<!-- Control 0x23: +/0/255   [???] -->
+		<!-- Control 0x24: +/0/255   [???] -->
+		<!-- Control 0x25: +/0/255   [???] -->
+		<!-- Control 0x26: +/0/255   [???] -->
+		<!-- Control 0x27: +/0/255   [???] -->
+		<!-- Control 0x28: +/0/255   [???] -->
+		<!-- Control 0x29: +/0/255   [???] -->
+		<!-- Control 0x2a: +/0/255   [???] -->
+		<!-- Control 0x2b: +/0/255   [???] -->
+		<!-- Control 0x2c: +/0/255   [???] -->
+		<!-- Control 0x2d: +/0/255   [???] -->
+		<!-- Control 0x2e: +/0/255   [???] -->
+		<!-- Control 0x2f: +/0/255   [???] -->
+		<!-- Control 0x31: +/0/255   [???] -->
+		<!-- Control 0x32: +/0/1200   [???] -->
+		<!-- Control 0x33: +/0/255   [???] -->
+		<!-- Control 0x34: +/0/255   [???] -->
+		<!-- Control 0x35: +/0/255   [???] -->
+		<!-- Control 0x36: +/0/255   [???] -->
+		<!-- Control 0x37: +/0/255   [???] -->
+		<!-- Control 0x38: +/0/255   [???] -->
+		<!-- Control 0x39: +/0/255   [???] -->
+		<!-- Control 0x3a: +/0/255   [???] -->
+		<!-- Control 0x3b: +/0/255   [???] -->
+		<!-- Control 0x3c: +/0/255   [???] -->
+		<!-- Control 0x3d: +/0/255   [???] -->
+		<!-- Control 0x3f: +/0/255   [???] -->
+		<!-- Control 0x40: +/0/255   [???] -->
+		<!-- Control 0x41: +/0/255   [???] -->
+		<!-- Control 0x42: +/0/255   [???] -->
+		<!-- Control 0x43: +/0/255   [???] -->
+		<!-- Control 0x44: +/0/255   [???] -->
+		<!-- Control 0x45: +/0/255   [???] -->
+		<!-- Control 0x46: +/0/255   [???] -->
+		<!-- Control 0x47: +/0/255   [???] -->
+		<!-- Control 0x48: +/0/255   [???] -->
+		<!-- Control 0x49: +/0/255   [???] -->
+		<!-- Control 0x4a: +/0/255   [???] -->
+		<!-- Control 0x4b: +/0/255   [???] -->
+		<!-- Control 0x4c: +/0/255   [???] -->
+		<!-- Control 0x4d: +/0/255   [???] -->
+		<!-- Control 0x4e: +/0/255   [???] -->
+		<!-- Control 0x4f: +/0/255   [???] -->
+		<!-- Control 0x50: +/0/255   [???] -->
+		<!-- Control 0x51: +/0/255   [???] -->
+		<!-- Control 0x52: +/0/255   [???] -->
+		<!-- Control 0x53: +/0/255   [???] -->
+		<!-- Control 0x54: +/0/255   [???] -->
+		<!-- Control 0x55: +/0/255   [???] -->
+		<!-- Control 0x56: +/0/255   [???] -->
+		<!-- Control 0x57: +/0/255   [???] -->
+		<!-- Control 0x58: +/0/255   [???] -->
+		<!-- Control 0x59: +/0/255   [???] -->
+		<!-- Control 0x5a: +/0/255   [???] -->
+		<!-- Control 0x5b: +/0/255   [???] -->
+		<!-- Control 0x5c: +/0/255   [???] -->
+		<!-- Control 0x5d: +/0/255   [???] -->
+		<!-- Control 0x5e: +/0/255   [???] -->
+		<!-- Control 0x5f: +/0/255   [???] -->
+		<!-- Control 0x60: +/0/255   [???] -->
+		<!-- Control 0x61: +/0/255   [???] -->
+		<!-- Control 0x62: +/0/255   [???] -->
+		<!-- Control 0x63: +/0/255   [???] -->
+		<!-- Control 0x64: +/0/255   [???] -->
+		<!-- Control 0x65: +/0/255   [???] -->
+		<!-- Control 0x66: +/0/255   [???] -->
+		<!-- Control 0x67: +/0/255   [???] -->
+		<!-- Control 0x68: +/0/255   [???] -->
+		<!-- Control 0x69: +/0/255   [???] -->
+		<!-- Control 0x6a: +/0/255   [???] -->
+		<!-- Control 0x6b: +/0/255   [???] -->
+		<!-- Control 0x6d: +/0/255   [???] -->
+		<!-- Control 0x6f: +/0/255   [???] -->
+		<!-- Control 0x71: +/0/255   [???] -->
+		<!-- Control 0x72: +/0/255   [???] -->
+		<!-- Control 0x73: +/0/255   [???] -->
+		<!-- Control 0x74: +/0/255   [???] -->
+		<!-- Control 0x75: +/0/255   [???] -->
+		<!-- Control 0x76: +/0/255   [???] -->
+		<!-- Control 0x77: +/0/255   [???] -->
+		<!-- Control 0x78: +/0/255   [???] -->
+		<!-- Control 0x79: +/0/255   [???] -->
+		<!-- Control 0x7a: +/0/255   [???] -->
+		<!-- Control 0x7b: +/0/255   [???] -->
+		<!-- Control 0x7c: +/0/255   [???] -->
+		<!-- Control 0x7d: +/0/255   [???] -->
+		<!-- Control 0x7e: +/0/255   [???] -->
+		<!-- Control 0x7f: +/0/255   [???] -->
+		<!-- Control 0x80: +/0/255   [???] -->
+		<!-- Control 0x81: +/0/255   [???] -->
+		<!-- Control 0x82: +/0/255   [???] -->
+		<!-- Control 0x83: +/0/255   [???] -->
+		<!-- Control 0x84: +/0/255   [???] -->
+		<!-- Control 0x85: +/0/255   [???] -->
+		<!-- Control 0x86: +/0/255   [???] -->
+		<!-- Control 0x87: +/0/255   [???] -->
+		<!-- Control 0x88: +/0/255   [???] -->
+		<!-- Control 0x89: +/0/255   [???] -->
+		<!-- Control 0x8a: +/0/255   [???] -->
+		<!-- Control 0x8b: +/0/255   [???] -->
+		<!-- Control 0x8c: +/0/255   [???] -->
+		<!-- Control 0x8d: +/0/255   [???] -->
+		<!-- Control 0x8e: +/0/255   [???] -->
+		<!-- Control 0x8f: +/0/255   [???] -->
+		<!-- Control 0x90: +/0/255   [???] -->
+		<!-- Control 0x91: +/0/255   [???] -->
+		<!-- Control 0x92: +/0/255   [???] -->
+		<!-- Control 0x93: +/0/255   [???] -->
+		<!-- Control 0x94: +/0/255   [???] -->
+		<!-- Control 0x95: +/0/255   [???] -->
+		<!-- Control 0x96: +/0/255   [???] -->
+		<!-- Control 0x97: +/0/255   [???] -->
+		<!-- Control 0x98: +/0/255   [???] -->
+		<!-- Control 0x99: +/0/255   [???] -->
+		<!-- Control 0x9a: +/0/255   [???] -->
+		<!-- Control 0x9b: +/0/10   [???] -->
+		<!-- Control 0x9c: +/0/10   [???] -->
+		<!-- Control 0x9d: +/0/10   [???] -->
+		<!-- Control 0x9e: +/0/10   [???] -->
+		<!-- Control 0x9f: +/0/10   [???] -->
+		<!-- Control 0xa0: +/0/10   [???] -->
+		<!-- Control 0xa1: +/0/255   [???] -->
+		<!-- Control 0xa2: +/0/255   [???] -->
+		<!-- Control 0xa3: +/0/255   [???] -->
+		<!-- Control 0xa4: +/0/255   [???] -->
+		<!-- Control 0xa5: +/0/255   [???] -->
+		<!-- Control 0xa6: +/0/255   [???] -->
+		<!-- Control 0xa7: +/0/255   [???] -->
+		<!-- Control 0xa8: +/0/255   [???] -->
+		<!-- Control 0xa9: +/0/255   [???] -->
+		<!-- Control 0xaa: +/0/255   [???] -->
+		<!-- Control 0xab: +/0/255   [???] -->
+		<!-- Control 0xac: +/0/255   [???] -->
+		<!-- Control 0xad: +/0/255   [???] -->
+		<!-- Control 0xae: +/0/255   [???] -->
+		<!-- Control 0xaf: +/0/255   [???] -->
+		<!-- Control 0xb0: +/0/255   [???] -->
+		<!-- Control 0xb1: +/0/255   [???] -->
+		<!-- Control 0xb2: +/0/255   [???] -->
+		<!-- Control 0xb3: +/0/255   [???] -->
+		<!-- Control 0xb4: +/0/255   [???] -->
+		<!-- Control 0xb5: +/0/255   [???] -->
+		<!-- Control 0xb6: +/3/8 C [???] -->
+		<!-- Control 0xb7: +/0/255   [???] -->
+		<!-- Control 0xb8: +/0/255   [???] -->
+		<!-- Control 0xb9: +/0/255   [???] -->
+		<!-- Control 0xba: +/0/255   [???] -->
+		<!-- Control 0xbb: +/0/255   [???] -->
+		<!-- Control 0xbc: +/0/255   [???] -->
+		<!-- Control 0xbd: +/0/255   [???] -->
+		<!-- Control 0xbe: +/0/255   [???] -->
+		<!-- Control 0xbf: +/0/255   [???] -->
+		<!-- Control 0xc0: +/0/255   [???] -->
+		<!-- Control 0xc1: +/0/255   [???] -->
+		<!-- Control 0xc2: +/0/255   [???] -->
+		<!-- Control 0xc3: +/0/255   [???] -->
+		<!-- Control 0xc4: +/0/255   [???] -->
+		<!-- Control 0xc5: +/0/255   [???] -->
+		<!-- Control 0xc6: +/0/255   [???] -->
+		<!-- Control 0xc7: +/0/255   [???] -->
+		<!-- Control 0xc8: +/0/255   [???] -->
+		<!-- Control 0xc9: +/0/255   [???] -->
+		<!-- Control 0xca: +/0/255   [???] -->
+		<!-- Control 0xcb: +/0/255   [???] -->
+		<!-- Control 0xcc: +/0/255   [???] -->
+		<!-- Control 0xcd: +/0/255   [???] -->
+		<!-- Control 0xce: +/0/255   [???] -->
+		<!-- Control 0xcf: +/0/255   [???] -->
+		<!-- Control 0xd0: +/0/255   [???] -->
+		<!-- Control 0xd1: +/0/255   [???] -->
+		<!-- Control 0xd2: +/0/255   [???] -->
+		<!-- Control 0xd3: +/0/255   [???] -->
+		<!-- Control 0xd4: +/0/255   [???] -->
+		<!-- Control 0xd5: +/0/255   [???] -->
+		<!-- Control 0xd6: +/0/255   [???] -->
+		<!-- Control 0xd7: +/0/255   [???] -->
+		<!-- Control 0xd8: +/0/255   [???] -->
+		<!-- Control 0xd9: +/0/255   [???] -->
+		<!-- Control 0xda: +/0/255   [???] -->
+		<!-- Control 0xdb: +/0/255   [???] -->
+		<!-- Control 0xdc: +/0/255   [???] -->
+		<!-- Control 0xdd: +/0/255   [???] -->
+		<!-- Control 0xde: +/0/255   [???] -->
+		<!-- Control 0xdf: +/513/65535 C [???] -->
+	</controls>
+	<!-- Unconfirmed and deferred VESA controls are removed above. -->
+	<include file="VESA"/>
+</monitor>
