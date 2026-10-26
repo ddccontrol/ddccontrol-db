@@ -60,11 +60,13 @@ differential tests run in the companion source checkout in CI.
 immutable commit SHA in `ddccontrol/ddccontrol`.
 [`.ci/ddccontrol-dbgen.toolchain`](../../.ci/ddccontrol-dbgen.toolchain) records
 a numeric Rust release. Neither may be a moving branch, `latest` or `stable`.
-CI validates these data files before using them, checks out the exact source,
-checks the resulting `HEAD`, then runs Cargo with `--locked`. It builds only
-the generator and relevant Rust libraries; no GUI or C application build is
-needed. Dependency and target caches accelerate the next run; Cargo still
-checks the selected source and lockfile.
+The [CI image build](../../.github/ci/README.md) validates these data files,
+checks out the exact source, checks the resulting `HEAD`, and builds the generator
+and relevant Rust tests with `--locked`. PR checks verify that the image matches
+the repository pins and run the producer/shared-format and XML/CBOR differential
+tests against the current database using the prebuilt source and offline Cargo
+cache. No package or toolchain installation is needed during PR checks.
+The release workflow still builds the pinned generator from source.
 
 To build locally from an already obtained ddccontrol checkout:
 
