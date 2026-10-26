@@ -1,0 +1,51 @@
+name: CI Image
+
+on:
+  workflow_dispatch:
+  workflow_call:
+  schedule:
+    - cron: "37 3 * * 0"
+  push:
+    branches: [master]
+    paths:
+      - ".github/ci/**"
+      - ".github/workflows/ci-image.yml"
+      - ".ci/ddccontrol-dbgen.rev"
+      - ".ci/ddccontrol-dbgen.toolchain"
+      - "scripts/dbgen-source-pin.sh"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Build CI image
+        run: |
+          image="$(bash .github/ci/image-name.sh)"
+          docker build --pull \
+            --label "org.opencontainers.image.source=https://github.com/${{ github.repository }}" \
+            --label "org.opencontainers.image.revision=${{ github.sha }}" \
+            --tag "$image" --file .github/ci/Dockerfile .
+
+      - name: Smoke-test the image without network access
+        run: |
+          image="$(bash .github/ci/image-name.sh)"
+          docker run --rm --network none \
+            -v "$GITHUB_WORKSPACE:/src:ro" \
+            "$image" \
+            bash -c 'set -euo pipefail; cp -a /src /tmp/ddccontrol-db; cd /tmp/ddccontrol-db; git config --global --add safe.directory "$PWD"; make check-db; ./autogen.sh; ./configure --prefix=/usr; make -j$(nproc); make check; make check-controls; make check-cbor'
+
+      - name: Publish CI image
+        if: github.repository == 'ddccontrol/ddccontrol-db'
+        env:
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "$GHCR_TOKEN" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
+          docker push "$(bash .github/ci/image-name.sh)"

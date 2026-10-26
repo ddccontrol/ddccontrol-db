@@ -7,58 +7,60 @@ on:
 
 permissions:
   contents: read
+  packages: read
 
 jobs:
-  check-db:
+  image:
     runs-on: ubuntu-24.04
+    outputs:
+      name: ${{ steps.image.outputs.name }}
     steps:
       - uses: actions/checkout@v6
+      - name: Select the prebuilt CI image
+        id: image
+        run: echo "name=$(bash .github/ci/image-name.sh)" >> "$GITHUB_OUTPUT"
 
-      # Older ddccontrol versions can accept unresolved value IDs (issue #427).
-      - name: Check out ddccontrol 3.3.0
-        uses: actions/checkout@v6
-        with:
-          repository: ddccontrol/ddccontrol
-          ref: 2b6c3d64388e05aced148d60d493b1e29563b756 # 3.3.0
-          path: .ci/ddccontrol
-          persist-credentials: false
-
-      - name: Install validator build dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends \
-            autoconf automake autopoint build-essential cargo gettext intltool \
-            libglib2.0-dev libtool libxml2-dev pkg-config rustc
-
-      - name: Build validator
-        working-directory: .ci/ddccontrol
-        run: |
-          set -euo pipefail
-          ./autogen.sh
-          ./configure --disable-gnome --disable-nls
-          make -j"$(nproc)"
-
+  check-db:
+    needs: image
+    runs-on: ubuntu-24.04
+    container:
+      image: ${{ needs.image.outputs.name }}
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v6
       - name: Validate all monitor profiles
-        run: |
-          set -euo pipefail
-          make check-db DDCCONTROL="$GITHUB_WORKSPACE/.ci/ddccontrol/src/ddccontrol/ddccontrol"
+        run: make check-db
 
   build-and-install:
+    needs: image
     runs-on: ubuntu-24.04
+    container:
+      image: ${{ needs.image.outputs.name }}
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    defaults:
+      run:
+        shell: bash
     steps:
       - uses: actions/checkout@v6
 
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends \
-            gettext \
-            libxml-parser-perl \
-            make
-
-      - name: Build the pinned CBOR generator
+      - name: Verify the prebuilt generator source and toolchain
         id: generator
-        uses: ./.github/actions/build-dbgen
+        run: |
+          set -euo pipefail
+          # Checkout's temporary Git config does not persist across container steps.
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          ./scripts/dbgen-source-pin.sh >> "$GITHUB_OUTPUT"
+          cmp .ci/ddccontrol-dbgen.rev /opt/ci/ddccontrol-dbgen.rev
+          cmp .ci/ddccontrol-dbgen.toolchain /opt/ci/ddccontrol-dbgen.toolchain
+          test "$(git -C /opt/ddccontrol-dbgen rev-parse HEAD)" = "$(cat .ci/ddccontrol-dbgen.rev)"
+          ddccontrol-dbgen --version
 
       - name: Build and validate
         run: |
@@ -196,13 +198,11 @@ jobs:
       - name: Test temporary autoreconf compatibility
         run: |
           set -euo pipefail
-          sudo apt-get install -y --no-install-recommends \
-            autoconf \
-            automake
           source_dir="$(mktemp -d)"
           cp -a . "$source_dir/source"
           (
             cd "$source_dir/source"
+            git config --global --add safe.directory "$PWD"
             make distclean
             autoreconf --force --install --verbose
             ./configure \
@@ -222,11 +222,11 @@ jobs:
       - name: Test portable make syntax with bmake
         run: |
           set -euo pipefail
-          sudo apt-get install -y --no-install-recommends bmake
           source_dir="$(mktemp -d)"
           cp -a . "$source_dir/source"
           (
             cd "$source_dir/source"
+            git config --global --add safe.directory "$PWD"
             bmake distclean
             MAKE=bmake ./configure --prefix=/opt/original
             bmake
@@ -249,21 +249,21 @@ jobs:
           )
 
       - name: Test the pinned producer and shared format
-        working-directory: .ci/ddccontrol-dbgen
+        working-directory: /opt/ddccontrol-dbgen
         env:
           RUST_TOOLCHAIN: ${{ steps.generator.outputs.toolchain }}
           DDCCONTROL_DB_TEST_DATADIR: ${{ github.workspace }}/db
-          CARGO_TARGET_DIR: ${{ github.workspace }}/.ci/ddccontrol-dbgen/target
+          CARGO_TARGET_DIR: /opt/ddccontrol-dbgen/target
         run: |
           cargo +"$RUST_TOOLCHAIN" test --locked -p ddccontrol-dbgen -p ddccontrol-db-format
 
       - name: Compare XML and CBOR runtime behavior for every profile
-        working-directory: .ci/ddccontrol-dbgen
+        working-directory: /opt/ddccontrol-dbgen
         env:
           RUST_TOOLCHAIN: ${{ steps.generator.outputs.toolchain }}
           DDCCONTROL_DB_TEST_DATADIR: ${{ github.workspace }}/db
-          DDCCONTROL_DB_CONVERTER: ${{ github.workspace }}/.ci/ddccontrol-dbgen/target/release/ddccontrol-dbgen
-          CARGO_TARGET_DIR: ${{ github.workspace }}/.ci/ddccontrol-dbgen/target
+          DDCCONTROL_DB_CONVERTER: /opt/ddccontrol-dbgen/target/release/ddccontrol-dbgen
+          CARGO_TARGET_DIR: /opt/ddccontrol-dbgen/target
         run: |
           cargo +"$RUST_TOOLCHAIN" test --locked -p ddccontrol-db --features gettext \
             whole_database_xml_cbor_semantics_match_when_configured -- --nocapture
