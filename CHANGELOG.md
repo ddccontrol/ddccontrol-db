@@ -1,5 +1,18 @@
 # Changelog
 
+## 20261026
+
+## What's Changed
+* feat: add conservative LG 27GN800 GSM5BB3 support by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/469
+* feat: add conservative MSI PRO MP2412 support by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/468
+* feat: add conservative ASUS PG32UCDP support by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/467
+* chore(ci): update cache action to Node.js 24 by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/470
+* feat: add conservative HCL HCMELWBT11 support by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/466
+* ci: prebuild dependencies for pull request checks by @larstobi in https://github.com/ddccontrol/ddccontrol-db/pull/471
+
+
+**Full Changelog**: https://github.com/ddccontrol/ddccontrol-db/compare/20261015...20261026
+
 ## 20261015
 
 ## What's Changed
