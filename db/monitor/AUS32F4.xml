@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/462 -->
+<monitor name="ASUS ROG Swift PG32UCDP" init="standard">
+	<!--
+		Conservative profile based on issue-provided scan output.
+		Only explicitly named, non-destructive controls are exposed.
+	-->
+	<caps add="(type(lcd)vcp(10 12 16 18 1A))" remove="(vcp(00 02 04 05 06 08 0E 1C 1E 20 22 24 26 28 30 32 38 3A 3C 3E 40 42 44 46 48 4A 4C 54 56 58 60 62 6C 6E 70 AA B0 CC D6 E1))"/>
+	<controls>
+		<!-- Known controls enabled through the VESA include: -->
+		<!-- Control 0x10: +/50/100 C [Brightness] -->
+		<!-- Control 0x12: +/80/100 C [Contrast] -->
+		<!-- Control 0x16: +/100/100 C [Red maximum level] -->
+		<!-- Control 0x18: +/100/100 C [Green maximum level] -->
+		<!-- Control 0x1a: +/100/100 C [Blue maximum level] -->
+
+		<!--
+			Named controls kept disabled until their write behavior and values
+			are verified on hardware; this includes reset, input, and power controls.
+		-->
+		<!-- Control 0x04: +/0/1 C [Restore Factory Defaults] -->
+		<!-- Control 0x08: +/0/1 C [Restore Factory Default Color] -->
+		<!-- Control 0x60: +/15/5 C [Input Source Select (Main) - DP-1] -->
+		<!-- Control 0xcc: +/2/255 C [Language - English] -->
+		<!-- Control 0xd6: +/1/6 C [DPMS Control - On] -->
+
+		<!-- Candidate input mapping: the scan names only the current DP-1 value.
+		     Keep commented until switching has been verified on hardware.
+		<control id="inputsource" type="list" address="0x60">
+			<value id="dp1" value="0x0f"/>
+		</control>
+		-->
+		<!-- Language 0xCC names only the current English value. Other language
+		     mappings and write behavior still require hardware verification. -->
+
+		<!-- Unknown controls from the issue output (left commented for future investigation): -->
+		<!-- Control 0x02: +/2/255   [???] -->
+		<!-- Control 0x03: +/0/255   [???] -->
+		<!-- Control 0x05: +/0/1   [???] -->
+		<!-- Control 0x0b: +/50/65535 C [???] -->
+		<!-- Control 0x0c: +/75/170 C [???] -->
+		<!-- Control 0x14: +/6/11 C [???] -->
+		<!-- Control 0x51: +/1/1   [???] -->
+		<!-- Control 0x52: +/0/255   [???] -->
+		<!-- Control 0x53: +/0/1   [???] -->
+		<!-- Control 0x62: +/50/100   [???] -->
+		<!-- Control 0x6c: +/50/100   [???] -->
+		<!-- Control 0x6e: +/50/100   [???] -->
+		<!-- Control 0x70: +/50/100   [???] -->
+		<!-- Control 0x72: +/120/150 C [???] -->
+		<!-- Control 0x86: +/2/15   [???] -->
+		<!-- Control 0x87: +/50/100 C [???] -->
+		<!-- Control 0x8a: +/50/100 C [???] -->
+		<!-- Control 0x8d: +/2/2   [???] -->
+		<!-- Control 0x95: +/0/255   [???] -->
+		<!-- Control 0x96: +/0/255   [???] -->
+		<!-- Control 0x97: +/0/100   [???] -->
+		<!-- Control 0x98: +/0/100   [???] -->
+		<!-- Control 0xac: +/58812/65288   [???] -->
+		<!-- Control 0xae: +/24010/65535   [???] -->
+		<!-- Control 0xb2: +/1/8   [???] -->
+		<!-- Control 0xb6: +/3/4   [???] -->
+		<!-- Control 0xc0: +/453/65535   [???] -->
+		<!-- Control 0xc6: +/132/65535   [???] -->
+		<!-- Control 0xc8: +/18/65535   [???] -->
+		<!-- Control 0xc9: +/0/65535   [???] -->
+		<!-- Control 0xca: +/2/2   [???] -->
+		<!-- Control 0xdc: +/4/9 C [???] -->
+		<!-- Control 0xdf: +/514/65535   [???] -->
+	</controls>
+	<!-- VESA controls not explicitly confirmed by the scan are removed above. -->
+	<include file="VESA"/>
+</monitor>
