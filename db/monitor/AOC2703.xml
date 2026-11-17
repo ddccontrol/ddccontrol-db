@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!-- https://github.com/ddccontrol/ddccontrol-db/issues/474 -->
+<monitor name="AOC 27B3HA2" init="standard">
+	<!-- Only successfully read, named continuous controls are enabled. -->
+	<caps add="(type(lcd)vcp(10 12 16 18 1A 62))" remove="(vcp(00 02 04 05 06 08 0E 1C 1E 20 22 24 26 28 30 32 38 3A 3C 3E 40 42 44 46 48 4A 4C 54 56 58 60 6C 6E 70 AA B0 CC D6 E1))"/>
+	<controls>
+		<!-- Named controls enabled through VESA: -->
+		<!-- Control 0x10: +/50/100 C [Brightness] -->
+		<!-- Control 0x12: +/49/100 C [Contrast] -->
+		<!-- Control 0x16: +/50/100 C [Red maximum level] -->
+		<!-- Control 0x18: +/50/100 C [Green maximum level] -->
+		<!-- Control 0x1a: +/50/100 C [Blue maximum level] -->
+		<!-- Control 0x62: +/50/100 C [Audio Speaker Volume Adjust] -->
+
+		<!-- Other named controls and their reported values are unverified candidates;
+		     resets, input, power and enum mappings remain disabled pending hardware tests. -->
+		<!-- Control 0x02: +/1/2 C [New Control Value - No changes] -->
+		<!-- Control 0x04: +/0/1 C [Restore Factory Defaults] -->
+		<!-- Control 0x05: +/0/1 C [Restore Brightness and Contrast] -->
+		<!-- Control 0x08: +/0/1 C [Restore Factory Default Color] -->
+		<!-- Control 0x14: +/5/13 C [Color Preset - Warm] -->
+		<!-- Control 0x60: +/17/4 C [Input Source Select (Main) - HDMI-1] -->
+		<!-- Control 0xcc: +/30/18 C [Language - Polski (Polish)] -->
+
+		<!-- Unknown controls that responded or appeared in capabilities:
+		Control 0x6c: +/50/100   [???]
+		Control 0x6e: +/50/100   [???]
+		Control 0x70: +/50/100   [???]
+		Control 0x86: +/2/5 C [???]
+		Control 0x8d: +/2/2 C [???]
+		Control 0xac: +/44564/65281   [???]
+		Control 0xae: +/10009/65535   [???]
+		Control 0xb2: +/1/8   [???]
+		Control 0xb6: +/3/8 C [???]
+		Control 0xc6: +/64/65535 C [???]
+		Control 0xc8: +/5/65302 C [???]
+		Control 0xc9: +/1/65535 C [???]
+		Control 0xdc: +/0/1536 C [???]
+		Control 0xdf: +/513/65535 C [???]
+		-->
+	</controls>
+	<include file="VESA"/>
+</monitor>
