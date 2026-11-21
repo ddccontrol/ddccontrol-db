@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monitor name="S24E390" init="standard">
+	<caps add="(vcp(02 04 05 06 08 0E 10 12 14 16 18 1A 1E 20 30 3E 54 60 62 6C 6E 70 AA D6 DB DC))"/>
+	<controls>
+		<control id="defaults" address="0x04"/>
+		<control id="defaultluma" address="0x05"/>
+		<control id="defaultsharpness" address="0x06"/>
+		<control id="defaultcolor" address="0x08"/>
+		<control id="coarse" address="0x0E"/>
+		<control id="brightness" address="0x10"/>
+		<control id="contrast" address="0x12"/>
+		<control id="colorpreset" address="0x14">
+			<value id="normal" value="2"/>
+			<value id="warm2" value="3"/>
+			<value id="warm1" value="4"/>
+			<value id="cool1" value="7"/>
+			<value id="cool2" value="8"/>
+			<value id="custom" value="11"/>
+		</control>
+		<control id="red" address="0x16"/>
+		<control id="green" address="0x18"/>
+		<control id="blue" address="0x1A"/>
+		<control id="hpos" address="0x20"/>
+		<control id="vpos" address="0x30"/>
+		<control id="fine" address="0x3E"/>
+		<control id="inputsource" address="0x60">
+			<value id="analog" value="1"/>
+			<value id="hdmi" value="5"/>
+		</control>
+		<control id="audiospeakervolume" address="0x62"/>
+		<control id="language" address="0xCC">
+			<value id="chinese" value="1"/>
+			<value id="english" value="2"/>
+			<value id="french" value="3"/>
+			<value id="german" value="4"/>
+			<value id="italian" value="5"/>
+			<value id="japanese" value="6"/>
+			<value id="korean" value="7"/>
+			<value id="portuguese" value="8"/>
+			<value id="russian" value="9"/>
+			<value id="spanish" value="10"/>
+			<value id="swedish" value="11"/>
+			<value id="turkish" value="12"/>
+			<value id="hungarian" value="26"/>
+			<value id="polish" value="30"/>
+		</control>
+		<control id="magicbright" address="0xDC">
+			<value id="standard" value="1"/>
+			<value id="cinema" value="2"/>
+			<value id="custom" value="6"/>
+			<value id="dynamic" value="240"/>
+		</control>
+		<control id="screensize" address="0xDB">
+			<value id="auto" value="0"/>
+			<value id="wide" value="4"/>
+		</control>
+		<control id="gamma" address="0xF2">
+			<value id="mode1" value="0"/>
+			<value id="mode2" value="1"/>
+			<value id="mode3" value="2"/>
+		</control>
+		<control id="responsetime" address="0xF3">
+			<value id="standard" value="0"/>
+			<value id="faster" value="1"/>
+			<value id="fastest" value="2"/>
+		</control>
+		<control id="ecomode" address="0xF7">
+			<value id="off" value="0"/>
+			<value id="low" value="2"/>
+			<value id="high" value="3"/>
+			<value id="auto" value="4"/>
+		</control>
+	</controls>
+</monitor>
