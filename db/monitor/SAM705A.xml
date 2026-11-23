@@ -1,0 +1,54 @@
+<monitor name="Samsung Odyssey G7 (LC32G7xT)" init="standard">
+	<caps add="(vcp(10 12 16 18 1A 87 E0(00 01 02 03 04 05)))"/>
+
+	<controls>
+		<!-- Color Settings -->
+		<control id="brightness" address="0x10"/>
+		<control id="contrast" address="0x12"/>
+		<control id="red" address="0x16"/>
+		<control id="green" address="0x18"/>
+		<control id="blue" address="0x1a"/>
+
+		<!-- Sharpness -->
+		<control id="sam705a_sharpness" address="0x87">
+			<value id="0" value="0x00"/>
+			<value id="4" value="0x01"/>
+			<value id="8" value="0x02"/>
+			<value id="12" value="0x03"/>
+			<value id="16" value="0x04"/>
+			<value id="20" value="0x05"/>
+			<value id="24" value="0x06"/>
+			<value id="28" value="0x07"/>
+			<value id="32" value="0x08"/>
+			<value id="36" value="0x09"/>
+			<value id="40" value="0x0A"/>
+			<value id="44" value="0x0B"/>
+			<value id="48" value="0x0C"/>
+			<value id="52" value="0x0D"/>
+			<value id="56" value="0x0E"/>
+			<value id="60" value="0x0F"/>
+			<value id="64" value="0x10"/>
+			<value id="68" value="0x11"/>
+			<value id="72" value="0x12"/>
+			<value id="76" value="0x13"/>
+			<value id="80" value="0x14"/>
+			<value id="84" value="0x15"/>
+			<value id="88" value="0x16"/>
+			<value id="92" value="0x17"/>
+			<value id="96" value="0x18"/>
+			<value id="100" value="0x19"/>
+		</control>
+
+		<!-- Input source -->
+		<control id="inputsource" type="list" address="0x60">
+			<value id="hdmi" value="6"/>
+			<value id="dp1"  value="9"/>
+		</control>
+
+		<!-- Power Control -->
+		<control id="dpms" address="0xd6">
+			<value id="on" value="1"/>
+			<value id="standby" value="4"/>
+		</control>
+	</controls>
+</monitor>
