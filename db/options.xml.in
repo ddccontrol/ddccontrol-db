@@ -64,6 +64,34 @@
 				<value id="90" name="90"/>
 				<value id="100" name="100"/>
 			</control>
+			<control id="sam705a_sharpness" type="list" name="Sharpness">
+				<value id="0" name="0"/>
+				<value id="4" name="4"/>
+				<value id="8" name="8"/>
+				<value id="12" name="12"/>
+				<value id="16" name="16"/>
+				<value id="20" name="20"/>
+				<value id="24" name="24"/>
+				<value id="28" name="28"/>
+				<value id="32" name="32"/>
+				<value id="36" name="36"/>
+				<value id="40" name="40"/>
+				<value id="44" name="44"/>
+				<value id="48" name="48"/>
+				<value id="52" name="52"/>
+				<value id="56" name="56"/>
+				<value id="60" name="60"/>
+				<value id="64" name="64"/>
+				<value id="68" name="68"/>
+				<value id="72" name="72"/>
+				<value id="76" name="76"/>
+				<value id="80" name="80"/>
+				<value id="84" name="84"/>
+				<value id="88" name="88"/>
+				<value id="92" name="92"/>
+				<value id="96" name="96"/>
+				<value id="100" name="100"/>
+			</control>
 			<control id="dynamiccontrast" type="list" name="Dynamic Contrast">
 				<value id="off" name="Off"/>
 				<value id="on" name="On"/>
